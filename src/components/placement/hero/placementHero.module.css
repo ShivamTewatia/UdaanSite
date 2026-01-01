@@ -1,0 +1,282 @@
+.heroSection {
+  position: relative;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+  background: #ffffff;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+  animation: patternMove 30s linear infinite;
+}
+
+@keyframes patternMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+}
+
+.floatingShapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shape1, .shape2, .shape3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: float 20s ease-in-out infinite;
+}
+
+.shape1 {
+  width: 400px;
+  height: 400px;
+  background: #fc84ee;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape2 {
+  width: 300px;
+  height: 300px;
+  background: #ec4899;
+  top: 40%;
+  right: 20%;
+  animation-delay: 5s;
+}
+
+.shape3 {
+  width: 350px;
+  height: 350px;
+  background: #60a5fa;
+  bottom: 20%;
+  left: 30%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -30px) rotate(5deg); }
+  50% { transform: translate(-20px, 20px) rotate(-5deg); }
+  75% { transform: translate(20px, 30px) rotate(3deg); }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.heroText {
+  text-align: center;
+  margin-bottom: 0rem;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: #ffffff;
+  border: 2px solid rgba(139, 92, 246, 0.2);
+  border-radius: 3rem;
+  color: #8b5cf6;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: fadeInDown 0.8s ease;
+  backdrop-filter: blur(10px);
+}
+
+.badgeIcon {
+  font-size: 1.5rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #1f2937;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #8b5cf6;
+  margin: 0 0 1rem 0;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.heroDescription {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: #6b7280;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.8s both;
+  margin-bottom: 4rem;
+}
+
+.primaryButton, .secondaryButton {
+  padding: 1rem 2.5rem;
+  border-radius: 3rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.4);
+}
+
+.secondaryButton {
+  background: #ffffff;
+  color: #1f2937;
+  border: 2px solid #e5e7eb;
+  backdrop-filter: blur(10px);
+}
+
+.secondaryButton:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-3px);
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+}
+
+
+.waveBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  
+}
+
+.waveBottom svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .primaryButton, .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .heroStats {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .statCard {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .statIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .statNumber {
+    font-size: 1.75rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+}

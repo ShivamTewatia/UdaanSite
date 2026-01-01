@@ -1,0 +1,433 @@
+/* Main Card */
+.card {
+  position: relative;
+  background: white;
+  border: 1px solid hsla(256, 88%, 60%, 0.278);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 6px -1px hsl(258 60% 50% / 0.05),
+    0 10px 40px -10px hsl(258 60% 50% / 0.12);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, hsl(258 90% 70% / 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Header */
+.header {
+  padding: 1.5rem 1.5rem 0.7rem;
+  border-bottom: 1px solid hsla(256, 88%, 60%, 0.278);
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 0rem;
+}
+
+.iconBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+  color:hsl(258 90% 66%);
+  background-color:hsla(258, 90%, 66%, 0.08) ;
+  border-radius: 10px;
+  padding: 0.5rem 0.5rem 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.titleSection:hover .iconBadge{
+  transform: rotate(-8deg) scale(1.1);
+  color:white;
+  background-color:hsla(258, 90%, 66%, 0.9) ;
+}
+
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    hsl(258 90% 66%),
+    hsl(256 88% 60%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* margin-bottom: 0.1rem; */
+  transition: all 0.3s ease;
+  white-space: nowrap;      /* ❗ line break disable */
+  overflow: hidden;         /* extra text hide */
+  text-overflow: ellipsis;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: hsla(259, 44%, 17%, 0.501);
+  transition: all 0.3s ease;
+}
+
+.titleSection:hover .title{
+  transform: translateX(3px) scale(1.02);
+  color:white;
+}
+
+.titleSection:hover .subtitle{
+  transform: translateX(3px) scale(1.02);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  background: white;
+  color: hsl(258 25% 50%);
+  border: 1.5px solid hsl(258 30% 90%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background: hsl(258 40% 97%);
+  border-color: hsl(258 50% 80%);
+  color: hsl(258 70% 50%);
+  transform: translateY(-1px);
+}
+
+.tabActive {
+  background: linear-gradient(135deg, hsl(258 85% 60%) 0%, hsl(280 80% 55%) 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px hsl(258 80% 50% / 0.35);
+}
+
+.tabActive:hover {
+  background: linear-gradient(135deg, hsl(258 85% 55%) 0%, hsl(280 80% 50%) 100%);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.tabLabel {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .tabLabel {
+    display: inline;
+  }
+}
+
+/* List */
+.list {
+  padding: 1rem 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+/* Items */
+.item {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.itemInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item:hover .itemInner {
+  transform: translateX(4px);
+}
+
+.itemHoverBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, hsl(258 80% 65% / 0.08) 0%, hsl(280 70% 60% / 0.04) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.item:hover .itemHoverBg {
+  opacity: 1;
+}
+
+/* Rank-specific backgrounds */
+.item[data-rank="0"] {
+  background: linear-gradient(135deg, hsl(45 100% 97%) 0%, hsl(38 100% 95%) 100%);
+  border: 1.5px solid hsl(45 90% 80%);
+}
+
+.item[data-rank="0"]:hover {
+  border-color: hsl(45 90% 65%);
+  box-shadow: 0 8px 24px hsl(45 90% 50% / 0.2);
+}
+
+.item[data-rank="1"] {
+  background: linear-gradient(135deg, hsl(220 20% 97%) 0%, hsl(220 15% 95%) 100%);
+  border: 1.5px solid hsl(220 20% 88%);
+}
+
+.item[data-rank="1"]:hover {
+  border-color: hsl(220 25% 75%);
+  box-shadow: 0 8px 24px hsl(220 30% 50% / 0.12);
+}
+
+.item[data-rank="2"] {
+  background: linear-gradient(135deg, hsl(25 80% 97%) 0%, hsl(28 70% 94%) 100%);
+  border: 1.5px solid hsl(25 60% 85%);
+}
+
+.item[data-rank="2"]:hover {
+  border-color: hsl(25 60% 70%);
+  box-shadow: 0 8px 24px hsl(25 60% 45% / 0.15);
+}
+
+.item[data-rank="3"],
+.item[data-rank="4"] {
+  background: hsl(258 30% 98%);
+  border: 1.5px solid hsl(258 25% 92%);
+}
+
+.item[data-rank="3"]:hover,
+.item[data-rank="4"]:hover {
+  border-color: hsl(258 40% 85%);
+  box-shadow: 0 8px 24px hsl(258 40% 50% / 0.08);
+}
+
+/* Medal */
+.medal {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  flex-shrink: 0;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item:hover .medal {
+  transform: scale(1.12) rotate(-8deg);
+}
+
+.medal0 {
+  background: linear-gradient(145deg, hsl(45 100% 55%) 0%, hsl(35 100% 45%) 100%);
+  box-shadow: 
+    0 4px 12px hsl(45 100% 45% / 0.4),
+    inset 0 2px 4px hsl(0 0% 100% / 0.3);
+}
+
+.medal1 {
+  background: linear-gradient(145deg, hsl(220 15% 70%) 0%, hsl(220 12% 55%) 100%);
+  box-shadow: 
+    0 4px 12px hsl(220 20% 50% / 0.3),
+    inset 0 2px 4px hsl(0 0% 100% / 0.2);
+}
+
+.medal2 {
+  background: linear-gradient(145deg, hsl(25 80% 55%) 0%, hsl(20 75% 42%) 100%);
+  box-shadow: 
+    0 4px 12px hsl(25 70% 40% / 0.35),
+    inset 0 2px 4px hsl(0 0% 100% / 0.2);
+}
+
+.medal3,
+.medal4 {
+  background: hsl(258 25% 92%);
+  color: hsl(258 30% 50%);
+  box-shadow: none;
+}
+
+.rankNum {
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+/* Info */
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.courseName {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: hsl(258 40% 20%);
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.item:hover .courseName {
+  color: hsl(258 70% 45%);
+}
+
+.year {
+  font-size: 0.75rem;
+  color: hsl(258 15% 55%);
+  font-weight: 500;
+  margin-top: 0.125rem;
+}
+
+/* Value Badge */
+.valueBadge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 2rem;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item:hover .valueBadge {
+  transform: scale(1.08);
+}
+
+.value0 {
+  background: linear-gradient(135deg, hsl(20 95% 50%) 0%, hsl(35 95% 55%) 100%);
+  box-shadow: 0 2px 8px hsl(25 90% 45% / 0.3);
+}
+
+.value0 .valueText {
+  color: white;
+  font-weight: 800;
+}
+
+.value1,
+.value2,
+.value3,
+.value4 {
+  background: hsl(258 50% 96%);
+}
+
+.valueText {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: hsl(258 70% 50%);
+  white-space: nowrap;
+}
+
+.item:hover .value1,
+.item:hover .value2,
+.item:hover .value3,
+.item:hover .value4 {
+  background: linear-gradient(135deg, hsl(258 85% 60%) 0%, hsl(280 80% 55%) 100%);
+  box-shadow: 0 4px 12px hsl(258 70% 50% / 0.3);
+}
+
+.item:hover .value1 .valueText,
+.item:hover .value2 .valueText,
+.item:hover .value3 .valueText,
+.item:hover .value4 .valueText {
+  color: white;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .header {
+    padding: 1.25rem 1rem 1rem;
+  }
+
+  .titleSection {
+    gap: 0.75rem;
+  }
+
+  .iconBadge {
+    width: 38px;
+    height: 38px;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .tabs {
+    gap: 0.375rem;
+  }
+
+  .tab {
+    padding: 0.4375rem 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .list {
+    padding: 0.75rem;
+  }
+
+  .itemInner {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .medal {
+    width: 36px;
+    height: 36px;
+  }
+
+  .courseName {
+    font-size: 0.875rem;
+  }
+
+  .valueBadge {
+    padding: 0.3125rem 0.625rem;
+  }
+
+  .valueText {
+    font-size: 0.8125rem;
+  }
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.tabs{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -0.5rem;
+}
+
+/* .tabs > :nth-child(1){
+  margin-left: 135px;
+} */

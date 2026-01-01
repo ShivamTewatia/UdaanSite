@@ -1,0 +1,78 @@
+.digitContainer {
+  display: inline-flex;
+  overflow: hidden;
+  height: 1em;
+  vertical-align: bottom;
+}
+
+.digit {
+  display: inline-block;
+  position: relative;
+  height: 1.2em;
+  overflow: hidden;
+}
+
+.digitInner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.digitValue {
+  height: 1.2em;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Static character (non-numeric) */
+.staticChar {
+  display: inline-block;
+}
+
+/* Wrapper for the entire animated value */
+.animatedValue {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+/* Rolling animation on change */
+@keyframes rollIn {
+  0% {
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.rolling .digitInner {
+  animation: rollIn 0.4s ease-out;
+}
+
+/* Stagger effect for each digit */
+.digit:nth-child(1) { animation-delay: 0ms; }
+.digit:nth-child(2) { animation-delay: 30ms; }
+.digit:nth-child(3) { animation-delay: 60ms; }
+.digit:nth-child(4) { animation-delay: 90ms; }
+.digit:nth-child(5) { animation-delay: 120ms; }
+.digit:nth-child(6) { animation-delay: 150ms; }
+.digit:nth-child(7) { animation-delay: 180ms; }
+.digit:nth-child(8) { animation-delay: 210ms; }
+
+/* Highlight flash on change */
+.flash {
+  animation: flashHighlight 0.6s ease-out;
+}
+
+@keyframes flashHighlight {
+  0% {
+    filter: brightness(1.3);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}

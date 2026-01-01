@@ -1,0 +1,338 @@
+
+.placementContainer {
+  position: relative;
+  width: 100%;
+  padding: 0 0 6rem 0;
+  background: linear-gradient(135deg, #581c87 0%, #7c3aed 50%, #ec4899 100%);
+  overflow: hidden;
+}
+
+.placementOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.orb1 {
+  top: 5rem;
+  left: 5rem;
+  width: 18rem;
+  height: 18rem;
+  background: rgba(251, 191, 36, 0.3);
+}
+
+.orb2 {
+  bottom: 5rem;
+  right: 5rem;
+  width: 24rem;
+  height: 24rem;
+  background: rgba(236, 72, 153, 0.3);
+  animation-delay: 700ms;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.placementContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.placementHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.placementHeading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.placementSubheading {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 56rem;
+  margin: 0 auto;
+  font-weight: 500;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  letter-spacing: 0.05em;
+  line-height: 1.625;
+}
+
+.mainStatsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statCardMain {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+}
+
+.statCardMain:hover {
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
+  transform: translateY(-12px) scale(1.05);
+}
+
+.statOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  border-radius: 1.5rem;
+  transition: opacity 0.5s ease;
+}
+
+.statOrange .statOverlay { background: linear-gradient(135deg, #f97316, #ef4444); }
+.statPurple .statOverlay { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+.statCyan .statOverlay { background: linear-gradient(135deg, #06b6d4, #10b981); }
+.statPink .statOverlay { background: linear-gradient(135deg, #ec4899, #ef4444); }
+
+.statCardMain:hover .statOverlay {
+  opacity: 0.2;
+}
+
+.statContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.statIconWrapper {
+  display: inline-flex;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  width: fit-content;
+}
+
+.iconOrange { background: linear-gradient(135deg, #f97316, #ef4444); }
+.iconPurple { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+.iconCyan { background: linear-gradient(135deg, #06b6d4, #10b981); }
+.iconPink { background: linear-gradient(135deg, #ec4899, #ef4444); }
+.iconEmerald { background: linear-gradient(135deg, #10b981, #059669); }
+.iconViolet { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.iconAmber { background: linear-gradient(135deg, #f59e0b, #f97316); }
+
+.statCardMain:hover .statIconWrapper {
+  transform: scale(1.1) rotate(6deg);
+}
+
+.statIcon {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.05em;
+  transition: transform 0.3s ease;
+  margin: 1rem 0;
+}
+
+.statCardMain:hover .statValue {
+  transform: scale(1.1);
+}
+
+.statTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fbbf24;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.statDescription {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.625;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.statGlow {
+  position: absolute;
+  inset: -0.25rem;
+  border-radius: 1.5rem;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.statOrange .statGlow { background: linear-gradient(135deg, #f97316, #ef4444); }
+.statPurple .statGlow { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+.statCyan .statGlow { background: linear-gradient(135deg, #06b6d4, #10b981); }
+.statPink .statGlow { background: linear-gradient(135deg, #ec4899, #ef4444); }
+
+.statCardMain:hover .statGlow {
+  opacity: 0.3;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.highlightCard {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.highlightCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.highlightCard:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(251, 191, 36, 0.4);
+  border-color: rgba(251, 191, 36, 0.6);
+}
+
+.highlightCard:hover::before {
+  left: 100%;
+}
+
+.highlightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.highlightIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #fbbf24;
+  margin: 0 auto;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 10px rgba(251, 191, 36, 0.4));
+}
+
+.highlightCard:hover .highlightIcon {
+  transform: scale(1.2) rotate(10deg);
+  color: #fde047;
+}
+
+.highlightValue {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.05em;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.highlightCard:hover .highlightValue {
+  transform: scale(1.1);
+  color: #fde047;
+}
+
+.highlightDescription {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+  line-height: 1.625;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.highlightCard:hover .highlightDescription {
+  color: white;
+}
+
+.placementWave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  transform: rotate(180deg);
+}
+
+.placementWave svg {
+  width: 100%;
+  height: 4rem;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .placementHeading {
+    font-size: 3rem;
+  }
+
+  .placementSubheading {
+    font-size: 1.125rem;
+  }
+
+  .mainStatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statValue {
+    font-size: 2.5rem;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .placementHeading {
+    font-size: 3.75rem;
+  }
+
+  .mainStatsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

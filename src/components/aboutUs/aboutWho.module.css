@@ -1,0 +1,117 @@
+.who-we-are-section {
+  padding: 40px 20px;
+  background: white;
+  width: 100%;
+}
+
+.who-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.who-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.who-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.who-underline {
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899, #F59E0B, #14B8A6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card:hover::after {
+  transform: scaleX(1);
+}
+
+.feature-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 14px;
+}
+
+.feature-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #6B7280;
+}
+
+@media (max-width: 768px) {
+  .who-we-are-section {
+    padding: 60px 20px;
+  }
+
+  .who-title {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

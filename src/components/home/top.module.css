@@ -1,0 +1,326 @@
+.recruitersContainer {
+  position: relative;
+  width: 100%;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  overflow: hidden;
+}
+
+.recruitersOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+.orbLeft {
+  top: 20%;
+  left: 10%;
+  width: 20rem;
+  height: 20rem;
+  background: linear-gradient(135deg, rgba(138, 92, 246, 0.747), rgba(236, 72, 153, 0.1));
+}
+
+.orbRight {
+  bottom: 20%;
+  right: 10%;
+  width: 24rem;
+  height: 24rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.736), rgba(59, 130, 246, 0.15));
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.recruitersContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.recruitersHeader {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.recruitersHeading {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #ec4899, #f97316);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.recruitersSubheading {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.recruitersScrollWrapper {
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.recruitersScrollContainer {
+  overflow: hidden;
+  padding: 3rem 0;
+}
+
+.recruitersScroll {
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.recruitersScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.recruitersTrack {
+  display: flex;
+  gap: 2.5rem;
+  width: fit-content;
+}
+
+.companyCard {
+  position: relative;
+  flex-shrink: 0;
+  width: 16rem;
+  height: 10rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(249, 250, 251, 0.9));
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(139, 92, 246, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.companyCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border-radius: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.companyCard:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(139, 92, 246, 0.25),
+    0 0 0 1px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.companyCard:hover::before {
+  opacity: 0;
+}
+
+.companyLogoContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 60px;
+  transition: all 0.4s ease;
+}
+
+.companyLogo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.4s ease;
+  margin: 0;
+}
+
+.companyCard:hover .companyLogo {
+  filter: grayscale(0) brightness(1.2);
+  transform: scale(1.1);
+}
+
+.companyNameFallback {
+  display: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #334155;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.companyName {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+  transition: all 0.3s ease;
+  text-align: center;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.companyCard:hover .companyName {
+  color: #1e293b;
+  transform: translateY(2px);
+}
+
+.companyHoverEffect {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.companyCard:hover .companyHoverEffect {
+  opacity: 0;
+}
+
+.scrollFade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc, transparent);
+}
+
+.recruitersNote {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 4rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.recruitersStats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 4rem 0 2rem;
+}
+
+.statItem {
+  position: relative;
+  text-align: center;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+  border-radius: 1.5rem;
+  border: 2px solid rgba(139, 92, 246, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.statItem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 1.5rem;
+}
+
+.statItem:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4);
+  border-color: #8b5cf6;
+}
+
+.statItem:hover::before {
+  opacity: 0.15;
+}
+
+.statItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.statItemTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #7c3aed, #ec4899, #f97316);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.statItem:hover .statItemTitle {
+  transform: scale(1.1);
+}
+
+.statItemSubtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.statItem:hover .statItemSubtitle {
+  color: #111827;
+}
+
+@media (min-width: 768px) {
+  .recruitersHeading {
+    font-size: 3rem;
+  }
+
+  .recruitersSubheading {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recruitersHeading {
+    font-size: 3.75rem;
+  }
+}

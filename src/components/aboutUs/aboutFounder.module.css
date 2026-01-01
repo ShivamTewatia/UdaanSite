@@ -1,0 +1,230 @@
+.meet-founder-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #FEF3C7 0%, #FECDD3 50%, #D5F5E3 100%);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.founder-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.founder-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.quote-icon {
+  color: #8B5CF6;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.founder-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+.founder-underline {
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.founder-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.founder-image-wrapper {
+  width: 100%;
+}
+
+.founder-image-placeholder {
+  width: 100%;
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F59E0B 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-image-placeholder::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.founder-image-placeholder:hover {
+  transform: scale(1.03) rotate(-1deg);
+  box-shadow: 0 25px 50px rgba(139, 92, 246, 0.5);
+}
+
+.founder-image-placeholder:hover::before {
+  left: 100%;
+}
+
+.image-overlay {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.founder-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.founder-quote {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #4000ff;
+  font-style: italic;
+  position: relative;
+  padding-left: 30px;
+  border-left: 4px solid #8B5CF6;
+}
+
+.founder-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #8B5CF6;
+  padding-left: 30px;
+}
+
+.founder-details {
+  padding-left: 30px;
+}
+
+.founder-bio {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #6B7280;
+  margin-bottom: 24px;
+}
+
+.founder-credentials {
+  margin-bottom: 20px;
+}
+
+.founder-designation {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #8B5CF6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 0;
+}
+
+.founder-social-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.social-link:hover::before {
+  left: 100%;
+}
+
+.linkedin-link {
+  background: linear-gradient(135deg, #0077B5, #00A0DC);
+  color: white;
+}
+
+.linkedin-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 119, 181, 0.4);
+}
+
+.instagram-link {
+  background: linear-gradient(135deg, #E1306C, #C13584, #833AB4);
+  color: white;
+}
+
+.instagram-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+}
+
+@media (max-width: 968px) {
+  .founder-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .founder-quote {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .meet-founder-section {
+    padding: 60px 20px;
+  }
+
+  .founder-title {
+    font-size: 2rem;
+  }
+
+  .founder-quote {
+    font-size: 1.25rem;
+    padding-left: 20px;
+  }
+
+  .founder-name,
+  .founder-details {
+    padding-left: 20px;
+  }
+}
+

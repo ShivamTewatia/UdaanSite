@@ -1,0 +1,106 @@
+.card {
+  background: hsl(0 0% 100%);
+  border-radius: 1rem;
+  border: 1px solid hsla(256, 88%, 60%, 0.278);
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid hsla(256, 88%, 60%, 0.278);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.headerContent {
+  flex: 1;
+  min-width: 200px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    hsl(258 90% 66%),
+    hsl(256 88% 60%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.1rem;
+  transition: all 0.3s ease;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: hsla(259, 44%, 17%, 0.501);
+  transition: all 0.3s ease;
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chartContainer {
+  padding: 1.5rem;
+  height: 320px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .chartContainer {
+    padding: 1rem;
+    height: 280px;
+  }
+}
+
+
+.icon{
+  margin-top: 0.2rem;
+  color:hsl(258 90% 66%);
+  background-color:hsla(258, 90%, 66%, 0.08) ;
+  border-radius: 10px;
+  padding: 0.5rem 0.5rem 0.2rem;
+  transition: all 0.3s ease;
+}
+
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.headerContent:hover .icon{
+  transform: rotate(-8deg) scale(1.1);
+  color:white;
+  background-color:hsla(258, 90%, 66%, 0.9) ;
+}
+
+.headerContent:hover .title{
+  transform: translateX(3px) scale(1.02);
+}
+
+.headerContent:hover .subtitle{
+  transform: translateX(3px) scale(1.02);
+}

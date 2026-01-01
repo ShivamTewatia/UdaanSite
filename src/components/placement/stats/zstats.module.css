@@ -1,0 +1,151 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    hsla(258, 90%, 66%,0.05),
+    hsla(256, 88%, 60%,0.05)
+  );
+  padding: 3rem 3.25rem 9rem;
+}
+
+.content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.extra{
+  background-color: rgb(255, 255, 255);
+  border: 1px solid hsla(256, 88%, 60%, 0.278);
+  border-radius:20px;
+  padding: 2rem 3rem 0rem;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 ;
+  background: linear-gradient(
+    135deg,
+    hsl(258 90% 66%),
+    hsl(256 88% 60%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background-color: hsl(258, 90%, 66%);
+  transition: width 0.4s ease;
+  border-radius: 10px;
+}
+
+.heading:hover .sectionTitle::after {
+  width: 100%;
+}
+.heading:hover .sectionTitle {
+  transform: translateX(3px) scale(1.05);
+}
+
+
+
+
+.icon{
+  margin-top: 0.2rem;
+  color:hsl(258 90% 66%);
+  background-color:hsla(258, 90%, 66%, 0.08) ;
+  border-radius: 10px;
+  padding: 0.5rem 0.5rem 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  margin-bottom : 1.5rem ;
+}
+
+.heading:hover .icon{
+  transform: rotate(-8deg) scale(1.1);
+  color:white;
+  background-color:hsla(258, 90%, 66%, 0.9) ;
+}
+
+.highlightGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.insightsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .highlightGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .insightsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .highlightGrid,
+  .insightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+

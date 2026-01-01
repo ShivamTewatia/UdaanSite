@@ -1,0 +1,338 @@
+.wrapper {
+  background: hsl(0 0% 100%);
+  border-radius: 1rem;
+  border: 1px solid hsl(30 20% 90%);
+  overflow: hidden;
+  box-shadow: 0 2px 8px hsl(330 20% 90% / 0.3);
+}
+
+.header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid hsl(30 20% 94%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.headerContent {
+  flex: 1;
+  min-width: 200px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: hsl(240 10% 15%);
+  margin-bottom: 0.25rem;
+}
+
+.titleIcon {
+  color: hsl(258 90% 66%);
+}
+
+.subtitle {
+  font-size: 0.8125rem;
+  color: hsl(240 5% 55%);
+}
+
+.avgBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: hsl(258, 100%, 95%);
+  border-radius: 9999px;
+  border: 1px solid hsl(257, 92%, 85%);
+}
+
+.avgLabel {
+  font-size: 0.8125rem;
+  color: hsl(240 5% 50%);
+}
+
+.avgValue {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: hsl(258 90% 66%);
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tableContainer table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.headerRow {
+  background: hsl(258, 92%, 95%);
+}
+
+.th {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: hsl(240 5% 35%);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0.875rem 1rem;
+  white-space: nowrap;
+}
+
+.th:hover {
+  color: hsl(258 90% 66%);
+}
+
+.thCenter {
+  text-align: center;
+}
+
+.thContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+}
+
+.thIcon {
+  color: hsl(258 90% 66%);
+}
+
+.row {
+  animation: fadeIn 0.4s ease-out forwards;
+  opacity: 0;
+  transition: background 0.2s ease;
+}
+
+.rowHovered {
+  background: hsl(258, 92%, 95%);
+}
+
+.td {
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  color: hsl(240 10% 25%);
+}
+
+.tdCenter {
+  text-align: center;
+}
+
+.courseName {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 600;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Variant helpers (explicit exports for CSS Modules) */
+.excellent {
+  --placement-variant: excellent;
+}
+
+.good {
+  --placement-variant: good;
+}
+
+.average {
+  --placement-variant: average;
+}
+
+.low {
+  --placement-variant: low;
+}
+
+/* Color variants for dots - camelCase for CSS Modules */
+.dotExcellent {
+  background: hsl(258 90% 66%);
+}
+.dotGood {
+  background: hsl(160 84% 39%);
+}
+.dotAverage {
+  background: hsl(25 95% 50%);
+}
+.dotLow {
+  background: hsl(217 91% 55%);
+}
+
+.offersValue {
+  font-weight: 600;
+  color: hsl(240 10% 20%);
+}
+
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.progressBar {
+  width: 80px;
+  height: 8px;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+/* Progress bar backgrounds - camelCase for CSS Modules */
+.progressBgExcellent {
+  background: hsl(258, 91%, 91%);
+}
+.progressBgGood {
+  background: hsl(160 60% 90%);
+}
+.progressBgAverage {
+  background: hsl(25 80% 90%);
+}
+.progressBgLow {
+  background: hsl(217 70% 90%);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease-out;
+}
+
+/* Progress fill colors - camelCase for CSS Modules */
+.progressExcellent {
+  background: linear-gradient(135deg,hsl(258 90% 66%),hsl(256 88% 60%));
+}
+.progressGood {
+  background: linear-gradient(90deg, hsl(160 70% 50%), hsl(160 84% 39%));
+}
+.progressAverage {
+  background: linear-gradient(90deg, hsl(25 90% 60%), hsl(25 95% 50%));
+}
+.progressLow {
+  background: linear-gradient(90deg, hsl(217 80% 65%), hsl(217 91% 55%));
+}
+
+.percentBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Badge color variants - camelCase for CSS Modules */
+.badgeExcellent {
+  background: hsl(258 90% 66%);
+  color: hsl(0 0% 100%);
+}
+.badgeGood {
+  background: hsl(160 84% 39%);
+  color: hsl(0 0% 100%);
+}
+.badgeAverage {
+  background: hsl(25 95% 50%);
+  color: hsl(0 0% 100%);
+}
+.badgeLow {
+  background: hsl(217 91% 55%);
+  color: hsl(0 0% 100%);
+}
+
+.packageHighest {
+  font-weight: 700;
+  color: hsl(258 90% 66%);
+}
+
+.packageAvg {
+  font-weight: 500;
+  color: hsl(240 10% 35%);
+}
+
+.packageUnit {
+  font-size: 0.75rem;
+  color: hsl(240 5% 55%);
+}
+
+.footerRow {
+  background: hsl(258, 92%, 95%);
+  border-top: 2px solid hsl(330 30% 90%);
+}
+
+.tdFooter {
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+.totalLabel {
+  font-weight: 700;
+  color: hsl(258 90% 66%);
+  font-size: 0.9375rem;
+}
+
+.totalValue {
+  font-weight: 700;
+  color: hsl(258 90% 66%);
+}
+
+.totalBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 0.3rem 0.75rem;
+  background: hsl(258 90% 66%);
+  color: hsl(0 0% 100%);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .th,
+  .td,
+  .tdFooter {
+    padding: 0.75rem 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .progressBar {
+    width: 50px;
+    height: 6px;
+  }
+
+  .percentBadge {
+    min-width: 40px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6875rem;
+  }
+}
