@@ -788,7 +788,7 @@ const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, c
           <div className={styles.avatarWrapper}>
             <div className={styles.avatarCircle1}>
               <div className={styles.avatarCircle}>
-                <img src={`/images/team/${pic}`} alt={name} />
+                <img src={`/images/team/${pic}`} alt={name} loading="lazy"/>
               </div>
             </div>
           </div>
