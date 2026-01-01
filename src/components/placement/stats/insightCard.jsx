@@ -1,4 +1,4 @@
-import styles from "./InsightCard.module.css";
+import styles from "./insightCard.module.css";
 
 export const InsightCard = ({
   icon: Icon,
