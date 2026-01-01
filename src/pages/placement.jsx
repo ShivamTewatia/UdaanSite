@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Nav from "../components/nav/nav.jsx"
 import HeroSection from "../components/placement/hero/placementhero.jsx"
-import TabNavigation from "../components/placement/innerTab/placementInnerTab.jsx"
+import TabNavigation from "../components/placement/innertab/placementInnerTab.jsx"
 import DutiesCommittees from "../components/placement/duties/placementDuties.jsx"
 import ProcedureGuidelines from "../components/placement/procedure/procedure.jsx"
 import RulesTraining from "../components/placement/rules/placementRules.jsx"
