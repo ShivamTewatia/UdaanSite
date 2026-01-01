@@ -931,7 +931,7 @@ const EnhancedTeamPage = () => {
               <div
                 key={member.id}
                 className={styles.memberWrapper}
-                style={{ animationDelay: `${index * 80}ms` }}
+                style={{ animationDelay: `${index * 180}ms` }}
               >
                 <EnhancedTeamCard
                   id={member.id}
