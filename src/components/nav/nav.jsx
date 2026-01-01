@@ -218,7 +218,7 @@ const Nav = () => {
               </NavLink>
             ))}
 
-            <NavLink
+            {/* <NavLink
               to="/login"
               className={({ isActive }) =>
                 `${styles.navButton} ${isActive ? styles.active : ""}`
@@ -253,7 +253,7 @@ const Nav = () => {
                 />
               </svg>
               Login
-            </NavLink>
+            </NavLink> */}
           </div>
           <button
             className={styles.mobileMenuButton}
@@ -278,7 +278,7 @@ const Nav = () => {
                   {item.label}
                 </NavLink>
               ))}
-              <NavLink
+              {/* <NavLink
                 to="/login"
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
@@ -286,7 +286,7 @@ const Nav = () => {
                 }
               >
                 Login
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
         )}

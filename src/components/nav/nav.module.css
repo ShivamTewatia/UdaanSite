@@ -61,6 +61,11 @@
   opacity: 0.05;
 }
 
+.decorativeShape,
+.wave {
+  pointer-events: none;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -94,6 +99,8 @@
 }
 
 .navLinks {
+  position: relative;
+  z-index: 20;
   display: none;
   align-items: center;
   gap: 6px;
@@ -116,6 +123,8 @@
 }
 
 .navButton {
+  position: relative;
+  z-index: 21;
   padding: 8px 16px;
   font-size: 18px;
   font-weight: 600;
