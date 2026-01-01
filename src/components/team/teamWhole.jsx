@@ -138,6 +138,16 @@ const members = [
     linkedin: "https://www.linkedin.com/in/sandeepprasad349"
   },
 
+  {
+    id: "23001017071",
+    name: "Naman Goel",
+    pic: "naman.png",
+    role: "Senior Coordinator",
+    branch: "B.Tech(EE(IOT))",
+    year: "3rd Year",
+    team: "Admin Team",
+    linkedin: "https://www.linkedin.com/in/naman-goel-8a2737322"
+  },
 
   {
     id: "24001753005",
@@ -158,16 +168,6 @@ const members = [
     year: "4th Year",
     team: "Design Team",
     linkedin: "https://www.linkedin.com/in/bhavya-bansal-b4906124b/"
-  },
-  {
-    id: "23001008071",
-    name: "Gungun Nagpal",
-    pic: "gungun.png",
-    role: "Department Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "3rd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/gungun-nagpal-70b832291"
   },
   {
     id: "23001008022",
@@ -362,16 +362,6 @@ const members = [
     year: "3rd Year",
     team: "Design Team",
     linkedin: "https://www.linkedin.com/in/muskan-dagar-99514b29b"
-  },
-  {
-    id: "23001017071",
-    name: "Naman Goel",
-    pic: "naman.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(EE(IOT))",
-    year: "3rd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/naman-goel-8a2737322"
   },
   {
     id: "23001008038",
