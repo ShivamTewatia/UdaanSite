@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // CHANGE 1: NavLink हटाया, useNavigate रखा
 import styles from "./nav.module.css";
 
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate(); // CHANGE 2: useNavigate hook
 
   const navItems = [
     {
@@ -205,17 +206,18 @@ const Nav = () => {
             <h1>UDAAN</h1>
           </div>
           <div className={styles.navLinks}>
+            {/* CHANGE 3: NavLink को button में बदला */}
             {navItems.map((item) => (
-              <NavLink
+              <button
                 key={item.id}
-                to={item.path}
-                className={({ isActive }) =>
-                  `${styles.navButton} ${isActive ? styles.active : ""}`
-                }
+                onClick={() => navigate(item.path)}
+                className={`${styles.navButton} ${
+                  window.location.pathname === item.path ? styles.active : ""
+                }`}
               >
                 {item.icon}
                 {item.label}
-              </NavLink>
+              </button>
             ))}
 
             {/* <NavLink
@@ -265,18 +267,21 @@ const Nav = () => {
         {mobileMenuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuContent}>
+              {/* CHANGE 4: Mobile menu में भी NavLink को button में बदला */}
               {navItems.map((item) => (
-                <NavLink
+                <button
                   key={item.id}
-                  to={item.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `${styles.navButton} ${isActive ? styles.active : ""}`
-                  }
+                  onClick={() => {
+                    navigate(item.path);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`${styles.navButton} ${
+                    window.location.pathname === item.path ? styles.active : ""
+                  }`}
                 >
                   {item.icon}
                   {item.label}
-                </NavLink>
+                </button>
               ))}
               {/* <NavLink
                 to="/login"

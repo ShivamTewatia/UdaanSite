@@ -224,3 +224,79 @@
   text-align: left;
   justify-content: flex-start;
 }
+
+
+/* File के END में ये जोड़ें */
+
+button.navButton {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 16px;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none !important;
+  position: relative;
+}
+
+button.navButton::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button.navButton:hover {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.05);
+}
+
+button.navButton:hover::after {
+  width: 75%;
+}
+
+button.navButton.active {
+  color: white;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+button.navButton.active:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+}
+
+button.navButton.active::after {
+  display: none;
+}
+
+.mobileMenu button.navButton {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  text-decoration: none !important;
+}
+
+.tabIcon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+button.navButton.active .tabIcon {
+  transform: scale(1.1);
+}
