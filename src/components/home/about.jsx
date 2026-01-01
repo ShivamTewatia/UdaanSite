@@ -1,6 +1,6 @@
 
 import { School, Building2, Briefcase, TrendingUp, Users, Award, ArrowRight } from "lucide-react";
-import styles from "./About.module.css";
+import styles from "./about.module.css";
 
 const About = () => {
   const features = [
