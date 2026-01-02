@@ -1,11 +1,16 @@
 import { ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import udnLogo from "/images/home/udnLogo.jpeg";
 import clgGate from "/images/home/clg.png";
 import styles from "./heroHome.module.css";
+import { useHashScroll } from "../hooks/useHashScroll"
 
 const Hero = () => {
+  useHashScroll();
+  const navigate = useNavigate();
+
   return (
-    <header className={styles.heroContainer}>
+    <header id="home" className={styles.heroContainer}>
       <div 
         className={styles.heroBackground}
         style={{ backgroundImage: `url(${clgGate})` }}
@@ -46,10 +51,16 @@ const Hero = () => {
         </p>
 
         <div className={styles.heroButtons}>
-          <button className={`${styles.btn} ${styles.btnPrimary}`}>
-            Explore Placements
+          <button 
+            className={`${styles.btn} ${styles.btnPrimary}`}
+            onClick={() => navigate("/placement")} 
+            >
+              Explore Placements
           </button>
-          <button className={`${styles.btn} ${styles.btnOutline}`}>
+          <button 
+          className={`${styles.btn} ${styles.btnOutline}`}
+          onClick={() => navigate("/about")} 
+          >
             About Us
             <ChevronRight className={styles.btnIcon} />
           </button>

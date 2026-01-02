@@ -6,15 +6,17 @@ import AboutFounder from "../components/aboutUs/aboutFounder.jsx"
 import AboutMentor from "../components/aboutUs/aboutMentor.jsx"
 import Footer from "../components/footer/footer.jsx"
 
+
 function AboutUs(){
+    
     return(
         <>
         <Nav/>
         <AboutHero/>
         <AboutWho/>
         <AboutWhat/> 
-        <AboutFounder/>
-        <AboutMentor/>
+        <AboutFounder />
+        <AboutMentor />
         <Footer/>
         </>
     )

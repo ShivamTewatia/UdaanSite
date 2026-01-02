@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./placementRules.module.css";
+import { useHashScroll } from "../../hooks/useHashScroll.js"
+
 import { 
   AlertTriangle, 
   BookOpen, 
@@ -138,6 +140,7 @@ function AccordionPair({ title, children, icon: Icon }) {
 
 const RulesTraining = () => {
   const [activeTab, setActiveTab] = useState("placement");
+  useHashScroll(); 
 
   const onCampusRules = [
     {
@@ -428,7 +431,7 @@ const RulesTraining = () => {
   ];
 
   return (
-    <div className={styles.rulesTraining}>
+    <div id="rules" className={styles.rulesTraining}>
       <div className={styles.pageWrapper}>
         <div className={styles.container}>
           <div className={styles.heroSection}>

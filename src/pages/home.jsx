@@ -3,14 +3,15 @@ import Hero from "../components/home/hero.jsx"
 import About from "../components/home/about.jsx"
 import Placement from "../components/home/placement.jsx"
 import Top from "../components/home/top.jsx"
-
 import Footer from "../components/footer/footer.jsx"
 
+
 function Home(){
+    
     return(
         <>
         <Nav/>
-        <Hero/>
+        <Hero />
         <About/>
         <Placement/>
         <Top/>

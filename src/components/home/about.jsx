@@ -19,8 +19,8 @@ const About = () => {
 
   const reasons = [
     { icon: Users, title: "500+ Recruiters", description: "Top companies from various industries recruit our students", color: "purple" },
-    { icon: TrendingUp, title: "95% Placement Record", description: "Exceptional placement success rate year after year", color: "cyan" },
-    { icon: Award, title: "Highest Package: 45 LPA", description: "Outstanding packages secured by our talented students", color: "orange" },
+    { icon: TrendingUp, title: "87% Placement Record", description: "Exceptional placement success rate year after year", color: "cyan" },
+    { icon: Award, title: "Highest Package: 60 LPA", description: "Outstanding packages secured by our talented students", color: "orange" },
     { icon: Briefcase, title: "Industry Collaborations", description: "Partnerships with leading companies and organisations", color: "green" },
     { icon: School, title: "NAAC A+ Accredited", description: "Recognized for academic excellence and quality education", color: "pink" }
   ];
@@ -39,7 +39,10 @@ const About = () => {
             <p className={styles["about-paragraph"]}>
               With a strong focus on placements and career development, our Traning & Placement Cell works tirelessly to bridge the gap between academia and industry, ensuring that every student get the opportunity to build a successful career with leading organization world wide.
             </p>
-            <button className={styles["btn-gradient"]}>
+            <button 
+            className={styles["btn-gradient"]}
+            onClick={() => window.open("https://jcboseust.ac.in", "_blank")}
+            >
               Know More About University
               <ArrowRight className={styles["btn-arrow"]} />
             </button>

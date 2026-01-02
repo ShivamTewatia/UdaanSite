@@ -87,7 +87,7 @@
 
 .heroContent {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1400px;
   padding: 0 2rem;
   width: 100%;
@@ -280,3 +280,14 @@
     font-size: 0.8rem;
   }
 }
+
+.heroBackground,
+.heroPattern,
+.heroGradient,
+.floatingShapes,
+.shape1,
+.shape2,
+.shape3 {
+  pointer-events: none;
+}
+

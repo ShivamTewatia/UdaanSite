@@ -1,8 +1,12 @@
 import styles from './aboutHero.module.css';
 import {Sparkles } from "lucide-react";
+import { useHashScroll } from "../hooks/useHashScroll"
+
 const AboutHero = () => {
+  useHashScroll(); 
+
   return (
-    <section className={styles['hero-section']}>
+    <section id='about' className={styles['hero-section']}>
       <div className={styles['hero-container']}>
         <div className={styles['hero-content']}>
           <div className={styles['badge-container']}>

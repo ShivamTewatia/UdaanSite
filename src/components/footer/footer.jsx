@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
 import styles from "./footer.module.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -44,35 +45,35 @@ const Footer = () => {
             <h2 className={styles.sectionTitle}>Useful Links</h2>
             <ul className={styles.linkList}>
               <li>
-                <a href="/">Home</a>
+                <Link to="/#home">Home</Link>
               </li>
               <li>
-                <a href="/about">About Us</a>
+                <Link to="/about#about">About Us</Link>
               </li>
               <li>
-                <a href="/team">Our Team</a>
+                <Link to="/about#mentor">Our Mentors</Link>
               </li>
               <li>
-                <a href="/placement">Placement Stats</a>
+                <Link to="/team#team">Our Team</Link>
               </li>
               <li>
-                <a href="/recruiters">Placement Process</a>
+                <Link to="/placement?tab=rules-training">Placement Rules</Link>
               </li>
               <li>
-                <a href="/recruiters">Placement Guidelines</a>
+                <Link to="/placement?tab=stats">Placement Stats</Link>
               </li>
               <li>
-                <a href="/recruiters">Past Recruiters</a>
+                <Link to="/placement?tab=procedure">Placement Process</Link>
               </li>
               <li>
-                <a href="/alumni">Alumni</a>
+                <Link to="/placement?tab=recruiters">Past Recruiters</Link>
               </li>
               <li>
-                <a href="/contact">Contact Us</a>
+                <Link to="/contact#contact">Contact Us</Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="/contact">Login</a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className={styles.section}>
@@ -90,7 +91,7 @@ const Footer = () => {
               <h4 className={styles.socialTitle}>Connect With Us</h4>
               <div className={styles.socialLinks}>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/udaan.jcboseust/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialLink}
@@ -99,16 +100,7 @@ const Footer = () => {
                   <Instagram />
                 </a>
                 <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialLink}
-                  aria-label="Facebook"
-                >
-                  <Facebook />
-                </a>
-                <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/tpoymca/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialLink}

@@ -17,8 +17,10 @@ import {
   BusFront
 } from "lucide-react";
 import styles from './contact.module.css';
+import { useHashScroll } from "../hooks/useHashScroll"
 
 const Contact = () => {
+  useHashScroll();
   const staffMembers = [
     {
       name: "Mr. Sanjeev Kumar",
@@ -105,7 +107,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className={styles.container}>
+    <div id="contact" className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerPattern}></div>
         

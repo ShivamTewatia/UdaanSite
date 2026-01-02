@@ -5,28 +5,28 @@ const Placement = () => {
   const mainStats = [
     {
       icon: IndianRupee,
-      value: "45 LPA",
+      value: "60 LPA",
       title: "Highest Package",
       description: "Record-breaking placement packages",
       gradient: "orange"
     },
     {
       icon: IndianRupee,
-      value: "8 LPA",
+      value: "9.53 LPA",
       title: "Average Package",
       description: "Strong average compensation",
       gradient: "purple"
     },
     {
       icon: Users,
-      value: "2847+",
+      value: "4500+",
       title: "Students Placed",
-      description: "Successfully placed this year",
+      description: "Successfully placed in this decade",
       gradient: "cyan"
     },
     {
       icon: Building,
-      value: "520+",
+      value: "500+",
       title: "Company Visits",
       description: "Companies participated in recruitment",
       gradient: "pink"
@@ -62,7 +62,7 @@ const Placement = () => {
       <div className={styles.placementContent}>
         <div className={styles.placementHeader}>
           <h2 className={styles.placementHeading}>
-            Placement Statistics 2024
+            Placement Statistics
           </h2>
           <p className={styles.placementSubheading}>
             Our numbers speak for themselves - excellence in education leading to exceptional career outcomes

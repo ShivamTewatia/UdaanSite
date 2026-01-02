@@ -1,7 +1,17 @@
 import styles from './placementHero.module.css';
 import { TrendingUp, DollarSign, Target, Building2 } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
-const HeroSection = () => {
+const HeroSection = ({ onShowStats }) => {
+  
+  const navigate = useNavigate();
+
+  const handleExplorePlacements = () => {
+    if (typeof onShowStats === "function") {
+      onShowStats();
+    }
+  };
+
   const stats = [
     { icon: TrendingUp, number: '91%', label: 'Placement Rate', color: 'blue' },
     { icon: DollarSign, number: '47 LPA', label: 'Highest Package', color: 'pink' },
@@ -43,10 +53,16 @@ const HeroSection = () => {
           </p>
           
           <div className={styles.heroButtons}>
-            <button className={styles.primaryButton}>
+            <button 
+            className={styles.primaryButton}
+            onClick={onShowStats}
+            >
               Explore Placements
             </button>
-            <button className={styles.secondaryButton}>
+            <button 
+            className={styles.secondaryButton}
+            onClick={() => navigate("/about")} 
+            >
               About Us
               <span className={styles.arrowIcon}>→</span>
             </button>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Search, Linkedin, Sparkles, Users } from "lucide-react";
 import styles from "./EnhancedTeamPage.module.css";
+import { useHashScroll } from "../hooks/useHashScroll" 
 
 const teams = ["Admin Team", "IT Team", "Outreach Team", "Design Team"];
 
@@ -19,15 +20,25 @@ const colorSchemes = [
 ];
 
 const members = [
+  // {
+  //   id: "22001011015",
+  //   name: "Bipul Kumar",
+  //   pic: "bipul.png",
+  //   role: "Secretary",
+  //   branch: "B.Tech(IT)",
+  //   year: "4th Year",
+  //   team: "All Team",
+  //   linkedin: "https://www.linkedin.com/in/bipul-kumar-697654255"
+  // },
   {
-    id: "22001011015",
-    name: "Bipul Kumar",
-    pic: "bipul.png",
-    role: "Secretary",
-    branch: "B.Tech(IT)",
+    id: 9,
+    name: "Aryan Singh",
+    pic: "aryan.png",
+    role: "Placement Coordinator",
+    branch: "Electical",
     year: "4th Year",
     team: "All Team",
-    linkedin: "https://www.linkedin.com/in/bipul-kumar-697654255"
+    linkedin: "https://www.linkedin.com/in/aryan-singh-b470342b6/",
   },
   {
     id: "22001017023",
@@ -49,18 +60,7 @@ const members = [
     team: "All Team",
     linkedin: "https://www.linkedin.com/in/kumar-arth-690765247"
   },
-  // {
-  //   id: 9,
-  //   name: "Aryan Singh",
-  //   pic: "aryan.png",
-  //   role: "Placement Coordinator",
-  //   branch: "Electical",
-  //   // email: "singh322aryan@gmail.com",
-  //   // phone: "+91 8278292185",
-  //   year: "4th Year",
-  //   team: "All Team",
-  //   linkedin: "https://www.linkedin.com/in/aryan-singh-b470342b6/",
-  // },
+  
 
   // Joint Secretaries
   {
@@ -181,7 +181,7 @@ const members = [
   },
   {
     id: "22001008023",
-    name: "Jyotsna Rajya Bhatia",
+    name: "Jyotsna",
     pic: "jyotsna.png",
     role: "Department Coordinator",
     branch: "B.Tech(ECE)",
@@ -231,7 +231,7 @@ const members = [
   },
   {
     id: "23001003132",
-    name: "Tanishttha Sehgal",
+    name: "Tanishttha",
     pic: "tanishttha.png",
     role: "Department Coordinator",
     branch: "B.Tech(CE)",
@@ -486,7 +486,7 @@ const members = [
   },
   {
     id: "24001002012",
-    name: "Chetan Chaudhary",
+    name: "Chetan",
     pic: "chetan.png",
     role: "Student Coordinator",
     branch: "B.Tech(CE)",
@@ -746,7 +746,7 @@ const members = [
   },
   {
     id: "24001003138",
-    name: "Vanshika Chauhan",
+    name: "Vanshika",
     pic: "vanshika_chauhan.png",
     role: "Student Coordinator",
     branch: "B.Tech(CE)",
@@ -759,6 +759,7 @@ const members = [
 const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, colorIndex }) => {
   const colors = colorSchemes[colorIndex % colorSchemes.length];
   
+
   const cardStyle = {
     '--card-primary': colors.primary,
     '--card-secondary': colors.secondary,
@@ -766,7 +767,7 @@ const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, c
   };
 
   return (
-    <div className={styles.enhancedCard} style={cardStyle}>
+    <div  className={styles.enhancedCard} style={cardStyle}>
       <div className={styles.cardGlow}></div>
       <div className={styles.cardInner}>
         <div className={styles.cardHeaderTop}>
@@ -800,7 +801,7 @@ const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, c
             
             <div className={styles.memberInfo}>
               <p className={styles.memberStatSpecial}></p>
-              <p className={styles.memberHead}>Branch & Year</p>
+              <p className={styles.memberHead}>Branch/Year</p>
               <p className={styles.memberStat}>{branch}</p>
               <p className={styles.memberStat}>{year}</p>
               
@@ -817,6 +818,7 @@ const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, c
 };
 
 const EnhancedTeamPage = () => {
+  useHashScroll(); 
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -828,7 +830,7 @@ const EnhancedTeamPage = () => {
   });
 
   return (
-    <div className={styles.enhancedTeamPage}>
+    <div id="team" className={styles.enhancedTeamPage}>
       <div className={styles.bgDecorations}>
         <div className={`${styles.decorationCircle} ${styles.circle1}`}></div>
         <div className={`${styles.decorationCircle} ${styles.circle2}`}></div>

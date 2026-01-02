@@ -1,7 +1,10 @@
 import styles from './procedure.module.css';
 import { Mail, ClipboardList, Megaphone, UserCheck, Send, Calendar, GraduationCap, FileText, ScrollText, CheckCircle, Pin, CheckSquare, ClipboardCheck } from 'lucide-react';
+import { useHashScroll } from "../../hooks/useHashScroll.js"
 
 const ProcedureGuidelines = () => {
+  useHashScroll(); 
+
   const steps = [
     {
       Icon: Mail,
@@ -102,7 +105,7 @@ const ProcedureGuidelines = () => {
   ];
 
   return (
-    <div className={styles.container}>
+    <div id='procedure' className={styles.container}>
       <div className={styles.heroSection}>
         <span className={styles.badge}>Official Guidelines</span>
         <h1 className={styles.heroTitle}>Placement Procedure</h1>

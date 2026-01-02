@@ -14,8 +14,11 @@ import { RadarChartSection } from "./radarChartSection";
 import { DepartmentTrendChart } from "./departmentTrendChart";
 import { PlacementTable } from "./placementTable";
 import styles from "./zstats.module.css";
+import { useHashScroll } from "../../hooks/useHashScroll.js"
 
 const Statistics = () => {
+  useHashScroll(); 
+  
   const years = placementData.map(d => d.year);
   const [selectedYear, setSelectedYear] = useState(years[years.length - 1]);
   const currentYearData = placementData.find(d => d.year === selectedYear);
@@ -41,7 +44,7 @@ const Statistics = () => {
   ];
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="stats-top">
       <HeroSection />
 
 

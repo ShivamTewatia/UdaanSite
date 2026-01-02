@@ -1,12 +1,15 @@
 import {ShoppingBag,Wifi, Cpu, TrendingUp, ShoppingCart, BookOpen, Car,CreditCard, Home, Zap, Globe, Tv, Server, GraduationCap,Building,Heart, Rocket, Factory, Building2, Briefcase, Mail, ArrowRight } from 'lucide-react';
 import styles from './recruters.module.css';
 import { useState } from 'react';
+import { useHashScroll } from "../../hooks/useHashScroll.js"
 
 const CompanyCard = ({ company, index }) => {
+  useHashScroll(); 
+
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div key={index} className={styles.companyCard}>
+    <div id='recruiter' key={index} className={styles.companyCard}>
       <div className={styles.companyLogoWrapper}>
         {!imageError ? (
           <img

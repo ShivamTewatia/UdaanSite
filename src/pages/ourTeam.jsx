@@ -7,7 +7,7 @@ function Team(){
     return(
         <>
         <Nav/>
-        <EnhancedTeamCard/>
+        <EnhancedTeamCard />
         <Footer/>
         </>
     )

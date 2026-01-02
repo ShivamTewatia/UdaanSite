@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Linkedin, Phone, Mail, Users, Sparkles } from "lucide-react";
 import styles from "./aboutMentor.module.css";
+import { useHashScroll } from "../hooks/useHashScroll"
 
 const teamMembers = [
   {
@@ -100,10 +101,12 @@ const roleLabels = {
   TPO: "Training & Placement Officer",
   DTPO: "Deputy TPO",
   ATPO: "Assistant TPO",
+  PC: "Placement Coordinator"
 };
 
 
 function AboutMentor() {
+  useHashScroll();
   const [selectedRole, setSelectedRole] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
   const filteredMembers = selectedRole
@@ -112,7 +115,7 @@ function AboutMentor() {
 
 
   return (
-    <section className={styles['leadership-section']}>
+    <section id='mentor' className={styles['leadership-section']}>
       <div className={styles['leadership-container']}>
         <div className={styles['leadership-header']}>
           <div className={styles['badge-container']}>

@@ -413,14 +413,14 @@
 
 .membersGridEnhanced {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 32px;
-  margin-bottom: 48px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  margin-bottom: 38px;
 }
 
 .membersGridEnhanced:has(.enhancedCard:hover) .memberWrapper:not(:hover) {
-  filter: blur(2px) brightness(0.8);
-  opacity: 0.6;
+  filter: blur(1px) brightness(0.7);
+  opacity: 0.8;
   transform: scale(0.98);
 }
 
@@ -540,7 +540,7 @@
 }
 
 .enhancedCard:hover .cardInner {
-  transform: translateY(-12px) scale(1.02);
+  transform: translateY(-8px) scale(1.02);
   box-shadow: 
     0 30px 60px rgba(0, 0, 0, 0.2),
     0 15px 30px rgba(0, 0, 0, 0.15),
@@ -550,11 +550,11 @@
 }
 
 .cardHeaderTop {
-  height: 200px;
+  height: 180px;
   padding: 20px 20px 140px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 24px;
   position: relative;
   z-index: 3;
@@ -593,13 +593,13 @@
 .roleTag {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
+  /* gap: 8px; */
+  padding: 8px 12px;
   background: rgba(255, 255, 255, 0.98);
   color: var(--card-primary);
   border-radius: 16px;
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   box-shadow: 
@@ -681,8 +681,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 100%);
   border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
@@ -732,15 +732,16 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top: -120px;
+  top: -140px;
   z-index: 10;
-  margin-bottom: -110px;
+  margin-top: 0;
+  margin-bottom: -130px;
 }
 
 .avatarWrapper {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
     transition: filter 0.5s ease;
 }
 
@@ -750,10 +751,10 @@
 
 .avatarCircle {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: 6px solid white;
@@ -765,7 +766,7 @@
 }
 
 .enhancedCard:hover .avatarCircle {
-  transform: scale(1.12);
+  transform: scale(1.05);
   box-shadow: 
     0 20px 50px rgba(0, 0, 0, 0.35),
     inset 0 2px 15px rgba(255, 255, 255, 0.4);
@@ -826,7 +827,7 @@
 }
 
 .memberName {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--card-primary);
   text-shadow: 
@@ -839,7 +840,7 @@
     1px 0 0 rgba(0, 0, 0, 0.25),
     -1px 0 0 rgba(0, 0, 0, 0.25);
   margin: 0 0 18px 0;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
@@ -857,11 +858,10 @@
 }
 
 .cardSection {
-  padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 3fr);
   gap: 18px;
-  margin-top: 0;
+  margin-top:-1rem;
   position: relative;
   z-index: 3;
 }
@@ -869,7 +869,7 @@
 .cardSection::before {
   content: '';
   position: absolute;
-  top: -20px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
@@ -878,29 +878,12 @@
   opacity: 0.8;
 }
 
-.cardSection::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 20% 20%, var(--card-primary) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, var(--card-accent) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.8;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-.enhancedCard:hover .cardSection::after {
-  opacity: 0.1;
-}
-
 .memberStatSpecial{
-  margin-top: 30px;
+  margin-top: 23px;
 }
 
 .memberInfo {
-    background: linear-gradient(135deg, var(--card-primary) 0%, var(--card-secondary) 100%);
+  background: linear-gradient(135deg, var(--card-primary) 0%, var(--card-secondary) 100%);
   border-radius: 20px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -910,7 +893,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  min-height: 140px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -952,11 +935,11 @@
 
 .memberHead {
   color: rgba(255, 255, 255, 0.92);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2.4px;
-  margin: 0 0 16px 0;
+  margin: 0 0 6px 0;
   padding: 0;
   background: none;
   white-space: nowrap;
@@ -967,7 +950,7 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  width: 100%;
+  width: 80%;
 }
 
 .memberHead::before {
@@ -981,23 +964,22 @@
   box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  top: -12px;
+  top: -15px;
 }
 
 .enhancedCard:hover .memberHead {
   color: #ffffff;
-  letter-spacing: 2.6px;
+  letter-spacing: 2.5px;
 } 
  .enhancedCard:hover .memberHead::before {
   background: #ffffff;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-  transform: scale(1.2);
+  transform: scale(1.05);
 }
 
 .memberStat {
   color: #ffffff;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 900;
   line-height: 1.6;
   margin: 0;
@@ -1010,13 +992,13 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   width: 100%;
-  padding: 0 8px;
+  padding: 0px 4px;
 }
 
 .enhancedCard:hover .memberStat {
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-  font-size: 18px;
-  letter-spacing: 0.5px;
+  font-size: 14.35px;
+  letter-spacing: 0.45px;
   transform: scale(1.05);
 }
 
