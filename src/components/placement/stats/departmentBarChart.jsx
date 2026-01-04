@@ -5,6 +5,8 @@ import {
 import { CHART_COLORS } from "./placementData";
 import { ChartCard } from "./chartCard";
 import styles from "./departmentBarChart.module.css";
+import { Building2 } from "lucide-react";
+
 
 export const DepartmentBarChart = ({ courses }) => {
   const [activeBarIndex, setActiveBarIndex] = useState(null);
@@ -28,6 +30,7 @@ export const DepartmentBarChart = ({ courses }) => {
 
   return (
     <ChartCard
+      icon={<Building2 size={42} />}
       title="Department-wise Placement Rate"
       subtitle="Click on bars for detailed insights"
       legend={

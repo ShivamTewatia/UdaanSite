@@ -123,7 +123,7 @@ const members = [
     branch: "B.Tech(ECE)",
     year: "4th Year",
     team: "All Team",
-    linkedin: "#"
+    linkedin: "https://www.linkedin.com/in/raghavi-gurjar-558031280"
   },
 
 

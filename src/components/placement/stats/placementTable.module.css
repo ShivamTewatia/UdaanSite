@@ -11,13 +11,16 @@
   border-bottom: 1px solid hsl(30 20% 94%);
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 
 .headerContent {
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap:0.75rem;
   min-width: 200px;
 }
 
@@ -25,19 +28,45 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: hsl(240 10% 15%);
-  margin-bottom: 0.25rem;
+  background: linear-gradient(
+    135deg,
+    hsl(258 90% 66%),
+    hsl(256 88% 60%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
 }
 
 .titleIcon {
-  color: hsl(258 90% 66%);
+  margin-top: 0.2rem;
+  color:hsl(258 90% 66%);
+  background-color:hsla(258, 90%, 66%, 0.08) ;
+  border-radius: 10px;
+  padding: 0.5rem 0.5rem 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.headerContent:hover .titleIcon{
+  transform: rotate(-8deg) scale(1.1);
+  color:white;
+  background-color:hsla(258, 90%, 66%, 0.9) ;
+}
+
+.headerContent:hover .title{
+  transform: translateX(3px) scale(1.02);
+}
+
+.headerContent:hover .subtitle{
+  transform: translateX(3px) scale(1.02);
 }
 
 .subtitle {
-  font-size: 0.8125rem;
-  color: hsl(240 5% 55%);
+  font-size: 1rem;
+  color: hsla(259, 44%, 17%, 0.501);
+  transition: all 0.3s ease;
 }
 
 .avgBadge {
@@ -117,7 +146,7 @@
 }
 
 .td {
-  padding: 0.875rem 1rem;
+  padding: 0.75rem 1rem;
   font-size: 0.875rem;
   color: hsl(240 10% 25%);
 }

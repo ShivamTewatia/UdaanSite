@@ -93,11 +93,13 @@ export const PlacementTable = ({ courses }) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.headerContent}>
-          <h3 className={styles.title}>
-            <Briefcase size={18} className={styles.titleIcon} />
-            Department-wise Placement Details
-          </h3>
-          <p className={styles.subtitle}>Click on headers to sort • Hover for highlights</p>
+          <Briefcase size={55} className={styles.titleIcon} />
+          <div className="styles.headertitles">
+            <h3 className={styles.title}>
+              Department-wise Placement Details
+            </h3>
+            <p className={styles.subtitle}>Click on headers to sort • Hover for highlights</p>
+          </div>
         </div>
         <div className={styles.avgBadge}>
           <span className={styles.avgLabel}>Avg Placement:</span>

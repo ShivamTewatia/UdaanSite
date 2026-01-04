@@ -4,6 +4,8 @@ import {
 import { CHART_COLORS } from "./placementData";
 import { ChartCard } from "./chartCard";
 import styles from "./radarChartSection.module.css";
+import { RadarIcon } from "lucide-react";
+
 
 export const RadarChartSection = ({ courses }) => {
   const radarData = courses.map(item => ({
@@ -15,6 +17,7 @@ export const RadarChartSection = ({ courses }) => {
 
   return (
     <ChartCard
+      icon={<RadarIcon size={42} />}
       title="Department Performance Radar"
       subtitle="Multi-dimensional performance analysis"
       legend={

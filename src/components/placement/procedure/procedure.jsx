@@ -1,10 +1,9 @@
 import styles from './procedure.module.css';
-import { Mail, ClipboardList, Megaphone, UserCheck, Send, Calendar, GraduationCap, FileText, ScrollText, CheckCircle, Pin, CheckSquare, ClipboardCheck } from 'lucide-react';
+import { Mail, ClipboardList, Megaphone, UserCheck, Send, Calendar, GraduationCap, FileText, ScrollText, CheckCircle, Pin, CheckSquare, ClipboardCheck, Building2 } from 'lucide-react';
 import { useHashScroll } from "../../hooks/useHashScroll.js"
 
 const ProcedureGuidelines = () => {
   useHashScroll(); 
-
   const steps = [
     {
       Icon: Mail,
@@ -54,6 +53,22 @@ const ProcedureGuidelines = () => {
     'Only those students, who have opted for placement, will be allowed to participate in recruitment process through T&P Cell',
     'Undertaking by students along with the parents has to be submitted that they have read & accept Training and Placement Policy (Form P01)',
     'The relevant details shared by company are electronically broadcasted to all the students along with the other additional information furnished by the company'
+  ];
+
+  const companyPolicy = [
+    'The company should provide the relevant details to the Training & Placement Cell (T&P Cell) as an e-mail.',
+    'The relevant details shared by company are electronically broadcasted to all the students along with the other additional information furnished by the company.',
+    'The company can ask for the resumes of eligible and interested students and has the liberty to shortlist them before beginning of the placement process.',
+    'The company will be allotted slots and dates (Placement Calendar) for conducting Pre-Placement Talk (PPT)/Written Test/Online Test with a request to confirm the same by a specified date. On failing to do so, the allotted slot may be given to other companies on their request. Request for any change in the slot can be entertained subject to its availability.',
+    'Information about the company and the job profile for companies visiting J.C Bose UST, YMCA for internships/placements would be provided to the students.',
+    'T&P Cell updates Placement Brochure every year and share the same with all recruiters along with campus invite through e-mail. (Format of Brochure – Form P04)'
+  ];
+
+  const allotmentCriteria = [
+    'Job profile and growth prospects',
+    'CTC being offered by the company',
+    'Past records of recruitment',
+    'Internship offered for final year students'
   ];
 
   const requirements = [
@@ -138,7 +153,6 @@ const ProcedureGuidelines = () => {
           </div>
         </section>
 
-        {/* General Guidelines */}
         <section className={styles.infoSection}>
           <div className={styles.infoCard}>
             <div className={styles.infoCardHeader}>
@@ -155,7 +169,6 @@ const ProcedureGuidelines = () => {
           </div>
         </section>
 
-        {/* Eligibility Criteria */}
         <section className={styles.infoSection}>
           <div className={styles.infoCard}>
             <div className={styles.infoCardHeader}>
@@ -172,7 +185,6 @@ const ProcedureGuidelines = () => {
           </div>
         </section>
 
-        {/* Registration Process */}
         <section className={styles.processSection}>
           <div className={styles.infoCard}>
             <div className={styles.infoCardHeader}>
@@ -189,7 +201,32 @@ const ProcedureGuidelines = () => {
           </div>
         </section>
 
-        {/* Important Requirements */}
+        <section className={styles.processSection}>
+          <div className={styles.infoCard}>
+            <div className={styles.infoCardHeader}>
+              <div className={styles.infoCardIcon}>
+                <Building2 size={32} strokeWidth={1.5} />
+              </div>
+              <h3 className={styles.infoCardTitle}>Placement Policy for Company</h3>
+            </div>
+            <ul className={styles.processList}>
+              {companyPolicy.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.allotmentSection}>
+              <p className={styles.allotmentTitle}>
+                T&P Cell generally allots a date and a slot to the company for the final placement process based on the following criteria:
+              </p>
+              <ul className={styles.allotmentList}>
+                {allotmentCriteria.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section className={styles.requirementsSection}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Important Requirements</h2>
