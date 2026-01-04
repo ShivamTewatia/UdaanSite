@@ -2,7 +2,6 @@ import { forwardRef } from "react";
 import { AnimatedNumber } from "./animatedDigit.jsx";
 import styles from "./statCard.module.css";
 
-// Map color values to variant names
 const getVariantFromColor = (color) => {
   if (!color) return "info";
   
@@ -20,7 +19,6 @@ const getVariantFromColor = (color) => {
   if (colorLower.includes("258") || colorLower.includes("purple") || colorLower.includes("violet") || colorLower === "#8b5cf6" || colorLower === "#a855f7") {
     return "accent";
   }
-  // Default to info (blue)
   return "info";
 };
 
@@ -34,7 +32,6 @@ export const StatCard = forwardRef(({
   variant,
   delay = 0 
 }, ref) => {
-  // Use explicit variant or derive from color
   const cardVariant = variant || getVariantFromColor(color);
   
   return (
@@ -43,20 +40,16 @@ export const StatCard = forwardRef(({
       className={`${styles.card} ${styles[cardVariant]}`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      {/* Glow Orb */}
       <div className={styles.glowOrb} />
-      
-      {/* Corner Accent */}
+
       <div className={styles.cornerAccent} />
-      
-      {/* Icon */}
+
       <div className={styles.iconWrapper}>
         <div className={styles.iconInner}>
           <Icon className={styles.icon} />
         </div>
       </div>
-      
-      {/* Content */}
+
       <div className={styles.content}>
         <p className={styles.title}>{title}</p>
         <p className={styles.value}>

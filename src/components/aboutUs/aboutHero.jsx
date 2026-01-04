@@ -18,7 +18,7 @@ const AboutHero = () => {
           <h1 className={styles['hero-title']}>
             <span className={styles['title-highlight']}>UDAAN</span>
           </h1>
-          <p className={styles['hero-subtitle']}>The Training And Placement Cell</p>
+          <p className={styles['hero-subtitle']}>The Training and Placement Cell</p>
           <p className={styles['hero-description']}>
             Bridging the gap between academic excellence and industry success, 
             empowering students to soar to new heights in their careers

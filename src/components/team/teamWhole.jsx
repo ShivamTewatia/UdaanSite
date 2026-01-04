@@ -157,7 +157,7 @@ const members = [
     branch: "M.Sc(Math)",
     year: "2nd Year",
     team: "Admin Team",
-    linkedin: "#"
+    linkedin: "https://www.linkedin.com/in/anjana-tewatia-a869b6381/"
   },
   {
     id: "22001050005",
@@ -532,7 +532,7 @@ const members = [
     branch: "B.Tech(EE)",
     year: "2nd Year",
     team: "Admin Team, Design Team",
-    linkedin: "https://www.linkedin.com/in/harish-sheoran-987029384"
+    linkedin: "https://www.linkedin.com/in/harish-kumar-a89bb4338/"
   },
   {
     id: "24001003046",

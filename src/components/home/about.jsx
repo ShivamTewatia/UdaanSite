@@ -11,8 +11,8 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "25+", label: "Years Of Excellence" },
-    { number: "150000+", label: "Alumni Network" },
+    { number: "25+", label: "Years of Excellence" },
+    { number: "15000+", label: "Alumni Network" },
     { number: "100+", label: "Faculty Members" },
     { number: "50+", label: "Specialized Labs" }
   ];
@@ -31,19 +31,19 @@ const About = () => {
         <div className={styles["about-grid"]}>
           <div className={styles["about-text"]}>
             <h2 className={styles["about-heading"]}>
-              About JC Bose University Of Science & Technology
+              About JC Bose University of Science & Technology
             </h2>
             <p className={styles["about-paragraph"]}>
-              Established with a vision to provide world-class technical education, JC Bose University Of Science & Technology, Faridabad stands as a beacon of excellence in higher education. Our commitment to academic rigor, industry relevance, and holistic development has made us a preferred destination for aspiring engineers and technologists.
+              Established with a vision to provide world-class technical education, JC Bose University of Science & Technology, Faridabad stands as a beacon of excellence in higher education. Our commitment to academic rigor, industry relevance, and holistic development has made us a preferred destination for aspiring engineers and technologists.
             </p>
             <p className={styles["about-paragraph"]}>
-              With a strong focus on placements and career development, our Traning & Placement Cell works tirelessly to bridge the gap between academia and industry, ensuring that every student get the opportunity to build a successful career with leading organization world wide.
+              With a strong focus on placements and career development, our Training & Placement Cell works tirelessly to bridge the gap between academia and industry, ensuring that every student gets the opportunity to build a successful career with leading organization worldwide.
             </p>
             <button 
             className={styles["btn-gradient"]}
             onClick={() => window.open("https://jcboseust.ac.in", "_blank")}
             >
-              Know More About University
+              Learn More About The University
               <ArrowRight className={styles["btn-arrow"]} />
             </button>
           </div>

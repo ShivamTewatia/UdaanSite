@@ -11,7 +11,7 @@
   border-radius: 50%;
   filter: blur(80px);
   animation: float 6s ease-in-out infinite;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 .orbLeft {
@@ -43,14 +43,14 @@
 .recruitersContent {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0rem 1.5rem;
   position: relative;
   z-index: 10;
 }
 
 .recruitersHeader {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 }
 
 .recruitersHeading {
@@ -61,7 +61,7 @@
   background-clip: text;
   color: transparent;
   letter-spacing: -0.025em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   line-height: 1.1;
 }
 
@@ -76,12 +76,13 @@
 
 .recruitersScrollWrapper {
   position: relative;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 .recruitersScrollContainer {
   overflow: hidden;
   padding: 3rem 0;
+  
 }
 
 .recruitersScroll {
@@ -96,6 +97,7 @@
 .recruitersTrack {
   display: flex;
   gap: 2.5rem;
+  padding: 2rem;
   width: fit-content;
 }
 
@@ -215,12 +217,12 @@
 
 .fadeLeft {
   left: 0;
-  background: linear-gradient(to right, #f8fafc, transparent);
+  background: linear-gradient(to right, #f8fafca4, transparent);
 }
 
 .fadeRight {
   right: 0;
-  background: linear-gradient(to left, #f8fafc, transparent);
+  background: linear-gradient(to left, #f8fafca4, transparent);
 }
 
 .recruitersNote {
@@ -228,7 +230,7 @@
   font-size: 1.125rem;
   color: #64748b;
   font-style: italic;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   font-weight: 500;
   letter-spacing: -0.025em;
 }

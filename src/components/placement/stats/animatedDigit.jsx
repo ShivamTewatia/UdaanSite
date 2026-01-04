@@ -37,7 +37,6 @@ export const AnimatedNumber = ({ value, className = "" }) => {
     const newValue = String(value);
     
     if (prevValueRef.current !== newValue) {
-      // Clear any existing timeout
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }

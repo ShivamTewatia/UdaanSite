@@ -21,7 +21,7 @@ const Footer = () => {
               <MapPin size={16}/>
               <span>
                 &nbsp; Employment & Training Office<br />
-                J.C Bose University of Science and Technology, YMCA<br />
+                J.C Bose University of Science and Technology, YMCA,<br />
                 NH-2, Delhi-Mathura Road, Sector-6<br />
                 Faridabad, Haryana-121006
               </span>

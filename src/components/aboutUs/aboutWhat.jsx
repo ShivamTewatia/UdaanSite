@@ -33,7 +33,7 @@ const AboutWhat = () => {
         },
         {
           title: "Coordination",
-          description: "Coordinates placement drives, ensuring seamless functions and collaboration",
+          description: "Coordinates placement drives, ensuring seamless execution and effective collaboration.",
           icon: Settings,
           color: "cool",
         },
@@ -56,7 +56,7 @@ const AboutWhat = () => {
       roles: [
         {
           title: "Tech Nerds",
-          description: "The backbone of our tech processes building seamless tech integration",
+          description: "The backbone of our tech processes, builds seamless tech integration",
           icon: Settings,
           color: "warm",
         },

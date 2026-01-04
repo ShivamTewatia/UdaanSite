@@ -35,11 +35,11 @@ const AboutFounder = () => {
                 <p className={styles['founder-designation']}>Software Developement Engineer, Yamaha Motors(robotics division)</p>
               </div>
               <div className={styles['founder-social-links']}>
-                <a href="https://www.instagram.com/pankajbhargv" className={`${styles['social-link']} ${styles['linkedin-link']}`} aria-label="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/pankajbhargv/" className={`${styles['social-link']} ${styles['linkedin-link']}`} aria-label="LinkedIn Profile">
                   <Linkedin size={20} />
                   <span>LinkedIn</span>
                 </a>
-                <a href="https://www.linkedin.com/in/pankajbhargv/" className={`${styles['social-link']} ${styles['instagram-link']}`} aria-label="Instagram Profile">
+                <a href="https://www.instagram.com/pankajbhargv" className={`${styles['social-link']} ${styles['instagram-link']}`} aria-label="Instagram Profile">
                   <Instagram size={20} />
                   <span>Instagram</span>
                 </a>

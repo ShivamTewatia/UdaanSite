@@ -25,31 +25,31 @@ const Contact = () => {
     {
       name: "Mr. Sanjeev Kumar",
       designation: "Clerk cum DEO",
-      email: "sanjeev.kumar@jcboseust.ac.in",
+      email: "tpo@jcboseust.ac.in",
       contact: "+91-8076494649",
       availability: "Mon-Fri: 9:00 AM - 5:00 PM",
-      bestFor: "Office Records related quaries",
+      bestFor: "Office Records related queries",
     },
     {
       name: "Mr. Yogesh Kumar Tewatia",
       designation: "Clerk cum DEO",
-      email: "yogesh.tewatia@jcboseust.ac.in",
+      email: "tnpcell@jcboseust.ac.in",
       contact: "+91-9873021220",
       availability: "Mon-Fri: 9:00 AM - 5:00 PM",
-      bestFor: "Internship related quaries",
+      bestFor: "Internship related queries",
     },
     {
       name: "Ms. Bitto",
       designation: "Clerk cum DEO",
-      email: "bitto@jcboseust.ac.in",
+      email: "tpo@jcboseust.ac.in",
       contact: "+91-8447111419",
       availability: "Mon-Fri: 9:00 AM - 5:00 PM",
-      bestFor: "Placement round related quaries",
+      bestFor: "Placement round related queries",
     }
   ];
 
   const quickStats = [
-    { icon: Users, label: "Students Placed Annually", value: "2500+" },
+    { icon: Users, label: "Students Placed This Decade", value: "4500+" },
     { icon: Briefcase, label: "Recruiting Companies", value: "500+" },
     { icon: Calendar, label: "Years of Excellence", value: "25+" },
     { icon: MessageSquare, label: "Avg Response Time", value: "24 hrs" }
@@ -221,14 +221,14 @@ const Contact = () => {
                   <div className={styles.hoursList}>
                     <div className={styles.hoursItem}>
                       <span>Monday - Friday</span>
-                      <span className={styles.hoursTime}>9:00 AM - 5:00 PM</span>
+                      <span className={styles.hoursTime}>09:00 AM - 05:00 PM</span>
                     </div>
                     <div className={styles.hoursItem}>
-                      <span>Saturday</span>
-                      <span className={styles.hoursTime}>9:00 AM - 1:00 PM</span>
+                      <span>Lunch Break</span>
+                      <span className={styles.hoursBreak}>12:30 PM - 01:30 PM</span>
                     </div>
                     <div className={styles.hoursItem}>
-                      <span>Sunday</span>
+                      <span>Saturday & Sunday</span>
                       <span className={styles.hoursClosed}>Closed</span>
                     </div>
                   </div>
@@ -297,7 +297,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <button className={styles.contactButton}>
+                  <button onClick={() => window.location.href = `tel:${staff.contact}`} className={styles.contactButton}>
                     <Phone size={16} />
                     Contact Now
                   </button>

@@ -9,15 +9,12 @@ export const InsightCard = ({
 }) => {
   return (
     <div className={`${styles.card} ${styles[variant]}`}>
-      {/* Accent Bar */}
       <div className={styles.accentBar} />
 
-      {/* Icon */}
       <div className={styles.iconWrapper}>
         <Icon className={styles.icon} />
       </div>
 
-      {/* Content */}
       <div className={styles.content}>
         <p className={styles.label}>{label}</p>
         <div className={styles.valueRow}>

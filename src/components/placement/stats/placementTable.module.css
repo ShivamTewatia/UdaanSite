@@ -140,7 +140,7 @@
   flex-shrink: 0;
 }
 
-/* Variant helpers (explicit exports for CSS Modules) */
+
 .excellent {
   --placement-variant: excellent;
 }
@@ -157,7 +157,7 @@
   --placement-variant: low;
 }
 
-/* Color variants for dots - camelCase for CSS Modules */
+
 .dotExcellent {
   background: hsl(258 90% 66%);
 }
@@ -190,7 +190,6 @@
   overflow: hidden;
 }
 
-/* Progress bar backgrounds - camelCase for CSS Modules */
 .progressBgExcellent {
   background: hsl(258, 91%, 91%);
 }
@@ -210,7 +209,6 @@
   transition: width 0.5s ease-out;
 }
 
-/* Progress fill colors - camelCase for CSS Modules */
 .progressExcellent {
   background: linear-gradient(135deg,hsl(258 90% 66%),hsl(256 88% 60%));
 }
@@ -235,7 +233,6 @@
   font-weight: 600;
 }
 
-/* Badge color variants - camelCase for CSS Modules */
 .badgeExcellent {
   background: hsl(258 90% 66%);
   color: hsl(0 0% 100%);

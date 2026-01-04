@@ -329,7 +329,7 @@ const RulesTraining = () => {
     "Submit applications within CR deadline - late submissions may not be entertained",
     "Apply to organization ONLY if eligible and interested in taking up job",
     "Go through company website to judge suitability - clarify queries during company presentation only",
-    "Report in time for PPT, written test and interview - late entry may not be allowed",
+    "Report in time for ppt, written test and interview - late entry may not be allowed",
     "Must carry I-cards at all times - no one allowed without I-card",
     "Must carry certificate file with passport photos and resume copies (Calyxpod format)",
     "Follow FORMAL DRESS CODE - failing to follow may result in not being allowed to appear further",

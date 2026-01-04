@@ -32,7 +32,7 @@ const Hero = () => {
               Training And Placement Cell
             </h1>
             <h2 className={styles.subTitle}>
-              JC BOSE UNIVERSITY, YMCA FARIDABAD
+              J.C. BOSE UNIVERSITY, YMCA FARIDABAD
             </h2>
           </div>
         </div>

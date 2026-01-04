@@ -18,7 +18,7 @@ import { useHashScroll } from "../../hooks/useHashScroll.js"
 
 const Statistics = () => {
   useHashScroll(); 
-  
+
   const years = placementData.map(d => d.year);
   const [selectedYear, setSelectedYear] = useState(years[years.length - 1]);
   const currentYearData = placementData.find(d => d.year === selectedYear);
@@ -49,7 +49,6 @@ const Statistics = () => {
 
 
       <div className={styles.content}>
-        {/* 10-Year Overview Section */}
         <div className={styles.extra}>
             <section className={styles.section}>
             <div className={styles.heading}>
@@ -99,8 +98,6 @@ const Statistics = () => {
           </section>
         </div>
         
-
-        {/* Decade-Level Charts */}
         <div className={styles.chartsGrid}>
           <PlacementTrendChart />
           <PackageTrendChart />
@@ -111,10 +108,8 @@ const Statistics = () => {
           <DepartmentTrendChart />
         </div>
 
-        {/* Year Selector */}
         <YearSelector years={years} selectedYear={selectedYear} onYearChange={setSelectedYear} />
 
-        {/* Year-Specific Stats */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Placement Data Of Session {selectedYear} </h2>
           
@@ -189,13 +184,11 @@ const Statistics = () => {
         </div>
         </section>
 
-        {/* Year-Specific Charts */}
         <div className={styles.chartsGrid}>
           <DepartmentBarChart courses={currentYearData.courses} />
           <RadarChartSection courses={currentYearData.courses} />
         </div>
 
-        {/* Data Table */}
         <PlacementTable courses={currentYearData.courses} />
       </div>
     </div>
