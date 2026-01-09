@@ -725,23 +725,8 @@
     font-size: 0.6rem;
     letter-spacing: 0;
   }
-
-  .orbLeft {
-    width: 10rem;
-    height: 10rem;
-    filter: blur(50px);
-    opacity: 0.4;
-    top: 10%;
-    left: 5%;
-  }
-
-  .orbRight {
-    width: 12rem;
-    height: 12rem;
-    filter: blur(50px);
-    opacity: 0.4;
-    bottom: 10%;
-    right: 5%;
+  .recruitersOrb {
+    display: none;
   }
 }
 
@@ -783,4 +768,12 @@
   .statItemSubtitle {
     font-size: 0.55rem;
   }
+  .companyCard {
+    backdrop-filter: none;
+  }
+  .recruitersOrb {
+    display: none;
+  }
 }
+
+

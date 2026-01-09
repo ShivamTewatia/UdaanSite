@@ -658,6 +658,13 @@
   .reasonCard {
     padding: 1.5rem 1rem;
   }
+  .reasonCard:hover{
+    transform: none;
+  }
+
+  .reasonCard:hover{
+    animation-play-state: paused;
+  }
 
   .reasonsGrid > :last-child {
     grid-column: 1 / -1;   
@@ -692,3 +699,5 @@
     display: none;
   }
 }
+
+

@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { Building, Sparkles, Award } from "lucide-react";
 import styles from "./top.module.css";
 
+
 const TopRecruiters = () => {
   const scrollRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const companies = [
     { name: "Microsoft", logo: "/images/home/microsoft.png", color: "blue" },
@@ -19,14 +21,29 @@ const TopRecruiters = () => {
     { name: "Infosys", logo: "/images/home/infosys.png", color: "blue2" },
     { name: "Adobe", logo: "/images/home/adobe.png", color: "red" }
   ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+
+    if (scrollRef.current) {
+      observer.observe(scrollRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer || isPaused) return;
+    if (!scrollContainer || isPaused || !isVisible) return;
 
     let animationFrameId;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
+    let scrollPosition = scrollContainer.scrollLeft;
+    const scrollSpeed = window.innerWidth < 768 ? 0.25 : 0.5;
+
 
     const scroll = () => {
       scrollPosition += scrollSpeed;
@@ -46,7 +63,8 @@ const TopRecruiters = () => {
         cancelAnimationFrame(animationFrameId);
       }
     };
-  }, [isPaused]);
+  }, [isPaused, isVisible]);
+
 
   const stats = [
     { icon: Building, title: "Fortune 500", subtitle: "Companies" },
@@ -70,10 +88,19 @@ const TopRecruiters = () => {
         </div>
 
         <div
-          className={styles.recruitersScrollWrapper}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
+            className={styles.recruitersScrollWrapper}
+            onMouseEnter={() => {
+              if (window.matchMedia("(hover: hover)").matches) {
+                setIsPaused(true);
+              }
+            }}
+            onMouseLeave={() => {
+              if (window.matchMedia("(hover: hover)").matches) {
+                setIsPaused(false);
+              }
+            }}
+          >
+
           <div className={styles.recruitersScrollContainer}>
             <div ref={scrollRef} className={styles.recruitersScroll}>
               <div className={styles.recruitersTrack}>
