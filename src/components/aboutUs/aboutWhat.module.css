@@ -1,4 +1,3 @@
-
 .teams-container {
   min-height: 100%;
   background: linear-gradient(135deg, #fefbf5 0%, #fdf8fd 25%, #fcf9fe 50%, #faf9fe 75%, #f9fcfe 100%);
@@ -7,7 +6,7 @@
 }
 
 .section-wrapper {
-  padding: 4rem 0rem;
+  padding: 4rem 2rem;
   position: relative;
   z-index: 1;
 }
@@ -15,8 +14,8 @@
 .content-container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
 }
-
 
 .header-section {
   text-align: center;
@@ -46,12 +45,11 @@
 
 .header-description {
   font-size: 1.125rem;
-  color: #3f089d!important;
+  color: #3f089d !important;
   max-width: 42rem;
   margin: 0 auto;
   line-height: 1.7;
 }
-
 
 .tabs-container {
   display: flex;
@@ -74,6 +72,8 @@
 .tab-button {
   position: relative;
   width: 10vw;
+  min-width: 100px;
+  max-width: 140px;
   border-radius: 0.75rem;
   font-weight: 600;
   font-size: 1.2rem;
@@ -84,9 +84,7 @@
   background: transparent;
   color: #6b7280;
   padding: 0.5rem 0.75rem;
-
 }
-
 
 .tab-warm:hover {
   color: #ea580c;
@@ -160,7 +158,6 @@
   z-index: 1;
 }
 
-
 .team-content {
   animation: fadeInUp 0.8s ease-out 0.3s backwards;
 }
@@ -168,7 +165,6 @@
 .team-hidden {
   display: none;
 }
-
 
 .team-header-card {
   background: white;
@@ -257,6 +253,7 @@
   border-radius: 1rem;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
 }
 
 .bar-warm {
@@ -288,13 +285,11 @@
   font-size: 0.95rem;
 }
 
-
 .roles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
-
 
 .role-card {
   position: relative;
@@ -305,7 +300,6 @@
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: visible;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin-right: 2.8rem;
 }
 
 .role-card::after {
@@ -327,7 +321,6 @@
   transform: translateY(-12px) scale(1.03);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
-
 
 .role-warm {
   background: linear-gradient(135deg, #ffe8cc 0%, #ffd6a8 100%);
@@ -365,7 +358,6 @@
   box-shadow: 0 20px 40px rgba(16, 185, 129, 0.35);
 }
 
-
 .role-bg-icon {
   position: absolute;
   top: -2rem;
@@ -380,7 +372,6 @@
   opacity: 0.2;
   transform: rotate(10deg) scale(1.15);
 }
-
 
 .role-icon-wrapper {
   width: 4rem;
@@ -419,11 +410,11 @@
   color: white;
 }
 
-
 .role-content {
   position: relative;
   z-index: 1;
 }
+
 
 .role-title {
   font-size: 1.35rem;
@@ -445,7 +436,6 @@
   line-height: 1.6;
   margin: 0;
 }
-
 
 @keyframes fadeInUp {
   from {
@@ -476,90 +466,460 @@
   }
 }
 
+/* ≥ 1440px — Large Desktop */
+@media (min-width: 1441px) {
+  .content-container {
+    max-width: 1600px;
+  }
 
-@media (max-width: 768px) {
+  .roles-grid {
+    gap: 2rem;
+  }
+}
+
+/* 1280px – 1439px — Laptop (Base Design - No Changes) */
+
+/* 1024px – 1279px — Small Laptop / Tablet Landscape */
+@media (max-width: 1279px) {
+  .section-wrapper {
+    padding: 3.5rem 1.5rem;
+  }
+
   .main-title {
-    font-size: 2.5rem;
+    font-size: 3.75rem;
   }
-  
+
+  .header-description {
+    font-size: 1.05rem;
+    max-width: 38rem;
+  }
+
   .tabs-wrapper {
-    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.4rem;
   }
-  
+
   .tab-button {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+    padding: 0.45rem 0.6rem;
+    min-width: 90px;
   }
-  
+
+  .roles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .role-card {
+    padding: 1.75rem;
+  }
+
+  .role-title {
+    font-size: 1.2rem;
+  }
+
+  .role-description {
+    font-size: 0.95rem;
+  }
+
+  .team-header-card {
+    padding: 1.5rem;
+  }
+
+  .team-header-text h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* 768px – 1023px — Tablet / Large Mobile */
+@media (max-width: 1023px) {
+  .section-wrapper {
+    padding: 3rem 1.25rem;
+  }
+
+  .header-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .main-title {
+    font-size: 3rem;
+  }
+
+  .title-divider {
+    width: 80px;
+    height: 3px;
+    margin-bottom: 1.25rem;
+  }
+
+  .header-description {
+    font-size: 1rem;
+    max-width: 34rem;
+    line-height: 1.6;
+  }
+
+  .tabs-container {
+    margin-bottom: 1.75rem;
+  }
+
+  .tabs-wrapper {
+    gap: 0.5rem;
+    padding: 0.35rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+  }
+
+  .tab-button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    min-width: 85px;
+    width: auto;
+    max-width: none;
+  }
+
+  .roles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .role-card {
+    padding: 1.5rem;
+  }
+
+  .role-icon-wrapper {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .role-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .role-bg-icon {
+    top: -1.5rem;
+    right: -1rem;
+  }
+
+  .role-bg-icon svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .role-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .role-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .team-header-card {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .team-header-bar {
+    width: 6px;
+    height: 3rem;
+  }
+
   .team-header-text h2 {
     font-size: 1.5rem;
   }
-  
-  .roles-grid {
-    grid-template-columns: 1fr;
+
+  .team-header-text p {
+    font-size: 0.875rem;
   }
 }
 
+/* ≤ 767px — Tablet Portrait */
+@media (max-width: 767px) {
+  .section-wrapper {
+    padding: 2.5rem 1rem;
+  }
+
+  .header-section {
+    margin-bottom: 2rem;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .title-divider {
+    width: 70px;
+    margin-bottom: 1rem;
+  }
+
+  .header-description {
+    font-size: 0.95rem;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .tabs-wrapper {
+    gap: 0.4rem;
+    padding: 0.3rem;
+    max-width: 100%;
+  }
+
+  .tab-button {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.85rem;
+    min-width: 75px;
+  }
+
+  .roles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+  }
+
+  .role-card {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .role-icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .role-icon-wrapper svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .role-bg-icon{
+
+  }
+
+  .role-title {
+    font-size: 1rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .role-description {
+    font-size: 0.85rem;
+  }
+
+  .team-header-card {
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .team-header-bar {
+    width: 5px;
+    height: 2.5rem;
+  }
+
+  .team-header-text h2 {
+    font-size: 1.35rem;
+  }
+
+  .team-header-text p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ≤ 480px — Mobile - 2x2 Grid with smaller icons */
 @media (max-width: 480px) {
   .section-wrapper {
-    padding: 2rem 1rem;
+    padding: 2rem 0.75rem;
   }
-  
+
+  .header-section {
+    margin-bottom: 1.25rem;
+  }
+
   .main-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
-  
+
+  .title-divider {
+    width: 50px;
+    height: 3px;
+  }
+
   .header-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .tabs-container {
+    margin-bottom: 1rem;
+  }
+
+  .tabs-wrapper {
+    gap: 0.3rem;
+    padding: 0.2rem;
+    border-radius: 0.6rem;
+  }
+
+  .tab-button {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+    min-width: 58px;
+    border-radius: 0.4rem;
+  }
+
+  .roles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .role-card {
+    padding: 0.8rem;
+    border-radius: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .role-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .role-bg-icon {
+    display: none;
+  }
+
+  .role-icon-wrapper {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .role-icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .role-content {
+    width: 100%;
+  }
+  .special{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* gap: 10px; */
+  }
+  .role-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    padding: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .role-description {
+    font-size: 0.65rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .team-header-card {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-header-bar {
+    width: 3px;
+    height: 1.75rem;
+    border-radius: 0.4rem;
+  }
+
+  .team-header-text h2 {
     font-size: 1rem;
   }
-}
 
+  .team-header-text p {
+    font-size: 0.7rem;
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   .teams-container {
     background: linear-gradient(135deg, #fefbf5 0%, #fdf8fd 25%, #fcf9fe 50%, #faf9fe 75%, #f9fcfe 100%);
   }
-  
+
   .main-title {
     background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
+
   .header-description {
     color: #7c3aed;
   }
-  
+
   .tabs-wrapper {
     background: rgba(255, 255, 255, 0.95);
   }
-  
+
   .tab-button {
     color: #6b7280;
   }
-  
+
   .tab-button:hover {
     color: #1f2937;
     background: rgba(0, 0, 0, 0.03);
   }
-  
+
   .team-header-card {
     background: white;
   }
-  
+
   .team-header-text h2 {
     color: #1f2937;
   }
-  
+
   .team-header-text p {
     color: #6b7280;
   }
-  
+
   .role-title {
     color: #1f2937;
   }
-  
+
   .role-description {
     color: #6b7280;
+  }
+}
+@keyframes autoRotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
+@media (max-width: 480px) {
+  .animate .role-icon-wrapper {
+    animation: autoRotate 0.4s ease-out forwards;
+  }
+
+  .animate .role-card:nth-child(1) .role-icon-wrapper {
+    animation-delay: 0.05s;
+  }
+  .animate .role-card:nth-child(2) .role-icon-wrapper {
+    animation-delay: 0.1s;
+  }
+  .animate .role-card:nth-child(3) .role-icon-wrapper {
+    animation-delay: 0.15s;
+  }
+  .animate .role-card:nth-child(4) .role-icon-wrapper {
+    animation-delay: 0.2s;
   }
 }

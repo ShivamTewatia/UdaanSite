@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // CHANGE 1: NavLink हटाया, useNavigate रखा
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./nav.module.css";
 
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigate = useNavigate(); // CHANGE 2: useNavigate hook
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     {
@@ -163,40 +164,15 @@ const Nav = () => {
         preserveAspectRatio="none"
       >
         <path
-          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,
-          70.36-5.37,136.33-33.31,206.8-37.5,
-          C438.64,32.43,512.34,53.67,583,72.05,
-          c69.27,18,138.3,24.88,209.4,13.08,
-          36.15-6,69.85-17.84,104.45-29.34,
-          C989.49,25,1113-14.29,1200,52.47V0Z"
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
           opacity=".25"
           fill="url(#gradient1)"
         />
         <path
-          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,
-          99.41,111.27,165,111,224.58,91.58,
-          31.15-10.15,60.09-26.07,89.67-39.8,
-          40.92-19,84.73-46,130.83-49.67,
-          36.26-2.85,70.9,9.42,98.6,31.56,
-          31.77,25.39,62.32,62,103.63,73,
-          40.44,10.79,81.35-6.69,119.13-24.28,
-          s75.16-39,116.92-43.05,
-          c59.73-5.85,113.28,22.88,168.9,38.84,
-          30.2,8.66,59,6.17,87.09-7.5,
-          22.43-10.89,48-26.93,60.65-49.24V0Z"
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
           opacity=".5"
           fill="url(#gradient2)"
         />
-        <defs>
-          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#7c3aed" />
-            <stop offset="100%" stopColor="#ec4899" />
-          </linearGradient>
-          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#ec4899" />
-            <stop offset="100%" stopColor="#06b6d4" />
-          </linearGradient>
-        </defs>
       </svg>
 
       <div className={styles.container}>
@@ -206,56 +182,18 @@ const Nav = () => {
             <h1>UDAAN</h1>
           </div>
           <div className={styles.navLinks}>
-            {/* CHANGE 3: NavLink को button में बदला */}
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => navigate(item.path)}
                 className={`${styles.navButton} ${
-                  window.location.pathname === item.path ? styles.active : ""
+                  location.pathname === item.path ? styles.active : ""
                 }`}
               >
                 {item.icon}
                 {item.label}
               </button>
             ))}
-
-            {/* <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                `${styles.navButton} ${isActive ? styles.active : ""}`
-              }
-            >
-              <svg
-                className={styles.tabIcon}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 3H19C19.53 3 20.04 3.21 20.41 3.59C20.79 3.96 21 4.47 21 5V19C21 19.53 20.79 20.04 20.41 20.41C20.04 20.79 19.53 21 19 21H15"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M10 17L15 12L10 7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M15 12H3"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Login
-            </NavLink> */}
           </div>
           <button
             className={styles.mobileMenuButton}
@@ -267,7 +205,6 @@ const Nav = () => {
         {mobileMenuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuContent}>
-              {/* CHANGE 4: Mobile menu में भी NavLink को button में बदला */}
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -276,22 +213,13 @@ const Nav = () => {
                     setMobileMenuOpen(false);
                   }}
                   className={`${styles.navButton} ${
-                    window.location.pathname === item.path ? styles.active : ""
+                    location.pathname === item.path ? styles.active : ""
                   }`}
                 >
                   {item.icon}
                   {item.label}
                 </button>
               ))}
-              {/* <NavLink
-                to="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `${styles.navButton} ${isActive ? styles.active : ""}`
-                }
-              >
-                Login
-              </NavLink> */}
             </div>
           </div>
         )}
@@ -301,7 +229,4 @@ const Nav = () => {
 };
 
 export default Nav;
-
-
-
 

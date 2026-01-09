@@ -6,6 +6,7 @@ import ContactUs from "./pages/contactUs.jsx"
 import LoginP from "./pages/login.jsx"
 import Placement from "./pages/placement.jsx"
 import { Routes, Route } from "react-router-dom";
+// import './app.css';
 
 
 function App() {

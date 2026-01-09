@@ -1,9 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import udnLogo from "/images/home/udnLogo.jpeg";
-import clgGate from "/images/home/clg.png";
+import { useHashScroll } from "../hooks/useHashScroll";
 import styles from "./heroHome.module.css";
-import { useHashScroll } from "../hooks/useHashScroll"
 
 const Hero = () => {
   useHashScroll();
@@ -11,21 +9,16 @@ const Hero = () => {
 
   return (
     <header id="home" className={styles.heroContainer}>
-      <div 
-        className={styles.heroBackground}
-        style={{ backgroundImage: `url(${clgGate})` }}
-      >
+      <div className={styles.heroBackground}>
         <div className={styles.heroOverlay} />
       </div>
 
       <div className={styles.heroContent}>
         <div className={styles.heroHeader}>
           <div className={styles.logoContainer}>
-            <img 
-              src={udnLogo} 
-              alt="U.D.A.A.N Logo" 
-              className={styles.logoImage}
-            />
+            <div className={styles.logoPlaceholder}>
+              <img src="./public/images/home/udnLogo.jpeg" alt="logo" />
+            </div>
           </div>
           <div className={styles.headerText}>
             <h1 className={styles.mainTitle}>
@@ -54,12 +47,12 @@ const Hero = () => {
           <button 
             className={`${styles.btn} ${styles.btnPrimary}`}
             onClick={() => navigate("/placement")} 
-            >
-              Explore Placements
+          >
+            Explore Placements
           </button>
           <button 
-          className={`${styles.btn} ${styles.btnOutline}`}
-          onClick={() => navigate("/about")} 
+            className={`${styles.btn} ${styles.btnOutline}`}
+            onClick={() => navigate("/about")} 
           >
             About Us
             <ChevronRight className={styles.btnIcon} />
@@ -72,7 +65,7 @@ const Hero = () => {
       </div>
 
       <div className={styles.heroWave}>
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
         </svg>
       </div>
@@ -81,3 +74,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

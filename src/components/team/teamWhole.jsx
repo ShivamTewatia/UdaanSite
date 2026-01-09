@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Linkedin, Sparkles, Users } from "lucide-react";
+import { Search, Linkedin, Sparkles, Users, ChevronDown } from "lucide-react";
 import styles from "./EnhancedTeamPage.module.css";
 import { useHashScroll } from "../hooks/useHashScroll" 
 
@@ -20,16 +20,6 @@ const colorSchemes = [
 ];
 
 const members = [
-  // {
-  //   id: "22001011015",
-  //   name: "Bipul Kumar",
-  //   pic: "bipul.png",
-  //   role: "Secretary",
-  //   branch: "B.Tech(IT)",
-  //   year: "4th Year",
-  //   team: "All Team",
-  //   linkedin: "https://www.linkedin.com/in/bipul-kumar-697654255"
-  // },
   {
     id: 9,
     name: "Aryan Singh",
@@ -60,9 +50,6 @@ const members = [
     team: "All Team",
     linkedin: "https://www.linkedin.com/in/kumar-arth-690765247"
   },
-  
-
-  // Joint Secretaries
   {
     id: "23001013010",
     name: "Aman",
@@ -113,8 +100,6 @@ const members = [
     team: "All Team",
     linkedin: "http://linkedin.com/in/kanishkj0"
   },
-
-
   {
     id: "23001008045",
     name: "Raghvi",
@@ -125,8 +110,6 @@ const members = [
     team: "All Team",
     linkedin: "https://www.linkedin.com/in/raghavi-gurjar-558031280"
   },
-
-
   {
     id: "23001008058",
     name: "Sandeep Kumar",
@@ -137,7 +120,6 @@ const members = [
     team: "Admin Team, Outreach Team",
     linkedin: "https://www.linkedin.com/in/sandeepprasad349"
   },
-
   {
     id: "23001017071",
     name: "Naman Goel",
@@ -148,7 +130,6 @@ const members = [
     team: "Admin Team",
     linkedin: "https://www.linkedin.com/in/naman-goel-8a2737322"
   },
-
   {
     id: "24001753005",
     name: "Anjana",
@@ -259,7 +240,6 @@ const members = [
     team: "IT Team",
     linkedin: "https://www.linkedin.com/in/yashika-sharma-792802315"
   },
-
   {
     id: "23001011033",
     name: "Madhu",
@@ -280,7 +260,6 @@ const members = [
     team: "IT Team",
     linkedin: "https://www.linkedin.com/in/tannu-banwala-5832492a4"
   },
-
   {
     id: "22001016017",
     name: "Diya Gupta",
@@ -301,8 +280,6 @@ const members = [
     team: "Admin Team",
     linkedin: "https://www.linkedin.com/in/muskan-08a6b1254"
   },
-
-  // 3rd Year Student Coordinators
   {
     id: "23001016003",
     name: "Abhishek Singh",
@@ -433,7 +410,6 @@ const members = [
     team: "IT Team",
     linkedin: "https://www.linkedin.com/in/vanshita-gandhi-74993b2a9"
   },
-
   {
     id: "24001050001",
     name: "Aastha Sharma",
@@ -493,16 +469,6 @@ const members = [
     year: "2nd Year",
     team: "Design Team",
     linkedin: "https://www.linkedin.com/in/chetan-chaudhary-704902379"
-  },
-  {
-    id: "24001003033",
-    name: "Devansh Sharma",
-    pic: "devansh.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/devansh-sharma-686357353"
   },
   {
     id: "24001015015",
@@ -755,11 +721,8 @@ const members = [
     linkedin: "https://www.linkedin.com/in/vanshika-chauhan-870b1628a"
   }
 ];
-
-const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, colorIndex }) => {
+const EnhancedTeamCard = ({ name, pic, role, branch, year, team, linkedin, colorIndex }) => {
   const colors = colorSchemes[colorIndex % colorSchemes.length];
-  
-
   const cardStyle = {
     '--card-primary': colors.primary,
     '--card-secondary': colors.secondary,
@@ -767,16 +730,16 @@ const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, c
   };
 
   return (
-    <div  className={styles.enhancedCard} style={cardStyle}>
+    <div className={styles.enhancedCard} style={cardStyle}>
       <div className={styles.cardGlow}></div>
       <div className={styles.cardInner}>
         <div className={styles.cardHeaderTop}>
           <div className={styles.roleTag}>
-            <Sparkles size={16} />
+            <Sparkles size={14} />
             <span>{role}</span>
           </div>
-          <a 
-            href={linkedin} 
+          <a
+            href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.linkedinBtn}
@@ -784,27 +747,23 @@ const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, c
             <Linkedin size={18} />
           </a>
         </div>
-
         <div className={styles.avatarSection}>
           <div className={styles.avatarWrapper}>
             <div className={styles.avatarCircle1}>
               <div className={styles.avatarCircle}>
-                <img src={`/images/team/${pic}`} alt={name} loading="lazy"/>
+                <img src={`/images/team/${pic}`} alt={name} loading="lazy" />
               </div>
             </div>
           </div>
         </div>
-
         <div className={styles.cardContent}>
           <h3 className={styles.memberName}>{name.toUpperCase()}</h3>
           <div className={styles.cardSection}>
-            
             <div className={styles.memberInfo}>
               <p className={styles.memberStatSpecial}></p>
               <p className={styles.memberHead}>Branch/Year</p>
               <p className={styles.memberStat}>{branch}</p>
               <p className={styles.memberStat}>{year}</p>
-              
             </div>
             <div className={styles.memberInfo}>
               <p className={styles.memberHead}>Team</p>
@@ -817,11 +776,46 @@ const EnhancedTeamCard = ({ id, name, pic, role, branch, year, team, linkedin, c
   );
 };
 
+// Mobile Card - elegant 2-column layout
+const MobileStudentCard = ({ name, pic, role, branch, year, linkedin, colorIndex }) => {
+  const colors = colorSchemes[colorIndex % colorSchemes.length];
+  const cardStyle = {
+    '--card-primary': colors.primary,
+    '--card-secondary': colors.secondary,
+    '--card-accent': colors.accent,
+  };
+
+  return (
+    <div className={styles.studentCard} style={cardStyle}>
+      <div className={styles.studentCardTop}>
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.studentLinkedin}
+        >
+          <Linkedin size={14} />
+        </a>
+      </div>
+      <div className={styles.studentCardBottom}>
+        <div className={styles.studentAvatar}>
+          <img src={`/images/team/${pic}`} alt={name} loading="lazy" />
+        </div>
+        <div className={styles.studentInfo}>
+          <h4 className={styles.studentName}>{name}</h4>
+          <span className={styles.studentRole}>{role}</span>
+          <p className={styles.studentMeta}>• {branch} <br/>• {year}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const EnhancedTeamPage = () => {
-  useHashScroll(); 
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Filter members for desktop view
   const filteredMembers = members.filter(member => {
     const matchesTeam = selectedTeam === "All Teams" || member.team.includes(selectedTeam);
     const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -841,25 +835,21 @@ const EnhancedTeamPage = () => {
 
       <section className={styles.enhancedHero}>
         <div className={styles.heroPattern}></div>
-        
         <div className={styles.heroContentWrapper}>
           <div className={styles.heroBadgeNew}>
             <Sparkles size={14} />
             <span>OUR LEADERSHIP EXCELLENCE</span>
           </div>
-
           <h1 className={styles.heroTitleNew}>
             OUR &nbsp;
             <span className={styles.gradientTitle}>EXTRAORDINARY</span>
             <br />
             TEAM MEMBERS
           </h1>
-
           <p className={styles.heroDescriptionNew}>
-            Passionate innovators and visionary leaders collaborating to create 
+            Passionate innovators and visionary leaders collaborating to create
             extraordinary experiences and drive transformative change in our community
           </p>
-
           <div className={styles.heroStatsContainer}>
             <div className={styles.statCard}>
               <div className={styles.statIcon}>
@@ -884,8 +874,6 @@ const EnhancedTeamPage = () => {
             </div>
           </div>
         </div>
-
-
         <div className={styles.waveDivider}>
           <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" />
@@ -895,7 +883,6 @@ const EnhancedTeamPage = () => {
 
       <section className={styles.mainSection}>
         <div className={styles.container}>
-
           <div className={styles.searchWrapper}>
             <div className={styles.searchBox}>
               <Search className={styles.searchIconNew} size={20} />
@@ -928,25 +915,30 @@ const EnhancedTeamPage = () => {
             ))}
           </div>
 
+          {/* Desktop Grid - Original card design */}
           <div className={styles.membersGridEnhanced}>
             {filteredMembers.map((member, index) => (
               <div
                 key={member.id}
                 className={styles.memberWrapper}
-                style={{ animationDelay: `${index * 180}ms` }}
+                style={{ animationDelay: `${index * 80}ms` }}
               >
                 <EnhancedTeamCard
-                  id={member.id}
-                  name={member.name}
-                  pic={member.pic}
-                  role={member.role}
-                  branch={member.branch}
-                  year={member.year}
-                  team={member.team}
-                  linkedin={member.linkedin}
+                  {...member}
                   colorIndex={members.findIndex(m => m.id === member.id)}
                 />
               </div>
+            ))}
+          </div>
+
+          {/* Mobile View: 2-column grid for all cards */}
+          <div className={styles.studentCoordinatorGrid}>
+            {filteredMembers.map((member) => (
+              <MobileStudentCard
+                key={member.id}
+                {...member}
+                colorIndex={members.findIndex(m => m.id === member.id)}
+              />
             ))}
           </div>
 
@@ -966,5 +958,3 @@ const EnhancedTeamPage = () => {
 };
 
 export default EnhancedTeamPage;
-
-

@@ -1,13 +1,12 @@
-
 import { School, Building2, Briefcase, TrendingUp, Users, Award, ArrowRight } from "lucide-react";
 import styles from "./about.module.css";
 
 const About = () => {
   const features = [
-    { icon: School, title: "Academic Excellence", description: "NAAC A+ accredited institution with world-class faculty and cutting-edge curriculum", color: "purple" },
-    { icon: Building2, title: "Modern Infrastructure", description: "State of the art facilities, labs, and learning resources for comprehensive education", color: "cyan" },
-    { icon: Briefcase, title: "Industry Connect", description: "Strong partnerships with leading companies ensuring maximum placement opportunities", color: "orange" },
-    { icon: TrendingUp, title: "Proven Track Record", description: "25+ years of excellence in education with thousands of successful alumni worldwide", color: "pink" }
+    { icon: School, title: "Academic Excellence", description: "NAAC A+ accredited institution with world-class faculty and cutting-edge curriculum", color: "Purple" },
+    { icon: Building2, title: "Modern Infrastructure", description: "State of the art facilities, labs, and learning resources for comprehensive education", color: "Cyan" },
+    { icon: Briefcase, title: "Industry Connect", description: "Strong partnerships with leading companies ensuring maximum placement opportunities", color: "Orange" },
+    { icon: TrendingUp, title: "Proven Track Record", description: "25+ years of excellence in education with thousands of successful alumni worldwide", color: "Pink" }
   ];
 
   const stats = [
@@ -18,97 +17,101 @@ const About = () => {
   ];
 
   const reasons = [
-    { icon: Users, title: "500+ Recruiters", description: "Top companies from various industries recruit our students", color: "purple" },
-    { icon: TrendingUp, title: "87% Placement Record", description: "Exceptional placement success rate year after year", color: "cyan" },
-    { icon: Award, title: "Highest Package: 60 LPA", description: "Outstanding packages secured by our talented students", color: "orange" },
-    { icon: Briefcase, title: "Industry Collaborations", description: "Partnerships with leading companies and organisations", color: "green" },
-    { icon: School, title: "NAAC A+ Accredited", description: "Recognized for academic excellence and quality education", color: "pink" }
+    { icon: Users, title: "500+ Recruiters", description: "Top companies from various industries recruit our students", color: "Purple" },
+    { icon: TrendingUp, title: "87% Placement Record", description: "Exceptional placement success rate year after year", color: "Cyan" },
+    { icon: Award, title: "Highest Package: 60 LPA", description: "Outstanding packages secured by our talented students", color: "Orange" },
+    { icon: Briefcase, title: "Industry Collaborations", description: "Partnerships with leading companies and organisations", color: "Green" },
+    { icon: School, title: "NAAC A+ Accredited", description: "Recognized for academic excellence and quality education", color: "Pink" }
   ];
 
   return (
-    <article className={styles["about-container"]}>
-      <div className={styles["about-content"]}>
-        <div className={styles["about-grid"]}>
-          <div className={styles["about-text"]}>
-            <h2 className={styles["about-heading"]}>
+    <article className={styles.aboutContainer}>
+      <div className={styles.aboutContent}>
+        <div className={styles.aboutGrid}>
+          <div className={styles.aboutText}>
+            <h2 className={styles.aboutHeading}>
               About JC Bose University of Science & Technology
             </h2>
-            <p className={styles["about-paragraph"]}>
+            <p className={styles.aboutParagraph}>
               Established with a vision to provide world-class technical education, JC Bose University of Science & Technology, Faridabad stands as a beacon of excellence in higher education. Our commitment to academic rigor, industry relevance, and holistic development has made us a preferred destination for aspiring engineers and technologists.
             </p>
-            <p className={styles["about-paragraph"]}>
+            <p className={styles.aboutParagraph}>
               With a strong focus on placements and career development, our Training & Placement Cell works tirelessly to bridge the gap between academia and industry, ensuring that every student gets the opportunity to build a successful career with leading organization worldwide.
             </p>
             <button 
-            className={styles["btn-gradient"]}
-            onClick={() => window.open("https://jcboseust.ac.in", "_blank")}
+              className={styles.btnGradient}
+              onClick={() => window.open("https://jcboseust.ac.in", "_blank")}
             >
               Learn More About The University
-              <ArrowRight className={styles["btn-arrow"]} />
+              <ArrowRight className={styles.btnArrow} />
             </button>
           </div>
 
-          <div className={styles["features-grid"]}>
+          <div className={styles.featuresGrid}>
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`${styles["feature-card"]} ${styles[`feature-${feature.color}`]}`}
+                className={`${styles.featureCard} ${styles[`feature${feature.color}`]}`}
               >
-                <div className={styles["feature-overlay"]} />
-                <div className={`${styles["feature-icon-wrapper"]} ${styles[`icon-${feature.color}`]}`}>
-                  <feature.icon className={styles["feature-icon"]} />
+                <div className={styles.featureOverlay} />
+                <div className={`${styles.featureIconWrapper} ${styles[`icon${feature.color}`]}`}>
+                  <feature.icon className={styles.featureIcon} />
                 </div>
-                <h3 className={styles["feature-title"]}>
-                  {feature.title}
-                </h3>
-                <p className={styles["feature-description"]}>
-                  {feature.description}
-                </p>
+                <div>
+                  <h3 className={styles.featureTitle}>
+                    {feature.title}
+                  </h3>
+                  <p className={styles.featureDescription}>
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className={styles["stats-grid"]}>
+        <div className={styles.statsGrid}>
           {stats.map((stat, index) => (
-            <div key={index} className={styles["stat-card"]}>
-              <p className={styles["stat-number"]}>
+            <div key={index} className={styles.statCard}>
+              <p className={styles.statNumber}>
                 {stat.number}
               </p>
-              <p className={styles["stat-label"]}>
+              <p className={styles.statLabel}>
                 {stat.label}
               </p>
             </div>
           ))}
         </div>
 
-        <div className={styles["reasons-section"]}>
-          <div className={styles["reasons-header"]}>
-            <h1 className={styles["reasons-heading"]}>
+        <div className={styles.reasonsSection}>
+          <div className={styles.reasonsHeader}>
+            <h1 className={styles.reasonsHeading}>
               Why Choose JC Bose University?
             </h1>
-            <p className={styles["reasons-subheading"]}>
+            <p className={styles.reasonsSubheading}>
               Discover what makes us the preferred choice...
             </p>
           </div>
 
-          <div className={styles["reasons-grid"]}>
+          <div className={styles.reasonsGrid}>
             {reasons.map((reason, index) => (
               <div
                 key={index}
-                className={`${styles["reason-card"]} ${styles[`reason-${reason.color}`]}`}
+                className={`${styles.reasonCard} ${styles[`reason${reason.color}`]}`}
               >
-                <div className={styles["reason-glow"]} />
-                <div className={styles["reason-content"]}>
-                  <div className={`${styles["reason-icon-wrapper"]} ${styles[`icon-${reason.color}`]}`}>
-                    <reason.icon className={styles["reason-icon"]} />
+                <div className={styles.reasonGlow} />
+                <div className={styles.reasonContent}>
+                  <div className={`${styles.reasonIconWrapper} ${styles[`icon${reason.color}`]}`}>
+                    <reason.icon className={styles.reasonIcon} />
                   </div>
-                  <h3 className={styles["reason-title"]}>
-                    {reason.title}
-                  </h3>
-                  <p className={styles["reason-description"]}>
-                    {reason.description}
-                  </p>
+                  <div>
+                    <h3 className={styles.reasonTitle}>
+                      {reason.title}
+                    </h3>
+                    <p className={styles.reasonDescription}>
+                      {reason.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -120,3 +123,4 @@ const About = () => {
 };
 
 export default About;
+

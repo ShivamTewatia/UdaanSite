@@ -8,28 +8,28 @@ const Placement = () => {
       value: "60 LPA",
       title: "Highest Package",
       description: "Record-breaking placement packages",
-      gradient: "orange"
+      gradient: "Orange"
     },
     {
       icon: IndianRupee,
       value: "9.53 LPA",
       title: "Average Package",
       description: "Strong average compensation",
-      gradient: "purple"
+      gradient: "Purple"
     },
     {
       icon: Users,
       value: "4500+",
       title: "Students Placed",
       description: "Successfully placed in this decade",
-      gradient: "cyan"
+      gradient: "Cyan"
     },
     {
       icon: Building,
       value: "500+",
       title: "Company Visits",
       description: "Companies participated in recruitment",
-      gradient: "pink"
+      gradient: "Pink"
     }
   ];
 
@@ -71,11 +71,11 @@ const Placement = () => {
 
         <div className={styles.mainStatsGrid}>
           {mainStats.map((stat, index) => (
-            <div key={index} className={`${styles.statCardMain} ${styles[`stat${stat.gradient.charAt(0).toUpperCase() + stat.gradient.slice(1)}`]}`}>
+            <div key={index} className={`${styles.statCardMain} ${styles[`stat${stat.gradient}`]}`}>
               <div className={styles.statOverlay} />
               
               <div className={styles.statContent}>
-                <div className={`${styles.statIconWrapper} ${styles[`icon${stat.gradient.charAt(0).toUpperCase() + stat.gradient.slice(1)}`]}`}>
+                <div className={`${styles.statIconWrapper} ${styles[`icon${stat.gradient}`]}`}>
                   <stat.icon className={styles.statIcon} />
                 </div>
                 
@@ -103,13 +103,15 @@ const Placement = () => {
               <div className={styles.highlightContent}>
                 <highlight.icon className={styles.highlightIcon} />
                 
-                <h3 className={styles.highlightValue}>
-                  {highlight.value}
-                </h3>
-                
-                <p className={styles.highlightDescription}>
-                  {highlight.description}
-                </p>
+                <div>
+                  <h3 className={styles.highlightValue}>
+                    {highlight.value}
+                  </h3>
+                  
+                  <p className={styles.highlightDescription}>
+                    {highlight.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -117,7 +119,7 @@ const Placement = () => {
       </div>
 
       <div className={styles.placementWave}>
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
         </svg>
       </div>
@@ -126,4 +128,5 @@ const Placement = () => {
 };
 
 export default Placement;
+
 

@@ -30,11 +30,11 @@ const TopRecruiters = () => {
 
     const scroll = () => {
       scrollPosition += scrollSpeed;
-      
+
       if (scrollPosition >= scrollContainer.scrollWidth / 2) {
         scrollPosition = 0;
       }
-      
+
       scrollContainer.scrollLeft = scrollPosition;
       animationFrameId = requestAnimationFrame(scroll);
     };
@@ -69,7 +69,7 @@ const TopRecruiters = () => {
           </p>
         </div>
 
-        <div 
+        <div
           className={styles.recruitersScrollWrapper}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -80,21 +80,26 @@ const TopRecruiters = () => {
                 {[...companies, ...companies].map((company, index) => (
                   <div key={`${company.name}-${index}`} className={styles.companyCard}>
                     <div className={styles.companyLogoContainer}>
-                      <img 
-                        src={company.logo} 
+                      <img
+                        src={company.logo}
                         alt={company.name}
                         className={styles.companyLogo}
                         onError={(e) => {
-                          e.target.style.display = 'none';
-                          const fallback = e.target.parentElement.querySelector(`.${styles.companyNameFallback}`);
-                          if (fallback) fallback.style.display = 'block';
+                          const target = e.target;
+                          target.style.display = "none";
+
+                          const fallback =
+                            target.parentElement?.querySelector(
+                              `.${styles.companyNameFallback}`
+                            );
+                          if (fallback) fallback.style.display = "block";
                         }}
                       />
                       <div className={styles.companyNameFallback}>
                         {company.name}
                       </div>
                     </div>
-                    
+
                     <span className={styles.companyName}>
                       {company.name}
                     </span>
@@ -121,7 +126,6 @@ const TopRecruiters = () => {
                 <h3 className={styles.statItemTitle}>
                   {stat.title}
                 </h3>
-                
                 <p className={styles.statItemSubtitle}>
                   {stat.subtitle}
                 </p>

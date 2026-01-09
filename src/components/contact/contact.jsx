@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { 
   Mail, 
   Phone, 
@@ -14,13 +14,19 @@ import {
   HelpCircle, 
   Shield, 
   Sparkles, 
-  BusFront
+  BusFront,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 import styles from './contact.module.css';
-import { useHashScroll } from "../hooks/useHashScroll"
+import { useHashScroll } from "../hooks/useHashScroll";
 
 const Contact = () => {
   useHashScroll();
+  const [activeStaffIndex, setActiveStaffIndex] = useState(0);
+  const [expandedFaq, setExpandedFaq] = useState(null);
+  const staffScrollRef = useRef(null);
+
   const staffMembers = [
     {
       name: "Mr. Sanjeev Kumar",
@@ -91,40 +97,65 @@ const Contact = () => {
   const locationCards = [
     {
       icon: BusFront,
-      title: "Nearest Intracity Bus Stand",
-      description: "Nearest Intracity Bus Stand: Ballabgarh bus stand. Take cab or auto to ymca chowk 15-20 minute journey",
+      title: "Nearest Bus Stand",
+      description: "Ballabgarh bus stand. Take cab or auto to YMCA chowk (15-20 min)",
     },
     {
       icon: TrainFront,
-      title: "Nearest Metro Station",
-      description: "Nearest Metro Station: Escorts Mujesar. Take a walk of 90-100 meters from exit gate 2 .",
+      title: "Nearest Metro",
+      description: "Escorts Mujesar. Walk 90-100m from exit gate 2.",
     },
     {
       icon: RailSymbol,
-      title: "Nearest Railway Station",
-      description: "Nearest Railway Station: Old Faridabad Station. Take cab/auto or metro to escorts mujesar 15-20 minute journey",
+      title: "Nearest Railway",
+      description: "Old Faridabad Station. Take cab/auto or metro (15-20 min)",
     }
   ];
 
+  const handleStaffScroll = () => {
+    if (staffScrollRef.current) {
+      const scrollLeft = staffScrollRef.current.scrollLeft;
+      const cardWidth = staffScrollRef.current.offsetWidth;
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveStaffIndex(index);
+    }
+  };
+
+  const scrollToStaff = (index) => {
+    if (staffScrollRef.current) {
+      const cardWidth = staffScrollRef.current.offsetWidth;
+      staffScrollRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    const scrollContainer = staffScrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleStaffScroll);
+      return () => scrollContainer.removeEventListener('scroll', handleStaffScroll);
+    }
+  }, []);
+
   return (
-    <div id="contact" className={styles.container}>
+    <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerPattern}></div>
-        
         <div className={styles.headerContent}>
           <div className={styles.headerBadge}>
-            <Shield size={16} />
-            <span>We're Here to Help</span>
+            <Sparkles size={16} />
+            We're Here to Help
           </div>
           <h1 className={styles.headerTitle}>Contact Us</h1>
           <p className={styles.headerDescription}>
             Get in touch with our Training and Placement Office team for placements, internships, and career guidance
           </p>
         </div>
-
         <div className={styles.headerWave}>
-          <svg viewBox="0 0 1440 120" fill="none">
-            <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white" fillOpacity="0.1"/>
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f0f9ff"/>
           </svg>
         </div>
       </header>
@@ -215,7 +246,7 @@ const Contact = () => {
               <div className={styles.officeRight}>
                 <div className={styles.hoursCard}>
                   <div className={styles.hoursHeader}>
-                    <Clock size={32} />
+                    <Clock size={24} />
                     <h3 className={styles.hoursTitle}>Office Hours</h3>
                   </div>
                   <div className={styles.hoursList}>
@@ -235,14 +266,14 @@ const Contact = () => {
                 </div>
 
                 <div className={styles.responseCard}>
-                  <h4 className={styles.responseTitle}>
-                    <MessageSquare size={20} />
+                  <div className={styles.responseTitle}>
+                    <Sparkles size={18} />
                     Quick Response Times
-                  </h4>
+                  </div>
                   <ul className={styles.responseList}>
-                    <li><strong>Email queries:</strong> Within 24 hours</li>
-                    <li><strong>Phone calls:</strong> Immediate assistance</li>
-                    <li><strong>Walk-in:</strong> No appointment needed</li>
+                    <li>Email queries: Within 24 hours</li>
+                    <li>Phone calls: Immediate assistance</li>
+                    <li>Walk-in: No appointment needed</li>
                   </ul>
                 </div>
               </div>
@@ -253,28 +284,27 @@ const Contact = () => {
         <section>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionBadge}>
-              <Users size={16} />
-              <span>Clerical Staff </span>
+              <Building2 size={16} />
+              Clerical Staff 
             </div>
             <h2 className={styles.sectionTitle}>Meet Our Dedicated Staff</h2>
             <p className={styles.sectionDescription}>
-              Experienced professionals committed to guiding your career journey from campus to corporate success
+              Experienced professionals committed to guiding your career journey
             </p>
           </div>
 
-          <div className={styles.staffGrid}>
+          <div className={styles.staffGrid} ref={staffScrollRef}>
             {staffMembers.map((staff, index) => (
               <div key={index} className={styles.staffCard}>
                 <div className={styles.staffHeader}>
                   <div className={styles.staffAvatar}>
-                    <Sparkles size={40} />
+                    <Users size={32} />
                   </div>
-                  <div className={styles.staffName}>{staff.name}</div>
-                  <div className={styles.staffDesignation}>{staff.designation}</div>
+                  <h3 className={styles.staffName}>{staff.name}</h3>
+                  <p className={styles.staffDesignation}>{staff.designation}</p>
                 </div>
 
                 <div className={styles.staffContent}>
-
                   <div className={styles.bestForCard}>
                     <div className={styles.bestForLabel}>Best For</div>
                     <p className={styles.bestForText}>{staff.bestFor}</p>
@@ -282,18 +312,18 @@ const Contact = () => {
 
                   <div className={styles.contactInfo}>
                     <a href={`mailto:${staff.email}`} className={styles.contactLink}>
-                      <Mail size={20} />
-                      <span>{staff.email}</span>
+                      <Mail size={16} />
+                      {staff.email}
                     </a>
                     
                     <a href={`tel:${staff.contact}`} className={styles.contactLink}>
-                      <Phone size={20} />
-                      <span>{staff.contact}</span>
+                      <Phone size={16} />
+                      {staff.contact}
                     </a>
 
                     <div className={styles.availability}>
-                      <Clock size={16} />
-                      <span>{staff.availability}</span>
+                      <Clock size={14} />
+                      {staff.availability}
                     </div>
                   </div>
 
@@ -305,13 +335,24 @@ const Contact = () => {
               </div>
             ))}
           </div>
+
+          <div className={styles.staffDots}>
+            {staffMembers.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.staffDot} ${activeStaffIndex === index ? styles.staffDotActive : ''}`}
+                onClick={() => scrollToStaff(index)}
+                aria-label={`Go to staff ${index + 1}`}
+              />
+            ))}
+          </div>
         </section>
 
         <section>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionBadge}>
               <HelpCircle size={16} />
-              <span>FAQ</span>
+              FAQ
             </div>
             <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
             <p className={styles.sectionDescription}>Quick answers to common queries</p>
@@ -319,13 +360,26 @@ const Contact = () => {
 
           <div className={styles.faqGrid}>
             {faqs.map((faq, index) => (
-              <div key={index} className={styles.faqCard}>
-                <div className={styles.faqIcon}>
-                  <HelpCircle size={20} />
+              <div 
+                key={index} 
+                className={`${styles.faqCard} ${expandedFaq === index ? styles.faqCardExpanded : ''}`}
+                onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+              >
+                <div className={styles.faqHeader}>
+                  <div className={styles.faqIcon}>
+                    <HelpCircle size={18} />
+                  </div>
+                  <div className={styles.faqHeaderContent}>
+                    <span className={styles.faqCategory}>{faq.category}</span>
+                    <h3 className={styles.faqQuestion}>{faq.question}</h3>
+                  </div>
+                  <div className={styles.faqChevron}>
+                    {expandedFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                  </div>
                 </div>
-                <div className={styles.faqCategory}>{faq.category}</div>
-                <h3 className={styles.faqQuestion}>{faq.question}</h3>
-                <p className={styles.faqAnswer}>{faq.answer}</p>
+                <div className={`${styles.faqAnswerWrapper} ${expandedFaq === index ? styles.faqAnswerOpen : ''}`}>
+                  <p className={styles.faqAnswer}>{faq.answer}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -335,7 +389,7 @@ const Contact = () => {
           <div className={styles.sectionHeader}>
             <div className={styles.sectionBadge}>
               <MapPin size={16} />
-              <span>Location</span>
+              Location
             </div>
             <h2 className={styles.sectionTitle}>Visit Our Campus</h2>
             <p className={styles.sectionDescription}>J.C Bose University of Science and Technology, YMCA</p>
@@ -343,14 +397,14 @@ const Contact = () => {
 
           <div className={styles.mapCard}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.714667450316!2d77.3158949!3d28.3674749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc71f6e9f557%3A0xeb301eec9ff18517!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA%20(Formerly%20YMCA%20UST)!5e0!3m2!1sen!2sin!4v1761387363066!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.5075454454395!2d77.30699731505625!3d28.38084098251242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cddc2f8fdb5f7%3A0x8b50d2e5e3c08e4e!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA!5e0!3m2!1sen!2sin!4v1609851234567!5m2!1sen!2sin"
               width="100%"
-              height="600"
+              height="300"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Campus Location Map"
+              title="University Location"
             />
           </div>
 
@@ -417,3 +471,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

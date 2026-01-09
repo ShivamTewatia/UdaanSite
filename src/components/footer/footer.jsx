@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 import styles from "./footer.module.css";
 import { Link } from "react-router-dom";
 
@@ -18,9 +18,9 @@ const Footer = () => {
               </div>
             </div>
             <p className={styles.address}>
-              <MapPin size={16}/>
+              <MapPin size={18}/>
               <span>
-                &nbsp; Employment & Training Office<br />
+                Employment & Training Office<br />
                 J.C Bose University of Science and Technology, YMCA,<br />
                 NH-2, Delhi-Mathura Road, Sector-6<br />
                 Faridabad, Haryana-121006
@@ -71,9 +71,6 @@ const Footer = () => {
               <li>
                 <Link to="/contact#contact">Contact Us</Link>
               </li>
-              {/* <li>
-                <a href="/contact">Login</a>
-              </li> */}
             </ul>
           </div>
           <div className={styles.section}>
@@ -84,6 +81,7 @@ const Footer = () => {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.714667450316!2d77.3158949!3d28.3674749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc71f6e9f557%3A0xeb301eec9ff18517!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA%20(Formerly%20YMCA%20UST)!5e0!3m2!1sen!2sin!4v1761387363066!5m2!1sen!2sin"
                 width="100%"
                 height="200"
+                title="Location Map"
               ></iframe>
             </div>
             
