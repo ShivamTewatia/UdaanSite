@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Linkedin, Phone, Mail, Users, Sparkles } from "lucide-react";
 import { useHashScroll } from "../hooks/useHashScroll";
-import styles from "./AboutMentor.module.css";
+import styles from "./aboutMentor.module.css";
 
 const teamMembers = [
   {
