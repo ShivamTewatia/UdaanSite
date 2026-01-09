@@ -17,7 +17,7 @@ const Hero = () => {
         <div className={styles.heroHeader}>
           <div className={styles.logoContainer}>
             <div className={styles.logoPlaceholder}>
-              <img src="./public/images/home/udnLogo.jpeg" alt="logo" />
+              <img src="./images/home/udnLogo.jpeg" alt="logo" />
             </div>
           </div>
           <div className={styles.headerText}>
