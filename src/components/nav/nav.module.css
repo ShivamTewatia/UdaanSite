@@ -1,7 +1,6 @@
 
 .nav {
   width: 100%;
-  /* position: sticky; */
   top: 0;
   z-index: 9999;
   background: linear-gradient(
@@ -249,14 +248,14 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, hsla(270, 50%, 97%, 0.9) 0%, hsla(330, 50%, 97%, 0.9) 100%);
-  border: 1px solid hsla(270, 50%, 88%, 0.6);
+  background: linear-gradient(135deg, hsl(220, 90%, 55%) 0%, hsl(200, 100%, 50%) 100%);
+  border: 1px solid hsla(195, 51%, 88%, 0.6);
   border-radius: 12px;
   cursor: pointer;
-  color: hsl(265, 50%, 45%);
+  color: white;
   font-size: 1.4rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px hsla(265, 75%, 50%, 0.1);
+  box-shadow: 0 2px 8px hsla(206, 75%, 50%, 0.1);
 }
 
 @media (min-width: 768px) {
@@ -266,14 +265,13 @@
 }
 
 .mobileMenuButton:hover {
-  color: hsl(265, 75%, 50%);
-  background: linear-gradient(135deg, hsla(270, 60%, 95%, 1) 0%, hsla(330, 60%, 95%, 1) 100%);
+  color: hsl(205, 94%, 50%);
+  background: white;
   box-shadow: 0 4px 15px hsla(265, 75%, 50%, 0.2);
   transform: scale(1.05);
 }
 
 .mobileMenu {
-  padding: 16px 0;
   border-top: 1px solid hsla(270, 50%, 90%, 0.5);
   background: linear-gradient(180deg, transparent 0%, hsla(280, 50%, 98%, 0.5) 100%);
 }
@@ -294,7 +292,7 @@
   width: 100%;
   text-align: left;
   justify-content: flex-start;
-  padding: 14px 18px;
+  padding: 0px 18px;
   border-radius: 12px;
   background: hsla(0, 0%, 100%, 0.6);
   border: 1px solid hsla(270, 50%, 92%, 0.5);
@@ -305,7 +303,7 @@
 }
 
 .mobileMenu .navButton.active {
-  background: linear-gradient(135deg, hsl(265, 85%, 55%) 0%, hsl(280, 70%, 58%) 50%, hsl(330, 75%, 55%) 100%);
+  background: linear-gradient(135deg, hsl(220, 90%, 55%) 0%, hsl(200, 100%, 50%) 100%);
   border-color: transparent;
 }
 

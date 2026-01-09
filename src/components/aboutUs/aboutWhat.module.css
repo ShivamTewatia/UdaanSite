@@ -731,7 +731,7 @@
 /* ≤ 480px — Mobile - 2x2 Grid with smaller icons */
 @media (max-width: 480px) {
   .section-wrapper {
-    padding: 2rem 0.75rem;
+    padding: 2rem 0.25rem;
   }
 
   .header-section {
@@ -754,6 +754,7 @@
 
   .tabs-container {
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   .tabs-wrapper {
@@ -763,8 +764,8 @@
   }
 
   .tab-button {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.6rem;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.76rem;
     min-width: 58px;
     border-radius: 0.4rem;
   }
@@ -775,7 +776,7 @@
   }
 
   .role-card {
-    padding: 0.8rem;
+    padding: 0.8rem 0.6rem;
     border-radius: 0.875rem;
     display: flex;
     flex-direction: column;
@@ -806,21 +807,21 @@
   .role-content {
     width: 100%;
   }
-  .special{
+  /* .special{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* gap: 10px; */
-  }
+    gap: 10px;
+  } */
   .role-title {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     margin-bottom: 0.25rem;
     padding: 0;
     letter-spacing: 0.01em;
   }
 
   .role-description {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
     line-height: 1.35;
     display: -webkit-box;
     -webkit-line-clamp: 3;
