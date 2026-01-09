@@ -1,22 +1,34 @@
-import {ShoppingBag,Wifi, Cpu, TrendingUp, ShoppingCart, BookOpen, Car,CreditCard, Home, Zap, Globe, Tv, Server, GraduationCap,Building,Heart, Rocket, Factory, Building2, Briefcase, Mail, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import {
+  ShoppingBag, Wifi, Cpu, TrendingUp, ShoppingCart, BookOpen, Car,
+  CreditCard, Home, Zap, Globe, Tv, Server, GraduationCap, Building,
+  Heart, Rocket, Factory, Building2, Briefcase, Mail, ArrowRight, ChevronDown
+} from 'lucide-react';
 import styles from './recruters.module.css';
-import { useState } from 'react';
-import { useHashScroll } from "../../hooks/useHashScroll.js"
+
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
+  
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return isDesktop;
+};
 
 const CompanyCard = ({ company, index }) => {
-  useHashScroll(); 
-
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div id='recruiter' key={index} className={styles.companyCard}>
+    <div className={styles.companyCard} style={{ animationDelay: `${index * 0.05}s` }}>
       <div className={styles.companyLogoWrapper}>
         {!imageError ? (
           <img
             src={company.logoPath}
-            alt={`${company.name} logo`}
+            alt={company.name}
             className={styles.companyLogo}
-            loading="lazy"
             onError={() => setImageError(true)}
           />
         ) : (
@@ -25,30 +37,53 @@ const CompanyCard = ({ company, index }) => {
           </div>
         )}
       </div>
-      <div className={styles.companyName}>{company.name}</div>
+      <span className={styles.companyName}>{company.name}</span>
     </div>
   );
 };
 
-const CategorySection = ({ category }) => (
-  <section className={styles.categorySection}>
-    <div className={styles.categoryHeader}>
-      <div className={styles.categoryIcon}>{category.icon}</div>
-      <h2 className={styles.categoryTitle}>{category.title}</h2>
-    </div>
+const CollapsibleCategorySection = ({ category, defaultOpen = false, isDesktop = false }) => {
+  const [isOpen, setIsOpen] = useState(isDesktop ? true : defaultOpen);
+  
+  useEffect(() => {
+    setIsOpen(isDesktop ? true : defaultOpen);
+  }, [isDesktop, defaultOpen]);
 
-    <div className={styles.companiesGrid}>
-      {category.companies.map((company, index) => (
-        <CompanyCard key={index} company={company} index={index} />
-      ))}
+  return (
+    <div className={styles.categorySection}>
+      <button 
+        className={`${styles.categoryHeader} ${isOpen ? styles.active : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        <div className={styles.categoryHeaderLeft}>
+          <div className={styles.categoryIcon}>
+            {category.icon}
+          </div>
+          <h3 className={styles.categoryTitle}>{category.title}</h3>
+        </div>
+        <div className={styles.categoryHeaderRight}>
+          {/* <span className={styles.categoryCount}>{category.companies.length} Companies</span> */}
+          <div className={`${styles.categoryArrow} ${isOpen ? styles.rotated : ''}`}>
+            <ChevronDown size={20} strokeWidth={2} />
+          </div>
+        </div>
+      </button>
+      <div className={`${styles.categoryContent} ${isOpen ? styles.expanded : ''}`}>
+        <div className={styles.companiesGrid}>
+          {category.companies.map((company, index) => (
+            <CompanyCard key={index} company={company} index={index} />
+          ))}
+        </div>
+      </div>
     </div>
-  </section>
-);
+  );
+};
 
 const recruitersData = [
   {
     title: "Tech & Product Companies",
-    icon: <Cpu size={20} strokeWidth={2.5} />,
+    icon: <Cpu size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Adobe", logoPath: "images/placement/tech/adobe.webp" },
       { name: "Airveda Technologies", logoPath: "images/placement/tech/airveda.webp" },
@@ -93,7 +128,7 @@ const recruitersData = [
   },
   {
     title: "IT Services & Consulting",
-    icon: <Server size={20} strokeWidth={2.5} />,
+    icon: <Server size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Accenture", logoPath: "images/placement/it/accenture.webp" },
       { name: "Atos Syntel", logoPath: "images/placement/it/atos.webp" },
@@ -142,7 +177,7 @@ const recruitersData = [
   },
   {
     title: "Automotive & Transportation",
-    icon: <Car size={20} strokeWidth={2.5} />,
+    icon: <Car size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Ashok Leyland", logoPath: "images/placement/automotive/ashok.webp" },
       { name: "Hero Motors", logoPath: "images/placement/automotive/hero.webp" },
@@ -158,7 +193,7 @@ const recruitersData = [
   },
   {
     title: "BFSI & Financial Services",
-    icon: <CreditCard size={20} strokeWidth={2.5} />,
+    icon: <CreditCard size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Agile Capital Services", logoPath: "images/placement/bfsi/agile.webp" },
       { name: "Axis Bank", logoPath: "images/placement/bfsi/axis.webp" },
@@ -178,7 +213,7 @@ const recruitersData = [
   },
   {
     title: "Consulting & Professional Services",
-    icon: <Briefcase size={20} strokeWidth={2.5} />,
+    icon: <Briefcase size={24} strokeWidth={1.5} />,
     companies: [
       { name: "AuthBridge Research", logoPath: "images/placement/consulting/authbridge.webp" },
       { name: "Firstsource", logoPath: "images/placement/consulting/firstsource.webp" },
@@ -197,7 +232,7 @@ const recruitersData = [
   },
   {
     title: "EdTech & Learning",
-    icon: <BookOpen size={20} strokeWidth={2.5} />,
+    icon: <GraduationCap size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Academor", logoPath: "images/placement/edtech/academor.webp" },
       { name: "BYJU'S", logoPath: "images/placement/edtech/byjus.webp" },
@@ -217,7 +252,7 @@ const recruitersData = [
   },
   {
     title: "Energy & Environment",
-    icon: <Zap size={20} strokeWidth={2.5} />,
+    icon: <Zap size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Airveda Technologies", logoPath: "images/placement/energy/airveda.webp" },
       { name: "Envitech Green Solutions", logoPath: "images/placement/energy/egs.webp" },
@@ -233,7 +268,7 @@ const recruitersData = [
   },
   {
     title: "Engineering & Manufacturing",
-    icon: <Factory size={20} strokeWidth={2.5} />,
+    icon: <Factory size={24} strokeWidth={1.5} />,
     companies: [
       { name: "ABB Group", logoPath: "images/placement/engineering/abb.webp" },
       { name: "Ashok Leyland", logoPath: "images/placement/engineering/ashok.webp" },
@@ -268,7 +303,7 @@ const recruitersData = [
   },
   {
     title: "Government & PSU",
-    icon: <Building size={20} strokeWidth={2.5} />,
+    icon: <Building size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Centre for Development of Advanced Computing (CDAC)", logoPath: "images/placement/government/cdac.webp" },
       { name: "Centre for Development of Telematics (CDOT)", logoPath: "images/placement/government/cdot.webp" },
@@ -285,7 +320,7 @@ const recruitersData = [
   },
   {
     title: "Healthcare & Pharma",
-    icon: <Heart size={20} strokeWidth={2.5} />,
+    icon: <Heart size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Apollo Hospitals", logoPath: "images/placement/healthcare/apollo.webp" },
       { name: "DOC Healthcare", logoPath: "images/placement/healthcare/doc.webp" },
@@ -301,7 +336,7 @@ const recruitersData = [
   },
   {
     title: "Media & Entertainment",
-    icon: <Tv size={20} strokeWidth={2.5} />,
+    icon: <Tv size={24} strokeWidth={1.5} />,
     companies: [
       { name: "ABC News", logoPath: "images/placement/media/abc.webp" },
       { name: "ABP Network", logoPath: "images/placement/media/abp.webp" },
@@ -318,7 +353,7 @@ const recruitersData = [
   },
   {
     title: "Telecom & Infrastructure",
-    icon: <Wifi size={20} strokeWidth={2.5} />,
+    icon: <Wifi size={24} strokeWidth={1.5} />,
     companies: [
       { name: "Airtel", logoPath: "images/placement/telecom/airtel.webp" },
       { name: "BPTP Group", logoPath: "images/placement/telecom/bptp.webp" },
@@ -337,16 +372,18 @@ const recruitersData = [
 ];
 
 const Recruiters = () => {
+  const isDesktop = useIsDesktop();
+
   return (
-    <div className={styles.container}>
+    <div id="recruiters" className={styles.container}>
       {/* Hero Section */}
-      <div className={styles.heroSection}>
+      <section className={styles.heroSection}>
         <span className={styles.badge}>OUR PARTNERS</span>
         <h1 className={styles.heroTitle}>Our Esteemed Recruiters</h1>
         <p className={styles.heroSubtitle}>
           Building partnerships with industry leaders across diverse sectors
         </p>
-      </div>
+      </section>
 
       {/* Content Wrapper */}
       <div className={styles.contentWrapper}>
@@ -355,7 +392,7 @@ const Recruiters = () => {
           <div className={styles.statsGrid}>
             <div className={styles.statCard}>
               <div className={styles.statIconWrapper}>
-                <Building2 size={28} strokeWidth={2} />
+                <Building2 size={28} strokeWidth={1.5} />
               </div>
               <div className={styles.statValue}>150+</div>
               <div className={styles.statLabel}>Partner Companies</div>
@@ -363,7 +400,7 @@ const Recruiters = () => {
             </div>
             <div className={styles.statCard}>
               <div className={styles.statIconWrapper}>
-                <TrendingUp size={28} strokeWidth={2} />
+                <TrendingUp size={28} strokeWidth={1.5} />
               </div>
               <div className={styles.statValue}>₹24 LPA</div>
               <div className={styles.statLabel}>Highest Package</div>
@@ -371,7 +408,7 @@ const Recruiters = () => {
             </div>
             <div className={styles.statCard}>
               <div className={styles.statIconWrapper}>
-                <Briefcase size={28} strokeWidth={2} />
+                <Rocket size={28} strokeWidth={1.5} />
               </div>
               <div className={styles.statValue}>95%</div>
               <div className={styles.statLabel}>Placement Rate</div>
@@ -382,20 +419,25 @@ const Recruiters = () => {
 
         {/* Categories */}
         {recruitersData.map((category, index) => (
-          <CategorySection key={index} category={category} />
+          <CollapsibleCategorySection 
+            key={index} 
+            category={category} 
+            defaultOpen={index === 0}
+            isDesktop={isDesktop}
+          />
         ))}
 
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaIconWrapper}>
-              <Mail size={32} strokeWidth={2} />
+              <Mail size={32} strokeWidth={1.5} />
             </div>
-            <h3 className={styles.ctaTitle}>Interested in Recruiting?</h3>
+            <h2 className={styles.ctaTitle}>Interested in Recruiting?</h2>
             <p className={styles.ctaSubtitle}>
               Join our network of esteemed recruiters and hire top talent from JCBUST
             </p>
-            <a href="mailto:placement@jcbust.ac.in" className={styles.ctaButton}>
+            <a href="mailto:tnp@jcbust.ac.in" className={styles.ctaButton}>
               Contact T&P Cell
               <ArrowRight size={18} />
             </a>

@@ -1,7 +1,106 @@
+import { useState, useEffect } from 'react';
 import styles from './placementDuties.module.css';
-import { Users, GraduationCap, UserCheck, Target, Scale, FileText } from 'lucide-react';
+import { 
+  Users, 
+  GraduationCap, 
+  UserCheck, 
+  Target, 
+  Scale, 
+  FileText,
+  ChevronDown,
+  AlertTriangle
+} from 'lucide-react';
+
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
+  
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return isDesktop;
+};
+
+const CollapsibleSection = ({ 
+  icon: Icon, 
+  title, 
+  note,
+  children, 
+  defaultOpen = false, 
+  isDesktop = false 
+}) => {
+  const [isOpen, setIsOpen] = useState(isDesktop ? true : defaultOpen);
+  
+  useEffect(() => {
+    setIsOpen(isDesktop ? true : defaultOpen);
+  }, [isDesktop, defaultOpen]);
+
+  return (
+    <div className={styles.section}>
+      <button 
+        className={`${styles.sectionHeader} ${isOpen ? styles.active : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        <Icon className={styles.sectionIcon} size={40} strokeWidth={2.5} />
+        <div className={styles.sectionHeaderContent}>
+          <h2 className={styles.sectionTitle}>{title}</h2>
+          {note && <p className={styles.sectionNote}>{note}</p>}
+        </div>
+        <div className={`${styles.collapsibleArrow} ${isOpen ? styles.rotated : ''}`}>
+          <ChevronDown size={20} strokeWidth={2} />
+        </div>
+      </button>
+      <div className={`${styles.collapsibleContent} ${isOpen ? styles.expanded : ''}`}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const DutiesGrid = ({ duties, isDesktop, initialCount = 4 }) => {
+  const [showAll, setShowAll] = useState(false);
+  
+  const displayedDuties = isDesktop || showAll ? duties : duties.slice(0, initialCount);
+  const hasMore = !isDesktop && duties.length > initialCount;
+
+  return (
+    <>
+      <div className={styles.dutiesGrid}>
+        {displayedDuties.map((duty, index) => (
+          <div key={index} className={styles.dutyCard}>
+            <span className={styles.dutyNumber}>{index + 1}</span>
+            <p className={styles.dutyText}>{duty}</p>
+          </div>
+        ))}
+      </div>
+      {hasMore && (
+        <button 
+          className={styles.showMoreBtn}
+          onClick={() => setShowAll(!showAll)}
+        >
+          {showAll ? (
+            <>
+              <ChevronDown className={styles.showMoreIconUp} size={18} />
+              Show Less
+            </>
+          ) : (
+            <>
+              <ChevronDown size={18} />
+              Show {duties.length - initialCount} More
+            </>
+          )}
+        </button>
+      )}
+    </>
+  );
+};
 
 const DutiesCommittees = () => {
+  const isDesktop = useIsDesktop();
+
   const crDuties = [
     'To educate 3rd year and final year students about rules and regulations governing training and placement process',
     'To help in preparing student database of final year students for training/placement purpose',
@@ -70,52 +169,34 @@ const DutiesCommittees = () => {
 
   return (
     <div className={styles.pageWrapper}>
-      <div className={styles.container}>
-        
-        <div className={styles.heroHeader}>
-          <div className={styles.heroSection}>
-            <span className={styles.badge}>Official Guidelines</span>
-            <h1 className={styles.heroTitle}>Duties & Committees</h1>
-            <p className={styles.heroSubtitle}>
-              Roles, responsibilities, and organizational structure of T&P Cell
-            </p>
-          </div>
-        </div>
+      <div className={styles.heroSection}>
+        <span className={styles.badge}>Official Guidelines</span>
+        <h1 className={styles.heroTitle}>Duties & Committees</h1>
+        <p className={styles.heroSubtitle}>
+          Roles, responsibilities, and organizational structure of T&P Cell
+        </p>
+      </div>
 
-        
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <Users className={styles.sectionIcon} />
-            <div className={styles.sectionHeaderContent}>
-              <h2 className={styles.sectionTitle}>Duties of CR (Class Representative)</h2>
-              <p className={styles.sectionNote}>
-                Each class must have four CRs (two boys and two girls). These CRs are nominated/elected 
-                by class students on the basis of voting.
-              </p>
-            </div>
-          </div>
-          <div className={styles.dutiesGrid}>
-            {crDuties.map((duty, index) => (
-              <div key={index} className={styles.dutyCard}>
-                <span className={styles.dutyNumber}>{index + 1}</span>
-                <p className={styles.dutyText}>{duty}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      <div className={styles.contentWrapper}>
+        {/* CR Duties Section */}
+        <CollapsibleSection 
+          icon={Users} 
+          title="Duties of CR (Class Representative)"
+          note="Each class must have four CRs (two boys and two girls). These CRs are nominated/elected by class students on the basis of voting."
+          defaultOpen={true}
+          isDesktop={isDesktop}
+        >
+          <DutiesGrid duties={crDuties} isDesktop={isDesktop} initialCount={4} />
+        </CollapsibleSection>
 
-        
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <GraduationCap className={styles.sectionIcon} />
-            <div className={styles.sectionHeaderContent}>
-              <h2 className={styles.sectionTitle}>Duties of Departmental Faculty Placement Coordinators</h2>
-              <p className={styles.sectionNote}>
-                Nominated by Chairperson of all Departments and appointed in T&P Cell after approval 
-                of Hon'ble Vice Chancellor.
-              </p>
-            </div>
-          </div>
+        {/* Faculty Coordinator Duties */}
+        <CollapsibleSection 
+          icon={GraduationCap} 
+          title="Duties of Departmental Faculty Placement Coordinators"
+          note="Nominated by Chairperson of all Departments and appointed in T&P Cell after approval of Hon'ble Vice Chancellor."
+          defaultOpen={false}
+          isDesktop={isDesktop}
+        >
           <div className={styles.card}>
             <ul className={styles.dutyList}>
               {facultyCoordinatorDuties.map((duty, index) => (
@@ -123,19 +204,16 @@ const DutiesCommittees = () => {
               ))}
             </ul>
           </div>
-        </section>
+        </CollapsibleSection>
 
-        
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <UserCheck className={styles.sectionIcon} />
-            <div className={styles.sectionHeaderContent}>
-              <h2 className={styles.sectionTitle}>Duties of Teachers During Campus Drive</h2>
-              <p className={styles.sectionNote}>
-                Names of Teachers for duty for campus drives are nominated by Chairperson of Departments.
-              </p>
-            </div>
-          </div>
+        {/* Teacher Duties */}
+        <CollapsibleSection 
+          icon={UserCheck} 
+          title="Duties of Teachers During Campus Drive"
+          note="Names of Teachers for duty for campus drives are nominated by Chairperson of Departments."
+          defaultOpen={false}
+          isDesktop={isDesktop}
+        >
           <div className={styles.card}>
             <ul className={styles.dutyList}>
               {teacherDuties.map((duty, index) => (
@@ -143,19 +221,16 @@ const DutiesCommittees = () => {
               ))}
             </ul>
           </div>
-        </section>
+        </CollapsibleSection>
 
-        
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <Target className={styles.sectionIcon} />
-            <div className={styles.sectionHeaderContent}>
-              <h2 className={styles.sectionTitle}>Student Placement Committee</h2>
-              <p className={styles.sectionNote}>
-                Roles and Responsibilities of the Student Placement Committee
-              </p>
-            </div>
-          </div>
+        {/* Student Committee */}
+        <CollapsibleSection 
+          icon={Target} 
+          title="Student Placement Committee"
+          note="Roles and Responsibilities of the Student Placement Committee"
+          defaultOpen={false}
+          isDesktop={isDesktop}
+        >
           <div className={styles.card}>
             <ul className={styles.dutyList}>
               {studentCommitteeDuties.map((duty, index) => (
@@ -163,74 +238,67 @@ const DutiesCommittees = () => {
               ))}
             </ul>
           </div>
-        </section>
+        </CollapsibleSection>
 
-        
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <Scale className={styles.sectionIcon} />
-            <div className={styles.sectionHeaderContent}>
-              <h2 className={styles.sectionTitle}>Disciplinary Committee</h2>
-              <p className={styles.sectionNote}>
-                Committee members and their responsibilities
-              </p>
-            </div>
-          </div>
-          
+        {/* Disciplinary Committee */}
+        <CollapsibleSection 
+          icon={Scale} 
+          title="Disciplinary Committee"
+          note="Committee members and their responsibilities"
+          defaultOpen={false}
+          isDesktop={isDesktop}
+        >
           <div className={styles.committeeSection}>
-            <div className={styles.committeeBadge}>Committee Members</div>
-            <div className={styles.membersGrid}>
-              {disciplinaryCommittee.map((member, index) => (
-                <div key={index} className={styles.memberCard}>
-                  <div className={styles.memberIndex}>{index + 1}</div>
-                  <div className={styles.memberRole}>{member}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.dutiesSubsection}>
-              <div className={styles.committeeBadge}>Committee Duties</div>
-            <div className={styles.card}>
-              <ul className={styles.dutyList}>
-                {disciplinaryDuties.map((duty, index) => (
-                  <li key={index}>{duty}</li>
+            <div>
+              <span className={styles.committeeBadge}>Committee Members</span>
+              <div className={styles.membersGrid}>
+                {disciplinaryCommittee.map((member, index) => (
+                  <div key={index} className={styles.memberCard}>
+                    <span className={styles.memberIndex}>{index + 1}</span>
+                    <span className={styles.memberRole}>{member}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
+            <div className={styles.dutiesSubsection}>
+              <span className={styles.committeeBadge}>Committee Duties</span>
+              <div className={styles.card}>
+                <ul className={styles.dutyList}>
+                  {disciplinaryDuties.map((duty, index) => (
+                    <li key={index}>{duty}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </section>
+        </CollapsibleSection>
 
-        
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <FileText className={styles.sectionIcon} />
-            <div className={styles.sectionHeaderContent}>
-              <h2 className={styles.sectionTitle}>Grievance Committee (T&P Cell)</h2>
-              <p className={styles.sectionNote}>
-                To handle problems of students related to placement
-              </p>
-            </div>
-          </div>
-          
-          <div className={styles.committeeSection}>
-            <div className={styles.committeeBadge}>Committee Members</div>
+        {/* Grievance Committee */}
+        <CollapsibleSection 
+          icon={FileText} 
+          title="Grievance Committee (T&P Cell)"
+          note="To handle problems of students related to placement"
+          defaultOpen={false}
+          isDesktop={isDesktop}
+        >
+          <div>
+            <span className={styles.committeeBadge}>Committee Members</span>
             <div className={styles.membersGrid}>
               {grievanceCommittee.map((member, index) => (
                 <div key={index} className={styles.memberCard}>
-                  <div className={styles.memberIndex}>{index + 1}</div>
-                  <div className={styles.memberRole}>{member}</div>
+                  <span className={styles.memberIndex}>{index + 1}</span>
+                  <span className={styles.memberRole}>{member}</span>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </CollapsibleSection>
 
-      
-      <div className={styles.importantNote}>
-        <FileText className={styles.noteIcon} />
-        <div className={styles.noteContent}>
-            <h3 className={styles.noteTitle}>Important Notice</h3>
+        {/* Important Notice */}
+        <div className={styles.importantNote}>
+          <AlertTriangle className={styles.noteIcon} />
+          <div className={styles.noteContent}>
+            <h4 className={styles.noteTitle}>Important Notice</h4>
             <p className={styles.noteText}>
               All communications must be done on prescribed email IDs. Any deviation from the processes 
               and policies shall invite strict disciplinary action.
@@ -243,4 +311,3 @@ const DutiesCommittees = () => {
 };
 
 export default DutiesCommittees;
-

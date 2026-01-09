@@ -1,18 +1,18 @@
 import { useState, useMemo } from "react";
 import { Users, Briefcase, TrendingUp, TrendingDown, Award, Target, GraduationCap, Zap, Calendar , BarChart3, Building2} from "lucide-react";
-import { placementData, getYearlyTrends, getDecadeStats, CHART_COLORS } from "./placementData";
-import { HeroSection } from "./heroSection";
-import { HighlightCard } from "./highlightCard";
-import { InsightCard } from "./insightCard";
-import { StatCard } from "./statCard";
-import { YearSelector } from "./yearSelector";
-import { TopPerformers } from "./topPerformers";
-import { PlacementTrendChart } from "./placementTrendChart";
-import { PackageTrendChart } from "./packageTrendChart";
-import { DepartmentBarChart } from "./departmentBarChart";
-import { RadarChartSection } from "./radarChartSection";
-import { DepartmentTrendChart } from "./departmentTrendChart";
-import { PlacementTable } from "./placementTable";
+import { placementData, getYearlyTrends, getDecadeStats, CHART_COLORS } from "./placementData.js";
+import { HeroSection } from "./heroSection.jsx";
+import { HighlightCard } from "./highlightCard.jsx";
+import { InsightCard } from "./insightCard.jsx";
+import { StatCard } from "./statCard.jsx";
+import { YearSelector } from "./yearSelector.jsx";
+import { TopPerformers } from "./topPerformers.jsx";
+import { PlacementTrendChart } from "./placementTrendChart.jsx";
+import { PackageTrendChart } from "./packageTrendChart.jsx";
+import { DepartmentBarChart } from "./departmentBarChart.jsx";
+import { RadarChartSection } from "./radarChartSection.jsx";
+import { DepartmentTrendChart } from "./departmentTrendChart.jsx";
+import { PlacementTable } from "./placementTable.jsx";
 import styles from "./zstats.module.css";
 import { useHashScroll } from "../../hooks/useHashScroll.js"
 

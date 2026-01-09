@@ -1,51 +1,36 @@
 .tabNavigation {
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 250, 251, 0.95) 100%);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  border-bottom: 1px solid rgba(92, 154, 246, 0.08);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.12);
+  box-shadow: 0 4px 24px rgba(92, 149, 246, 0.08);
+  margin-top: 0rem;
 }
 
 .tabContainer {
   display: flex;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #8b5cf6 #f3f4f6;
-}
-
-.tabContainer::-webkit-scrollbar {
-  height: 4px;
-}
-
-.tabContainer::-webkit-scrollbar-track {
-  background: #f3f4f6;
-}
-
-.tabContainer::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
-  border-radius: 2px;
+  padding: 0 1rem;
 }
 
 .tabButton {
   flex: 1;
-  min-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 1.5rem 1.5rem;
+  padding: 0.75rem 1rem;
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #6b7280;
+  transition: all 0.3s ease;
+  color: #9ca3af;
   position: relative;
-  overflow: hidden;
 }
 
 .tabButton::before {
@@ -53,161 +38,350 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 80%;
-  height: 4px;
-  background: linear-gradient(90deg, #8b5cf6, #ec4899);
-  transform: translateX(-50%) scaleX(0);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 4px 4px 0 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(
+    135deg,
+    hsla(220, 90%, 55%, 0.5) 0%,
+    hsla(200, 100%, 50%, 0.85) 50%,
+    hsla(180, 80%, 50%, 0.8) 100%
+  );
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  border-radius: 3px 3px 0 0;
 }
 
 .tabButton::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.08), transparent 70%);
+  inset: 4px;
+  background: linear-gradient(
+    135deg,
+    hsla(200, 100%, 50%, 0.15) 0%,
+    hsla(220, 90%, 55%, 0.1) 100%
+  );
+  border-radius: 12px;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 
 .tabButton:hover {
-  color: #1f2937;
-  transform: translateY(-2px);
+  color: #6b7280;
 }
 
 .tabButton:hover::after {
   opacity: 1;
+  background: linear-gradient(
+    135deg,
+    hsla(200, 100%, 50%, 0.15) 0%,
+    hsla(220, 90%, 55%, 0.1) 100%
+  );
 }
 
 .tabButton:hover::before {
-  transform: translateX(-50%) scaleX(0.3);
+  width: 40%;
 }
 
-.tabButton.active {
-  color: #8b5cf6;
-  font-weight: 700;
-}
 
 .tabButton.active::before {
-  transform: translateX(-50%) scaleX(1);
+  width: 70%;
 }
 
 .tabButton.active::after {
-  opacity: 1;
-  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15), transparent 70%);
+  opacity: 0.4;
 }
 
 .tabIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+  transition: all 0.3s ease;
   position: relative;
   z-index: 1;
-  color: #6b7280;
+  color: inherit;
 }
 
 .tabButton:hover .tabIcon {
-  transform: scale(1.15) rotate(5deg);
-  color: #1f2937;
+  background: linear-gradient(135deg, #e8eaff, #e7f1fc);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
 }
 
 .tabButton.active .tabIcon {
-  animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  color: #8b5cf6;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, hsl(220, 90%, 55%) 0%, hsl(200, 100%, 50%) 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.3);
 }
 
 @keyframes iconPop {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25) rotate(5deg);
-  }
-  100% {
-    transform: scale(1.05);
-  }
+  0% { transform: translateY(-2px) scale(1); }
+  50% { transform: translateY(-4px) scale(1.08); }
+  100% { transform: translateY(-2px) scale(1); }
+}
+
+.tabButton.active .tabIcon {
+  animation: iconPop 0.4s ease;
 }
 
 .tabText {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
-  flex: 1;
+  gap: 0.15rem;
   position: relative;
   z-index: 1;
 }
 
 .tabTitle {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 600;
   line-height: 1.3;
   transition: all 0.3s ease;
+  letter-spacing: -0.01em;
 }
 
 .tabButton.active .tabTitle {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  font-weight: 700;
+  background: linear-gradient(135deg, hsl(220, 90%, 55%) 0%, hsl(200, 100%, 50%) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .tabSubtitle {
-  font-size: 0.8rem;
-  opacity: 0.7;
-  line-height: 1.3;
+  font-size: 0.65rem;
+  opacity: 0.6;
+  line-height: 1.2;
   transition: all 0.3s ease;
   text-align: center;
+  font-weight: 500;
 }
 
 .tabButton:hover .tabSubtitle {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .tabButton.active .tabSubtitle {
-  opacity: 0.9;
-  color: #8b5cf6;
+  opacity: 0.85;
+  color: #8bc4fa;
 }
 
-@media (max-width: 768px) {
+/* ≥ 1440px — Large Desktop */
+@media (min-width: 1440px) {
+  .tabContainer {
+    max-width: 1400px;
+    padding: 0 2rem;
+  }
+
   .tabButton {
-    min-width: 160px;
-    padding: 1.25rem 1rem;
-    gap: 0.5rem;
+    padding: 1.5rem 1.25rem;
+    gap: 0.6rem;
   }
 
   .tabIcon {
-    font-size: 2rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
   }
 
   .tabTitle {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .tabSubtitle {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 }
 
-@media (max-width: 480px) {
+/* 1024px – 1279px — Small Laptop / Tablet Landscape */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .tabContainer {
+    max-width: 1000px;
+    padding: 0 1rem;
+  }
+
   .tabButton {
-    min-width: 140px;
-    padding: 1rem 0.75rem;
-    gap: 0.4rem;
+    padding: 1.1rem 0.75rem;
+    gap: 0.45rem;
   }
 
   .tabIcon {
-    font-size: 1.75rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .tabIcon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .tabTitle {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .tabSubtitle {
     font-size: 0.65rem;
+  }
+}
+
+/* 768px – 1023px — Tablet / Large Mobile */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .tabContainer {
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
+
+  .tabButton {
+    padding: 1rem 0.5rem;
+    gap: 0.4rem;
+  }
+
+  .tabIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .tabIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .tabTitle {
+    font-size: 0.75rem;
+  }
+
+  .tabSubtitle {
+    font-size: 0.6rem;
+  }
+
+  .tabButton::before {
+    height: 2px;
+  }
+}
+
+/* Between tablet and mobile (481px - 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .tabNavigation {
+    overflow: hidden;
+  }
+
+  .tabContainer {
+    padding: 0 0.5rem;
+    width: 100%;
+  }
+
+  .tabButton {
+    padding: 0.85rem 0.35rem;
+    gap: 0.35rem;
+  }
+
+  .tabIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .tabIcon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .tabTitle {
+    font-size: 0.65rem;
+  }
+
+  .tabSubtitle {
+    display: none;
+  }
+
+  .tabButton::before {
+    height: 2px;
+  }
+
+  .tabButton::after {
+    inset: 3px;
+    border-radius: 8px;
+  }
+}
+
+/* ≤ 480px — Mobile */
+@media (max-width: 480px) {
+  .tabNavigation {
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(139, 92, 246, 0.06);
+  }
+
+  .tabContainer {
+    padding: 0 0.25rem;
+    width: 100%;
+  }
+
+  .tabButton {
+    padding: 0.7rem 0.2rem;
+    gap: 0.25rem;
+  }
+
+  .tabIcon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+
+  .tabIcon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .tabTitle {
+    font-size: 0.55rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .tabSubtitle {
+    display: none;
+  }
+
+  .tabText {
+    min-width: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .tabButton::before {
+    height: 2px;
+    width: 0;
+  }
+
+  .tabButton.active::before {
+    width: 60%;
+  }
+
+  .tabButton:hover::before {
+    width: 30%;
+  }
+
+  .tabButton::after {
+    inset: 2px;
+    border-radius: 6px;
+  }
+
+  .tabButton:hover .tabIcon {
+    transform: translateY(-1px);
+  }
+
+  .tabButton.active .tabIcon {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
   }
 }

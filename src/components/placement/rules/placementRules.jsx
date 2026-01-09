@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import styles from "./placementRules.module.css";
-import { useHashScroll } from "../../hooks/useHashScroll.js"
-
+import React, { useState, useEffect } from "react";
+import styles from "./PlacementRules.module.css";
 import { 
   AlertTriangle, 
   BookOpen, 
@@ -21,8 +19,21 @@ import {
   PhoneOff,
   Calendar,
   CheckCircle2,
-  Info
+  Info,
+  ChevronDown
 } from "lucide-react";
+
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
+  
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return isDesktop;
+};
 
 function Tabs({ value, onValueChange, children, className }) {
   return (
@@ -116,7 +127,7 @@ function AccordionPair({ title, children, icon: Icon }) {
       <button
         aria-expanded={open}
         onClick={() => setOpen((s) => !s)}
-        className={`${styles.accordionTriggerButton}`}
+        className={styles.accordionTriggerButton}
         type="button"
       >
         <span className={styles.accordionTriggerTitle}>
@@ -138,9 +149,42 @@ function AccordionPair({ title, children, icon: Icon }) {
   );
 }
 
+const CollapsibleSection = ({ icon: Icon, title, children, defaultOpen = false, isDesktop = false }) => {
+  const [isOpen, setIsOpen] = useState(isDesktop ? true : defaultOpen);
+  
+  useEffect(() => {
+    setIsOpen(isDesktop ? true : defaultOpen);
+  }, [isDesktop, defaultOpen]);
+
+  return (
+    <div className={styles.collapsibleSection}>
+      <button 
+        className={`${styles.collapsibleHeader} ${isOpen ? styles.collapsibleHeaderActive : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        <div className={styles.collapsibleHeaderLeft}>
+          <div className={styles.collapsibleIcon}>
+            <Icon size={32} strokeWidth={1.5} />
+          </div>
+          <h3 className={styles.collapsibleTitle}>{title}</h3>
+        </div>
+        <div className={`${styles.collapsibleArrow} ${isOpen ? styles.collapsibleArrowRotated : ''}`}>
+          <ChevronDown size={20} strokeWidth={2} />
+        </div>
+      </button>
+      <div className={`${styles.collapsibleContent} ${isOpen ? styles.collapsibleContentExpanded : ''}`}>
+        <div className={styles.collapsibleContentInner}>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const RulesTraining = () => {
   const [activeTab, setActiveTab] = useState("placement");
-  useHashScroll(); 
+  const isDesktop = useIsDesktop();
 
   const onCampusRules = [
     {
@@ -455,137 +499,108 @@ const RulesTraining = () => {
             </TabsList>
 
             <TabsContent value="placement" className={styles.tabContent}>
-              <Card className={styles.card}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitle}>On-Campus Placement Rules</CardTitle>
-                  <CardDescription className={styles.cardDescription}>Essential policies for campus recruitment</CardDescription>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <div className={styles.twoColumnGrid}>
-                    <div>
-                      {onCampusRules.slice(0, 6).map((rule) => (
-                        <AccordionPair key={rule.id} title={rule.title} icon={rule.icon}>
-                          <ul className={styles.ruleList}>
-                            {rule.points.map((point, idx) => (
-                              <li key={idx} className={styles.rulePoint}>
-                                <span className={styles.bullet}>•</span>
-                                <span>{point}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </AccordionPair>
-                      ))}
-                    </div>
-                    <div>
-                      {onCampusRules.slice(6, 12).map((rule) => (
-                        <AccordionPair key={rule.id} title={rule.title} icon={rule.icon}>
-                          <ul className={styles.ruleList}>
-                            {rule.points.map((point, idx) => (
-                              <li key={idx} className={styles.rulePoint}>
-                                <span className={styles.bullet}>•</span>
-                                <span>{point}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </AccordionPair>
-                      ))}
-                    </div>
+              <CollapsibleSection icon={ShieldAlert} title="On-Campus Placement Rules" defaultOpen={true} isDesktop={isDesktop}>
+                <p className={styles.cardDescription}>Essential policies for campus recruitment</p>
+                <div className={styles.twoColumnGrid}>
+                  <div>
+                    {onCampusRules.slice(0, 6).map((rule) => (
+                      <AccordionPair key={rule.id} title={rule.title} icon={rule.icon}>
+                        <ul className={styles.ruleList}>
+                          {rule.points.map((point, idx) => (
+                            <li key={idx} className={styles.rulePoint}>
+                              <span className={styles.bullet}>•</span>
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </AccordionPair>
+                    ))}
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    {onCampusRules.slice(6, 12).map((rule) => (
+                      <AccordionPair key={rule.id} title={rule.title} icon={rule.icon}>
+                        <ul className={styles.ruleList}>
+                          {rule.points.map((point, idx) => (
+                            <li key={idx} className={styles.rulePoint}>
+                              <span className={styles.bullet}>•</span>
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </AccordionPair>
+                    ))}
+                  </div>
+                </div>
+              </CollapsibleSection>
 
-              <Card className={`${styles.card} ${styles.offCampusCard}`}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <AlertTriangle className={styles.alertIcon} />
-                    Off-Campus Placement Rules
-                  </CardTitle>
-                  <CardDescription className={styles.cardDescription}>Important restrictions and policies</CardDescription>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <ul className={styles.offCampusList}>
-                    {offCampusRules.map((rule, idx) => (
-                      <li key={idx} className={styles.offCampusItem}>
-                        <span className={styles.offCampusWarning}>⚠</span>
-                        <span>{rule}</span>
+              <CollapsibleSection icon={AlertTriangle} title="Off-Campus Placement Rules" defaultOpen={false} isDesktop={isDesktop}>
+                <p className={styles.cardDescription}>Important restrictions and policies</p>
+                <ul className={styles.offCampusList}>
+                  {offCampusRules.map((rule, idx) => (
+                    <li key={idx} className={styles.offCampusItem}>
+                      <span className={styles.offCampusWarning}>⚠</span>
+                      <span>{rule}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className={styles.nocBox}>
+                  <p className={styles.nocText}>
+                    <strong className={styles.important}>NOC Policy:</strong> NOC for off-campus will only be provided if NOT placed in on-campus
+                  </p>
+                </div>
+              </CollapsibleSection>
+
+              <CollapsibleSection icon={ShieldAlert} title="Discipline & Penalties" defaultOpen={false} isDesktop={isDesktop}>
+                <p className={styles.cardDescription}>Violations and consequences</p>
+                <div className={styles.twoColumnGrid}>
+                  {disciplineRules.map((rule, idx) => {
+                    const IconComponent = rule.icon;
+                    return (
+                      <div key={idx} className={styles.disciplineBlock}>
+                        <div className={styles.disciplineHeader}>
+                          <IconComponent className={styles.disciplineIcon} />
+                          <div className={styles.disciplineText}>
+                            <h4 className={styles.disciplineTitle}>{rule.title}</h4>
+                            <Badge variant="destructive" className={styles.badgeDestructive}>
+                              {rule.penalty}
+                            </Badge>
+                          </div>
+                        </div>
+                        <ul className={styles.disciplineList}>
+                          {rule.details.map((detail, dIdx) => (
+                            <li key={dIdx} className={styles.disciplineDetail}>
+                              <span className={styles.disciplineBullet}>▸</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+              </CollapsibleSection>
+
+              <CollapsibleSection icon={Users} title="Guidelines for Students" defaultOpen={false} isDesktop={isDesktop}>
+                <p className={styles.cardDescription}>Important instructions to follow</p>
+                <div className={styles.twoColumnGrid}>
+                  <ul className={styles.guidelinesList}>
+                    {studentGuidelines.slice(0, 8).map((g, idx) => (
+                      <li key={idx} className={styles.guidelineItem}>
+                        <span className={styles.guidelineTick}>✓</span>
+                        <span>{g}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className={styles.nocBox}>
-                    <p className={styles.nocText}>
-                      <strong className={styles.important}>NOC Policy:</strong> NOC for off-campus will only be provided if NOT placed in on-campus
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className={`${styles.card} ${styles.disciplineCard}`}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <ShieldAlert className={styles.alertIcon} />
-                    Discipline & Penalties
-                  </CardTitle>
-                  <CardDescription className={styles.cardDescription}>Violations and consequences</CardDescription>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <div className={styles.twoColumnGrid}>
-                    {disciplineRules.map((rule, idx) => {
-                      const IconComponent = rule.icon;
-                      return (
-                        <div key={idx} className={styles.disciplineBlock}>
-                          <div className={styles.disciplineHeader}>
-                            <IconComponent className={styles.disciplineIcon} />
-                            <div className={styles.disciplineText}>
-                              <h4 className={styles.disciplineTitle}>{rule.title}</h4>
-                              <Badge variant="destructive" className={styles.badgeDestructive}>
-                                {rule.penalty}
-                              </Badge>
-                            </div>
-                          </div>
-                          <ul className={styles.disciplineList}>
-                            {rule.details.map((detail, dIdx) => (
-                              <li key={dIdx} className={styles.disciplineDetail}>
-                                <span className={styles.disciplineBullet}>▸</span>
-                                <span>{detail}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className={styles.card}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <Users className={styles.alertIcon} />
-                    Guidelines for Students
-                  </CardTitle>
-                  <CardDescription className={styles.cardDescription}>Important instructions to follow</CardDescription>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <div className={styles.twoColumnGrid}>
-                    <ul className={styles.guidelinesList}>
-                      {studentGuidelines.slice(0, 8).map((g, idx) => (
-                        <li key={idx} className={styles.guidelineItem}>
-                          <span className={styles.guidelineTick}>✓</span>
-                          <span>{g}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className={styles.guidelinesList}>
-                      {studentGuidelines.slice(8, 16).map((g, idx) => (
-                        <li key={idx} className={styles.guidelineItem}>
-                          <span className={styles.guidelineTick}>✓</span>
-                          <span>{g}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
+                  <ul className={styles.guidelinesList}>
+                    {studentGuidelines.slice(8, 16).map((g, idx) => (
+                      <li key={idx} className={styles.guidelineItem}>
+                        <span className={styles.guidelineTick}>✓</span>
+                        <span>{g}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CollapsibleSection>
             </TabsContent>
 
             <TabsContent value="training" className={styles.tabContent}>
@@ -605,140 +620,92 @@ const RulesTraining = () => {
                 </CardContent>
               </Card>
 
-              <Card className={styles.card}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <Calendar className={styles.alertIcon} />
-                    Training Duration & Programs
-                  </CardTitle>
-                  <CardDescription className={styles.cardDescription}>Program-wise internship schedules</CardDescription>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <div className={styles.twoColumnGrid}>
-                    {trainingDurations.map((prog, idx) => (
-                      <div key={idx} className={styles.programBlock}>
-                        <h4 className={styles.programTitle}>{prog.program}</h4>
-                        <div className={styles.programMeta}>
-                          <div className={styles.metaRow}>
-                            <Clock className={styles.iconSmall} />
-                            <span>{prog.duration}</span>
-                          </div>
-                          <div className={styles.metaRow}>
-                            <FileText className={styles.iconSmall} />
-                            <span>{prog.period}</span>
-                          </div>
+              <CollapsibleSection icon={Calendar} title="Training Duration & Programs" defaultOpen={true} isDesktop={isDesktop}>
+                <p className={styles.cardDescription}>Program-wise internship schedules</p>
+                <div className={styles.twoColumnGrid}>
+                  {trainingDurations.map((prog, idx) => (
+                    <div key={idx} className={styles.programBlock}>
+                      <h4 className={styles.programTitle}>{prog.program}</h4>
+                      <div className={styles.programMeta}>
+                        <div className={styles.metaRow}>
+                          <Clock className={styles.iconSmall} />
+                          <span>{prog.duration}</span>
+                        </div>
+                        <div className={styles.metaRow}>
+                          <FileText className={styles.iconSmall} />
+                          <span>{prog.period}</span>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                    </div>
+                  ))}
+                </div>
+              </CollapsibleSection>
 
-              <Card className={styles.card}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <FileCheck className={styles.alertIcon} />
-                    Required Documents Before Training
-                  </CardTitle>
-                  <CardDescription className={styles.cardDescription}>Student must submit training file with following documents</CardDescription>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <div className={styles.twoColumnGrid}>
-                    <ul className={styles.docsList}>
-                      {requiredDocuments.slice(0, 6).map((doc, idx) => (
-                        <li key={idx} className={styles.docItem}>
-                          <span className={styles.docIcon}>📄</span>
-                          <span>{doc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className={styles.docsList}>
-                      {requiredDocuments.slice(6, 12).map((doc, idx) => (
-                        <li key={idx} className={styles.docItem}>
-                          <span className={styles.docIcon}>📄</span>
-                          <span>{doc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className={styles.card}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <ShieldAlert className={styles.alertIcon} />
-                    General Rules for Training
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <ul className={styles.generalList}>
-                    {generalRules.map((r, idx) => (
-                      <li key={idx} className={styles.generalItem}>
-                        <span className={styles.generalIndex}>{idx + 1}.</span>
-                        <span>{r}</span>
+              <CollapsibleSection icon={FileCheck} title="Required Documents Before Training" defaultOpen={false} isDesktop={isDesktop}>
+                <p className={styles.cardDescription}>Student must submit training file with following documents</p>
+                <div className={styles.twoColumnGrid}>
+                  <ul className={styles.docsList}>
+                    {requiredDocuments.slice(0, 6).map((doc, idx) => (
+                      <li key={idx} className={styles.docItem}>
+                        <span className={styles.docIcon}>📄</span>
+                        <span>{doc}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
-
-              <Card className={styles.card}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <Target className={styles.alertIcon} />
-                    Selection Process & Reporting Rules
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <ul className={styles.selectionList}>
-                    {selectionRules.map((r, idx) => (
-                      <li key={idx} className={styles.selectionItem}>
-                        <span className={styles.selectionBullet}>▸</span>
-                        <span>{r}</span>
+                  <ul className={styles.docsList}>
+                    {requiredDocuments.slice(6, 12).map((doc, idx) => (
+                      <li key={idx} className={styles.docItem}>
+                        <span className={styles.docIcon}>📄</span>
+                        <span>{doc}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
+                </div>
+              </CollapsibleSection>
 
-              <Card className={`${styles.card} ${styles.offCampusCard}`}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <TrendingUp className={styles.alertIcon} />
-                    Switching from One Organization to Another
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <ul className={styles.switchList}>
-                    {switchingRules.map((r, idx) => (
-                      <li key={idx} className={styles.switchItem}>
-                        <span className={styles.switchBullet}>▸</span>
-                        <span>{r}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <CollapsibleSection icon={ShieldAlert} title="General Rules for Training" defaultOpen={false} isDesktop={isDesktop}>
+                <ul className={styles.generalList}>
+                  {generalRules.map((r, idx) => (
+                    <li key={idx} className={styles.generalItem}>
+                      <span className={styles.generalIndex}>{idx + 1}.</span>
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleSection>
 
-              <Card className={styles.card}>
-                <CardHeader className={styles.cardHeader}>
-                  <CardTitle className={styles.cardTitleWithIcon}>
-                    <Award className={styles.alertIcon} />
-                    Attendance, Monitoring & Assessment
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={styles.cardContent}>
-                  <ul className={styles.assessmentList}>
-                    {assessmentRules.map((r, idx) => (
-                      <li key={idx} className={styles.assessmentItem}>
-                        <span className={styles.assessmentBullet}>▸</span>
-                        <span>{r}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <CollapsibleSection icon={Target} title="Selection Process & Reporting Rules" defaultOpen={false} isDesktop={isDesktop}>
+                <ul className={styles.selectionList}>
+                  {selectionRules.map((r, idx) => (
+                    <li key={idx} className={styles.selectionItem}>
+                      <span className={styles.selectionBullet}>▸</span>
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleSection>
+
+              <CollapsibleSection icon={TrendingUp} title="Switching from One Organization to Another" defaultOpen={false} isDesktop={isDesktop}>
+                <ul className={styles.switchList}>
+                  {switchingRules.map((r, idx) => (
+                    <li key={idx} className={styles.switchItem}>
+                      <span className={styles.switchBullet}>▸</span>
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleSection>
+
+              <CollapsibleSection icon={Award} title="Attendance, Monitoring & Assessment" defaultOpen={false} isDesktop={isDesktop}>
+                <ul className={styles.assessmentList}>
+                  {assessmentRules.map((r, idx) => (
+                    <li key={idx} className={styles.assessmentItem}>
+                      <span className={styles.assessmentBullet}>▸</span>
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleSection>
 
               <Card className={`${styles.card} ${styles.blueCard}`}>
                 <CardHeader className={styles.cardHeader}>

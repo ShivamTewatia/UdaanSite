@@ -1,6 +1,6 @@
 .heroSection {
   position: relative;
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -102,15 +102,15 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  background: #ffffff;
+  padding: 0.5rem 1.25rem;
+  background: #ffffff27;
   border: 2px solid rgba(139, 92, 246, 0.2);
   border-radius: 3rem;
   color: #8b5cf6;
   font-weight: 700;
   font-size: 0.95rem;
   margin-top: -1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   animation: fadeInDown 0.8s ease;
   backdrop-filter: blur(10px);
@@ -124,7 +124,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   color: #1f2937;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
   line-height: 1.2;
   animation: fadeInUp 0.8s ease 0.2s both;
 }
@@ -202,21 +202,18 @@
   transition: transform 0.3s ease;
 }
 
-
 .waveBottom {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 1;
-  
 }
 
 .waveBottom svg {
   display: block;
   width: 100%;
   height: auto;
-  
 }
 
 @keyframes fadeInDown {
@@ -241,46 +238,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .heroSection {
-    min-height: auto;
-    padding-top: 3rem;
-    padding-bottom: 5rem;
-  }
-
-  .heroButtons {
-    flex-direction: column;
-    margin-bottom: 2rem;
-  }
-
-  .primaryButton, .secondaryButton {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .heroStats {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .statCard {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .statIcon {
-    width: 56px;
-    height: 56px;
-  }
-
-  .statNumber {
-    font-size: 1.75rem;
-  }
-
-  .statLabel {
-    font-size: 0.8rem;
-  }
-}
-
 .heroBackground,
 .heroPattern,
 .heroGradient,
@@ -291,3 +248,307 @@
   pointer-events: none;
 }
 
+/* ≥ 1440px — Large Desktop */
+@media (min-width: 1441px) {
+  .heroContent {
+    max-width: 1600px;
+    padding: 0 4rem;
+  }
+
+  .heroDescription {
+    max-width: 800px;
+  }
+
+  .shape1 {
+    width: 500px;
+    height: 500px;
+  }
+
+  .shape2 {
+    width: 380px;
+    height: 380px;
+  }
+
+  .shape3 {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+/* 1024px – 1279px — Small Laptop / Tablet Landscape */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .heroSection {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  .heroContent {
+    max-width: 1100px;
+    padding: 0 2rem;
+  }
+
+  .heroBadge {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .heroDescription {
+    max-width: 620px;
+    margin-bottom: 2.5rem;
+  }
+
+  .heroButtons {
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .primaryButton, .secondaryButton {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .shape1 {
+    width: 320px;
+    height: 320px;
+  }
+
+  .shape2 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .shape3 {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* 768px – 1023px — Tablet / Large Mobile */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .heroSection {
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .heroContent {
+    max-width: 720px;
+    padding: 0 1.5rem;
+  }
+
+  .heroBadge {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    gap: 0.4rem;
+  }
+
+  .badgeIcon {
+    font-size: 1.25rem;
+  }
+
+  .heroDescription {
+    max-width: 560px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .heroButtons {
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .primaryButton, .secondaryButton {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.9rem;
+  }
+
+  .shape1 {
+    width: 260px;
+    height: 260px;
+    filter: blur(60px);
+  }
+
+  .shape2 {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+  }
+
+  .shape3 {
+    width: 220px;
+    height: 220px;
+    filter: blur(60px);
+  }
+
+  .heroPattern {
+    background-size: 50px 50px;
+  }
+}
+
+/* ≤ 480px — Mobile */
+@media (max-width: 480px) {
+  .heroSection {
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+    min-height: auto;
+  }
+
+  .heroContent {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  .heroBadge {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    gap: 0.35rem;
+  }
+
+  .badgeIcon {
+    font-size: 1rem;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .heroDescription {
+    font-size: 0.675rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+  }
+
+  .heroButtons {
+    flex-direction: row;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .primaryButton {
+    flex: 1;
+    justify-content: center;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+  }
+  .secondaryButton {
+    flex: 1;
+    justify-content: center;
+    padding: 0.5rem 0rem;
+    font-size: 0.8rem;
+  }
+
+  .shape1 {
+    width: 180px;
+    height: 180px;
+    filter: blur(50px);
+    top: 5%;
+    left: 5%;
+  }
+
+  .shape2 {
+    width: 140px;
+    height: 140px;
+    filter: blur(50px);
+    right: 10%;
+  }
+
+  .shape3 {
+    width: 160px;
+    height: 160px;
+    filter: blur(50px);
+    left: 20%;
+  }
+
+  .heroPattern {
+    background-size: 40px 40px;
+    opacity: 0.3;
+  }
+
+  .waveBottom svg {
+    height: auto;
+  }
+}
+
+/* Between tablet and mobile (481px - 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .heroSection {
+    padding-top: 2.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .heroContent {
+    padding: 0 1.25rem;
+  }
+
+  .heroBadge {
+    padding: 0.55rem 1.15rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .badgeIcon {
+    font-size: 1.15rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.05rem;
+  }
+
+  .heroDescription {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+    max-width: 480px;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .primaryButton, .secondaryButton {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    padding: 0.9rem 1.75rem;
+  }
+
+  .shape1 {
+    width: 220px;
+    height: 220px;
+    filter: blur(55px);
+  }
+
+  .shape2 {
+    width: 170px;
+    height: 170px;
+    filter: blur(55px);
+  }
+
+  .shape3 {
+    width: 190px;
+    height: 190px;
+    filter: blur(55px);
+  }
+
+  .heroPattern {
+    background-size: 45px 45px;
+  }
+}

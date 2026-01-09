@@ -34,7 +34,6 @@ const HeroSection = ({ onShowStats }) => {
       <div className={styles.heroContent}>
         <div className={styles.heroText}>
           <div className={styles.heroBadge}>
-            <span className={styles.badgeIcon}>🎓</span>
             <span>Training & Placement Cell</span>
           </div>
           
