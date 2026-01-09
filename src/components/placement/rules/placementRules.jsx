@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./PlacementRules.module.css";
+import styles from "./placementRules.module.css";
 import { 
   AlertTriangle, 
   BookOpen, 
