@@ -387,7 +387,7 @@
 }
 
 /* ≤ 480px — Mobile */
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .heroSection {
     padding-top: 2rem;
     padding-bottom: 3.5rem;
@@ -427,25 +427,28 @@
     margin-bottom: 1.5rem;
     line-height: 1.6;
     padding: 0 0.5rem;
+    
   }
 
   .heroButtons {
     flex-direction: row;
     gap: 0.75rem;
     margin-bottom: 1rem;
-    padding: 0 0.5rem;
+    padding: 0.5rem;
+    max-width: 450px;
+    margin: 0 auto;
   }
 
   .primaryButton {
     flex: 1;
     justify-content: center;
-    padding: 0.5rem 0.25rem;
+    padding: 1rem 0.25rem;
     font-size: 0.8rem;
   }
   .secondaryButton {
     flex: 1;
     justify-content: center;
-    padding: 0.5rem 0rem;
+    padding: 1rem 0rem;
     font-size: 0.8rem;
   }
 
@@ -482,7 +485,7 @@
 }
 
 /* Between tablet and mobile (481px - 767px) */
-@media (max-width: 767px) and (min-width: 481px) {
+/* @media (max-width: 767px) and (min-width: 481px) {
   .heroSection {
     padding-top: 2.5rem;
     padding-bottom: 4rem;
@@ -551,4 +554,4 @@
   .heroPattern {
     background-size: 45px 45px;
   }
-}
+} */

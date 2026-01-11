@@ -1,15 +1,158 @@
+/* Collapsible Section Styles */
+.collapsibleSection {
+  margin-bottom: 1.5rem;
+}
 
-.card {
-  position: relative;
+.collapsibleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   background: white;
   border: 1px solid hsla(256, 88%, 60%, 0.278);
   border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 
-    0 4px 6px -1px hsl(258 60% 50% / 0.05),
-    0 10px 40px -10px hsl(258 60% 50% / 0.12);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px hsla(258, 90%, 66%, 0.08);
 }
 
+.collapsibleHeader:hover {
+  border-color: hsl(258 90% 66%);
+  box-shadow: 0 6px 20px hsla(258, 90%, 66%, 0.15);
+}
+
+.collapsibleHeader.active {
+  border-color: hsla(256, 88%, 60%, 0.278);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: linear-gradient(135deg, hsla(258, 90%, 66%, 0.05) 0%, #ffffff 100%);
+}
+
+.collapsibleHeaderLeft {
+  padding: 1.25rem 0 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.collapsibleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(258 90% 66%);
+  background-color: hsla(258, 90%, 66%, 0.08);
+  border-radius: 10px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.collapsibleHeader:hover .collapsibleIcon {
+  transform: rotate(-8deg) scale(1.1);
+  color: white;
+  background-color: hsla(258, 90%, 66%, 0.9);
+}
+
+.titleWrapper {
+  text-align: left;
+}
+
+.collapsibleTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, hsl(258 90% 66%), hsl(256 88% 60%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.collapsibleSubtitle {
+  font-size: 0.875rem;
+  color: hsla(259, 44%, 17%, 0.501);
+  margin: 0.25rem 0 0 0;
+}
+
+.collapsibleHeader:hover .collapsibleTitle {
+  transform: translateX(3px);
+}
+
+.headerRight {
+  padding: 0.25rem 1.5rem 0.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Desktop tabs wrapper */
+.tabsWrapperDesktop {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 0.25rem;
+  column-gap: 0.315rem;
+}
+
+/* Mobile actions bar - hidden by default */
+.mobileActionsBar {
+  display: none;
+}
+
+/* Mobile tabs wrapper */
+.tabsWrapperMobile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.collapsibleArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: hsla(258, 90%, 66%, 0.1);
+  border-radius: 50%;
+  color: hsl(258 90% 66%);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  background-color: white;
+}
+
+.collapsibleArrow.rotated {
+  transform: rotate(180deg);
+  background: hsl(258 90% 66%);
+  color: white;
+}
+
+.collapsibleContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: white;
+  border: 1px solid hsla(256, 88%, 60%, 0.278);
+  border-top: none;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  position: relative;
+}
+
+.collapsibleContent:not(.expanded) {
+  border: none;
+}
+
+.collapsibleContent.expanded {
+  max-height: 2000px;
+}
+
+.collapsibleContentInner {
+  padding: 1.5rem 0.5rem 1rem;
+  position: relative;
+}
+
+/* Card Glow Effect */
 .cardGlow {
   position: absolute;
   top: -50%;
@@ -20,80 +163,13 @@
   pointer-events: none;
 }
 
-.header {
-  padding: 1.5rem 1.5rem 0.7rem;
-  border-bottom: 1px solid hsla(256, 88%, 60%, 0.278);
-}
-
-.titleSection {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  margin-bottom: 0rem;
-}
-
-.iconBadge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.2rem;
-  color:hsl(258 90% 66%);
-  background-color:hsla(258, 90%, 66%, 0.08) ;
-  border-radius: 10px;
-  padding: 0.5rem 0.5rem 0.2rem;
-  transition: all 0.3s ease;
-}
-
-.titleSection:hover .iconBadge{
-  transform: rotate(-8deg) scale(1.1);
-  color:white;
-  background-color:hsla(258, 90%, 66%, 0.9) ;
-}
-
-
-.title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(
-    135deg,
-    hsl(258 90% 66%),
-    hsl(256 88% 60%)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* margin-bottom: 0.1rem; */
-  transition: all 0.3s ease;
-  white-space: nowrap;      
-  overflow: hidden;         
-  text-overflow: ellipsis;
-}
-
-.subtitle {
-  font-size: 1rem;
-  color: hsla(259, 44%, 17%, 0.501);
-  transition: all 0.3s ease;
-}
-
-.titleSection:hover .title{
-  transform: translateX(3px) scale(1.02);
-  color:white;
-}
-
-.titleSection:hover .subtitle{
-  transform: translateX(3px) scale(1.02);
-}
-
-.tabs {
-  display: flex;
-  gap: 0.5rem;
-}
-
+/* Tabs Styles */
 .tab {
   display: flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.5rem 0.875rem;
-  font-size: 0.8125rem;
+  gap: 0.25rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.815rem;
   font-weight: 600;
   border-radius: 2rem;
   background: white;
@@ -101,6 +177,7 @@
   border: 1.5px solid hsl(258 30% 90%);
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .tab:hover {
@@ -124,17 +201,11 @@
 }
 
 .tabLabel {
-  display: none;
+  display: inline;
 }
 
-@media (min-width: 480px) {
-  .tabLabel {
-    display: inline;
-  }
-}
-
+/* List Styles */
 .list {
-  padding: 1rem 1rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
@@ -154,8 +225,8 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 0.875rem;
-  padding: 0.875rem 1rem;
+  gap: 0.87rem;
+  padding: 0.95rem 1rem;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -217,6 +288,7 @@
   box-shadow: 0 8px 24px hsl(258 40% 50% / 0.08);
 }
 
+/* Medal Styles */
 .medal {
   width: 40px;
   height: 40px;
@@ -266,6 +338,7 @@
   font-weight: 800;
 }
 
+/* Info Styles */
 .info {
   flex: 1;
   min-width: 0;
@@ -277,6 +350,7 @@
   color: hsl(258 40% 20%);
   line-height: 1.3;
   transition: color 0.2s ease;
+  margin: 0;
 }
 
 .item:hover .courseName {
@@ -290,6 +364,7 @@
   margin-top: 0.125rem;
 }
 
+/* Value Badge Styles */
 .valueBadge {
   padding: 0.375rem 0.75rem;
   border-radius: 2rem;
@@ -350,25 +425,63 @@
   }
 }
 
-@media (max-width: 480px) {
-  .header {
-    padding: 1.25rem 1rem 1rem;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1441px) {
+  .collapsibleHeaderLeft {
+    padding: 1.5rem 0 1.5rem 2rem;
   }
 
-  .titleSection {
-    gap: 0.75rem;
+  .collapsibleTitle {
+    font-size: 1.5rem;
   }
 
-  .iconBadge {
-    width: 38px;
-    height: 38px;
+  .tabsWrapperDesktop {
+    gap: 0.5rem;
+  }
+}
+
+/* Desktop/Laptop */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .tabsWrapperDesktop {
+    gap: 0.5rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .collapsibleHeaderLeft {
+    padding: 1rem 0 1rem 1.25rem;
   }
 
-  .title {
-    font-size: 1.125rem;
+  .collapsibleTitle {
+    font-size: 1.15rem;
   }
 
-  .tabs {
+  .collapsibleSubtitle {
+    font-size: 0.8rem;
+  }
+
+  .collapsibleIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .collapsibleContentInner {
+    padding: 1.25rem;
+  }
+
+  .tabsWrapperDesktop {
     gap: 0.375rem;
   }
 
@@ -376,9 +489,83 @@
     padding: 0.4375rem 0.625rem;
     font-size: 0.75rem;
   }
+}
 
-  .list {
-    padding: 0.75rem;
+/* Mobile - aligned with CollapsibleWrapper */
+@media (max-width: 768px) {
+  .collapsibleSection {
+    margin-bottom: 1rem;
+  }
+
+  .collapsibleHeader {
+    border-radius: 0.875rem;
+  }
+
+  .collapsibleHeader.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .collapsibleHeaderLeft {
+    padding: 0.875rem 0 0.875rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .collapsibleIcon {
+    padding: 0.4rem;
+  }
+
+  .collapsibleIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .collapsibleTitle {
+    font-size: 1rem;
+  }
+
+  .collapsibleSubtitle {
+    font-size: 0.75rem;
+  }
+
+  .headerRight {
+    padding: 0.25rem 1rem 0.25rem 0;
+  }
+
+  .collapsibleArrow {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .collapsibleArrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .collapsibleContent {
+    border-bottom-left-radius: 0.875rem;
+    border-bottom-right-radius: 0.875rem;
+  }
+
+  .collapsibleContentInner {
+    padding: 1rem;
+  }
+
+  .tabsWrapperDesktop {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .tab {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.7rem;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+
+  .tab svg {
+    width: 12px;
+    height: 12px;
   }
 
   .itemInner {
@@ -404,20 +591,111 @@
   }
 }
 
+/* Extra Small Mobile - aligned with CollapsibleWrapper */
+@media (max-width: 468px) {
+  .collapsibleHeaderLeft {
+    padding: 0.75rem 0 0.75rem 0.5rem;
+    gap: 0.25rem;
+  }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 3rem;
+  .collapsibleIcon {
+    padding: 0.375rem;
+  }
+
+  .collapsibleIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .collapsibleTitle {
+    font-size: 0.88rem;
+  }
+
+  .collapsibleSubtitle {
+    font-size: 0.65rem;
+  }
+
+  .headerRight {
+    padding: 0;
+    gap: 0.5rem;
+  }
+
+  /* Hide desktop tabs, show mobile tabs */
+  .tabsWrapperDesktop {
+    display: none;
+  }
+
+  .collapsibleContent.expanded .mobileActionsBar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0rem 0.5rem;
+    border-bottom: 1px solid hsla(256, 88%, 60%, 0.15);
+    background: linear-gradient(180deg, hsla(258, 90%, 66%, 0.03) 0%, transparent 100%);
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .tabsWrapperMobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem;
+    justify-content: center;
+  }
+
+  .tab {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.5rem;
+  }
+  .tab svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  .collapsibleContentInner {
+    padding: 1rem 0.5rem 0.75rem;
+  }
+
+  .collapsibleArrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.175rem;
+  }
+
+  .collapsibleArrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .itemInner {
+    padding: 0.425rem 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .medal {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+  }
+
+  .medal svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .courseName {
+    font-size: 0.7rem;
+  }
+
+  .year {
+    font-size: 0.6rem;
+  }
+
+  .valueBadge {
+    padding: 0.015rem 0.5rem 0.25rem;
+  }
+
+  .valueText {
+    font-size: 0.75rem;
+  }
 }
-
-.tabs{
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: -0.5rem;
-}
-
-/* .tabs > :nth-child(1){
-  margin-left: 135px;
-} */

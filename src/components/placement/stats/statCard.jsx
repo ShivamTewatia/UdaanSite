@@ -30,7 +30,6 @@ export const StatCard = forwardRef(({
   description, 
   color, 
   variant,
-  delay = 0 
 }, ref) => {
   const cardVariant = variant || getVariantFromColor(color);
   
@@ -38,7 +37,6 @@ export const StatCard = forwardRef(({
     <div 
       ref={ref}
       className={`${styles.card} ${styles[cardVariant]}`}
-      style={{ animationDelay: `${delay}ms` }}
     >
       <div className={styles.glowOrb} />
 

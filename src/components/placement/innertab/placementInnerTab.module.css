@@ -12,7 +12,7 @@
 
 .tabContainer {
   display: flex;
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -174,7 +174,7 @@
 /* ≥ 1440px — Large Desktop */
 @media (min-width: 1440px) {
   .tabContainer {
-    max-width: 1400px;
+    max-width: 1600px;
     padding: 0 2rem;
   }
 

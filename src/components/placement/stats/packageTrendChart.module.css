@@ -4,7 +4,8 @@
   flex-direction: column;
   gap: 0.4rem;
   font-size: 0.7rem;
-  margin-top: 0.5rem;
+  justify-content: center;
+  align-items: center;
   border: 1px solid hsla(256, 88%, 60%, 0.278);
   border-radius: 0.5rem;
   background: hsla(258, 90%, 66%, 0.2);
@@ -24,7 +25,12 @@
 }
 
 .tooltip {
+  background: white;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
   padding: 12px 16px;
+  box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.1), 0 4px 8px -2px rgb(0 0 0 / 0.05);
+  min-width: 180px;
 }
 
 .tooltipYear {
@@ -73,4 +79,82 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .legend {
+    display: flex;
+    flex-direction: row;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.65rem;
+    gap: 1rem!important;
+  }
+
+  .legendDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .tooltip {
+    padding: 10px 12px;
+    min-width: 160px;
+  }
+
+  .tooltipContent {
+    font-size: 13px;
+  }
+
+  .tooltipRow {
+    gap: 12px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 468px) {
+  .legend {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6rem;
+    gap: 0.25rem;
+  }
+
+  .legendItem {
+    gap: 0.25rem;
+  }
+
+  .legendDot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .tooltip {
+    padding: 8px 10px;
+    min-width: 140px;
+    border-radius: 8px;
+  }
+
+  .tooltipYear {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .tooltipContent {
+    font-size: 11px;
+  }
+
+  .tooltipRow {
+    gap: 8px;
+    padding: 1px 0;
+  }
+
+  .tooltipLabel {
+    font-size: 10px;
+    
+  }
+
+  .tooltipValue,
+  .tooltipValueBlue,
+  .tooltipValuePurple {
+    font-size: 10px;
+  }
 }

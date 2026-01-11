@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 1rem;
   font-size: 0.75rem;
-  margin-top: 10px;
+  justify-content: center;
 }
 
 .legendItem {
@@ -17,4 +17,11 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+
+@media(max-width:468px){
+  .legend {
+    display: flex;
+    flex-direction: row;
+  }
 }

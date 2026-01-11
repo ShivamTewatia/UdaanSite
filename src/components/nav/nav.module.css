@@ -477,7 +477,7 @@ button.navButton {
 
 @media (max-width: 767px) {
   .container {
-    padding: 0 1rem;
+    padding: 0rem 1rem;
   }
 
   .content {
@@ -510,6 +510,11 @@ button.navButton {
   .logo h1 {
     font-size: 1.4rem;
   }
+  .navButton{
+    padding: 1rem !important;
+  }
+
+  
 }
 
 @media (max-width: 480px) {

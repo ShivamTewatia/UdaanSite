@@ -23,11 +23,10 @@
 }
 
 .card:hover {
-  transform: translateY(-6px);
   border: 1px solid hsla(256, 88%, 60%, 0.3);
   box-shadow: 
-    0 8px 24px hsl(256 88% 60% / 0.15),
-    0 16px 48px hsl(256 88% 60% / 0.1);
+    0 8px 24px hsla(0, 0%, 0%, 0.25),
+    0 16px 48px hsla(256, 88%, 60%, 0.2);
 }
 
 .card:hover .iconWrapper {
@@ -213,27 +212,66 @@
   }
 }
 
-@media (max-width: 768px) {
+@media(max-width:468px){
   .card {
-    padding: 1.25rem 1.5rem;
+    padding: 0.75rem .35rem;
+    border-radius: 10px;
+  }
+
+  .glowOrb {
+    top:10%;
+    left: 15%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    filter: blur(15px);
   }
 
   .iconWrapper {
-    width: 50px;
-    height: 50px;
-    border-radius: 14px;
+    width: 46px;
+    height: 46px;
+    border-radius: 0px;
+    margin-bottom: 0.25rem;
   }
 
   .iconInner {
-    border-radius: 14px;
+    width: 80%;
+    height: 80%;
+    border-radius: 8px;
   }
 
   .icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .title {
+    font-size: 0.6rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
   }
 
   .value {
-    font-size: 1.85rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.65rem;
+  }
+
+  .cornerAccent {
+    bottom: -40px;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.1;
   }
 }

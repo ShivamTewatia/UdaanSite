@@ -2,10 +2,10 @@ import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Tooltip
 } from "recharts";
 import { CHART_COLORS } from "./placementData";
-import { ChartCard } from "./chartCard";
+// import { ChartCard } from "./chartCard";
 import styles from "./radarChartSection.module.css";
 import { RadarIcon } from "lucide-react";
-
+import {CollapsibleWrapper} from "./collapsableSection";
 
 export const RadarChartSection = ({ courses }) => {
   const radarData = courses.map(item => ({
@@ -16,8 +16,8 @@ export const RadarChartSection = ({ courses }) => {
   }));
 
   return (
-    <ChartCard
-      icon={<RadarIcon size={42} />}
+    <CollapsibleWrapper
+      icon={RadarIcon}
       title="Department Performance Radar"
       subtitle="Multi-dimensional performance analysis"
       legend={
@@ -33,7 +33,7 @@ export const RadarChartSection = ({ courses }) => {
         </div>
       }
     >
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height={360}>
         <RadarChart data={radarData}>
           <PolarGrid stroke="#e5e7eb" strokeDasharray="3 3" />
           <PolarAngleAxis 
@@ -75,7 +75,7 @@ export const RadarChartSection = ({ courses }) => {
           />
         </RadarChart>
       </ResponsiveContainer>
-    </ChartCard>
+    </CollapsibleWrapper>
   );
 };
 

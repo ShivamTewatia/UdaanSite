@@ -5,9 +5,14 @@
   vertical-align: bottom;
 }
 
-.digit {
+/* .digit {
   display: inline-block;
   position: relative;
+  height: 1.2em;
+  overflow: hidden;
+} */
+.digit {
+  display: inline-flex;
   height: 1.2em;
   overflow: hidden;
 }
@@ -31,9 +36,14 @@
 }
 
 
-.animatedValue {
+/* .animatedValue {
   display: inline-flex;
   align-items: baseline;
+} */
+.animatedValue {
+  display: inline-flex;
+  align-items: center;     /* baseline ❌ */
+  height: 1.2em;
 }
 
 

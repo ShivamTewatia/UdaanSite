@@ -1,9 +1,21 @@
 import * as React from "react";
-import { useState, useMemo } from "react";
-import { Users, Briefcase, TrendingUp, Award } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { Users, Briefcase, TrendingUp, Award, ChevronDown } from "lucide-react";
 import styles from "./placementTable.module.css";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
+
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
+  
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return isDesktop;
+};
 
 const Table = React.forwardRef(({ className, ...props }, ref) => (
   <div className="relative w-full overflow-auto">
@@ -42,10 +54,16 @@ const TableCell = React.forwardRef(({ className, ...props }, ref) => (
 ));
 TableCell.displayName = "TableCell";
 
-export const PlacementTable = ({ courses }) => {
+export const PlacementTable = ({ courses, defaultOpen = false }) => {
+  const isDesktop = useIsDesktop();
+  const [isOpen, setIsOpen] = useState(isDesktop);
   const [sortField, setSortField] = useState("placementPercent");
   const [sortDirection, setSortDirection] = useState("desc");
   const [hoveredRow, setHoveredRow] = useState(null);
+
+  useEffect(() => {
+    setIsOpen(isDesktop);
+  }, [isDesktop]);
 
   const handleSort = (field) => {
     if (sortField === field) {
@@ -90,125 +108,139 @@ export const PlacementTable = ({ courses }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <div className={styles.headerContent}>
-          <Briefcase size={55} className={styles.titleIcon} />
-          <div className="styles.headertitles">
-            <h3 className={styles.title}>
-              Department-wise Placement Details
-            </h3>
-            <p className={styles.subtitle}>Click on headers to sort • Hover for highlights</p>
+    <div className={styles.collapsibleSection}>
+      <button 
+        className={cn(styles.collapsibleHeader, isOpen && styles.active)}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        <div className={styles.collapsibleHeaderLeft}>
+          <div className={styles.collapsibleIcon}>
+            <Briefcase size={28} strokeWidth={1.5} />
+          </div>
+          <div className={styles.titleWrapper}>
+            <h3 className={styles.collapsibleTitle}>Department-wise Placement Details</h3>
+            <p className={styles.collapsibleSubtitle}>Click on headers to sort • Hover for highlights</p>
           </div>
         </div>
-        <div className={styles.avgBadge}>
-          <span className={styles.avgLabel}>Avg Placement:</span>
-          <span className={styles.avgValue}>{totals.avgPlacement}%</span>
+        <div className={styles.headerRight}>
+          <div className={styles.avgBadge}>
+            <span className={styles.avgLabel}>Avg Placement:</span>
+            <span className={styles.avgValue}>{totals.avgPlacement}%</span>
+          </div>
+          <div className={cn(styles.collapsibleArrow, isOpen && styles.rotated)}>
+            <ChevronDown size={20} strokeWidth={2} />
+          </div>
         </div>
-      </div>
-      <div className={styles.tableContainer}>
-        <Table>
-          <TableHeader>
-            <TableRow className={styles.headerRow}>
-              <TableHead className={styles.th} onClick={() => handleSort("course")}>
-                Course{getSortIcon("course")}
-              </TableHead>
-              <TableHead className={`${styles.th} ${styles.thCenter}`} onClick={() => handleSort("eligibleStudents")}>
-                <div className={styles.thContent}>
-                  <Users size={14} className={styles.thIcon} /> Eligible{getSortIcon("eligibleStudents")}
-                </div>
-              </TableHead>
-              <TableHead className={`${styles.th} ${styles.thCenter}`} onClick={() => handleSort("offers")}>
-                <div className={styles.thContent}>
-                  <Briefcase size={14} className={styles.thIcon} /> Offers{getSortIcon("offers")}
-                </div>
-              </TableHead>
-              <TableHead className={`${styles.th} ${styles.thCenter}`} onClick={() => handleSort("placementPercent")}>
-                <div className={styles.thContent}>
-                  <TrendingUp size={14} className={styles.thIcon} /> Placement %{getSortIcon("placementPercent")}
-                </div>
-              </TableHead>
-              <TableHead className={`${styles.th} ${styles.thCenter}`} onClick={() => handleSort("highestPackage")}>
-                <div className={styles.thContent}>
-                  <Award size={14} className={styles.thIcon} /> Highest{getSortIcon("highestPackage")}
-                </div>
-              </TableHead>
-              <TableHead className={`${styles.th} ${styles.thCenter}`} onClick={() => handleSort("averagePackage")}>
-                Average{getSortIcon("averagePackage")}
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sortedCourses.map((course, index) => {
-              const colorClass = getPlacementColor(course.placementPercent);
-              return (
-                <TableRow
-                  key={course.course}
-                  className={`${styles.row} ${hoveredRow === course.course ? styles.rowHovered : ""}`}
-                  onMouseEnter={() => setHoveredRow(course.course)}
-                  onMouseLeave={() => setHoveredRow(null)}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <TableCell className={styles.td}>
-                    <div className={styles.courseName}>
-                      <div className={`${styles.dot} ${styles[`dot${colorClass}`]}`} />
-                      {course.course}
+      </button>
+      
+      <div className={cn(styles.collapsibleContent, isOpen && styles.expanded)}>
+        <div className={styles.collapsibleContentInner}>
+          <div className={styles.tableContainer}>
+            <Table>
+              <TableHeader>
+                <TableRow className={styles.headerRow}>
+                  <TableHead className={styles.th} onClick={() => handleSort("course")}>
+                    Course{getSortIcon("course")}
+                  </TableHead>
+                  <TableHead className={cn(styles.th, styles.thCenter)} onClick={() => handleSort("eligibleStudents")}>
+                    <div className={styles.thContent}>
+                      <Users size={14} className={styles.thIcon} /> Eligible{getSortIcon("eligibleStudents")}
                     </div>
-                  </TableCell>
-                  <TableCell className={`${styles.td} ${styles.tdCenter}`}>{course.eligibleStudents}</TableCell>
-                  <TableCell className={`${styles.td} ${styles.tdCenter}`}>
-                    <span className={styles.offersValue}>{course.offers}</span>
-                  </TableCell>
-                  <TableCell className={`${styles.td} ${styles.tdCenter}`}>
-                    <div className={styles.progressWrapper}>
-                      <div className={`${styles.progressBar} ${styles[`progressBg${colorClass}`]}`}>
-                        <div 
-                          className={`${styles.progressFill} ${styles[`progress${colorClass}`]}`}
-                          style={{ width: `${course.placementPercent}%` }}
-                        />
-                      </div>
-                      <span className={`${styles.percentBadge} ${styles[`badge${colorClass}`]}`}>
-                        {course.placementPercent}%
-                      </span>
+                  </TableHead>
+                  <TableHead className={cn(styles.th, styles.thCenter)} onClick={() => handleSort("offers")}>
+                    <div className={styles.thContent}>
+                      <Briefcase size={14} className={styles.thIcon} /> Offers{getSortIcon("offers")}
                     </div>
+                  </TableHead>
+                  <TableHead className={cn(styles.th, styles.thCenter)} onClick={() => handleSort("placementPercent")}>
+                    <div className={styles.thContent}>
+                      <TrendingUp size={14} className={styles.thIcon} /> Placement %{getSortIcon("placementPercent")}
+                    </div>
+                  </TableHead>
+                  <TableHead className={cn(styles.th, styles.thCenter)} onClick={() => handleSort("highestPackage")}>
+                    <div className={styles.thContent}>
+                      <Award size={14} className={styles.thIcon} /> Highest{getSortIcon("highestPackage")}
+                    </div>
+                  </TableHead>
+                  <TableHead className={cn(styles.th, styles.thCenter)} onClick={() => handleSort("averagePackage")}>
+                    Average{getSortIcon("averagePackage")}
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sortedCourses.map((course, index) => {
+                  const colorClass = getPlacementColor(course.placementPercent);
+                  return (
+                    <TableRow
+                      key={course.course}
+                      className={cn(styles.row, hoveredRow === course.course && styles.rowHovered)}
+                      onMouseEnter={() => setHoveredRow(course.course)}
+                      onMouseLeave={() => setHoveredRow(null)}
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      <TableCell className={styles.td}>
+                        <div className={styles.courseName}>
+                          <div className={cn(styles.dot, styles[`dot${colorClass}`])} />
+                          {course.course}
+                        </div>
+                      </TableCell>
+                      <TableCell className={cn(styles.td, styles.tdCenter)}>{course.eligibleStudents}</TableCell>
+                      <TableCell className={cn(styles.td, styles.tdCenter)}>
+                        <span className={styles.offersValue}>{course.offers}</span>
+                      </TableCell>
+                      <TableCell className={cn(styles.td, styles.tdCenter)}>
+                        <div className={styles.progressWrapper}>
+                          <div className={cn(styles.progressBar, styles[`progressBg${colorClass}`])}>
+                            <div 
+                              className={cn(styles.progressFill, styles[`progress${colorClass}`])}
+                              style={{ width: `${course.placementPercent}%` }}
+                            />
+                          </div>
+                          <span className={cn(styles.percentBadge, styles[`badge${colorClass}`])}>
+                            {course.placementPercent}%
+                          </span>
+                        </div>
+                      </TableCell>
+                      <TableCell className={cn(styles.td, styles.tdCenter)}>
+                        <span className={styles.packageHighest}>₹{course.highestPackage}</span>
+                        <span className={styles.packageUnit}> LPA</span>
+                      </TableCell>
+                      <TableCell className={cn(styles.td, styles.tdCenter)}>
+                        <span className={styles.packageAvg}>₹{course.averagePackage}</span>
+                        <span className={styles.packageUnit}> LPA</span>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+              <TableFooter>
+                <TableRow className={styles.footerRow}>
+                  <TableCell className={styles.tdFooter}>
+                    <span className={styles.totalLabel}>Total</span>
                   </TableCell>
-                  <TableCell className={`${styles.td} ${styles.tdCenter}`}>
-                    <span className={styles.packageHighest}>₹{course.highestPackage}</span>
+                  <TableCell className={cn(styles.tdFooter, styles.tdCenter)}>
+                    <span className={styles.totalValue}>{totals.totalEligible}</span>
+                  </TableCell>
+                  <TableCell className={cn(styles.tdFooter, styles.tdCenter)}>
+                    <span className={styles.totalValue}>{totals.totalOffers}</span>
+                  </TableCell>
+                  <TableCell className={cn(styles.tdFooter, styles.tdCenter)}>
+                    <span className={styles.totalBadge}>{totals.avgPlacement}%</span>
+                  </TableCell>
+                  <TableCell className={cn(styles.tdFooter, styles.tdCenter)}>
+                    <span className={styles.totalValue}>₹{totals.highestPackage}</span>
                     <span className={styles.packageUnit}> LPA</span>
                   </TableCell>
-                  <TableCell className={`${styles.td} ${styles.tdCenter}`}>
-                    <span className={styles.packageAvg}>₹{course.averagePackage}</span>
+                  <TableCell className={cn(styles.tdFooter, styles.tdCenter)}>
+                    <span className={styles.totalValue}>₹{totals.avgPackage}</span>
                     <span className={styles.packageUnit}> LPA</span>
                   </TableCell>
                 </TableRow>
-              );
-            })}
-          </TableBody>
-          <TableFooter>
-            <TableRow className={styles.footerRow}>
-              <TableCell className={styles.tdFooter}>
-                <span className={styles.totalLabel}>Total</span>
-              </TableCell>
-              <TableCell className={`${styles.tdFooter} ${styles.tdCenter}`}>
-                <span className={styles.totalValue}>{totals.totalEligible}</span>
-              </TableCell>
-              <TableCell className={`${styles.tdFooter} ${styles.tdCenter}`}>
-                <span className={styles.totalValue}>{totals.totalOffers}</span>
-              </TableCell>
-              <TableCell className={`${styles.tdFooter} ${styles.tdCenter}`}>
-                <span className={styles.totalBadge}>{totals.avgPlacement}%</span>
-              </TableCell>
-              <TableCell className={`${styles.tdFooter} ${styles.tdCenter}`}>
-                <span className={styles.totalValue}>₹{totals.highestPackage}</span>
-                <span className={styles.packageUnit}> LPA</span>
-              </TableCell>
-              <TableCell className={`${styles.tdFooter} ${styles.tdCenter}`}>
-                <span className={styles.totalValue}>₹{totals.avgPackage}</span>
-                <span className={styles.packageUnit}> LPA</span>
-              </TableCell>
-            </TableRow>
-          </TableFooter>
-        </Table>
+              </TableFooter>
+            </Table>
+          </div>
+        </div>
       </div>
     </div>
   );

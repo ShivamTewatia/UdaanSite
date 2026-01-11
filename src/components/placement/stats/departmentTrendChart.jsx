@@ -6,8 +6,9 @@ import {
   Building
 } from "lucide-react"
 import { placementData, DEPT_COLORS } from "./placementData";
-import { ChartCard } from "./chartCard";
+// import { ChartCard } from "./chartCard";
 import styles from "./departmentTrendChart.module.css";
+import {CollapsibleWrapper} from "./collapsableSection";
 
 const departments = ["CE", "IT", "ECE", "EIC", "EL", "Mech."];
 
@@ -37,10 +38,11 @@ export const DepartmentTrendChart = () => {
   });
 
   return (
-    <ChartCard
-      icon={<Building size={36} strokeWidth={2} />}
+    <CollapsibleWrapper
+      icon={Building}
       title="Department Performance Over Time"
       subtitle="Track each department's placement journey"
+      defaultOpen:False
     >
       <div className={styles.chipContainer}>
         <button
@@ -103,6 +105,6 @@ export const DepartmentTrendChart = () => {
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-    </ChartCard>
+    </CollapsibleWrapper>
   );
 };

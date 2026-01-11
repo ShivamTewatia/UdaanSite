@@ -1,4 +1,157 @@
-.wrapper {
+/* Collapsible Section Styles */
+.collapsibleSection {
+  margin-bottom: 0.5rem;
+}
+
+.collapsibleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: hsl(0 0% 100%);
+  border: 1px solid hsla(256, 88%, 60%, 0.278);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px hsla(258, 90%, 66%, 0.08);
+}
+
+.collapsibleHeader:hover {
+  border-color: hsl(258 90% 66%);
+  box-shadow: 0 6px 20px hsla(258, 90%, 66%, 0.15);
+}
+
+.collapsibleHeader.active {
+  border-color: hsla(256, 88%, 60%, 0.278);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: linear-gradient(135deg, hsla(258, 90%, 66%, 0.05) 0%, hsl(0 0% 100%) 100%);
+}
+
+.collapsibleHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.collapsibleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(258 90% 66%);
+  background-color: hsla(258, 90%, 66%, 0.08);
+  border-radius: 10px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.collapsibleHeader:hover .collapsibleIcon {
+  transform: rotate(-8deg) scale(1.1);
+  color: hsl(0 0% 100%);
+  background-color: hsla(258, 90%, 66%, 0.9);
+}
+
+.titleWrapper {
+  text-align: left;
+}
+
+.collapsibleTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, hsl(258 90% 66%), hsl(256 88% 60%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.collapsibleSubtitle {
+  font-size: 1rem;
+  color: hsla(259, 44%, 17%, 0.501);
+  margin: 0.25rem 0 0 0;
+  transition: all 0.3s ease;
+}
+
+.collapsibleHeader:hover .collapsibleTitle {
+  transform: translateX(3px) scale(1.02);
+}
+
+.collapsibleHeader:hover .collapsibleSubtitle {
+  transform: translateX(3px) scale(1.02);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avgBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: hsl(258, 100%, 95%);
+  border-radius: 9999px;
+  border: 1px solid hsl(257, 92%, 85%);
+}
+
+.avgLabel {
+  font-size: 0.8125rem;
+  color: hsl(240 5% 50%);
+}
+
+.avgValue {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: hsl(258 90% 66%);
+}
+
+.collapsibleArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: hsla(258, 90%, 66%, 0.1);
+  border-radius: 50%;
+  color: hsl(258 90% 66%);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.collapsibleArrow.rotated {
+  transform: rotate(180deg);
+  background: hsl(258 90% 66%);
+  color: hsl(0 0% 100%);
+}
+
+.collapsibleContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: hsl(0 0% 100%);
+  border: 1px solid hsla(256, 88%, 60%, 0.278);
+  border-top: none;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.collapsibleContent:not(.expanded) {
+  border: none;
+}
+
+.collapsibleContent.expanded {
+  max-height: 2000px;
+}
+
+.collapsibleContentInner {
+  padding-top: 0.5rem;
+}
+
+/* .wrapper {
   background: hsl(0 0% 100%);
   border-radius: 1rem;
   border: 1px solid hsl(30 20% 90%);
@@ -88,7 +241,7 @@
   font-size: 0.875rem;
   font-weight: 700;
   color: hsl(258 90% 66%);
-}
+} */
 
 .tableContainer {
   width: 100%;

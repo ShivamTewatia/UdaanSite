@@ -161,19 +161,8 @@
   background: linear-gradient(145deg, hsl(217 90% 58%), hsl(205 85% 52%));
 }
 
-@media (max-width: 768px) {
+@media(max-width:468px){
   .card {
-    padding: 0.875rem 1rem;
-    gap: 0.875rem;
-  }
-
-  .iconWrapper {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-  }
-
-  .value {
-    font-size: 1.2rem;
+    display: none;
   }
 }

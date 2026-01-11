@@ -14,13 +14,13 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
   align-items: start;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .aboutText {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .aboutHeading {
@@ -325,27 +325,27 @@
   }
 
   .aboutHeading {
-    font-size: 2.25rem;
+    font-size: 3.25rem;
   }
 
   .aboutParagraph {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .reasonsHeading {
-    font-size: 2.25rem;
+    font-size: 3.25rem;
   }
 
   .statsGrid {
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .statNumber {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .reasonsGrid {
-    gap: 1rem;
+    gap: 1.5rem;
   }
 }
 

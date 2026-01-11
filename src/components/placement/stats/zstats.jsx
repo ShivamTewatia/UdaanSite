@@ -15,6 +15,8 @@ import { DepartmentTrendChart } from "./departmentTrendChart.jsx";
 import { PlacementTable } from "./placementTable.jsx";
 import styles from "./zstats.module.css";
 import { useHashScroll } from "../../hooks/useHashScroll.js"
+import CollapsibleWrapper from "./collapsableSection.jsx";
+import { AnimatedNumber } from "./animatedDigit.jsx";
 
 const Statistics = () => {
   useHashScroll(); 
@@ -22,7 +24,8 @@ const Statistics = () => {
   const years = placementData.map(d => d.year);
   const [selectedYear, setSelectedYear] = useState(years[years.length - 1]);
   const currentYearData = placementData.find(d => d.year === selectedYear);
-  
+  const [startYear, endYear] = selectedYear.split("-");
+
   const trendData = getYearlyTrends();
   const decadeStats = getDecadeStats();
 
@@ -42,28 +45,21 @@ const Statistics = () => {
     { icon: Target, title: "Avg. Placement Rate", value: "75%", subtitle: "Decade average", variant: "success" },
     { icon: Users, title: "Students Trained", value: "4,221", subtitle: "Career-ready graduates", variant: "info" },
   ];
+  
 
   return (
     <div className={styles.container} id="stats-top">
       <HeroSection />
-
-
       <div className={styles.content}>
-        <div className={styles.extra}>
-            <section className={styles.section}>
-            <div className={styles.heading}>
-              <span className={styles.icon}>
-                <BarChart3 size={32} strokeWidth={2} />
-              </span>
-              <h1 className={styles.sectionTitle}>
-                10-Year Overview
-                
-              </h1>
-              
-            </div>
+        <CollapsibleWrapper
+          icon={BarChart3}
+          title="10-Year Overview"
+          defaultOpen={true}
+        >
+            <section className={styles.sectionTop}>
             <div className={styles.highlightGrid}>
               {highlightCards.map((card, index) => (
-                <HighlightCard key={card.title} {...card} delay={index * 100} />
+                <HighlightCard key={card.title} {...card} delay={index * 50} />
               ))}
             </div>
 
@@ -96,7 +92,7 @@ const Statistics = () => {
               />
             </div>
           </section>
-        </div>
+        </CollapsibleWrapper> 
         
         <div className={styles.chartsGrid}>
           <PlacementTrendChart />
@@ -109,9 +105,18 @@ const Statistics = () => {
         </div>
 
         <YearSelector years={years} selectedYear={selectedYear} onYearChange={setSelectedYear} />
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Placement Data Of Session {selectedYear} </h2>
+        <CollapsibleWrapper
+          icon={BarChart3}
+          title={
+            <div>
+              Placement Data Of Session{" "}
+                {startYear}-{endYear}
+            </div>
+          }
+          defaultOpen={true}
+        >
+        <section className={styles.sectionBot}>
+          <h2 className={styles.sectionTitle}> </h2>
           
           <div className={styles.statsGrid}>
          
@@ -122,7 +127,6 @@ const Statistics = () => {
             description="Eligible for placement"
             variant="accent" 
             color={CHART_COLORS.primary}
-            delay={0}
           />
           
 
@@ -133,7 +137,6 @@ const Statistics = () => {
             description="Received offers"
             variant="info"  
             color={CHART_COLORS.info}
-            delay={100}
           />
           
 
@@ -145,7 +148,6 @@ const Statistics = () => {
             description="Overall success rate"
             variant="success" 
             color={CHART_COLORS.success}
-            delay={200}
           />
 
           <StatCard
@@ -156,7 +158,6 @@ const Statistics = () => {
             description="Best offer received"
             variant="secondary"  
             color={CHART_COLORS.secondary}
-            delay={300}
           />
           
           
@@ -168,7 +169,6 @@ const Statistics = () => {
             description="Mean compensation"
             variant="primary"  
             color={CHART_COLORS.accent}
-            delay={400}
           />
           
           
@@ -179,17 +179,17 @@ const Statistics = () => {
             description="Active departments"
             variant="info"  
             color={CHART_COLORS.info}
-            delay={500}
           />
         </div>
         </section>
-
+        </CollapsibleWrapper>
+        
         <div className={styles.chartsGrid}>
           <DepartmentBarChart courses={currentYearData.courses} />
           <RadarChartSection courses={currentYearData.courses} />
         </div>
 
-        <PlacementTable courses={currentYearData.courses} />
+        {/* <PlacementTable courses={currentYearData.courses} /> */}
       </div>
     </div>
   );
