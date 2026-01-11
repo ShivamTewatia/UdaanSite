@@ -161,8 +161,8 @@
 
 @media (max-width: 1439px) and (min-width: 1280px) {
   .hero {
-    max-width: 1200px;
-    padding: 2.75rem 1.75rem 2.25rem;
+    max-width: 100%;
+    padding: 2.75rem 1.7rem 2.25rem;
   }
 
   .title {
@@ -183,7 +183,7 @@
 /* 1024px - 1279px */
 @media (max-width: 1279px) and (min-width: 1024px) {
   .hero {
-    max-width: 960px;
+    max-width: 100%;
     padding: 2.5rem 1.5rem 2rem;
     border-radius: 1.25rem;
   }
@@ -220,7 +220,7 @@
 /* 768px - 1023px */
 @media (max-width: 1023px) and (min-width: 768px) {
   .hero {
-    max-width: 720px;
+    max-width: 100%;
     padding: 2rem 1.25rem 1.75rem;
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -262,11 +262,10 @@
 @media (max-width: 767px) and (min-width: 480px) {
   .hero {
     max-width: 100%;
-    padding: 1.75rem 1rem 1.5rem;
+    padding: 1.5rem 1rem 5rem;
     border-radius: 0.875rem;
     margin-bottom: 1.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+
   }
 
   .badge {
@@ -307,11 +306,10 @@
 @media (max-width: 479px) {
   .hero {
     max-width: 100%;
-    padding: 1.5rem 0.875rem 1.25rem;
+    padding: 1.5rem 0.25rem 1.25rem;
     border-radius: 0.75rem;
-    margin-bottom: 1.25rem;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
+    margin: 0rem 0rem 1rem;
+
   }
 
   .badge {

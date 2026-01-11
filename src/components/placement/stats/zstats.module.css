@@ -373,7 +373,7 @@
 /* ≤468px — Mobile Redesign */
 @media (max-width: 468px) {
   .container {
-    padding: 1rem;
+    padding: 1rem 1rem;
   }
 
   .sectionTop{
@@ -405,6 +405,6 @@
 
   .chartsGrid {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 0rem!important;
   }
 }

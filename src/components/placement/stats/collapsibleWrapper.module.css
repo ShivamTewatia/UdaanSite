@@ -307,9 +307,13 @@
 
 /* ≤468px - Mobile Redesign */
 @media (max-width: 468px) {
+  .collapsibleSection {
+    margin-bottom: 0.5rem;
+  }
   .collapsibleHeaderLeft {
     padding: 0.75rem 0 0.75rem 0.5rem;
     gap: 0.25rem;
+
   }
 
   .collapsibleIcon {

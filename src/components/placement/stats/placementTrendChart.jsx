@@ -197,7 +197,7 @@ export const PlacementTrendChart = () => {
           {showAvgLine ? "Hide" : "Show"} Avg Line
         </button>
       }
-      defaultOpen={false}
+      defaultOpen={true}
     >
       <div className={styles.chartContainer}>
         <ResponsiveContainer width="100%" height={chartHeight}>
@@ -205,8 +205,8 @@ export const PlacementTrendChart = () => {
             data={trendData} 
             margin={{ 
               top: 10, 
-              right: isMobile ? 10 : 30, 
-              left: isMobile ? -15 : 0, 
+              right: isMobile ? 5 : 30, 
+              left: isMobile ? -5 : 0, 
               bottom: 0 
             }}
           >

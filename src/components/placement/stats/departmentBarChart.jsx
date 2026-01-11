@@ -320,8 +320,8 @@ export const DepartmentBarChart = ({ courses }) => {
               data={chartData} 
               margin={{ 
                 top: 10, 
-                right: isMobile ? 10 : 30, 
-                left: isMobile ? -15 : 0, 
+                right: isMobile ? 5 : 30, 
+                left: isMobile ? -9 : 0, 
                 bottom: 10 
               }}
             >

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useMemo, useEffect } from "react";
 import { Users, Briefcase, TrendingUp, Award, ChevronDown } from "lucide-react";
-import styles from "./placementTable.module.css";
+import styles from "./PlacementTable.module.css";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -107,6 +107,13 @@ export const PlacementTable = ({ courses, defaultOpen = false }) => {
     return sortDirection === "desc" ? " ↓" : " ↑";
   };
 
+  const BadgeContent = () => (
+    <div className={styles.avgBadge}>
+      <span className={styles.avgLabel}>Avg Placement:</span>
+      <span className={styles.avgValue}>{totals.avgPlacement}%</span>
+    </div>
+  );
+
   return (
     <div className={styles.collapsibleSection}>
       <button 
@@ -124,9 +131,9 @@ export const PlacementTable = ({ courses, defaultOpen = false }) => {
           </div>
         </div>
         <div className={styles.headerRight}>
-          <div className={styles.avgBadge}>
-            <span className={styles.avgLabel}>Avg Placement:</span>
-            <span className={styles.avgValue}>{totals.avgPlacement}%</span>
+          {/* Desktop badge - hidden on mobile */}
+          <div className={styles.badgeWrapperDesktop}>
+            <BadgeContent />
           </div>
           <div className={cn(styles.collapsibleArrow, isOpen && styles.rotated)}>
             <ChevronDown size={20} strokeWidth={2} />
@@ -135,6 +142,13 @@ export const PlacementTable = ({ courses, defaultOpen = false }) => {
       </button>
       
       <div className={cn(styles.collapsibleContent, isOpen && styles.expanded)}>
+        {/* Mobile badge bar - only visible on mobile when expanded */}
+        <div className={styles.mobileActionsBar}>
+          <div className={styles.badgeWrapperMobile}>
+            <BadgeContent />
+          </div>
+        </div>
+        
         <div className={styles.collapsibleContentInner}>
           <div className={styles.tableContainer}>
             <Table>

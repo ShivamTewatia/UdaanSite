@@ -1,4 +1,3 @@
-/* Collapsible Section Styles
 .collapsibleSection {
   margin-bottom: 0.5rem;
 }
@@ -88,6 +87,25 @@
   gap: 1rem;
 }
 
+/* Desktop badge wrapper - visible on larger screens */
+.badgeWrapperDesktop {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Mobile actions bar - hidden by default */
+.mobileActionsBar {
+  display: none;
+}
+
+/* Mobile badge wrapper */
+.badgeWrapperMobile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .avgBadge {
   display: flex;
   align-items: center;
@@ -115,7 +133,7 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  background: hsla(258, 90%, 66%, 0.1);
+  /* background: hsla(258, 90%, 66%, 0.1); */
   border-radius: 50%;
   color: hsl(258 90% 66%);
   transition: all 0.3s ease;
@@ -149,100 +167,8 @@
 
 .collapsibleContentInner {
   padding-top: 0.5rem;
-} */
-
-/* .wrapper {
-  background: hsl(0 0% 100%);
-  border-radius: 1rem;
-  border: 1px solid hsl(30 20% 90%);
-  overflow: hidden;
-  box-shadow: 0 2px 8px hsl(330 20% 90% / 0.3);
 }
 
-.header {
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid hsl(30 20% 94%);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.headerContent {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap:0.75rem;
-  min-width: 200px;
-}
-
-.title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(
-    135deg,
-    hsl(258 90% 66%),
-    hsl(256 88% 60%)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease;
-}
-
-.titleIcon {
-  margin-top: 0.2rem;
-  color:hsl(258 90% 66%);
-  background-color:hsla(258, 90%, 66%, 0.08) ;
-  border-radius: 10px;
-  padding: 0.5rem 0.5rem 0.2rem;
-  transition: all 0.3s ease;
-}
-
-.headerContent:hover .titleIcon{
-  transform: rotate(-8deg) scale(1.1);
-  color:white;
-  background-color:hsla(258, 90%, 66%, 0.9) ;
-}
-
-.headerContent:hover .title{
-  transform: translateX(3px) scale(1.02);
-}
-
-.headerContent:hover .subtitle{
-  transform: translateX(3px) scale(1.02);
-}
-
-.subtitle {
-  font-size: 1rem;
-  color: hsla(259, 44%, 17%, 0.501);
-  transition: all 0.3s ease;
-}
-
-.avgBadge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: hsl(258, 100%, 95%);
-  border-radius: 9999px;
-  border: 1px solid hsl(257, 92%, 85%);
-}
-
-.avgLabel {
-  font-size: 0.8125rem;
-  color: hsl(240 5% 50%);
-}
-
-.avgValue {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: hsl(258 90% 66%);
-} */
-/* 
 .tableContainer {
   width: 100%;
   overflow-x: auto;
@@ -322,7 +248,6 @@
   flex-shrink: 0;
 }
 
-
 .excellent {
   --placement-variant: excellent;
 }
@@ -338,7 +263,6 @@
 .low {
   --placement-variant: low;
 }
-
 
 .dotExcellent {
   background: hsl(258 90% 66%);
@@ -492,422 +416,10 @@
   }
 }
 
-@media (max-width: 768px) {
-  .header {
-    padding: 1rem;
-  }
-
-  .th,
-  .td,
-  .tdFooter {
-    padding: 0.75rem 0.625rem;
-    font-size: 0.75rem;
-  }
-
-  .progressBar {
-    width: 50px;
-    height: 6px;
-  }
-
-  .percentBadge {
-    min-width: 40px;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.6875rem;
-  }
-} */
-/* Collapsible Section Styles */
-.collapsibleSection {
-  margin-bottom: 0.5rem;
-}
-
-.collapsibleHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1.25rem 1.5rem;
-  background: hsl(0 0% 100%);
-  border: 1px solid hsla(256, 88%, 60%, 0.278);
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px hsla(258, 90%, 66%, 0.08);
-}
-
-.collapsibleHeader:hover {
-  border-color: hsl(258 90% 66%);
-  box-shadow: 0 6px 20px hsla(258, 90%, 66%, 0.15);
-}
-
-.collapsibleHeader.active {
-  border-color: hsla(256, 88%, 60%, 0.278);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background: linear-gradient(135deg, hsla(258, 90%, 66%, 0.05) 0%, hsl(0 0% 100%) 100%);
-}
-
-.collapsibleHeaderLeft {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.collapsibleIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: hsl(258 90% 66%);
-  background-color: hsla(258, 90%, 66%, 0.08);
-  border-radius: 10px;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.collapsibleHeader:hover .collapsibleIcon {
-  transform: rotate(-8deg) scale(1.1);
-  color: hsl(0 0% 100%);
-  background-color: hsla(258, 90%, 66%, 0.9);
-}
-
-.titleWrapper {
-  text-align: left;
-}
-
-.collapsibleTitle {
-  font-size: 1.35rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, hsl(258 90% 66%), hsl(256 88% 60%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0;
-  transition: all 0.3s ease;
-}
-
-.collapsibleSubtitle {
-  font-size: 1rem;
-  color: hsla(259, 44%, 17%, 0.501);
-  margin: 0.25rem 0 0 0;
-  transition: all 0.3s ease;
-}
-
-.collapsibleHeader:hover .collapsibleTitle {
-  transform: translateX(3px) scale(1.02);
-}
-
-.collapsibleHeader:hover .collapsibleSubtitle {
-  transform: translateX(3px) scale(1.02);
-}
-
-.headerRight {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.avgBadge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: hsl(258, 100%, 95%);
-  border-radius: 9999px;
-  border: 1px solid hsl(257, 92%, 85%);
-}
-
-.avgLabel {
-  font-size: 0.8125rem;
-  color: hsl(240 5% 50%);
-}
-
-.avgValue {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: hsl(258 90% 66%);
-}
-
-.collapsibleArrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  background: hsla(258, 90%, 66%, 0.1);
-  border-radius: 50%;
-  color: hsl(258 90% 66%);
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.collapsibleArrow.rotated {
-  transform: rotate(180deg);
-  background: hsl(258 90% 66%);
-  color: hsl(0 0% 100%);
-}
-
-.collapsibleContent {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out;
-  background: hsl(0 0% 100%);
-  border: 1px solid hsla(256, 88%, 60%, 0.278);
-  border-top: none;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-}
-
-.collapsibleContent:not(.expanded) {
-  border: none;
-}
-
-.collapsibleContent.expanded {
-  max-height: 2000px;
-}
-
-.collapsibleContentInner {
-  padding-top: 0.5rem;
-}
-
-.tableContainer {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.tableContainer table {
-  width: 100%;
-  table-layout: auto;
-}
-
-.headerRow {
-  background: hsl(258, 92%, 95%);
-}
-
-.th {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: hsl(240 5% 35%);
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  padding: 0.875rem 1rem;
-  white-space: nowrap;
-}
-
-.th:hover {
-  color: hsl(258 90% 66%);
-}
-
-.thCenter {
-  text-align: center;
-}
-
-.thContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.375rem;
-}
-
-.thIcon {
-  color: hsl(258 90% 66%);
-}
-
-.row {
-  animation: fadeIn 0.4s ease-out forwards;
-  opacity: 0;
-  transition: background 0.2s ease;
-}
-
-.rowHovered {
-  background: hsl(258, 92%, 95%);
-}
-
-.td {
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  color: hsl(240 10% 25%);
-}
-
-.tdCenter {
-  text-align: center;
-}
-
-.courseName {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  font-weight: 600;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.excellent {
-  --placement-variant: excellent;
-}
-
-.good {
-  --placement-variant: good;
-}
-
-.average {
-  --placement-variant: average;
-}
-
-.low {
-  --placement-variant: low;
-}
-
-.dotExcellent {
-  background: hsl(258 90% 66%);
-}
-.dotGood {
-  background: hsl(160 84% 39%);
-}
-.dotAverage {
-  background: hsl(25 95% 50%);
-}
-.dotLow {
-  background: hsl(217 91% 55%);
-}
-
-.offersValue {
-  font-weight: 600;
-  color: hsl(240 10% 20%);
-}
-
-.progressWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.progressBar {
-  width: 80px;
-  height: 8px;
-  border-radius: 9999px;
-  overflow: hidden;
-}
-
-.progressBgExcellent {
-  background: hsl(258, 91%, 91%);
-}
-.progressBgGood {
-  background: hsl(160 60% 90%);
-}
-.progressBgAverage {
-  background: hsl(25 80% 90%);
-}
-.progressBgLow {
-  background: hsl(217 70% 90%);
-}
-
-.progressFill {
-  height: 100%;
-  border-radius: 9999px;
-  transition: width 0.5s ease-out;
-}
-
-.progressExcellent {
-  background: linear-gradient(135deg,hsl(258 90% 66%),hsl(256 88% 60%));
-}
-.progressGood {
-  background: linear-gradient(90deg, hsl(160 70% 50%), hsl(160 84% 39%));
-}
-.progressAverage {
-  background: linear-gradient(90deg, hsl(25 90% 60%), hsl(25 95% 50%));
-}
-.progressLow {
-  background: linear-gradient(90deg, hsl(217 80% 65%), hsl(217 91% 55%));
-}
-
-.percentBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 48px;
-  padding: 0.25rem 0.625rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.badgeExcellent {
-  background: hsl(258 90% 66%);
-  color: hsl(0 0% 100%);
-}
-.badgeGood {
-  background: hsl(160 84% 39%);
-  color: hsl(0 0% 100%);
-}
-.badgeAverage {
-  background: hsl(25 95% 50%);
-  color: hsl(0 0% 100%);
-}
-.badgeLow {
-  background: hsl(217 91% 55%);
-  color: hsl(0 0% 100%);
-}
-
-.packageHighest {
-  font-weight: 700;
-  color: hsl(258 90% 66%);
-}
-
-.packageAvg {
-  font-weight: 500;
-  color: hsl(240 10% 35%);
-}
-
-.packageUnit {
-  font-size: 0.75rem;
-  color: hsl(240 5% 55%);
-}
-
-.footerRow {
-  background: hsl(258, 92%, 95%);
-  border-top: 2px solid hsl(330 30% 90%);
-}
-
-.tdFooter {
-  padding: 1rem;
-  font-size: 0.875rem;
-}
-
-.totalLabel {
-  font-weight: 700;
-  color: hsl(258 90% 66%);
-  font-size: 0.9375rem;
-}
-
-.totalValue {
-  font-weight: 700;
-  color: hsl(258 90% 66%);
-}
-
-.totalBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 52px;
-  padding: 0.3rem 0.75rem;
-  background: hsl(258 90% 66%);
-  color: hsl(0 0% 100%);
-  border-radius: 9999px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-}
-
-@keyframes fadeIn {
+@keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -1070,7 +582,7 @@
 @media (min-width: 469px) and (max-width: 767px) {
   .collapsibleHeader {
     padding: 0.875rem 1rem;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 0.75rem;
   }
 
@@ -1205,28 +717,36 @@
     padding: 0.2rem 0.5rem;
     font-size: 0.6875rem;
   }
+
+  .badgeWrapperDesktop {
+    gap: 0.375rem;
+  }
 }
 
 /* ≤468px — Mobile Card Layout */
 @media (max-width: 468px) {
+  .collapsibleSection {
+    margin-bottom: 0.5rem;
+  }
+
   .collapsibleHeader {
-    padding: 0.75rem 0.875rem;
-    flex-wrap: wrap;
+    padding: 0.75rem 0  0.875rem 0.75rem;
     gap: 0.5rem;
   }
 
   .collapsibleHeaderLeft {
-    gap: 0.5rem;
+    gap: 0.25rem;
     width: 100%;
   }
-
   .collapsibleIcon {
-    padding: 0.25rem;
+    padding: 0.5rem;
+    border-radius: 8px;
   }
 
   .collapsibleIcon svg {
-    width: 18px;
-    height: 18px;
+    width: 26px;
+    height: 26px;
+    border-radius: 10px;
   }
 
   .collapsibleTitle {
@@ -1234,32 +754,65 @@
   }
 
   .collapsibleSubtitle {
-    display: none;
+    font-size: 0.65rem;
   }
 
   .headerRight {
-    width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 3px;
+  }
+
+  /* Hide badge in header on mobile */
+  .badgeWrapperDesktop {
+    display: none;
+  }
+
+  /* Show mobile actions bar when expanded */
+  .collapsibleContent.expanded .mobileActionsBar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.25rem 1rem;
+    border-bottom: 1px solid hsla(256, 88%, 60%, 0.15);
+    background: linear-gradient(180deg, hsla(258, 90%, 66%, 0.03) 0%, transparent 100%);
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .mobileActionsBar {
+    display: none;
+  }
+
+  .badgeWrapperMobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 0;
+    margin: 0;
   }
 
   .avgBadge {
-    padding: 0.25rem 0.5rem;
-    gap: 0.25rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6rem;
   }
 
-  .avgLabel {
-    font-size: 0.625rem;
+  .avgLabel{
+    padding: 0.1rem 0.5rem;
+    font-size: 0.6rem;
   }
 
   .avgValue {
-    font-size: 0.6875rem;
+    font-size: 0.6rem;
   }
 
   .collapsibleArrow {
-    width: 1.375rem;
-    height: 1.375rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    padding: 0.2rem;
   }
-
   .tableContainer {
     position: relative;
   }
@@ -1268,7 +821,6 @@
     table-layout: fixed;
     min-width: 520px;
   }
-
   /* Sticky first column for mobile */
   .th:first-child,
   .td:first-child,
