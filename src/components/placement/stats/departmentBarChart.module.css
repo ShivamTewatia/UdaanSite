@@ -32,12 +32,11 @@
   padding: 0.3rem 0rem;
   display: grid;
   grid-template-columns: repeat(2 , 1fr);
-  gap: 0.5rem;
-  font-size: 0.7rem;
+  gap: 0.45rem;
+  font-size: 0.65rem;
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
-  
 }
 
 .legendItem {
@@ -180,7 +179,7 @@
 
   .legend {
     display: flex;
-    padding: 0.2rem 0.5rem;
+    padding: 0.1rem 0.5rem;
     font-size: 0.7rem;
     gap: 0.5rem;
   }
@@ -225,5 +224,156 @@
 
   .tooltipGrid {
     gap: 3px 8px;
+  }
+}
+
+/* ≥1440px - Large Desktop */
+@media (min-width: 1441px) {
+  .chartContainer {
+    min-height: 400px;
+  }
+
+  .legend {
+    padding: 0.4rem 0.5rem;
+    gap: 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .legendDot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .tooltip {
+    padding: 14px 18px;
+    min-width: 200px;
+  }
+
+  .tooltipTitle {
+    font-size: 16px;
+  }
+
+  .tooltipLabel {
+    font-size: 13px;
+  }
+
+  .tooltipValuePrimary {
+    font-size: 16px;
+  }
+
+  .tooltipValueSec,
+  .tooltipValueThi,
+  .tooltipValueFor {
+    font-size: 14px;
+  }
+
+  .tooltipGrid {
+    gap: 8px 18px;
+  }
+}
+
+/* 768px – 1023px - Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .chartContainer {
+    min-height: 320px;
+  }
+
+  .legend {
+    padding: 0.25rem 0;
+    gap: 0.4rem;
+    font-size: 0.65rem;
+  }
+
+  .legendItem {
+    gap: 0.3rem;
+  }
+
+  .legendDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .tooltip {
+    padding: 10px 12px;
+    min-width: 160px;
+  }
+
+  .tooltipTitle {
+    font-size: 13px;
+  }
+
+  .tooltipLabel {
+    font-size: 11px;
+  }
+
+  .tooltipValuePrimary {
+    font-size: 13px;
+  }
+
+  .tooltipValueSec,
+  .tooltipValueThi,
+  .tooltipValueFor {
+    font-size: 12px;
+  }
+
+  .tooltipGrid {
+    gap: 4px 12px;
+  }
+}
+
+/* 468px – 767px - Mobile Compact */
+@media (min-width: 469px) and (max-width: 767px) {
+  .chartContainer {
+    min-height: 280px;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem 0.25rem;
+    gap: 0.5rem;
+    font-size: 0.625rem;
+  }
+
+  .legendItem {
+    gap: 0.25rem;
+  }
+
+  .legendDot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .tooltip {
+    padding: 9px 11px;
+    min-width: 150px;
+    border-radius: 10px;
+  }
+
+  .tooltipTitle {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .tooltipDivider {
+    margin-bottom: 6px;
+  }
+
+  .tooltipLabel {
+    font-size: 10px;
+  }
+
+  .tooltipValuePrimary {
+    font-size: 12px;
+  }
+
+  .tooltipValueSec,
+  .tooltipValueThi,
+  .tooltipValueFor {
+    font-size: 11px;
+  }
+
+  .tooltipGrid {
+    gap: 4px 10px;
   }
 }

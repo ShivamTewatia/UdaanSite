@@ -3,11 +3,29 @@
   justify-content: center;
   padding: 1.5rem 0;
   margin: 2rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: hsla(256, 88%, 60%, 0.3) transparent;
+}
+
+.container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: hsla(256, 88%, 60%, 0.3);
+  border-radius: 4px;
 }
 
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 0.5rem;
   background: hsl(0 0% 100%);
@@ -26,6 +44,9 @@
   border-radius: 0.625rem;
   transition: all 0.2s ease;
   white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  background: transparent;
 }
 
 .active {
@@ -60,7 +81,38 @@
   opacity: 0.5;
 }
 
-@media (max-width: 768px) {
+/* ≥1440px - Large Desktop */
+@media (min-width: 1440px) {
+  .container {
+    padding: 1.75rem 0;
+    margin: 2.5rem 0;
+  }
+
+  .wrapper {
+    gap: 0.625rem;
+    padding: 0.625rem;
+  }
+
+  .button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .indicator {
+    width: 24px;
+    height: 4px;
+  }
+}
+
+
+/* 768px – 1023px - Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 1.25rem 0;
+    margin: 1.5rem 0;
+    justify-content: flex-start;
+  }
+
   .wrapper {
     gap: 0.375rem;
     padding: 0.375rem;
@@ -69,5 +121,58 @@
   .button {
     padding: 0.5rem 0.75rem;
     font-size: 0.75rem;
+  }
+
+  .indicator {
+    width: 16px;
+    height: 2px;
+  }
+}
+
+/* 468px – 767px - Mobile Compact */
+@media (min-width: 469px) and (max-width: 767px) {
+  .container {
+    padding: 1rem 0;
+    margin: 1.25rem 0;
+    justify-content: flex-start;
+  }
+
+  .wrapper {
+    gap: 0.3rem;
+    padding: 0.3rem;
+  }
+
+  .button {
+    padding: 0.4rem 0.625rem;
+    font-size: 0.7rem;
+  }
+
+  .indicator {
+    width: 14px;
+    height: 2px;
+  }
+}
+
+/* ≤468px - Mobile Redesign */
+@media (max-width: 468px) {
+  .container {
+    padding: 0.75rem 0;
+    margin: 1rem 0;
+    justify-content: flex-start;
+  }
+
+  .wrapper {
+    gap: 0.25rem;
+    padding: 0.25rem;
+  }
+
+  .button {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 2px;
   }
 }

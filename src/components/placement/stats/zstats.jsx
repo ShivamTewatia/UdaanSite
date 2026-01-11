@@ -189,7 +189,7 @@ const Statistics = () => {
           <RadarChartSection courses={currentYearData.courses} />
         </div>
 
-        {/* <PlacementTable courses={currentYearData.courses} /> */}
+        <PlacementTable courses={currentYearData.courses} />
       </div>
     </div>
   );
