@@ -3,7 +3,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
 import { Building2 } from "lucide-react";
-import styles from "./DepartmentBarChart.module.css";
+import styles from "./departmentBarChart.module.css";
 import { CollapsibleWrapper } from "./collapsableSection";
 
 const CHART_COLORS = {
