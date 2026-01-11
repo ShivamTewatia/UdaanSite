@@ -726,6 +726,7 @@
 /* ≤468px — Mobile Card Layout */
 @media (max-width: 468px) {
   .collapsibleSection {
+    margin-top: -0.25rem;
     margin-bottom: 0.5rem;
   }
 

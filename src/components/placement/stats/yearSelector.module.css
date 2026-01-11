@@ -157,7 +157,7 @@
 @media (max-width: 468px) {
   .container {
     padding: 0.75rem 0;
-    margin: 1rem 0;
+    margin: 3rem 0 2rem;
     justify-content: flex-start;
   }
 
@@ -168,7 +168,7 @@
 
   .button {
     padding: 0.35rem 0.5rem;
-    font-size: 0.65rem;
+    font-size: 0.85rem;
   }
 
   .indicator {
