@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useMemo, useEffect } from "react";
 import { Users, Briefcase, TrendingUp, Award, ChevronDown } from "lucide-react";
-import styles from "./PlacementTable.module.css";
+import styles from "./placementTable.module.css";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
