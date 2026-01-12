@@ -23,6 +23,7 @@ import {
   ChevronDown
 } from "lucide-react";
 
+
 const useIsDesktop = () => {
   const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
   
@@ -183,6 +184,7 @@ const CollapsibleSection = ({ icon: Icon, title, children, defaultOpen = false, 
 };
 
 const RulesTraining = () => {
+  const [showAllGuidelines, setShowAllGuidelines] = useState(false);
   const [activeTab, setActiveTab] = useState("placement");
   const isDesktop = useIsDesktop();
 
@@ -580,7 +582,7 @@ const RulesTraining = () => {
                 </div>
               </CollapsibleSection>
 
-              <CollapsibleSection icon={Users} title="Guidelines for Students" defaultOpen={false} isDesktop={isDesktop}>
+              {/* <CollapsibleSection icon={Users} title="Guidelines for Students" defaultOpen={false} isDesktop={isDesktop}>
                 <p className={styles.cardDescription}>Important instructions to follow</p>
                 <div className={styles.twoColumnGrid}>
                   <ul className={styles.guidelinesList}>
@@ -600,7 +602,53 @@ const RulesTraining = () => {
                     ))}
                   </ul>
                 </div>
+              </CollapsibleSection> */}
+              <CollapsibleSection
+                icon={Users}
+                title="Guidelines for Students"
+                defaultOpen={false}
+                isDesktop={isDesktop}
+              >
+                <p className={styles.cardDescription}>
+                  Important instructions to follow
+                </p>
+
+                <ul className={styles.guidelinesList}>
+                  {(isDesktop || showAllGuidelines
+                    ? studentGuidelines
+                    : studentGuidelines.slice(0, 6)
+                  ).map((g, idx) => (
+                    <li key={idx} className={styles.guidelineItem}>
+                      <span className={styles.guidelineTick}>✓</span>
+                      <span>{g}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {!isDesktop && studentGuidelines.length > 6 && (
+                  <button
+                    className={styles.showMoreBtn}
+                    onClick={() => setShowAllGuidelines(!showAllGuidelines)}
+                    type="button"
+                  >
+                    {showAllGuidelines ? (
+                      <>
+                        <ChevronDown
+                          size={16}
+                          className={styles.showMoreIconUp}
+                        />
+                        Show Less
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown size={16} />
+                        Show {studentGuidelines.length - 6} More
+                      </>
+                    )}
+                  </button>
+                )}
               </CollapsibleSection>
+
             </TabsContent>
 
             <TabsContent value="training" className={styles.tabContent}>

@@ -442,13 +442,13 @@
   .primaryButton {
     flex: 1;
     justify-content: center;
-    padding: 1rem 0.25rem;
+    padding: 0.5rem 0.25rem;
     font-size: 0.8rem;
   }
   .secondaryButton {
     flex: 1;
     justify-content: center;
-    padding: 1rem 0rem;
+    padding: 0.5rem 0rem;
     font-size: 0.8rem;
   }
 

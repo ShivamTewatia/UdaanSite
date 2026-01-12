@@ -157,7 +157,7 @@
 @media (max-width: 468px) {
   .container {
     padding: 0.75rem 0;
-    margin: 3rem 0 2rem;
+    margin: 1.5rem 0 1rem;
     justify-content: flex-start;
   }
 
