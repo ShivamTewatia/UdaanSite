@@ -42,8 +42,7 @@ const TopRecruiters = () => {
 
     let animationFrameId;
     let scrollPosition = scrollContainer.scrollLeft;
-    const scrollSpeed = window.innerWidth < 768 ? 0.25 : 0.5;
-
+    const scrollSpeed = window.innerWidth < 768 ? 0.5 : 2;
 
     const scroll = () => {
       scrollPosition += scrollSpeed;

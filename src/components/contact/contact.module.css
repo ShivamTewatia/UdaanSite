@@ -1830,16 +1830,17 @@
   /* Location Cards - Compact */
   .locationGrid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3,1fr);
     gap: 10px;
   }
   
   .locationCard {
-    padding: 14px;
+    padding: 5px;
     border-radius: 12px;
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
   }
   
   .locationCard:hover {
@@ -1847,25 +1848,25 @@
   }
   
   .locationIcon {
-    width: 36px;
-    height: 36px;
+    width: 26px;
+    height: 26px;
     border-radius: 8px;
     margin-bottom: 0;
     flex-shrink: 0;
   }
   
   .locationIcon svg {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
   }
   
   .locationTitle {
-    font-size: 13px;
-    margin-bottom: 4px;
+    font-size: 8px;
+    margin-bottom: 1px;
   }
   
   .locationDescription {
-    font-size: 11px;
+    font-size: 6px;
     line-height: 1.4;
   }
   

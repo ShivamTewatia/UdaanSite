@@ -397,7 +397,7 @@ const Contact = () => {
 
           <div className={styles.mapCard}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.5075454454395!2d77.30699731505625!3d28.38084098251242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cddc2f8fdb5f7%3A0x8b50d2e5e3c08e4e!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA!5e0!3m2!1sen!2sin!4v1609851234567!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.714667450316!2d77.3158949!3d28.3674749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc71f6e9f557%3A0xeb301eec9ff18517!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA%20(Formerly%20YMCA%20UST)!5e0!3m2!1sen!2sin!4v1761387363066!5m2!1sen!2sin"
               width="100%"
               height="300"
               style={{ border: 0 }}
