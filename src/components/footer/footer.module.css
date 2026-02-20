@@ -75,7 +75,7 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, hsl(220, 90%, 55%) 0%, hsl(200, 100%, 50%) 100%);
+  /* background: linear-gradient(135deg, hsl(220, 90%, 55%) 0%, hsl(200, 100%, 50%) 100%); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,18 +83,18 @@
   font-weight: bold;
   font-size: 1.25rem;
   flex-shrink: 0;
-  box-shadow: 
+  /* box-shadow: 
     0 6px 25px hsla(220, 90%, 50%, 0.4),
     0 3px 8px hsla(220, 90%, 50%, 0.25),
-    inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+    inset 0 1px 0 hsla(0, 0%, 100%, 0.25); */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logoCircle:hover {
   transform: scale(1.05) rotate(3deg);
-  box-shadow: 
+  /* box-shadow: 
     0 10px 30px hsla(220, 90%, 50%, 0.35),
-    0 5px 10px hsla(220, 90%, 50%, 0.2);
+    0 5px 10px hsla(220, 90%, 50%, 0.2); */
 }
 
 .logoCircle img {

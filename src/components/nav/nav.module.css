@@ -129,18 +129,18 @@
 .logo img {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  /* border-radius: 50%;
   box-shadow: 
     0 4px 15px hsla(220, 90%, 50%, 0.2),
-    0 0 0 3px hsla(220, 90%, 50%, 0.1);
+    0 0 0 3px hsla(220, 90%, 50%, 0.1); */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo:hover img {
   transform: scale(1.05);
-  box-shadow: 
+  /* box-shadow: 
     0 6px 20px hsla(220, 90%, 50%, 0.3),
-    0 0 0 4px hsla(220, 90%, 50%, 0.15);
+    0 0 0 4px hsla(220, 90%, 50%, 0.15); */
 }
 
 .logo h1 {

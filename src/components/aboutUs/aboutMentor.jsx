@@ -5,16 +5,6 @@ import styles from "./aboutMentor.module.css";
 
 const teamMembers = [
   {
-    id: 1,
-    name: "Prof. Rajesh Kr. Ahuja",
-    pic: "rajesh.png",
-    position: "Training & Placement Officer",
-    role: "TPO",
-    email: "rajeshahuja@jcboseust.ac.in",
-    phone: "+91 9990477433",
-    linkedin: "#",
-  },
-  {
     id: 2,
     name: "Dr. Sheilza Jain",
     pic: "sheilza.png",
@@ -97,14 +87,12 @@ const teamMembers = [
 ];
 
 const roleLabels = {
-  TPO: "Training & Placement Officer",
   DTPO: "Deputy TPO",
   ATPO: "Assistant TPO",
   PC: "Placement Coordinator",
 };
 
-const roleCounts= {
-  TPO: teamMembers.filter((m) => m.role === "TPO").length,
+const roleCounts = {
   DTPO: teamMembers.filter((m) => m.role === "DTPO").length,
   ATPO: teamMembers.filter((m) => m.role === "ATPO").length,
   PC: teamMembers.filter((m) => m.role === "PC").length,
@@ -125,6 +113,7 @@ function AboutMentor() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   const [hoveredCard, setHoveredCard] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
@@ -160,79 +149,71 @@ function AboutMentor() {
   };
 
   return (
-    <section id="mentor" className={styles["leadership-section"]}>
+    <section className={styles["leadership-section"]}>
       <div className={styles["leadership-container"]}>
+
         <div className={styles["leadership-header"]}>
+
           <div className={styles["badge-container"]}>
             <div className={styles["team-badge"]}>
-              <Sparkles />
-              <span>Our Leadership Team</span>
+              <Sparkles size={14} />
+              Our Leadership Team
             </div>
           </div>
+
           <div className={styles["title-section"]}>
             <h2 className={styles["main-title"]}>MEET OUR MENTORS</h2>
             <div className={styles["title-decoration"]}>
-              <div className={styles["decoration-line"]} />
-              <Users />
-              <div className={styles["decoration-line"]} />
+              <div className={styles["decoration-line"]}></div>
+              <Users size={18} className={styles["decoration-icon"]} />
+              <div className={styles["decoration-line"]}></div>
             </div>
             <p className={styles["subtitle"]}>
               Our experienced leadership team is dedicated to guiding students
-              towards successful careers and building strong industry
-              partnerships.
+              towards successful careers and building strong industry partnerships.
             </p>
           </div>
 
           <div className={styles["filter-buttons"]}>
             <button
-              className={`${styles["filter-btn"]} ${styles["whole-team-btn"]} ${
-                selectedRole === null ? styles.active : ""
-              }`}
+              className={`${styles["filter-btn"]} ${selectedRole === null ? styles["active"] : ""}`}
               onClick={() => setSelectedRole(null)}
             >
-              <Users />
-              <span className={styles["btn-text"]}>Whole Team</span>
+              <Users size={15} />
+              Whole Team
               <span className={styles["member-count"]}>({teamMembers.length})</span>
             </button>
             {Object.entries(roleLabels).map(([key, label]) => (
               <button
                 key={key}
-                className={`${styles["filter-btn"]} ${
-                  selectedRole === key ? styles.active : ""
-                }`}
+                className={`${styles["filter-btn"]} ${selectedRole === key ? styles["active"] : ""}`}
                 onClick={() => setSelectedRole(key)}
               >
-                <span className={styles["btn-text"]}>{label}</span>
+                {label}
                 <span className={styles["member-count"]}>({roleCounts[key]})</span>
               </button>
             ))}
           </div>
+
         </div>
 
         <div
-          ref={carouselRef}
           className={styles["team-grid"]}
-          onMouseLeave={() => setHoveredCard(null)}
+          ref={carouselRef}
+          // onMouseLeave={() => setHoveredCard(null)}
         >
           {filteredMembers.map((member, index) => (
             <div
               key={member.id}
-              className={`${styles["team-card"]} ${
-                hoveredCard !== null && hoveredCard !== member.id
-                  ? styles.blurred
-                  : ""
-              }`}
-              style={{ animationDelay: `${index * 80}ms` }}
+              className={`${styles["team-card"]} ${hoveredCard !== null && hoveredCard !== member.id ? styles["blurred"] : ""}`}
               onMouseEnter={() => setHoveredCard(member.id)}
+              onMouseLeave={() => setHoveredCard(null)} 
             >
               <div className={styles["card-content"]}>
                 <div className={styles["card-inner"]}>
+
                   <div className={styles["card-top"]}>
-                    <span
-                      className={`${styles["role-badge"]} ${
-                        styles[member.role.toLowerCase()]
-                      }`}
-                    >
+                    <span className={`${styles["role-badge"]} ${styles[member.role.toLowerCase()]}`}>
                       {member.role}
                     </span>
                     <button
@@ -240,69 +221,60 @@ function AboutMentor() {
                       onClick={() => window.open(member.linkedin, "_blank")}
                       aria-label="LinkedIn Profile"
                     >
-                      <Linkedin />
+                      <Linkedin size={15} />
                     </button>
                   </div>
 
                   <div className={styles["avatar-section"]}>
                     <div className={styles["avatar-container"]}>
-                      <div className={styles["avatar-glow"]} />
-                      <div className={styles.avatar}>
-                        <img src={`images/aboutUs/${member.pic}`} alt={member.name} />
+                      <div className={styles["avatar-glow"]}></div>
+                      <div className={styles["avatar"]}>
+                        <img
+                          src={`images/aboutUs/${member.pic}`}
+                          alt={member.name}
+                          onError={(e) => { e.target.style.display = 'none'; }}
+                        />
                       </div>
                     </div>
                   </div>
 
                   <div className={styles["member-info"]}>
                     <h3 className={styles["member-name"]}>{member.name}</h3>
-                    <p className={styles["member-position"]}>
-                      {member.position}
-                    </p>
+                    <p className={styles["member-position"]}>{member.position}</p>
                   </div>
 
                   <div className={styles["contact-info"]}>
                     <div className={styles["contact-item"]}>
-                      <div
-                        className={`${styles["contact-icon"]} ${styles.phone}`}
-                      >
-                        <Phone />
-                      </div>
-                      <span className={styles["contact-text"]}>
-                        {member.phone}
+                      <span className={`${styles["contact-icon"]} ${styles["phone"]}`}>
+                        <Phone size={13} />
                       </span>
+                      <span className={styles["contact-text"]}>{member.phone}</span>
                     </div>
                     <div className={styles["contact-item"]}>
-                      <div
-                        className={`${styles["contact-icon"]} ${styles.email}`}
-                      >
-                        <Mail />
-                      </div>
-                      <span className={styles["contact-text"]}>
-                        {member.email}
+                      <span className={`${styles["contact-icon"]} ${styles["email"]}`}>
+                        <Mail size={13} />
                       </span>
+                      <span className={styles["contact-text"]}>{member.email}</span>
                     </div>
                   </div>
 
                   <div className={styles["action-buttons"]}>
                     <button
-                      className={`${styles["action-btn"]} ${styles.call}`}
-                      onClick={() =>
-                        (window.location.href = `tel:${member.phone}`)
-                      }
+                      className={`${styles["action-btn"]} ${styles["call"]}`}
+                      onClick={() => (window.location.href = `tel:${member.phone}`)}
                     >
-                      <Phone size={22} />
-                      <span>Call</span>
+                      <Phone size={13} />
+                      Call
                     </button>
                     <button
                       className={`${styles["action-btn"]} ${styles["email-btn"]}`}
-                      onClick={() =>
-                        (window.location.href = `mailto:${member.email}`)
-                      }
+                      onClick={() => (window.location.href = `mailto:${member.email}`)}
                     >
-                      <Mail size={22}/>
-                      <span>Email</span>
+                      <Mail size={13} />
+                      Email
                     </button>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -314,17 +286,17 @@ function AboutMentor() {
           {filteredMembers.map((_, index) => (
             <button
               key={index}
-              className={`${styles["dot"]} ${
-                currentSlide === index ? styles["dot-active"] : ""
-              }`}
+              className={`${styles["dot"]} ${currentSlide === index ? styles["dot-active"] : ""}`}
               onClick={() => scrollToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
+
       </div>
     </section>
   );
 }
 
 export default AboutMentor;
+

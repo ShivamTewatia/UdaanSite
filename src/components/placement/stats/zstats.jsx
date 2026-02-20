@@ -40,7 +40,7 @@ const Statistics = () => {
   }, [trendData]);
 
    const highlightCards = [
-    { icon: Building2, title: "Total Placements", value: "3,180", subtitle: "Over 10 years", variant: "primary" },
+    { icon: Building2, title: "Total Placements", value: "1000+", subtitle: "Over 10 years", variant: "primary" },
     { icon: Award, title: "Highest Package", value: "₹60 LPA", subtitle: "Peak achievement", variant: "secondary" },
     { icon: Target, title: "Avg. Placement Rate", value: "75%", subtitle: "Decade average", variant: "success" },
     { icon: Users, title: "Students Trained", value: "4,221", subtitle: "Career-ready graduates", variant: "info" },
@@ -53,7 +53,7 @@ const Statistics = () => {
       <div className={styles.content}>
         <CollapsibleWrapper
           icon={BarChart3}
-          title="10-Year Overview"
+          title="2-Year Overview"
           defaultOpen={true}
         >
             <section className={styles.sectionTop}>

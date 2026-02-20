@@ -390,11 +390,6 @@ const RulesTraining = () => {
 
   const trainingDurations = [
     {
-      program: "B.Tech (Mechanical, Electrical, Electronics Engg.)",
-      duration: "6-7 months internship during seventh semester",
-      period: "1st June to 31st December every year"
-    },
-    {
       program: "B.Tech (Computer Engineering, Information Technology) & MCA",
       duration: "Six months project training during eighth/sixth semester",
       period: "1st January to 30th June every year"

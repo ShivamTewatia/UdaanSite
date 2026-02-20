@@ -10,11 +10,11 @@ const Footer = () => {
           <div className={styles.section}>
             <div className={styles.logoContainer}>
               <div className={styles.logoCircle}>
-                <img src="/images/home/udnLogo.jpeg" alt="" />
+                <img src="/images/home/clgLogo.png" alt="" />
               </div>
               <div className={styles.logoText}>
-                <h2>TPO</h2>
-                <p>Training and Placement Office</p>
+                <h2>ETO</h2>
+                <p>Employment And Training Office</p>
               </div>
             </div>
             <p className={styles.address}>
@@ -113,7 +113,7 @@ const Footer = () => {
         
         <div className={styles.copyright}>
           <p>
-            © {new Date().getFullYear()} Training and Placement Office, J.C Bose University of Science and Technology, YMCA. All rights reserved.
+            © {new Date().getFullYear()} Employment And Training Office, J.C Bose University of Science and Technology, YMCA. All rights reserved.
           </p>
         </div>
       </div>

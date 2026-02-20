@@ -178,8 +178,8 @@ const Nav = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.logo}>
-            <img src="/images/home/udnLogo.jpeg" alt="UDAAN Logo" />
-            <h1>UDAAN</h1>
+            <img src="/images/home/clgLogo.png" alt="CLG Logo" />
+            <h1>ETO</h1>
           </div>
           <div className={styles.navLinks}>
             {navItems.map((item) => (

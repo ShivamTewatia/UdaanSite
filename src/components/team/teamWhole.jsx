@@ -3,7 +3,7 @@ import { Search, Linkedin, Sparkles, Users, ChevronDown } from "lucide-react";
 import styles from "./EnhancedTeamPage.module.css";
 import { useHashScroll } from "../hooks/useHashScroll" 
 
-const teams = ["Admin Team", "IT Team", "Outreach Team", "Design Team"];
+const roles = ["Plcaement Coordinator","Secretary","Joint Secretary","Department Coordinator","Social Media Head"];
 
 
 const colorSchemes = [
@@ -40,16 +40,16 @@ const members = [
     team: "All Team",
     linkedin: "https://www.linkedin.com/in/harkiran-kaur-3622a226b/"
   },
-  {
-    id: "22001011033",
-    name: "Kumar Arth",
-    pic: "arth.png",
-    role: "Secretary",
-    branch: "B.Tech(IT)",
-    year: "4th Year",
-    team: "All Team",
-    linkedin: "https://www.linkedin.com/in/kumar-arth-690765247"
-  },
+  // {
+  //   id: "22001011033",
+  //   name: "Kumar Arth",
+  //   pic: "arth.png",
+  //   role: "Secretary",
+  //   branch: "B.Tech(IT)",
+  //   year: "4th Year",
+  //   team: "All Team",
+  //   linkedin: "https://www.linkedin.com/in/kumar-arth-690765247"
+  // },
   {
     id: "23001013010",
     name: "Aman",
@@ -141,35 +141,45 @@ const members = [
     linkedin: "https://www.linkedin.com/in/anjana-tewatia-a869b6381/"
   },
   {
-    id: "22001050005",
-    name: "Bhavya",
-    pic: "bhavya.png",
+    id: "23001016017",
+    name: "Charvi Sangwan",
+    pic: "charvi.png",
     role: "Department Coordinator",
-    branch: "B.Tech(CE)",
-    year: "4th Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/bhavya-bansal-b4906124b/"
-  },
-  {
-    id: "23001008022",
-    name: "Isha Rani",
-    pic: "isha.png",
-    role: "Department Coordinator",
-    branch: "B.Tech(ECE)",
+    branch: "B.Tech(CE(DS))",
     year: "3rd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/isha-girdhar"
+    team: "Design Team",
+    linkedin: "https://www.linkedin.com/in/charvisangwan/"
   },
-  {
-    id: "22001008023",
-    name: "Jyotsna",
-    pic: "jyotsna.png",
-    role: "Department Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "4th Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/jyotsnarajyabhatia"
-  },
+  // {
+  //   id: "22001050005",
+  //   name: "Bhavya",
+  //   pic: "bhavya.png",
+  //   role: "Department Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "4th Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/bhavya-bansal-b4906124b/"
+  // },
+  // {
+  //   id: "23001008022",
+  //   name: "Isha Rani",
+  //   pic: "isha.png",
+  //   role: "Department Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "3rd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/isha-girdhar"
+  // },
+  // {
+  //   id: "22001008023",
+  //   name: "Jyotsna",
+  //   pic: "jyotsna.png",
+  //   role: "Department Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "4th Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/jyotsnarajyabhatia"
+  // },
   {
     id: "24001701078",
     name: "Monika",
@@ -180,36 +190,36 @@ const members = [
     team: "Admin Team",
     linkedin: "https://www.linkedin.com/in/monika-bhardwaj-9562b0314"
   },
-  {
-    id: "22001013107",
-    name: "Shivesh Singh",
-    pic: "shivesh.png",
-    role: "Department Coordinator",
-    branch: "B.Tech(ME)",
-    year: "4th Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/shiveshsinghh"
-  },
-  {
-    id: "23001003126",
-    name: "Sujit Yadav",
-    pic: "sujit.png",
-    role: "Department Coordinator",
-    branch: "B.Tech(CE)",
-    year: "3rd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/sujit-yadav-47893a293"
-  },
-  {
-    id: "22001013121",
-    name: "Tanishq Agrawal",
-    pic: "tanishq.png",
-    role: "Department Coordinator",
-    branch: "B.Tech(ME)",
-    year: "4th Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/tanishq-agrawal-8ab988364"
-  },
+  // {
+  //   id: "22001013107",
+  //   name: "Shivesh Singh",
+  //   pic: "shivesh.png",
+  //   role: "Department Coordinator",
+  //   branch: "B.Tech(ME)",
+  //   year: "4th Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/shiveshsinghh"
+  // },
+  // {
+  //   id: "23001003126",
+  //   name: "Sujit Yadav",
+  //   pic: "sujit.png",
+  //   role: "Department Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "3rd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/sujit-yadav-47893a293"
+  // },
+  // {
+  //   id: "22001013121",
+  //   name: "Tanishq Agrawal",
+  //   pic: "tanishq.png",
+  //   role: "Department Coordinator",
+  //   branch: "B.Tech(ME)",
+  //   year: "4th Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/tanishq-agrawal-8ab988364"
+  // },
   {
     id: "23001003132",
     name: "Tanishttha",
@@ -220,16 +230,16 @@ const members = [
     team: "IT Team",
     linkedin: "https://www.linkedin.com/in/tanishttha-sehgal-73555b287"
   },
-  {
-    id: "23001003136",
-    name: "Vanshika",
-    pic: "vanshika.png",
-    role: "Department Coordinator",
-    branch: "B.Tech(CE)",
-    year: "3rd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/vanshika-kataria"
-  },
+  // {
+  //   id: "23001003136",
+  //   name: "Vanshika",
+  //   pic: "vanshika.png",
+  //   role: "Department Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "3rd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/vanshika-kataria"
+  // },
   {
     id: "23001016072",
     name: "Yashika Sharma",
@@ -260,466 +270,466 @@ const members = [
     team: "IT Team",
     linkedin: "https://www.linkedin.com/in/tannu-banwala-5832492a4"
   },
-  {
-    id: "22001016017",
-    name: "Diya Gupta",
-    pic: "diya.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(DS))",
-    year: "4th Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/diya-gupta-8806272a5"
-  },
-  {
-    id: "22001050014",
-    name: "Muskan",
-    pic: "muskan.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "4th Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/muskan-08a6b1254"
-  },
-  {
-    id: "23001016003",
-    name: "Abhishek Singh",
-    pic: "abhishek.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(DS))",
-    year: "3rd Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/abhishek-singh-26b6b8285"
-  },
-  {
-    id: "23001011003",
-    name: "Akhil Gupta",
-    pic: "akhil.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "3rd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/akhil-gupta-10b638273/"
-  },
-  {
-    id: "23001003020",
-    name: "Ayush Sharma",
-    pic: "ayush.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "3rd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/ayush-sharma-4a714b2b4"
-  },
-  {
-    id: "23001003051",
-    name: "Jatin Kumar",
-    pic: "jatin.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "3rd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/jatin-kumar-1629412b6"
-  },
-  {
-    id: "23001016026",
-    name: "Jigisha Saigal",
-    pic: "jigisha.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(DS))",
-    year: "3rd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/jigisha-saigal-375045298"
-  },
-  {
-    id: "23001301029",
-    name: "Muskan Dagar",
-    pic: "muskan_dagar.png",
-    role: "Student Coordinator",
-    branch: "BBA",
-    year: "3rd Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/muskan-dagar-99514b29b"
-  },
-  {
-    id: "23001008038",
-    name: "Nidhi",
-    pic: "nidhi.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "3rd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/nidhi-baghel-a3466b309"
-  },
-  {
-    id: "23001016049",
-    name: "Ravi Chauhan",
-    pic: "ravi.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(DS))",
-    year: "3rd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/ravi-chauhan-44ba85290"
-  },
-  {
-    id: "24001008507",
-    name: "Riya Varshney",
-    pic: "riya.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "3rd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/riya-varshney-384785375"
-  },
-  {
-    id: "23001003104",
-    name: "Ronit Kataria",
-    pic: "ronit.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "3rd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/ronit-kataria-2025abc"
-  },
-  {
-    id: "24001015507",
-    name: "Shivam Kumar",
-    pic: "shivam_kumar.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "3rd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/shivam-kumar-b60b8420a"
-  },
-  {
-    id: "23001016062",
-    name: "Tushar",
-    pic: "tushar.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(DS))",
-    year: "3rd Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/tushar-11b51a312"
-  },
-  {
-    id: "23001011069",
-    name: "Vanshita",
-    pic: "vanshita.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "3rd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/vanshita-gandhi-74993b2a9"
-  },
-  {
-    id: "24001050001",
-    name: "Aastha Sharma",
-    pic: "aastha.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(H))",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/aastha-sharma-as1705"
-  },
-  {
-    id: "24001050005",
-    name: "Ankit Yadav",
-    pic: "ankit.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(H))",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/ankit-yadav-73a477346"
-  },
-  {
-    id: "24001003009",
-    name: "Anmol Kaul",
-    pic: "anmol.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/anmol-kaul-39054b30b"
-  },
-  {
-    id: "24001003020",
-    name: "Ashu",
-    pic: "ashu.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "2nd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/ashu-sharma-61b590357"
-  },
-  {
-    id: "24001017009",
-    name: "Chanchal",
-    pic: "chanchal.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(EE(IOT))",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/chanchal-soni-26460b280"
-  },
-  {
-    id: "24001002012",
-    name: "Chetan",
-    pic: "chetan.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "2nd Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/chetan-chaudhary-704902379"
-  },
-  {
-    id: "24001015015",
-    name: "Devang",
-    pic: "devang.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ENC)",
-    year: "2nd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/devang-862342316"
-  },
-  {
-    id: "24001008022",
-    name: "Divesh Pandita",
-    pic: "divesh.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/divesh-pandita-182660320"
-  },
-  {
-    id: "24001007070",
-    name: "Harish Sheoran",
-    pic: "harish.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(EE)",
-    year: "2nd Year",
-    team: "Admin Team, Design Team",
-    linkedin: "https://www.linkedin.com/in/harish-kumar-a89bb4338/"
-  },
-  {
-    id: "24001003046",
-    name: "Harsh Dhall",
-    pic: "harsh.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/harsh-dhall-3b867a33a"
-  },
-  {
-    id: "24001011025",
-    name: "Hemant",
-    pic: "hemant.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/hemant-nayak"
-  },
-  {
-    id: "24001011029",
-    name: "Jai Bhagwan",
-    pic: "jai.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "2nd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/jai-bhagwan-84b1022a9"
-  },
-  {
-    id: "24001016030",
-    name: "Jitin Sisodiya",
-    pic: "jitin.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(DS))",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/jitin-sisodiya-2637ab306/"
-  },
-  {
-    id: "24001003058",
-    name: "Kajal",
-    pic: "kajal.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "2nd Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/kajal-sindhu-736655313/"
-  },
-  {
-    id: "24001011041",
-    name: "Madhur Arora",
-    pic: "madhur.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "2nd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/madhur-arora-37269a349"
-  },
-  {
-    id: "24001701075",
-    name: "Mohit Gupta",
-    pic: "mohit_gupta.png",
-    role: "Student Coordinator",
-    branch: "MBA",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/mohit-gupta-a60b5527a"
-  },
-  {
-    id: "24001011048",
-    name: "Nikhil Dagar",
-    pic: "nikhil.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "2nd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/nikhil-dagar-47078a353"
-  },
-  {
-    id: "24001013079",
-    name: "Pappu Kumar Sahu",
-    pic: "pappu.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ME)",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/pappu-kumar-sahu-a54845259"
-  },
-  {
-    id: "24001008042",
-    name: "Piyush Soni",
-    pic: "piyush.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/piyush-soni-502251334"
-  },
-  {
-    id: "24001015049",
-    name: "Pratima",
-    pic: "pratima.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ENC)",
-    year: "2nd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/pratima-pandey-250993316"
-  },
-  {
-    id: "24001008048",
-    name: "Prerna Sharma",
-    pic: "prerna.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "2nd Year",
-    team: "Outreach Team",
-    linkedin: "https://www.linkedin.com/in/prerna-sharma-ab6251359"
-  },
-  {
-    id: "24001011056",
-    name: "Pushkar Saini",
-    pic: "pushkar.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/pushkar-saini1706"
-  },
-  {
-    id: "24001013100",
-    name: "Sahil Jangra",
-    pic: "sahil.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ME)",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/sahil-j-7227ba301"
-  },
-  {
-    id: "24001011060",
-    name: "Saksham Sharma",
-    pic: "saksham.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/saksham-sharma-607509326/"
-  },
-  {
-    id: "24001013102",
-    name: "Sakshi",
-    pic: "sakshi.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ME)",
-    year: "2nd Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/sakshi-607808339/"
-  },
-  {
-    id: "24001050027",
-    name: "Sangharsh Yadav",
-    pic: "sangharsh.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE(H))",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/sangharsh-yadav-1b4b38346"
-  },
-  {
-    id: "24001011062",
-    name: "Shivam Tewatia",
-    pic: "shivam_tewatia.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(IT)",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/shivam-tewatia-462412328"
-  },
-  {
-    id: "24001008061",
-    name: "Shristi Sisodia",
-    pic: "shristi.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ECE)",
-    year: "2nd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/shristi-sisodia-31331a324"
-  },
-  {
-    id: "23001017073",
-    name: "Sourabh Jha",
-    pic: "sourabh.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(EE(IOT))",
-    year: "3rd Year",
-    team: "Admin Team",
-    linkedin: "https://www.linkedin.com/in/sourabh-jha-52b9b3285"
-  },
-  {
-    id: "24001013113",
-    name: "Subhra",
-    pic: "subhra.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(ME)",
-    year: "2nd Year",
-    team: "Design Team",
-    linkedin: "https://www.linkedin.com/in/subhra-55680132a"
-  },
-  {
-    id: "24001003138",
-    name: "Vanshika",
-    pic: "vanshika_chauhan.png",
-    role: "Student Coordinator",
-    branch: "B.Tech(CE)",
-    year: "2nd Year",
-    team: "IT Team",
-    linkedin: "https://www.linkedin.com/in/vanshika-chauhan-870b1628a"
-  }
+  // {
+  //   id: "22001016017",
+  //   name: "Diya Gupta",
+  //   pic: "diya.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(DS))",
+  //   year: "4th Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/diya-gupta-8806272a5"
+  // },
+  // {
+  //   id: "22001050014",
+  //   name: "Muskan",
+  //   pic: "muskan.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "4th Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/muskan-08a6b1254"
+  // },
+  // {
+  //   id: "23001016003",
+  //   name: "Abhishek Singh",
+  //   pic: "abhishek.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(DS))",
+  //   year: "3rd Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/abhishek-singh-26b6b8285"
+  // },
+  // {
+  //   id: "23001011003",
+  //   name: "Akhil Gupta",
+  //   pic: "akhil.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "3rd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/akhil-gupta-10b638273/"
+  // },
+  // {
+  //   id: "23001003020",
+  //   name: "Ayush Sharma",
+  //   pic: "ayush.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "3rd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/ayush-sharma-4a714b2b4"
+  // },
+  // {
+  //   id: "23001003051",
+  //   name: "Jatin Kumar",
+  //   pic: "jatin.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "3rd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/jatin-kumar-1629412b6"
+  // },
+  // {
+  //   id: "23001016026",
+  //   name: "Jigisha Saigal",
+  //   pic: "jigisha.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(DS))",
+  //   year: "3rd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/jigisha-saigal-375045298"
+  // },
+  // {
+  //   id: "23001301029",
+  //   name: "Muskan Dagar",
+  //   pic: "muskan_dagar.png",
+  //   role: "Student Coordinator",
+  //   branch: "BBA",
+  //   year: "3rd Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/muskan-dagar-99514b29b"
+  // },
+  // {
+  //   id: "23001008038",
+  //   name: "Nidhi",
+  //   pic: "nidhi.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "3rd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/nidhi-baghel-a3466b309"
+  // },
+  // {
+  //   id: "23001016049",
+  //   name: "Ravi Chauhan",
+  //   pic: "ravi.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(DS))",
+  //   year: "3rd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/ravi-chauhan-44ba85290"
+  // },
+  // {
+  //   id: "24001008507",
+  //   name: "Riya Varshney",
+  //   pic: "riya.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "3rd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/riya-varshney-384785375"
+  // },
+  // {
+  //   id: "23001003104",
+  //   name: "Ronit Kataria",
+  //   pic: "ronit.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "3rd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/ronit-kataria-2025abc"
+  // },
+  // {
+  //   id: "24001015507",
+  //   name: "Shivam Kumar",
+  //   pic: "shivam_kumar.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "3rd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/shivam-kumar-b60b8420a"
+  // },
+  // {
+  //   id: "23001016062",
+  //   name: "Tushar",
+  //   pic: "tushar.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(DS))",
+  //   year: "3rd Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/tushar-11b51a312"
+  // },
+  // {
+  //   id: "23001011069",
+  //   name: "Vanshita",
+  //   pic: "vanshita.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "3rd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/vanshita-gandhi-74993b2a9"
+  // },
+  // {
+  //   id: "24001050001",
+  //   name: "Aastha Sharma",
+  //   pic: "aastha.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(H))",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/aastha-sharma-as1705"
+  // },
+  // {
+  //   id: "24001050005",
+  //   name: "Ankit Yadav",
+  //   pic: "ankit.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(H))",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/ankit-yadav-73a477346"
+  // },
+  // {
+  //   id: "24001003009",
+  //   name: "Anmol Kaul",
+  //   pic: "anmol.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/anmol-kaul-39054b30b"
+  // },
+  // {
+  //   id: "24001003020",
+  //   name: "Ashu",
+  //   pic: "ashu.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "2nd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/ashu-sharma-61b590357"
+  // },
+  // {
+  //   id: "24001017009",
+  //   name: "Chanchal",
+  //   pic: "chanchal.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(EE(IOT))",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/chanchal-soni-26460b280"
+  // },
+  // {
+  //   id: "24001002012",
+  //   name: "Chetan",
+  //   pic: "chetan.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "2nd Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/chetan-chaudhary-704902379"
+  // },
+  // {
+  //   id: "24001015015",
+  //   name: "Devang",
+  //   pic: "devang.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ENC)",
+  //   year: "2nd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/devang-862342316"
+  // },
+  // {
+  //   id: "24001008022",
+  //   name: "Divesh Pandita",
+  //   pic: "divesh.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/divesh-pandita-182660320"
+  // },
+  // {
+  //   id: "24001007070",
+  //   name: "Harish Sheoran",
+  //   pic: "harish.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(EE)",
+  //   year: "2nd Year",
+  //   team: "Admin Team, Design Team",
+  //   linkedin: "https://www.linkedin.com/in/harish-kumar-a89bb4338/"
+  // },
+  // {
+  //   id: "24001003046",
+  //   name: "Harsh Dhall",
+  //   pic: "harsh.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/harsh-dhall-3b867a33a"
+  // },
+  // {
+  //   id: "24001011025",
+  //   name: "Hemant",
+  //   pic: "hemant.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/hemant-nayak"
+  // },
+  // {
+  //   id: "24001011029",
+  //   name: "Jai Bhagwan",
+  //   pic: "jai.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "2nd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/jai-bhagwan-84b1022a9"
+  // },
+  // {
+  //   id: "24001016030",
+  //   name: "Jitin Sisodiya",
+  //   pic: "jitin.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(DS))",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/jitin-sisodiya-2637ab306/"
+  // },
+  // {
+  //   id: "24001003058",
+  //   name: "Kajal",
+  //   pic: "kajal.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "2nd Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/kajal-sindhu-736655313/"
+  // },
+  // {
+  //   id: "24001011041",
+  //   name: "Madhur Arora",
+  //   pic: "madhur.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "2nd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/madhur-arora-37269a349"
+  // },
+  // {
+  //   id: "24001701075",
+  //   name: "Mohit Gupta",
+  //   pic: "mohit_gupta.png",
+  //   role: "Student Coordinator",
+  //   branch: "MBA",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/mohit-gupta-a60b5527a"
+  // },
+  // {
+  //   id: "24001011048",
+  //   name: "Nikhil Dagar",
+  //   pic: "nikhil.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "2nd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/nikhil-dagar-47078a353"
+  // },
+  // {
+  //   id: "24001013079",
+  //   name: "Pappu Kumar Sahu",
+  //   pic: "pappu.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ME)",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/pappu-kumar-sahu-a54845259"
+  // },
+  // {
+  //   id: "24001008042",
+  //   name: "Piyush Soni",
+  //   pic: "piyush.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/piyush-soni-502251334"
+  // },
+  // {
+  //   id: "24001015049",
+  //   name: "Pratima",
+  //   pic: "pratima.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ENC)",
+  //   year: "2nd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/pratima-pandey-250993316"
+  // },
+  // {
+  //   id: "24001008048",
+  //   name: "Prerna Sharma",
+  //   pic: "prerna.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "2nd Year",
+  //   team: "Outreach Team",
+  //   linkedin: "https://www.linkedin.com/in/prerna-sharma-ab6251359"
+  // },
+  // {
+  //   id: "24001011056",
+  //   name: "Pushkar Saini",
+  //   pic: "pushkar.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/pushkar-saini1706"
+  // },
+  // {
+  //   id: "24001013100",
+  //   name: "Sahil Jangra",
+  //   pic: "sahil.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ME)",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/sahil-j-7227ba301"
+  // },
+  // {
+  //   id: "24001011060",
+  //   name: "Saksham Sharma",
+  //   pic: "saksham.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/saksham-sharma-607509326/"
+  // },
+  // {
+  //   id: "24001013102",
+  //   name: "Sakshi",
+  //   pic: "sakshi.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ME)",
+  //   year: "2nd Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/sakshi-607808339/"
+  // },
+  // {
+  //   id: "24001050027",
+  //   name: "Sangharsh Yadav",
+  //   pic: "sangharsh.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE(H))",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/sangharsh-yadav-1b4b38346"
+  // },
+  // {
+  //   id: "24001011062",
+  //   name: "Shivam Tewatia",
+  //   pic: "shivam_tewatia.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(IT)",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/shivam-tewatia-462412328"
+  // },
+  // {
+  //   id: "24001008061",
+  //   name: "Shristi Sisodia",
+  //   pic: "shristi.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ECE)",
+  //   year: "2nd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/shristi-sisodia-31331a324"
+  // },
+  // {
+  //   id: "23001017073",
+  //   name: "Sourabh Jha",
+  //   pic: "sourabh.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(EE(IOT))",
+  //   year: "3rd Year",
+  //   team: "Admin Team",
+  //   linkedin: "https://www.linkedin.com/in/sourabh-jha-52b9b3285"
+  // },
+  // {
+  //   id: "24001013113",
+  //   name: "Subhra",
+  //   pic: "subhra.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(ME)",
+  //   year: "2nd Year",
+  //   team: "Design Team",
+  //   linkedin: "https://www.linkedin.com/in/subhra-55680132a"
+  // },
+  // {
+  //   id: "24001003138",
+  //   name: "Vanshika",
+  //   pic: "vanshika_chauhan.png",
+  //   role: "Student Coordinator",
+  //   branch: "B.Tech(CE)",
+  //   year: "2nd Year",
+  //   team: "IT Team",
+  //   linkedin: "https://www.linkedin.com/in/vanshika-chauhan-870b1628a"
+  // }
 ];
 const EnhancedTeamCard = ({ name, pic, role, branch, year, team, linkedin, colorIndex }) => {
   const colors = colorSchemes[colorIndex % colorSchemes.length];
@@ -761,14 +771,14 @@ const EnhancedTeamCard = ({ name, pic, role, branch, year, team, linkedin, color
           <div className={styles.cardSection}>
             <div className={styles.memberInfo}>
               <p className={styles.memberStatSpecial}></p>
-              <p className={styles.memberHead}>Branch/Year</p>
-              <p className={styles.memberStat}>{branch}</p>
-              <p className={styles.memberStat}>{year}</p>
+              {/* <p className={styles.memberHead}>Branch/Year</p> */}
+              <p className={styles.memberStat}>Branch : {branch}</p>
+              <p className={styles.memberStat}>Year  : {year}</p>
             </div>
-            <div className={styles.memberInfo}>
+            {/* <div className={styles.memberInfo}>
               <p className={styles.memberHead}>Team</p>
               <p className={styles.memberStat}>{team}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -812,15 +822,15 @@ const MobileStudentCard = ({ name, pic, role, branch, year, linkedin, colorIndex
 };
 
 const EnhancedTeamPage = () => {
-  const [selectedTeam, setSelectedTeam] = useState("All Teams");
+  const [selectedRole, setSelectedRole] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   // Filter members for desktop view
   const filteredMembers = members.filter(member => {
-    const matchesTeam = selectedTeam === "All Teams" || member.team.includes(selectedTeam);
+    const matchesRole = selectedRole === "All" || member.role.includes(selectedRole);
     const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       member.role.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesTeam && matchesSearch;
+    return matchesRole && matchesSearch;
   });
 
   return (
@@ -898,19 +908,19 @@ const EnhancedTeamPage = () => {
 
           <div className={styles.filterTabs}>
             <button
-              onClick={() => setSelectedTeam("All Teams")}
-              className={`${styles.tabButton} ${selectedTeam === "All Teams" ? styles.active : ""}`}
+              onClick={() => setSelectedRole("All")}
+              className={`${styles.tabButton} ${selectedRole === "All" ? styles.active : ""}`}
             >
               <Users size={18} />
-              All Members ({members.length})
+              All ({members.length})
             </button>
-            {teams.map((team) => (
+            {roles.map((role) => (
               <button
-                key={team}
-                onClick={() => setSelectedTeam(team)}
-                className={`${styles.tabButton} ${selectedTeam === team ? styles.active : ""}`}
+                key={role}
+                onClick={() => setSelectedRole(role)}
+                className={`${styles.tabButton} ${selectedRole === role ? styles.active : ""}`}
               >
-                {team}
+                {role}
               </button>
             ))}
           </div>
