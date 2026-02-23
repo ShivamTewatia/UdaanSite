@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Users, Briefcase, TrendingUp, TrendingDown, Award, Target, GraduationCap, Zap, Calendar , BarChart3, Building2} from "lucide-react";
+import { Shield, Users, Briefcase, TrendingUp, TrendingDown, Award, Target, GraduationCap, Zap, Calendar , BarChart3, Building2} from "lucide-react";
 import { placementData, getYearlyTrends, getDecadeStats, CHART_COLORS } from "./placementData.js";
 import { HeroSection } from "./heroSection.jsx";
 import { HighlightCard } from "./highlightCard.jsx";
@@ -40,10 +40,11 @@ const Statistics = () => {
   }, [trendData]);
 
    const highlightCards = [
-    { icon: Building2, title: "Total Placements", value: "1000+", subtitle: "Over 10 years", variant: "primary" },
-    { icon: Award, title: "Highest Package", value: "₹60 LPA", subtitle: "Peak achievement", variant: "secondary" },
-    { icon: Target, title: "Avg. Placement Rate", value: "75%", subtitle: "Decade average", variant: "success" },
-    { icon: Users, title: "Students Trained", value: "4,221", subtitle: "Career-ready graduates", variant: "info" },
+    { icon: Building2, title: "Total Placements", value: "1200+", subtitle: "Over 2 years", variant: "primary" },
+    { icon: Award, title: "Highest Package", value: "₹62 LPA", subtitle: "Peak achievement", variant: "secondary" },
+    { icon: Users, title: "Median Package", value: "₹10.25", subtitle: "Highest Median packing", variant: "info" },
+    { icon: Target, title: "Avg. Placement Rate", value: "92%", subtitle: "2 Year average", variant: "success" },
+    
   ];
   
 
@@ -65,30 +66,32 @@ const Statistics = () => {
 
             <div className={styles.insightsGrid}>
               <InsightCard
-                icon={insights.placementChange >= 0 ? TrendingUp : TrendingDown}
-                label="Placement Change"
-                value={`${insights.placementChange >= 0 ? '+' : ''}${insights.placementChange}%`}
+                icon={Shield}
+                label="Placement Stability"
+                value="90%+"
+                subValue={`Placement Rate`}
                 variant="positive"
               />
               <InsightCard
                 icon={Zap}
-                label="Package Growth"
-                value={`${insights.packageChange >= 0 ? '+' : ''}${Math.round(insights.packageChange)}%`}
+                label="Placement Rate"
+                value={`+2.55%`}
+                subValue={`Year on Year`}
                 variant="negative"
               />
               <InsightCard
-                icon={Calendar}
-                label="Best Year"
-                value={insights.bestYear.year}
-                subValue={`${insights.bestYear.placementRate}% placed`}
-                variant="neutral"
+                icon={Building2}
+                label="Recruiter Retention"
+                value={`85%+`}
+                subValue={`Returned`}
+                variant="info"
               />
               <InsightCard
-                icon={Calendar}
-                label="Challenging Year"
-                value={insights.worstYear.year}
-                subValue={`${insights.worstYear.placementRate}% placed`}
-                variant="info"
+                icon={Building2}
+                label="Recruiting Companies"
+                value="500+"
+                subValue="Across 2 Years"
+                variant="neutral"
               />
             </div>
           </section>

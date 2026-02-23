@@ -3,7 +3,7 @@ import { Search, Linkedin, Sparkles, Users, ChevronDown } from "lucide-react";
 import styles from "./EnhancedTeamPage.module.css";
 import { useHashScroll } from "../hooks/useHashScroll" 
 
-const roles = ["Plcaement Coordinator","Secretary","Joint Secretary","Department Coordinator","Social Media Head"];
+const roles = ["Placement Coordinator","Secretary","Joint Secretary","Coordinator Head","Senior Coordinator","Department Coordinator","Social Media Head"];
 
 
 const colorSchemes = [
@@ -827,9 +827,13 @@ const EnhancedTeamPage = () => {
 
   // Filter members for desktop view
   const filteredMembers = members.filter(member => {
-    const matchesRole = selectedRole === "All" || member.role.includes(selectedRole);
-    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    const matchesRole =
+      selectedRole === "All" || member.role === selectedRole;
+
+    const matchesSearch =
+      member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       member.role.toLowerCase().includes(searchQuery.toLowerCase());
+
     return matchesRole && matchesSearch;
   });
 

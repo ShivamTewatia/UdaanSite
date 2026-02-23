@@ -1300,7 +1300,7 @@
 
 .filterTabs {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 40px;
@@ -1313,12 +1313,12 @@
   min-width: 130px;
   height: 42px;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 8px 10px;
   border: 1px solid #e2e5ea;
   border-radius: 10px;
   background: #ffffff;
   color: #6b7280;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
