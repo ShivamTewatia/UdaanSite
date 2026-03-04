@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Building2 } from "lucide-react";
 import { CollapsibleWrapper } from "./collapsableSection";
-import styles from "./DepartmentBarChart.module.css";
+import styles from "./departmentBarChart.module.css";
 
 const CHART_HEIGHT = 240;
 
