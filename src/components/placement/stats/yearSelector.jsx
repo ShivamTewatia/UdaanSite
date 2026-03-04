@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import styles from "./YearSelector.module.css";
+import styles from "./yearSelector.module.css";
 
 export const YearSelector = ({
   years,
