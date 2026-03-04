@@ -1,252 +1,247 @@
-// import { useState } from "react";
-// import {
-//   ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
-// } from "recharts";
-// import {
-//   Building
-// } from "lucide-react"
-// import { placementData, DEPT_COLORS } from "./placementData";
-// // import { ChartCard } from "./chartCard";
-// import styles from "./departmentTrendChart.module.css";
-// import {CollapsibleWrapper} from "./collapsableSection";
-
-// const departments = ["CE", "IT", "ECE", "EIC", "EL", "Mech."];
-
-// const getDeptTrends = () => {
-//   return departments.map(dept => {
-//     const yearlyData = placementData.map(year => {
-//       const courseData = year.courses.find(c => c.course.includes(dept));
-//       return {
-//         year: year.year,
-//         placementPercent: courseData?.placementPercent || 0,
-//       };
-//     });
-//     return { department: dept, data: yearlyData };
-//   });
-// };
-
-// export const DepartmentTrendChart = () => {
-//   const [selectedDept, setSelectedDept] = useState(null);
-//   const deptTrends = getDeptTrends();
-
-//   const chartData = deptTrends[0].data.map((_, index) => {
-//     const yearData = { year: deptTrends[0].data[index].year };
-//     deptTrends.forEach(dept => {
-//       yearData[dept.department] = dept.data[index].placementPercent;
-//     });
-//     return yearData;
-//   });
-
-//   return (
-//     <CollapsibleWrapper
-//       icon={Building}
-//       title="Department Performance Over Time"
-//       subtitle="Track each department's placement journey"
-//       defaultOpen:False
-//     >
-//       <div className={styles.chipContainer}>
-//         <button
-//           onClick={() => setSelectedDept(null)}
-//           className={`${styles.chip} ${selectedDept === null ? styles.chipActive : ""}`}
-//           style={selectedDept === null ? { background: "hsl(258 90% 66%)", color: "white" } : {}}
-//         >
-//           All Departments
-//         </button>
-//         {departments.map(dept => (
-//           <button
-//             key={dept}
-//             onClick={() => setSelectedDept(selectedDept === dept ? null : dept)}
-//             className={`${styles.chip} ${selectedDept === dept ? styles.chipActive : ""}`}
-//             style={selectedDept === dept ? { background: DEPT_COLORS[dept].primary, color: "white" } : {}}
-//           >
-//             {dept}
-//           </button>
-//         ))}
-//       </div>
-//       <div className={styles.chartWrapper}>
-//         <ResponsiveContainer width="100%" height={360}>
-//           <ComposedChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-//             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-//             <XAxis 
-//               dataKey="year" 
-//               tick={{ fontSize: 11, fill: "#6b7280" }}
-//               axisLine={{ stroke: "#e5e7eb" }}
-//               tickLine={false}
-//             />
-//             <YAxis 
-//               unit="%" 
-//               domain={[0, 100]} 
-//               tick={{ fontSize: 11, fill: "#6b7280" }}
-//               axisLine={{ stroke: "#e5e7eb" }}
-//               tickLine={false}
-//             />
-//             <Tooltip
-//               contentStyle={{
-//                 backgroundColor: "rgba(255, 255, 255, 0.98)",
-//                 border: "1px solid #e5e7eb",
-//                 borderRadius: "12px",
-//                 boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)"
-//               }}
-//             />
-//             <Legend wrapperStyle={{ paddingTop: 20 }} />
-//             {departments.map(dept => (
-//               <Line
-//                 key={dept}
-//                 type="monotone"
-//                 dataKey={dept}
-//                 name={`${dept} Placement`}
-//                 stroke={DEPT_COLORS[dept].primary}
-//                 strokeWidth={selectedDept === null || selectedDept === dept ? 2.5 : 1}
-//                 dot={{ r: 4, fill: DEPT_COLORS[dept].primary }}
-//                 activeDot={{ r: 6, stroke: "white", strokeWidth: 2 }}
-//                 opacity={selectedDept === null || selectedDept === dept ? 1 : 0.2}
-//               />
-//             ))}
-//           </ComposedChart>
-//         </ResponsiveContainer>
-//       </div>
-//     </CollapsibleWrapper>
-//   );
-// };
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import {
-  ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
-} from "recharts";
-import { Building } from "lucide-react";
-import { placementData, DEPT_COLORS } from "./placementData";
-import styles from "./departmentTrendChart.module.css";
+  BarChart3,
+  ArrowUpRight,
+  ArrowDownRight,
+} from "lucide-react";
+
+import {
+  placementDataTop,
+  getCommonDepartments,
+  getDeptShort,
+  METRIC_CONFIG,
+} from "./placementDataTop";
+
 import { CollapsibleWrapper } from "./collapsableSection";
+import styles from "./departmentTrendChart.module.css";
 
-const departments = ["CE", "IT", "ECE", "EIC", "EL", "Mech."];
+const CHART_HEIGHT = 220;
 
-const getDeptTrends = () => {
-  return departments.map(dept => {
-    const yearlyData = placementData.map(year => {
-      const courseData = year.courses.find(c => c.course.includes(dept));
-      return {
-        year: year.year,
-        placementPercent: courseData?.placementPercent || 0,
-      };
-    });
-    return { department: dept, data: yearlyData };
-  });
-};
-
-export const DepartmentTrendChart = () => {
-  const [selectedDept, setSelectedDept] = useState(null);
-  const [chartHeight, setChartHeight] = useState(360);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width <= 468) {
-        setChartHeight(260);
-      } else if (width <= 768) {
-        setChartHeight(300);
-      } else {
-        setChartHeight(360);
-      }
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const deptTrends = getDeptTrends();
-
-  const chartData = deptTrends[0].data.map((_, index) => {
-    const yearData = { year: deptTrends[0].data[index].year };
-    deptTrends.forEach(dept => {
-      yearData[dept.department] = dept.data[index].placementPercent;
-    });
-    return yearData;
-  });
+/* ---------- 3D Bar ---------- */
+const Bar3D = ({
+  height,
+  maxHeight,
+  color,
+  darkColor,
+  lightColor,
+  value,
+  suffix,
+  delay,
+  isHovered,
+  onHover,
+  onLeave,
+}) => {
+  const barW = 40;
+  const depth = 16;
+  const usableHeight = CHART_HEIGHT - depth;
+  const barH = maxHeight > 0 ? Math.max((height / maxHeight) * usableHeight, 4) : 4;
 
   return (
-    <CollapsibleWrapper
-      icon={Building}
-      title="Department Performance Over Time"
-      subtitle="Track each department's placement journey"
-      defaultOpen={false}
+    <div
+      className={styles.barWrapper}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
     >
-      <div className={styles.chipContainer}>
-        <button
-          onClick={() => setSelectedDept(null)}
-          className={`${styles.chip} ${selectedDept === null ? styles.chipActive : ""}`}
-          style={selectedDept === null ? { background: "hsl(258 90% 66%)", color: "white" } : {}}
+      {isHovered && (
+        <div className={styles.tooltip} style={{ background: color }}>
+          {value}
+          {suffix}
+        </div>
+      )}
+
+      <div className={styles.barCanvas} style={{ width: barW + depth, height: CHART_HEIGHT }}>
+        <div
+          className={styles.barInner}
+          style={{
+            width: barW + depth,
+            height: barH + depth,
+            animationDelay: `${delay}s`,
+          }}
         >
-          All Departments
-        </button>
-        {departments.map(dept => (
-          <button
-            key={dept}
-            onClick={() => setSelectedDept(selectedDept === dept ? null : dept)}
-            className={`${styles.chip} ${selectedDept === dept ? styles.chipActive : ""}`}
-            style={selectedDept === dept ? { background: DEPT_COLORS[dept].primary, color: "white" } : {}}
-          >
-            {dept}
-          </button>
-        ))}
+          <div
+            className={styles.barFront}
+            style={{
+              width: barW,
+              height: barH,
+              background: `linear-gradient(180deg, ${color} 0%, ${darkColor} 100%)`,
+              boxShadow: isHovered ? `0 0 16px ${lightColor}` : "none",
+              filter: isHovered ? "brightness(1.08)" : "brightness(1)",
+            }}
+          />
+          <div
+            className={styles.barTop}
+            style={{
+              width: barW,
+              height: depth,
+              bottom: barH,
+              left: 0,
+              background: `linear-gradient(135deg, ${lightColor} 0%, ${color} 100%)`,
+              transform: `skewX(-45deg) translateX(${depth / 2}px)`,
+            }}
+          />
+          <div
+            className={styles.barRight}
+            style={{
+              width: depth,
+              height: barH,
+              background: darkColor,
+              transform: `skewY(-45deg) translateY(-${depth / 2}px)`,
+            }}
+          />
+        </div>
       </div>
-      <div className={styles.chartWrapper}>
-        <ResponsiveContainer width="100%" height={chartHeight}>
-          <ComposedChart data={chartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis 
-              dataKey="year" 
-              tick={{ fontSize: 11, fill: "#6b7280" }}
-              axisLine={{ stroke: "#e5e7eb" }}
-              tickLine={false}
-            />
-            <YAxis 
-              unit="%" 
-              domain={[25, 100]} 
-              allowDataOverflow={true} 
-              tick={{ fontSize: 11, fill: "#6b7280" }}
-              axisLine={{ stroke: "#e5e7eb" }}
-              tickLine={false}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "rgba(255, 255, 255, 0.98)",
-                border: "1px solid #e5e7eb",
-                borderRadius: "12px",
-                boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)"
-              }}
-            />
-            <Legend
-              wrapperStyle={{
-                paddingTop: 0,
-                paddingLeft: 23
-              }}
-              formatter={(value) => (
-                <span
-                  style={{
-                    fontSize: window.innerWidth <= 468 ? "11px" : "15px",
-                    color: "#374151"
-                  }}
-                >
-                  {value}
-                </span>
-              )}
-            />
-            {departments.map(dept => (
-              <Line
-                key={dept}
-                type="monotone"
-                dataKey={dept}
-                name={`${dept} Placement`}
-                stroke={DEPT_COLORS[dept].primary}
-                strokeWidth={selectedDept === null || selectedDept === dept ? 2.5 : 1}
-                dot={{ r: 4, fill: DEPT_COLORS[dept].primary }}
-                activeDot={{ r: 6, stroke: "white", strokeWidth: 2 }}
-                opacity={selectedDept === null || selectedDept === dept ? 1 : 0.2}
-              />
-            ))}
-          </ComposedChart>
-        </ResponsiveContainer>
-      </div>
-    </CollapsibleWrapper>
+    </div>
   );
 };
+
+/* ---------- Main Component ---------- */
+export const PlacementChart3D = () => {
+  const [selectedMetric, setSelectedMetric] = useState("placementPercent");
+  const [hoveredBar, setHoveredBar] = useState(null);
+
+  const commonDepts = useMemo(() => getCommonDepartments(), []);
+  const metricConfig = METRIC_CONFIG[selectedMetric];
+
+  const year1 = placementDataTop[0];
+  const year2 = placementDataTop[1];
+
+  const chartData = useMemo(() => {
+    return commonDepts.map((course) => {
+      const d1 = year1.courses.find((c) => c.course === course);
+      const d2 = year2.courses.find((c) => c.course === course);
+      const v1 = d1?.[selectedMetric] || 0;
+      const v2 = d2?.[selectedMetric] || 0;
+      const change = v1 > 0 ? ((v2 - v1) / v1) * 100 : 0;
+      return { course, shortName: getDeptShort(course), year1Value: v1, year2Value: v2, change };
+    });
+  }, [commonDepts, selectedMetric, year1, year2]);
+
+  const maxValue = useMemo(() => {
+    const all = chartData.flatMap((d) => [d.year1Value, d.year2Value]);
+    return Math.max(...all);
+  }, [chartData]);
+
+  const yTicks = useMemo(() => {
+    const roundedMax = Math.ceil(maxValue);
+    const step = roundedMax / 4;
+    return [roundedMax, step * 3, step * 2, step, 0].map((v) =>
+      selectedMetric === "placementPercent" ? `${Math.round(v)}%` : `${Math.round(v)}`
+    );
+  }, [maxValue, selectedMetric]);
+
+  return (
+    <div className={styles.container}>
+      <CollapsibleWrapper
+        icon={BarChart3}
+        title="Department Comparison Chart"
+        subtitle={`${year1.year} vs ${year2.year} · Year-over-Year Analysis`}
+        defaultOpen={true}
+      >
+        {/* Metric Buttons */}
+        <div className={styles.metricRow}>
+          {Object.keys(METRIC_CONFIG).map((key) => (
+            <button
+              key={key}
+              onClick={() => setSelectedMetric(key)}
+              className={`${styles.metricBtn} ${selectedMetric === key ? styles.metricBtnActive : ""}`}
+            >
+              {METRIC_CONFIG[key].label}
+            </button>
+          ))}
+        </div>
+
+        {/* Chart */}
+        <div className={styles.chartArea}>
+          {/* Y-Axis */}
+          <div className={styles.yAxis} style={{ height: CHART_HEIGHT }}>
+            {yTicks.map((t, i) => (
+              <span key={i} className={styles.yAxisLabel}>{t}</span>
+            ))}
+          </div>
+
+          {/* Bars */}
+          <div className={styles.barsContainer}>
+            <div className={styles.barsRow} style={{ height: CHART_HEIGHT }}>
+              {/* Grid lines at 25%, 50%, 75%, 100% */}
+              <div className={styles.gridLine} style={{ bottom: "25%" }} />
+              <div className={styles.gridLine} style={{ bottom: "50%" }} />
+              <div className={styles.gridLine} style={{ bottom: "75%" }} />
+              <div className={styles.gridLine} style={{ bottom: "100%" }} />
+
+              {chartData.map((item, i) => (
+                <div key={item.course} className={styles.barGroup} style={{ width: 124 }}>
+                  <div className={styles.changeChip}>
+                    <span
+                      className={`${styles.changeInner} ${
+                        item.change >= 0 ? styles.changeUp : styles.changeDown
+                      }`}
+                    >
+                      {item.change >= 0 ? (
+                        <ArrowUpRight className={styles.changeIcon} />
+                      ) : (
+                        <ArrowDownRight className={styles.changeIcon} />
+                      )}
+                      {Math.abs(item.change).toFixed(1)}%
+                    </span>
+                  </div>
+
+                  <div className={styles.barPair}>
+                    <Bar3D
+                      height={item.year1Value}
+                      maxHeight={maxValue}
+                      color="hsl(215, 65%, 65%)"
+                      darkColor="hsl(215, 65%, 50%)"
+                      lightColor="hsl(215, 65%, 82%)"
+                      value={item.year1Value}
+                      suffix={metricConfig.suffix}
+                      delay={i * 0.06}
+                      isHovered={hoveredBar === `${item.course}-1`}
+                      onHover={() => setHoveredBar(`${item.course}-1`)}
+                      onLeave={() => setHoveredBar(null)}
+                    />
+                    <Bar3D
+                      height={item.year2Value}
+                      maxHeight={maxValue}
+                      color="hsl(215, 45%, 80%)"
+                      darkColor="hsl(215, 45%, 66%)"
+                      lightColor="hsl(215, 45%, 90%)"
+                      value={item.year2Value}
+                      suffix={metricConfig.suffix}
+                      delay={i * 0.06 + 0.03}
+                      isHovered={hoveredBar === `${item.course}-2`}
+                      onHover={() => setHoveredBar(`${item.course}-2`)}
+                      onLeave={() => setHoveredBar(null)}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* X-Axis Labels */}
+            <div className={styles.xAxisRow}>
+              {chartData.map((item) => (
+                <div key={item.course} className={styles.xLabel}>
+                  {item.shortName}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Legend below chart */}
+        <div className={styles.legend}>
+          <div className={styles.legendItem}>
+            <div className={styles.legendSwatch} style={{ background: "hsl(215 65% 65%)" }} />
+            <span className={styles.legendLabel}>{year1.year}</span>
+          </div>
+          <div className={styles.legendItem}>
+            <div className={styles.legendSwatch} style={{ background: "hsl(215 45% 80%)" }} />
+            <span className={styles.legendLabel}>{year2.year}</span>
+          </div>
+        </div>
+      </CollapsibleWrapper>
+    </div>
+  );
+};
+
+

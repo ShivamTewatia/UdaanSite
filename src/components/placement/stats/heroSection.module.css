@@ -2,12 +2,8 @@
   position: relative;
   padding: 3rem 2rem 2.5rem;
   border-radius: 1.5rem;
-  background: linear-gradient(
-    135deg,
-    hsla(258, 90%, 66%, 0.2),
-    hsla(256, 88%, 60%, 0.2)
-  );
-  border: 1px solid hsla(256, 88%, 60%, 0.278);
+  background: #b6d0fb30;
+  border: 1px solid rgba(59, 130, 246, 0.25);
   overflow: hidden;
   margin-bottom: 3rem;
   max-width: 1400px;
@@ -24,11 +20,7 @@
 }
 
 .badge {
-  background: linear-gradient(
-    135deg,
-    hsl(258 90% 66%),
-    hsl(256 88% 60%)
-  );
+  background: #3b82f6;
   color: white;
   display: inline-block;
   padding: 0.4rem 1.25rem;
@@ -48,11 +40,7 @@
   font-weight: 700;
   margin: 0 0 1rem 0;
   line-height: 1.2;
-  background: linear-gradient(
-    135deg,
-    hsl(258 90% 66%),
-    hsl(256 88% 60%)
-  );
+  background: #3b82f6;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -63,7 +51,7 @@
 .subtitle {
   font-size: 1.125rem;
   font-weight: 400;
-  color: hsla(253, 56%, 34%, 0.506);
+  color: hsla(211, 56%, 34%, 0.506);
   margin: 0;
   max-width: 1400px;
   margin-left: auto;
@@ -78,7 +66,7 @@
   position: absolute;
   width: 120px;
   height: 120px;
-  color: hsla(256, 88%, 60%, 0.1);
+  color: hsla(215, 88%, 60%, 0.1);
   top: 50%;
   transform: translateY(-50%);
 }

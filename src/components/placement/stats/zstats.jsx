@@ -1,22 +1,23 @@
 import { useState, useMemo } from "react";
 import { Shield, Users, Briefcase, TrendingUp, TrendingDown, Award, Target, GraduationCap, Zap, Calendar , BarChart3, Building2} from "lucide-react";
 import { placementData, getYearlyTrends, getDecadeStats, CHART_COLORS } from "./placementData.js";
+import { placementDataTop } from "./placementDataTop.js";
 import { HeroSection } from "./heroSection.jsx";
 import { HighlightCard } from "./highlightCard.jsx";
 import { InsightCard } from "./insightCard.jsx";
 import { StatCard } from "./statCard.jsx";
 import { YearSelector } from "./yearSelector.jsx";
-import { TopPerformers } from "./topPerformers.jsx";
-import { PlacementTrendChart } from "./placementTrendChart.jsx";
-import { PackageTrendChart } from "./packageTrendChart.jsx";
+import { OverallDonut3D } from "./Donut.jsx";
+// import { PlacementTrendChart } from "./placementTrendChart.jsx";
+import { DepartmentPieChart } from "./departmentPieChart.jsx";
 import { DepartmentBarChart } from "./departmentBarChart.jsx";
-import { RadarChartSection } from "./radarChartSection.jsx";
-import { DepartmentTrendChart } from "./departmentTrendChart.jsx";
+import { FunnelChart3D } from "./radarChartSection.jsx";
+import { PlacementChart3D } from "./departmentTrendChart.jsx";
 import { PlacementTable } from "./placementTable.jsx";
 import styles from "./zstats.module.css";
 import { useHashScroll } from "../../hooks/useHashScroll.js"
 import CollapsibleWrapper from "./collapsableSection.jsx";
-import { AnimatedNumber } from "./animatedDigit.jsx";
+// import { AnimatedNumber } from "./animatedDigit.jsx";
 
 const Statistics = () => {
   useHashScroll(); 
@@ -40,10 +41,10 @@ const Statistics = () => {
   }, [trendData]);
 
    const highlightCards = [
-    { icon: Building2, title: "Total Placements", value: "1200+", subtitle: "Over 2 years", variant: "primary" },
-    { icon: Award, title: "Highest Package", value: "₹62 LPA", subtitle: "Peak achievement", variant: "secondary" },
+    { icon: Building2, title: "Total Placements", value: "1200+", subtitle: "Over 2 years", variant: "info" },
+    { icon: Award, title: "Highest Package", value: "₹62 LPA", subtitle: "Peak achievement", variant: "info" },
     { icon: Users, title: "Median Package", value: "₹10.25", subtitle: "Highest Median packing", variant: "info" },
-    { icon: Target, title: "Avg. Placement Rate", value: "92%", subtitle: "2 Year average", variant: "success" },
+    { icon: Target, title: "Avg. Placement Rate", value: "92%", subtitle: "2 Year average", variant: "info" },
     
   ];
   
@@ -70,14 +71,14 @@ const Statistics = () => {
                 label="Placement Stability"
                 value="90%+"
                 subValue={`Placement Rate`}
-                variant="positive"
+                variant="info"
               />
               <InsightCard
                 icon={Zap}
                 label="Placement Rate"
                 value={`+2.55%`}
                 subValue={`Year on Year`}
-                variant="negative"
+                variant="info"
               />
               <InsightCard
                 icon={Building2}
@@ -91,20 +92,21 @@ const Statistics = () => {
                 label="Recruiting Companies"
                 value="500+"
                 subValue="Across 2 Years"
-                variant="neutral"
+                variant="info"
               />
             </div>
           </section>
         </CollapsibleWrapper> 
         
         <div className={styles.chartsGrid}>
-          <PlacementTrendChart />
-          <PackageTrendChart />
+          {/* <PlacementTrendChart /> */}
+          <DepartmentPieChart/>
+          <OverallDonut3D />
         </div>
 
         <div className={styles.chartsGrid}>
-          <TopPerformers />
-          <DepartmentTrendChart />
+          
+          <PlacementChart3D />
         </div>
 
         <YearSelector years={years} selectedYear={selectedYear} onYearChange={setSelectedYear} />
@@ -128,15 +130,15 @@ const Statistics = () => {
             title="Total Students"
             value={currentYearData.totals.eligibleStudents}
             description="Eligible for placement"
-            variant="accent" 
-            color={CHART_COLORS.primary}
+            variant="info" 
+            color={CHART_COLORS.info}
           />
           
 
           <StatCard
             icon={Briefcase}
             title="Placed Students"
-            value={currentYearData.totals.offers}
+            value={currentYearData.totals.placed}
             description="Received offers"
             variant="info"  
             color={CHART_COLORS.info}
@@ -149,8 +151,8 @@ const Statistics = () => {
             value={currentYearData.totals.placementPercent}
             suffix="%"
             description="Overall success rate"
-            variant="success" 
-            color={CHART_COLORS.success}
+            variant="info" 
+            color={CHART_COLORS.info}
           />
 
           <StatCard
@@ -159,8 +161,8 @@ const Statistics = () => {
             value={`₹${currentYearData.totals.highestPackage}`}
             suffix="LPA"
             description="Best offer received"
-            variant="secondary"  
-            color={CHART_COLORS.secondary}
+            variant="info"  
+            color={CHART_COLORS.info}
           />
           
           
@@ -170,8 +172,8 @@ const Statistics = () => {
             value={`₹${currentYearData.totals.averagePackage}`}
             suffix="LPA"
             description="Mean compensation"
-            variant="primary"  
-            color={CHART_COLORS.accent}
+            variant="info"  
+            color={CHART_COLORS.info}
           />
           
           
@@ -188,11 +190,11 @@ const Statistics = () => {
         </CollapsibleWrapper>
         
         <div className={styles.chartsGrid}>
-          <DepartmentBarChart courses={currentYearData.courses} />
-          <RadarChartSection courses={currentYearData.courses} />
+          <DepartmentBarChart courses={currentYearData.courses} year={currentYearData.year} />
+          <FunnelChart3D courses={currentYearData.courses} year={currentYearData.year}/>
         </div>
 
-        <PlacementTable courses={currentYearData.courses} />
+        <PlacementTable  courses={currentYearData.courses} year={currentYearData.year}/>
       </div>
     </div>
   );

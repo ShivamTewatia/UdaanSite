@@ -1,180 +1,99 @@
-// import {
-//   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Tooltip
-// } from "recharts";
-// import { CHART_COLORS } from "./placementData";
-// // import { ChartCard } from "./chartCard";
-// import styles from "./radarChartSection.module.css";
-// import { RadarIcon } from "lucide-react";
-// import {CollapsibleWrapper} from "./collapsableSection";
-
-// export const RadarChartSection = ({ courses }) => {
-//   const radarData = courses.map(item => ({
-//     department: item.course.replace("B.Tech ", ""),
-//     placement: item.placementPercent,
-//     packageScore: Math.min((item.averagePackage / 15) * 100, 100),
-//     efficiency: Math.min((item.offers / item.eligibleStudents) * 100, 100),
-//   }));
-
-//   return (
-//     <CollapsibleWrapper
-//       icon={RadarIcon}
-//       title="Department Performance Radar"
-//       subtitle="Multi-dimensional performance analysis"
-//       legend={
-//         <div className={styles.legend}>
-//           <div className={styles.legendItem}>
-//             <div className={styles.legendDot} style={{ background: CHART_COLORS.primary }} />
-//             <span>Placement %</span>
-//           </div>
-//           <div className={styles.legendItem}>
-//             <div className={styles.legendDot} style={{ background: CHART_COLORS.info }} />
-//             <span>Package Score</span>
-//           </div>
-//         </div>
-//       }
-//     >
-//       <ResponsiveContainer width="100%" height={360}>
-//         <RadarChart data={radarData}>
-//           <PolarGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-//           <PolarAngleAxis 
-//             dataKey="department" 
-//             tick={{ fontSize: 11, fill: "#6b7280", fontWeight: 500 }} 
-//           />
-//           <PolarRadiusAxis 
-//             angle={30} 
-//             domain={[0, 100]} 
-//             tick={{ fontSize: 10, fill: "#9ca3af" }} 
-//           />
-//           <Tooltip
-//             contentStyle={{
-//               backgroundColor: "rgba(255, 255, 255, 0.98)",
-//               border: "1px solid #e5e7eb",
-//               borderRadius: "12px",
-//               boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)"
-//             }}
-//             formatter={(value, name) => [
-//               `${Math.round(value)}%`,
-//               name === "placement" ? "Placement Rate" : "Package Score"
-//             ]}
-//           />
-//           <Radar
-//             name="Placement %"
-//             dataKey="placement"
-//             stroke={CHART_COLORS.primary}
-//             fill={CHART_COLORS.primary}
-//             fillOpacity={0.4}
-//             strokeWidth={2}
-//           />
-//           <Radar
-//             name="Package Score"
-//             dataKey="packageScore"
-//             stroke={CHART_COLORS.info}
-//             fill={CHART_COLORS.info}
-//             fillOpacity={0.3}
-//             strokeWidth={2}
-//           />
-//         </RadarChart>
-//       </ResponsiveContainer>
-//     </CollapsibleWrapper>
-//   );
-// };
-
-import { useState, useEffect } from "react";
-import {
-  RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Tooltip
-} from "recharts";
+import { useMemo } from "react";
 import { CHART_COLORS } from "./placementData";
 import styles from "./radarChartSection.module.css";
-import { Radar as RadarIcon } from "lucide-react";
-import { CollapsibleWrapper } from "./collapsableSection";
+import { CollapsibleWrapper } from './collapsableSection';
 
-export const RadarChartSection = ({ courses }) => {
-  const [chartHeight, setChartHeight] = useState(360);
+export const FunnelChart3D = ({ courses, year }) => {
+  const sorted = useMemo(
+    () => [...courses].sort((a, b) => b.eligibleStudents - a.eligibleStudents),
+    [courses]
+  );
 
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width <= 468) {
-        setChartHeight(280);
-      } else if (width <= 768) {
-        setChartHeight(320);
-      } else {
-        setChartHeight(360);
-      }
-    };
+  const maxStudents = useMemo(
+    () => Math.max(...sorted.map((c) => c.eligibleStudents)),
+    [sorted]
+  );
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const totals = useMemo(() => {
+    const eligibleStudents = courses.reduce((s, c) => s + c.eligibleStudents, 0);
+    const placed = courses.reduce((s, c) => s + c.placed, 0);
+    const placementPercent =
+      eligibleStudents > 0
+        ? ((placed / eligibleStudents) * 100).toFixed(1)
+        : "0";
+    const highestPackage = Math.max(...courses.map((c) => c.highestPackage));
 
-  const radarData = courses.map(item => ({
-    department: item.course.replace("B.Tech ", ""),
-    placement: item.placementPercent,
-    packageScore: Math.min((item.averagePackage / 15) * 100, 100),
-    efficiency: Math.min((item.offers / item.eligibleStudents) * 100, 100),
-  }));
+    return { eligibleStudents, placed, placementPercent, highestPackage };
+  }, [courses]);
 
   return (
+
     <CollapsibleWrapper
-      icon={RadarIcon}
-      title="Department Performance Radar"
-      subtitle="Multi-dimensional performance analysis"
+      // icon={Building2}
+      title={`Department-wise Analysis`}
+      subtitle={`Eligible Vs Placed${year ? ` – ${year}` : ""}`}
+      defaultOpen={true}
       legend={
         <div className={styles.legend}>
           <div className={styles.legendItem}>
-            <div className={styles.legendDot} style={{ background: CHART_COLORS.primary }} />
-            <span>Placement %</span>
+            <div className={styles.legendDotEligible} />
+            <span>Eligible</span>
           </div>
           <div className={styles.legendItem}>
-            <div className={styles.legendDot} style={{ background: CHART_COLORS.info }} />
-            <span>Package Score</span>
+            <div className={styles.legendDotPlaced} />
+            <span>Placed</span>
           </div>
         </div>
       }
     >
-      <ResponsiveContainer width="100%" height={chartHeight}>
-        <RadarChart data={radarData}>
-          <PolarGrid stroke="#e5e7eb" strokeDasharray="3 3" />
-          <PolarAngleAxis 
-            dataKey="department" 
-            tick={{ fontSize: 11, fill: "#6b7280", fontWeight: 500 }} 
-          />
-          <PolarRadiusAxis 
-            angle={30} 
-            domain={[0, 100]} 
-            tick={{ fontSize: 10, fill: "#9ca3af" }} 
-          />
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "rgba(255, 255, 255, 0.98)",
-              border: "1px solid #e5e7eb",
-              borderRadius: "12px",
-              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)"
-            }}
-            formatter={(value, name) => [
-              `${Math.round(value)}%`,
-              name === "placement" ? "Placement Rate" : "Package Score"
-            ]}
-          />
-          <Radar
-            name="Placement %"
-            dataKey="placement"
-            stroke={CHART_COLORS.primary}
-            fill={CHART_COLORS.primary}
-            fillOpacity={0.4}
-            strokeWidth={2}
-          />
-          <Radar
-            name="Package Score"
-            dataKey="packageScore"
-            stroke={CHART_COLORS.info}
-            fill={CHART_COLORS.info}
-            fillOpacity={0.3}
-            strokeWidth={2}
-          />
-        </RadarChart>
-      </ResponsiveContainer>
+    <div className={styles.chartWrapper}>
+      {/* Legend */}
+
+
+      {/* Bar chart */}
+      <div className={styles.barList}>
+        {sorted.map((course, i) => {
+          const eligibleWidth = (course.eligibleStudents / maxStudents) * 100;
+          const placedWidth = (course.placed / maxStudents) * 100;
+          const color = CHART_COLORS[i % CHART_COLORS.length];
+
+          return (
+            <div key={course.course} className={styles.barRow}>
+              <div className={styles.barLabel}>
+                {course.course.replace("B.Tech ", "")}
+              </div>
+
+              <div className={styles.barTrack}>
+                <div
+                  className={styles.barEligible}
+                  style={{
+                    width: `${eligibleWidth}%`,
+                    background: `${color}22`,
+                    border: `1px solid ${color}44`,
+                  }}
+                />
+
+                <div
+                  className={styles.barPlaced}
+                  style={{
+                    width: `${placedWidth}%`,
+                    background: `linear-gradient(90deg, ${color}, ${color}cc)`,
+                  }}
+                />
+
+                <div
+                  className={styles.barValues}
+                  style={{ right: `${100 - eligibleWidth + 1}%` }}
+                >
+                  {course.placed}/{course.eligibleStudents} (
+                  {course.placementPercent}%)
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
     </CollapsibleWrapper>
   );
 };

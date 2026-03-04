@@ -10,13 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^12.34.5",
     "lucide-react": "^0.562.0",
     "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-intersection-observer": "^10.0.0",
     "react-router-dom": "^7.9.4",
-    "rechart": "^0.0.1",
     "recharts": "^3.6.0"
   },
   "devDependencies": {

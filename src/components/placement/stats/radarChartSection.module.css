@@ -1,78 +1,216 @@
+.chartWrapper {
+  width: 100%;
+  margin-top: -0.6rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  background: hsl(215, 30%, 99%);
+  border: 1px solid hsl(215, 30%, 93%);
+  border-radius: 1rem;
+  min-height: 380px;
+}
+
 .legend {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  font-size: 0.75rem;
   justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(15, 23, 42, 0.6);
 }
 
 .legendItem {
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  color: hsl(240 5% 45%);
 }
 
-.legendDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.legendDotEligible {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.4);
 }
 
-@media(max-width:468px){
-  .legend {
-    display: flex;
-    flex-direction: row;
+.legendDotPlaced {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: #3b82f6;
+}
+
+.barList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.15rem 0.5rem 0.15rem 0rem   ;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+  cursor: default;
+}
+
+.barRow:hover {
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.barLabel {
+  min-width: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.barTrack {
+  flex: 1;
+  position: relative;
+  height: 30px;
+}
+
+.barEligible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.barPlaced {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: calc(100% - 8px);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.barRow:hover .barPlaced {
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+}
+
+.barValues {
+  position: absolute;
+  top: 25%;
+  transform: translateY(-50%);
+  transform: translateX(20px);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #454e5b;
+  white-space: nowrap;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.barRow:hover .barValues {
+  opacity: 1;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.statCard {
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.06);
+}
+
+.statValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: rgba(15, 23, 42, 0.5);
+  margin-top: 2px;
+}
+
+/* ≤468px */
+@media (max-width: 468px) {
+  .barLabel {
+    min-width: 60px;
+    font-size: 0.68rem;
   }
-}
 
-/* ≥1440px - Large Desktop */
-@media (min-width: 1441px) {
-  .legend {
-    gap: 1.125rem;
-    font-size: 0.8rem;
+  .barTrack {
+    height: 26px;
   }
 
-  .legendDot {
-    width: 12px;
-    height: 12px;
+  .barValues {
+    font-size: 0.6rem;
   }
-}
 
-
-/* 768px – 1023px - Tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
   .legend {
-    flex-direction: row;
-    gap: 0.875rem;
+    gap: 1rem;
     font-size: 0.7rem;
   }
 
-  .legendItem {
-    gap: 0.3rem;
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
 
-  .legendDot {
-    width: 8px;
-    height: 8px;
+  .statValue {
+    font-size: 1rem;
+  }
+
+  .yearButton {
+    padding: 5px 12px;
+    font-size: 0.72rem;
   }
 }
 
-/* 468px – 767px - Mobile Compact */
+/* 469px – 767px */
 @media (min-width: 469px) and (max-width: 767px) {
-  .legend {
-    display: flex;
-    flex-direction: row;
-    gap: 0.75rem;
+  .barLabel {
+    min-width: 75px;
+    font-size: 0.72rem;
+  }
+
+  .barTrack {
+    height: 28px;
+  }
+
+  .barValues {
     font-size: 0.65rem;
   }
+}
 
-  .legendItem {
-    gap: 0.25rem;
+/* ≥1441px */
+@media (min-width: 1441px) {
+  .barTrack {
+    height: 36px;
   }
 
-  .legendDot {
-    width: 7px;
-    height: 7px;
+  .barLabel {
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+
+  .barValues {
+    font-size: 0.75rem;
+  }
+
+  .statValue {
+    font-size: 1.4rem;
+  }
+
+  .statLabel {
+    font-size: 0.78rem;
   }
 }

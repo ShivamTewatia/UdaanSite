@@ -39,13 +39,13 @@
 }
 
 .card:hover .glowOrb {
-  opacity: 0.9;
+  opacity: 0.2;
   transform: translate(-50%, -50%) scale(1.5);
 }
 
 .card:hover .cornerAccent {
-  transform: scale(1.2);
-  opacity: 0.12;
+  transform: scale(1.1);
+  opacity: 0.06;
 }
 
 .glowOrb {
@@ -55,8 +55,8 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  filter: blur(30px);
-  opacity: 0.7;
+  filter: blur(20px);
+  opacity: 0.1;
   transition: all 0.5s ease;
   pointer-events: none;
 }
@@ -99,7 +99,7 @@
 }
 
 .title {
-  font-size: 0.84rem;
+  font-size: 0.75rem!important;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -108,7 +108,7 @@
 }
 
 .value {
-  font-size: 2.25rem;
+  font-size: 2rem!important;
   font-weight: 800;
   color: hsl(25 25% 18%);
   margin-bottom: 0.25rem;
@@ -117,14 +117,14 @@
 }
 
 .suffix {
-  font-size: 1rem;
+  font-size: 0.75rem!important;
   font-weight: 700;
   margin-left: 0.25rem;
   color: hsl(25 15% 40%);
 }
 
 .description {
-  font-size: 0.85rem;
+  font-size: 0.80rem!important;
   color: hsl(25 15% 50%);
   font-weight: 500;
   margin-top: 0.25rem;
@@ -137,7 +137,7 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  opacity: 0.06;
+  opacity: 0.02;
   transition: all 0.5s ease;
   pointer-events: none;
 }
@@ -194,12 +194,13 @@
 }
 
 .info {
-  --title-color: hsl(215 70% 45%);
+  --title-color: hsla(215, 70%, 45%, 0.7);
   --icon-shadow: hsl(217 85% 55% / 0.4);
 }
 
 .info .iconInner {
   background: linear-gradient(145deg, hsl(217 90% 58%), hsl(205 85% 52%));
+  opacity: 0.7;
 }
 
 .info .glowOrb {

@@ -187,8 +187,8 @@
   min-height: 100vh;
   background: linear-gradient(
     135deg,
-    hsla(258, 90%, 66%,0.05),
-    hsla(256, 88%, 60%,0.05)
+    hsla(213, 90%, 66%, 0.05),
+    hsla(211, 88%, 60%, 0.05)
   );
   padding: 3rem 3.25rem 9rem;
 }
