@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Linkedin, Phone, Mail, Users, Sparkles } from "lucide-react";
-import styles from "./AboutMentor.module.css";
+import styles from "./aboutMentor.module.css";
 
 const teamMembers = [
   {
