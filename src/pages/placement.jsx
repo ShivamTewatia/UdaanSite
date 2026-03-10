@@ -15,7 +15,7 @@ import { useSearchParams } from "react-router-dom";
 
 const PlacementPage = () => {
   const [searchParams] = useSearchParams();
-  const [activeTab, setActiveTab] = useState('procedure');
+  const [activeTab, setActiveTab] = useState('stats');
 
   useEffect(() => {
     const tabFromUrl = searchParams.get("tab");
