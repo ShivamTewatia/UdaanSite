@@ -2342,6 +2342,8 @@
   }
   
   .filterTabs {
+    margin-bottom: 2rem;
+    display: none;
     gap: 6px;
     margin-bottom: 20px;
   }

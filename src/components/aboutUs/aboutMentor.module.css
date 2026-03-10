@@ -1,514 +1,44 @@
-/* 
+/* ========================================
+   Leadership Section — Indigo Theme
+   Card matches reference: spacious, clean, generous padding
+======================================== */
 .leadership-section {
-  min-height: 100%;
+  min-height: 100vh;
   width: 100%;
-  padding: 5rem 1.5rem;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #a955f7ce 0%, #ec489acc 50%, #f59f0bbf 100%);
-}
-
-.leadership-section::before {
-  content: '';
-  position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  width: 18rem;
-  height: 18rem;
-  background: rgb(236, 72, 154);
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-}
-
-.leadership-section::after {
-  content: '';
-  position: absolute;
-  bottom: 2.5rem;
-  right: 2.5rem;
-  width: 24rem;
-  height: 24rem;
-  background: rgb(245, 159, 11);
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-}
-
-.leadership-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 10;
-}
-
-.leadership-header {
-  margin-bottom: 4rem;
-}
-
-.badge-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.team-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #ffffff;
-}
-
-.team-badge svg {
-  width: 1rem;
-  height: 1rem;
-  color: #ffffff;
-}
-
-.title-section {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.main-title {
-  font-size: 4.5rem!important;
-  font-weight: 800;
-  color: #ffffff !important;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.title-decoration {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.decoration-line {
-  width: 5rem;
-  height: 4px;
-  background: linear-gradient(90deg, #ec4899, #f59e0b);
-  border-radius: 2px;
-}
-
-.title-decoration svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #ffffff;
-}
-
-.subtitle {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #ffffff;
-  max-width: 42rem;
-  margin: 0 auto;
-  line-height: 1.75;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.filter-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.875rem;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  color: #ffffff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.filter-btn svg {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-}
-
-.filter-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.filter-btn.active {
-  background: #f59e0b;
-  color: #ffffff;
-  border-color: #f59e0b;
-  box-shadow: 0 8px 20px -5px rgba(245, 158, 11, 0.4);
-}
-
-.member-count {
-  font-weight: 700;
-  opacity: 0.9;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  width: 100%;
-  justify-items: center;
-}
-
-.team-card {
-  width: 100%;
-  max-width: 23rem;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeInUp 0.5s ease-out both;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.team-card.blurred {
-  filter: blur(2px) brightness(0.8);
-  transform: scale(0.95);
-  opacity: 0.6;
-}
-
-.card-content {
-  position: relative;
-  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 100%);
-  backdrop-filter: blur(10px);
-  border-radius: 1.5rem;
-  padding: 1.25rem;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-.card-content::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(236, 72, 153, 0.08), rgba(245, 158, 11, 0.1));
-  opacity: 0;
-  transition: opacity 0.5s;
-  pointer-events: none;
-}
-
-.team-card:hover .card-content {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 30px 60px -15px rgba(168, 85, 247, 0.4), 0 20px 40px -10px rgba(236, 72, 153, 0.3);
-  border-color: rgba(168, 85, 247, 0.5);
-}
-
-.team-card:hover .card-content::before {
-  opacity: 1;
-}
-
-.card-inner {
-  position: relative;
-  z-index: 10;
-}
-
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-}
-
-.role-badge {
-  color: white;
-  font-weight: 600;
-  padding: 0.375rem 1rem;
-  font-size: 0.75rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.role-badge.tpo {
-  background: linear-gradient(135deg, #334155, #475569);
-}
-
-.role-badge.dtpo {
-  background: linear-gradient(135deg, #a855f7, #c084fc);
-}
-
-.role-badge.atpo {
-  background: linear-gradient(135deg, #10b981, #34d399);
-}
-
-.role-badge.pc {
-  background: linear-gradient(135deg, #f97316, #fb923c);
-}
-
-.linkedin-btn {
-  background: linear-gradient(135deg, #7c3aed, #a855f7);
-  color: white;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.linkedin-btn:hover {
-  transform: scale(1.25);
-  box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.5);
-}
-
-.linkedin-btn svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-.avatar-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0.5rem 0;
-}
-
-.avatar-container {
-  position: relative;
-}
-
-.avatar-glow {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #7c3aed, #a855f7);
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.3;
-  transition: opacity 0.5s;
-}
-
-.team-card:hover .avatar-glow {
-  opacity: 0.5;
-}
-
-.avatar {
-  position: relative;
-  width: 9rem;
-  height: 9rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.15));
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 4px solid white;
-  transition: all 0.5s;
-  overflow: hidden;
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.team-card:hover .avatar {
-  transform: scale(1.1) translateY(-2px);
-  border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.4);
-}
-
-.member-info {
-  text-align: center;
-  margin-bottom: 0.75rem;
-}
-
-.member-name {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 0.25rem;
-}
-
-.member-position {
-  font-size: 0.8rem;
-  color: #64748b;
-}
-
-.contact-info {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem;
-  border-radius: 0.75rem;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(236, 72, 153, 0.06));
-  border: 1px solid rgba(168, 85, 247, 0.15);
-  transition: all 0.3s;
-}
-
-.contact-item:hover {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.12));
-  transform: translateX(4px);
-  border-color: rgba(168, 85, 247, 0.3);
-}
-
-.contact-icon {
-  padding: 0.4rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
-}
-
-.contact-icon svg {
-  width: 0.875rem;
-  height: 0.875rem;
-}
-
-.contact-icon.phone {
-  background: linear-gradient(135deg, #a855f7, #ec4899);
-  color: white;
-}
-
-.contact-icon.email {
-  background: linear-gradient(135deg, #ec4899, #f59e0b);
-  color: white;
-}
-
-.contact-text {
-  font-size: 0.8rem;
-  color: #0f172a;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-}
-
-.action-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.7rem 0;
-  border-radius: 0.75rem;
-  font-weight: 500;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  background: white;
-  color: #334155;
-  border: 2px solid rgba(168, 85, 247, 0.3);
-}
-
-.action-btn svg {
-  width: 0.875rem;
-  height: 0.875rem;
-}
-
-.action-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 30px -5px rgba(168, 85, 247, 0.4);
-}
-
-.action-btn.call:hover {
-  background: linear-gradient(135deg, #a855f7, #ec4899);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 15px 30px -5px rgba(168, 85, 247, 0.5);
-}
-
-.action-btn.email-btn:hover {
-  background: linear-gradient(135deg, #ec4899, #f59e0b);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 15px 30px -5px rgba(236, 72, 153, 0.5);
-} */
-
-/* Carousel Dots - Hidden on Desktop */
-/* .carousel-dots {
-  display: none;
-} */
-.leadership-section {
-  min-height: 100%;
-  width: 100%;
-  padding: 5rem 1.5rem;
+  padding: 3rem 1.5rem;
   position: relative;
   overflow: hidden;
   background: linear-gradient(160deg, #f8f7ff 0%, #ffffff 100%);
 }
 
-/* No ::before / ::after blur blobs — removed */
-
 .leadership-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
   position: relative;
   z-index: 10;
 }
 
 .leadership-header {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Badge */
 .badge-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .team-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 1.1rem;
+  gap: 0.35rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 50px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.18);
-  font-size: 0.75rem;
+  background: rgba(99, 102, 241, 0.07);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  font-size: 0.65rem;
   font-weight: 600;
   color: #6366f1;
   letter-spacing: 0.06em;
@@ -516,22 +46,22 @@
 }
 
 .team-badge svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 0.75rem;
+  height: 0.75rem;
   color: #6366f1;
 }
 
 /* Title */
 .title-section {
   text-align: center;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .main-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #1e1b4b;
-  margin-bottom: 0.875rem;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
 
@@ -539,13 +69,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .decoration-line {
-  width: 4rem;
-  height: 3px;
+  width: 2.5rem;
+  height: 2px;
   background: linear-gradient(90deg, #6366f1, #a78bfa);
   border-radius: 2px;
 }
@@ -556,12 +86,12 @@
 }
 
 .subtitle {
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 400;
   color: #6b7280;
-  max-width: 42rem;
+  max-width: 36rem;
   margin: 0 auto;
-  line-height: 1.75;
+  line-height: 1.6;
 }
 
 /* Filter Buttons */
@@ -569,44 +99,38 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.625rem;
+  gap: 0.4rem;
 }
 
 .filter-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.25rem;
+  gap: 0.3rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 0.8rem;
-  border: 1.5px solid rgba(99, 102, 241, 0.2);
+  font-size: 0.68rem;
+  border: 1px solid rgba(99, 102, 241, 0.18);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: #ffffff;
   color: #6b7280;
-  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.06);
-}
-
-.filter-btn svg {
-  width: 0.875rem;
-  height: 0.875rem;
-  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.05);
 }
 
 .filter-btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+  border-color: rgba(99, 102, 241, 0.35);
   color: #6366f1;
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.12);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
 }
 
 .filter-btn.active {
   background: #6366f1;
   color: #ffffff;
   border-color: #6366f1;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.3);
 }
 
 .member-count {
@@ -618,96 +142,94 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  gap: 1.5rem;
   width: 100%;
-  padding: 0 3rem;
+  padding: 0 1rem;
   justify-items: center;
 }
 
 .team-card {
   width: 100%;
-  max-width: 23rem;
+  max-width: 20rem;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.5s ease-out both;
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .team-card.blurred {
   filter: blur(2px) brightness(0.9);
-  transform: scale(0.96);
+  transform: scale(0.97);
   opacity: 0.55;
 }
 
-/* Card */
+/* ========================================
+   Card — matches reference screenshot:
+   generous padding, centered layout,
+   divider between info & contact,
+   spacious action buttons
+======================================== */
 .card-content {
   position: relative;
   background: #ffffff;
-  border-radius: 1.25rem;
-  padding: 1.25rem;
+  border-radius: 1.125rem;
+  padding: 1.75rem 1.5rem;
   border: 1px solid rgba(99, 102, 241, 0.1);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.08);
+  box-shadow: 0 2px 16px rgba(99, 102, 241, 0.06);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
 .team-card:hover .card-content {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 24px 50px rgba(99, 102, 241, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.14);
   border-color: rgba(99, 102, 241, 0.2);
 }
 
 .card-inner {
   position: relative;
   z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Card Top Row — spread to edges */
 .card-top {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.25rem;
 }
 
-/* Role Badges — pastel tints */
+/* Role Badge — text only, no bg fill, matches screenshot */
 .role-badge {
-  font-weight: 600;
-  padding: 0.3rem 0.875rem;
-  font-size: 0.72rem;
-  border-radius: 50px;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  padding: 0;
+  font-size: 0.75rem;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+  background: none;
 }
 
-.role-badge.tpo {
-  background: rgba(99, 102, 241, 0.1);
-  color: #4f46e5;
-}
+.role-badge.tpo { color: #4f46e5; }
+.role-badge.dtpo { color: #6366f1; }
+.role-badge.atpo { color: #0d9488; }
+.role-badge.pc { color: #ea580c; }
 
-.role-badge.dtpo {
-  background: rgba(168, 85, 247, 0.1);
-  color: #7c3aed;
-}
-
-.role-badge.atpo {
-  background: rgba(20, 184, 166, 0.1);
-  color: #0d9488;
-}
-
-.role-badge.pc {
-  background: rgba(249, 115, 22, 0.1);
-  color: #ea580c;
-}
-
-/* LinkedIn Button */
+/* LinkedIn — outlined square-ish icon button */
 .linkedin-btn {
-  background: rgba(99, 102, 241, 0.08);
+  background: transparent;
   color: #6366f1;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  border: 1.5px solid rgba(99, 102, 241, 0.25);
   cursor: pointer;
   transition: all 0.3s;
   display: flex;
@@ -716,19 +238,24 @@
 }
 
 .linkedin-btn:hover {
-  background: linear-gradient(135deg, #6366f1, #818cf8);
+  background: #6366f1;
   color: white;
-  border-color: transparent;
-  transform: scale(1.2);
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+  border-color: #6366f1;
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
 }
 
-/* Avatar */
+.linkedin-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Avatar — square with rounded corners, centered */
 .avatar-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.75rem 0;
+  margin-bottom: 1.25rem;
 }
 
 .avatar-container {
@@ -737,29 +264,29 @@
 
 .avatar-glow {
   position: absolute;
-  inset: 0;
+  inset: -6px;
   background: linear-gradient(135deg, #6366f1, #818cf8);
-  border-radius: 50%;
-  filter: blur(30px);
-  opacity: 0.15;
+  border-radius: 1rem;
+  filter: blur(20px);
+  opacity: 0.08;
   transition: opacity 0.5s;
 }
 
 .team-card:hover .avatar-glow {
-  opacity: 0.28;
+  opacity: 0.18;
 }
 
 .avatar {
   position: relative;
-  width: 8.5rem;
-  height: 8.5rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 0.875rem;
+  background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(168,85,247,0.06));
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid rgba(99, 102, 241, 0.15);
+  border: 2px solid rgba(99, 102, 241, 0.12);
   transition: all 0.5s;
   overflow: hidden;
 }
@@ -768,62 +295,72 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 0.75rem;
 }
 
 .team-card:hover .avatar {
-  transform: scale(1.08) translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.2);
+  transform: scale(1.04);
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.14);
 }
 
-/* Member Info */
+/* Member Info — centered, generous spacing */
 .member-info {
   text-align: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
 .member-name {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #1e1b4b;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
 }
 
 .member-position {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #6b7280;
+  font-weight: 400;
 }
 
-/* Contact */
+/* Divider — thin line between info & contact */
+.card-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(99, 102, 241, 0.1);
+  margin: 1rem 0;
+}
+
+/* Contact — full width rows with generous padding */
 .contact-info {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  margin-bottom: 0.75rem;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
-  padding: 0.45rem 0.625rem;
+  gap: 0.75rem;
+  padding: 0.65rem 0.875rem;
   border-radius: 0.625rem;
-  background: #f5f3ff;
-  border: 1px solid rgba(99, 102, 241, 0.08);
+  background: #f8f7ff;
+  border: 1px solid rgba(99, 102, 241, 0.06);
   transition: all 0.3s;
 }
 
 .contact-item:hover {
-  background: rgba(99, 102, 241, 0.08);
-  transform: translateX(3px);
-  border-color: rgba(99, 102, 241, 0.18);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateX(2px);
+  border-color: rgba(99, 102, 241, 0.15);
 }
 
 .contact-icon {
   padding: 0.35rem;
-  border-radius: 0.45rem;
+  border-radius: 0.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -846,15 +383,15 @@
 }
 
 .contact-text {
-  font-size: 0.75rem;
-  color: #374151;
+  font-size: 0.82rem;
+  color: #1e1b4b;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Action Buttons */
+/* Action Buttons — equal width, outlined, generous height */
 .action-buttons {
   display: flex;
   gap: 0.75rem;
@@ -866,9 +403,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.6rem 0;
-  border-radius: 0.75rem;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-radius: 0.625rem;
   font-weight: 600;
   font-size: 0.78rem;
   cursor: pointer;
@@ -876,693 +413,287 @@
   background: white;
   color: #374151;
   border: 1.5px solid rgba(99, 102, 241, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .action-btn svg {
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  color: #6366f1;
 }
 
 .action-btn:hover {
-  transform: translateY(-3px) scale(1.04);
+  transform: translateY(-2px);
 }
 
 .action-btn.call:hover {
   background: linear-gradient(135deg, #6366f1, #818cf8);
   color: white;
   border-color: transparent;
-  box-shadow: 0 10px 24px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 18px rgba(99, 102, 241, 0.35);
 }
+
+.action-btn.call:hover svg { color: white; }
 
 .action-btn.email-btn:hover {
   background: linear-gradient(135deg, #a78bfa, #c4b5fd);
   color: white;
   border-color: transparent;
-  box-shadow: 0 10px 24px rgba(167, 139, 250, 0.4);
+  box-shadow: 0 8px 18px rgba(167, 139, 250, 0.35);
 }
 
-/* Mobile Carousel Dots */
+.action-btn.email-btn:hover svg { color: white; }
+
+/* Carousel Dots */
 .carousel-dots {
   display: none;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.2);
   border: none;
   cursor: pointer;
   transition: all 0.3s;
+  padding: 0;
 }
 
 .dot-active {
   background: #6366f1;
-  width: 20px;
-  border-radius: 4px;
+  width: 18px;
+  border-radius: 3px;
 }
 
 /* ========================================
    ≥1440px - Large Desktop
 ======================================== */
 @media (min-width: 1441px) {
-  .leadership-section {
-    padding: 6rem 3rem;
-  }
-
-  .leadership-container {
-    max-width: 1600px;
-  }
-
-  .main-title {
-    font-size: 5rem;
-  }
-
-  .team-grid {
-    gap: 2.5rem;
-  }
-
-  .team-card {
-    max-width: 30rem;
-  }
-
-  .card-content {
-    padding: 2.5rem;
-  }
-
-  .avatar {
-    width: 13rem;
-    height: 13rem;
-  }
-
-  .member-name {
-    font-size: 1.75rem;
-  }
-
-  .member-position{
-    font-size: 1rem;
-  }
-  .contact-info{
-    gap: 1rem;
-  }
-  .contact-item{
-    padding: 1rem;
-  }
-  .contact-text{
-    font-size: 1rem;
-  }
-  .action-btn{
-    padding: 1rem;
-    margin-top: 1rem;
-  }
-  button > span{
-    font-size: 1.2rem;
-  }
-  .action-btn svg {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
+  .leadership-section { padding: 4rem 2rem; }
+  .leadership-container { max-width: 1400px; }
+  .main-title { font-size: 2.5rem; }
+  .team-grid { gap: 2rem; }
+  .team-card { max-width: 24rem; }
+  .card-content { padding: 2rem 1.75rem; }
+  .avatar { width: 9rem; height: 9rem; }
+  .member-name { font-size: 1.35rem; }
+  .member-position { font-size: 0.88rem; }
+  .contact-text { font-size: 0.9rem; }
+  .contact-item { padding: 0.75rem 1rem; }
+  .action-btn { padding: 0.85rem; font-size: 0.85rem; }
 }
 
 /* ========================================
-   1280px–1439px - Laptop (Base - Minimal Changes)
+   1280px–1439px
 ======================================== */
-@media (min-width: 1280px) and (max-width: 1439px) {
-  .leadership-section {
-    padding: 5rem 2rem;
-  }
-
-  .team-grid {
-    gap: 1.75rem;
-  }
-
-  .filter-btn {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.8rem;
-  }
-
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .team-grid { gap: 1.5rem; }
+  .team-card { max-width: 21rem; }
 }
 
 /* ========================================
-   1024px–1279px - Small Laptop / Tablet Landscape
+   1024px–1279px
 ======================================== */
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .leadership-section {
-    padding: 4rem 1.5rem;
-  }
-
-  .leadership-header {
-    margin-bottom: 3rem;
-  }
-
-  .main-title {
-    font-size: 4rem;
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
-    max-width: 40rem;
-  }
-
-  .filter-buttons {
-    gap: 0.5rem;
-  }
-
-  .filter-btn {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.8rem;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .team-card {
-    max-width: 22rem;
-  }
-
-  .card-content {
-    padding: 1.125rem;
-  }
-
-  .avatar {
-    width: 8rem;
-    height: 8rem;
-  }
-
-  .member-name {
-    font-size: 1.1rem;
-  }
-
-  .member-position {
-    font-size: 0.8rem;
-  }
-
-  .contact-text {
-    font-size: 0.75rem;
-  }
-
-  .action-btn {
-    padding: 0.65rem 0;
-    font-size: 0.8rem;
-  }
+  .leadership-section { padding: 2.5rem 1rem; }
+  .main-title { font-size: 1.85rem; }
+  .team-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 0 0.5rem; }
+  .team-card { max-width: 18rem; }
+  .card-content { padding: 1.25rem 1rem; }
+  .avatar { width: 6rem; height: 6rem; }
+  .member-name { font-size: 1rem; }
+  .member-position { font-size: 0.7rem; }
+  .contact-text { font-size: 0.72rem; }
+  .contact-item { padding: 0.5rem 0.625rem; }
+  .card-divider { margin: 0.75rem 0; }
+  .contact-info { gap: 0.4rem; margin-bottom: 0.875rem; }
+  .action-btn { padding: 0.55rem 0; font-size: 0.7rem; }
 }
 
 /* ========================================
-   768px–1023px - Tablet / Large Mobile
+   768px–1023px - Tablet
 ======================================== */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .leadership-section {
-    padding: 3.5rem 1.25rem;
-  }
-
-  .leadership-section::before {
-    width: 12rem;
-    height: 12rem;
-  }
-
-  .leadership-section::after {
-    width: 16rem;
-    height: 16rem;
-  }
-
-  .leadership-header {
-    margin-bottom: 2.5rem;
-  }
-
-  .badge-container {
-    margin-bottom: 1.5rem;
-  }
-
-  .team-badge {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-  }
-
-  .title-section {
-    margin-bottom: 1.5rem;
-  }
-
-  .main-title {
-    font-size: 3.5rem;
-  }
-
-  .decoration-line {
-    width: 4rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-    max-width: 34rem;
-    line-height: 1.6;
-  }
-
-  .filter-buttons {
-    gap: 0.5rem;
-  }
-
-  .filter-btn {
-    padding: 0.6rem 1rem;
-    font-size: 0.75rem;
-    gap: 0.375rem;
-  }
-
-  .filter-btn svg {
-    width: 0.875rem;
-    height: 0.875rem;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .team-card {
-    max-width: 100%;
-  }
-
-  .card-content {
-    padding: 1rem;
-    border-radius: 1.25rem;
-  }
-
-  .avatar-section {
-    margin: 0.25rem 0;
-  }
-
-  .avatar {
-    width: 7rem;
-    height: 7rem;
-    border-width: 3px;
-  }
-
-  .member-info {
-    margin-bottom: 0.5rem;
-  }
-
-  .member-name {
-    font-size: 1.1rem;
-  }
-
-  .member-position {
-    font-size: 0.75rem;
-  }
-
-  .contact-info {
-    gap: 0.375rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-item {
-    padding: 0.4rem;
-    gap: 0.5rem;
-  }
-
-  .contact-icon {
-    padding: 0.3rem;
-  }
-
-  .contact-icon svg {
-    width: 0.75rem;
-    height: 0.75rem;
-  }
-
-  .contact-text {
-    font-size: 0.7rem;
-  }
-
-  .action-buttons {
-    gap: 0.75rem;
-  }
-
-  .action-btn {
-    padding: 0.5rem 0;
-    font-size: 0.75rem;
-    border-radius: 0.5rem;
-  }
-
-  .action-btn svg {
-    width: 0.75rem;
-    height: 0.75rem;
-  }
-
-  .linkedin-btn {
-    width: 30px;
-    height: 30px;
-  }
-
-  .linkedin-btn svg {
-    width: 0.875rem;
-    height: 0.875rem;
-  }
-
-  .role-badge {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.7rem;
-  }
+  .leadership-section { padding: 2rem 0.75rem; }
+  .leadership-header { margin-bottom: 1.75rem; }
+  .main-title { font-size: 1.65rem; }
+  .subtitle { font-size: 0.72rem; max-width: 28rem; }
+  .team-grid { grid-template-columns: repeat(3, 1fr); gap: 0.875rem; padding: 0 0.25rem; }
+  .team-card { max-width: 100%; }
+  .card-content { padding: 1rem 0.875rem; border-radius: 0.875rem; }
+  .card-top { margin-bottom: 0.75rem; }
+  .avatar { width: 5rem; height: 5rem; border-radius: 0.625rem; border-width: 2px; }
+  .avatar-section { margin-bottom: 0.75rem; }
+  .member-name { font-size: 0.88rem; }
+  .member-position { font-size: 0.62rem; }
+  .member-info { margin-bottom: 0.125rem; }
+  .card-divider { margin: 0.5rem 0; }
+  .contact-text { font-size: 0.62rem; }
+  .contact-item { padding: 0.4rem 0.5rem; gap: 0.5rem; border-radius: 0.4rem; }
+  .contact-icon { padding: 0.25rem; border-radius: 0.3rem; }
+  .contact-icon svg { width: 0.6rem; height: 0.6rem; }
+  .contact-info { gap: 0.35rem; margin-bottom: 0.625rem; }
+  .action-btn { padding: 0.45rem 0; font-size: 0.65rem; border-radius: 0.4rem; gap: 0.3rem; }
+  .action-btn svg { width: 0.65rem; height: 0.65rem; }
+  .action-buttons { gap: 0.5rem; }
+  .filter-btn { padding: 0.35rem 0.7rem; font-size: 0.62rem; }
+  .linkedin-btn { width: 28px; height: 28px; border-radius: 0.375rem; }
+  .linkedin-btn svg { width: 0.8rem; height: 0.8rem; }
+  .role-badge { font-size: 0.62rem; }
 }
 
 /* ========================================
-   ≤480px - Mobile (Major Redesign)
+   ≤480px - Mobile
 ======================================== */
 @media (max-width: 480px) {
   .leadership-section {
-    padding: 2.5rem 0.15rem;
+    padding: 1.75rem 0;
     min-height: auto;
   }
 
-  .leadership-section::before {
-    width: 8rem;
-    height: 8rem;
-    top: 1rem;
-    left: 1rem;
-    filter: blur(60px);
-  }
-
-  .leadership-section::after {
-    width: 10rem;
-    height: 10rem;
-    bottom: 1rem;
-    right: 1rem;
-    filter: blur(60px);
-  }
-
-  .leadership-container {
-    max-width: 100%;
-  }
-
-  .leadership-header {
-    margin-bottom: 1.5rem;
-  }
-
-  .badge-container {
-    margin-bottom: 1rem;
-  }
+  .leadership-container { padding: 0 0.5rem; }
+  .leadership-header { margin-bottom: 1rem; }
+  .badge-container { margin-bottom: 0.5rem; }
 
   .team-badge {
-    padding: 0.4rem 0.875rem;
-    font-size: 0.7rem;
-    gap: 0.375rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.58rem;
   }
 
-  .team-badge svg {
-    width: 0.75rem;
-    height: 0.75rem;
-  }
-
-  .title-section {
-    margin-bottom: 1.25rem;
-  }
+  .title-section { margin-bottom: 0.75rem; }
 
   .main-title {
-    font-size: 2rem!important;
-    margin-bottom: 0.75rem;
+    font-size: 1.4rem !important;
+    margin-bottom: 0.35rem;
   }
 
-  .title-decoration {
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .decoration-line {
-    width: 2.5rem;
-    height: 3px;
-  }
-
-  .title-decoration svg {
-    width: 1rem;
-    height: 1rem;
-  }
+  .title-decoration { gap: 0.4rem; margin-bottom: 0.5rem; }
+  .decoration-line { width: 1.5rem; height: 2px; }
 
   .subtitle {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    max-width: 100%;
-    padding: 0 0.5rem;
+    font-size: 0.7rem;
+    line-height: 1.45;
+    padding: 0 0.75rem;
   }
 
-  /* Hide Whole Team Button on Mobile */
-  .whole-team-btn {
-    display: none !important;
-  }
+  .whole-team-btn { display: none !important; }
 
   .filter-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    overflow-x: none;
+    gap: 0.35rem;
+    padding: 0 0.5rem 0.4rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center;
   }
+
+  .filter-buttons::-webkit-scrollbar { display: none; }
 
   .filter-btn {
-    padding: 0.425rem 0.25rem;
-    font-size: 0.65rem;
-    gap: 0.25rem;
-    border-radius: 12px;
-    flex-direction: column;
-    text-align: center;
-    min-height: 3.5rem;
+    padding: 0.35rem 1rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: 50px;
   }
 
-  .filter-btn svg {
-    display: none;
-  }
-
-  .btn-text {
-    font-size: 0.9rem;
-    line-height: 1.2;
-  }
-
-  .member-count {
-    font-size: 0.7rem;
-    font-weight: 800;
-    display: block;
-    margin-top: 0.125rem;
-  }
-
-  /* Instagram-style Horizontal Scroll */
   .team-grid {
     display: flex;
-    flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     gap: 0;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
 
-  .team-grid::-webkit-scrollbar {
-    display: none;
-  }
+  .team-grid::-webkit-scrollbar { display: none; }
 
   .team-card {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 78%;
+    max-width: 78%;
     scroll-snap-align: center;
-    padding: 0 0.5rem;
+    padding: 0 0.4rem;
     animation: none;
   }
 
-  .team-card.blurred {
-    filter: none;
-    transform: none;
-    opacity: 1;
-  }
+  .team-card:first-child { margin-left: 11%; }
+  .team-card:last-child { margin-right: 11%; }
+
+  .team-card.blurred { filter: none; transform: none; opacity: 1; }
 
   .card-content {
-    padding: 1rem;
-    border-radius: 1.25rem;
-    margin: 0 auto;
-    max-width: 320px;
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.1);
   }
 
   .team-card:hover .card-content {
     transform: none;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 16px rgba(99, 102, 241, 0.08);
   }
 
-  .card-top {
-    margin-bottom: 0.5rem;
-  }
+  .card-top { margin-bottom: 0.75rem; }
+  .role-badge { font-size: 0.68rem; }
 
-  .role-badge {
-    padding: 0.25rem 0.625rem;
-    font-size: 0.6rem;
-  }
+  .linkedin-btn { width: 32px; height: 32px; border-radius: 0.4rem; }
+  .linkedin-btn svg { width: 0.85rem; height: 0.85rem; }
 
-  .linkedin-btn {
-    width: 28px;
-    height: 28px;
-  }
+  .avatar-section { margin-bottom: 1rem; }
+  .avatar { width: 6rem; height: 6rem; border-radius: 0.75rem; border-width: 2px; }
+  .team-card:hover .avatar { transform: none; }
 
-  .linkedin-btn svg {
-    width: 0.75rem;
-    height: 0.75rem;
-  }
+  .member-info { margin-bottom: 0.125rem; }
+  .member-name { font-size: 1rem; }
+  .member-position { font-size: 0.7rem; }
 
-  .avatar-section {
-    margin: 0.375rem 0;
-  }
+  .card-divider { margin: 0.75rem 0; }
 
-  .avatar {
-    width: 5.5rem;
-    height: 5.5rem;
-    border-width: 3px;
-  }
+  .contact-info { gap: 0.4rem; margin-bottom: 0.875rem; }
+  .contact-item { padding: 0.5rem 0.625rem; gap: 0.6rem; border-radius: 0.5rem; }
+  .contact-item:hover { transform: none; }
+  .contact-icon { padding: 0.3rem; border-radius: 0.35rem; }
+  .contact-icon svg { width: 0.7rem; height: 0.7rem; }
+  .contact-text { font-size: 0.7rem; }
 
-  .avatar-glow {
-    filter: blur(25px);
-  }
+  .action-buttons { gap: 0.625rem; }
+  .action-btn { padding: 0.6rem 0; font-size: 0.7rem; border-radius: 0.5rem; gap: 0.4rem; }
+  .action-btn svg { width: 0.72rem; height: 0.72rem; }
+  .action-btn:hover { transform: none; box-shadow: none; }
 
-  .team-card:hover .avatar {
-    transform: none;
-  }
-
-  .member-info {
-    margin-bottom: 0.5rem;
-  }
-
-  .member-name {
-    font-size: 0.95rem;
-    margin-bottom: 0.125rem;
-  }
-
-  .member-position {
-    font-size: 0.65rem;
-  }
-
-  .contact-info {
-    gap: 0.375rem;
-    margin-bottom: 0.625rem;
-  }
-
-  .contact-item {
-    padding: 0.4rem 0.5rem;
-    gap: 0.5rem;
-    border-radius: 0.5rem;
-  }
-
-  .contact-item:hover {
-    transform: none;
-  }
-
-  .contact-icon {
-    padding: 0.3rem;
-    border-radius: 0.375rem;
-  }
-
-  .contact-icon svg {
-    width: 0.7rem;
-    height: 0.7rem;
-  }
-
-  .contact-text {
-    font-size: 0.65rem;
-  }
-
-  .action-buttons {
-    gap: 0.625rem;
-  }
-
-  .action-btn {
-    padding: 0.55rem 0;
-    font-size: 0.7rem;
-    border-radius: 0.625rem;
-    gap: 0.375rem;
-    border-width: 1.5px;
-  }
-
-  .action-btn svg {
-    width: 0.7rem;
-    height: 0.7rem;
-  }
-
-  .action-btn:hover {
-    transform: none;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Carousel Dots - Visible on Mobile */
   .carousel-dots {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
-    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.75rem;
     padding: 0 1rem;
   }
 
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
-  }
-
-  .dot:hover {
-    background: rgba(255, 255, 255, 0.6);
-  }
-
-  .dot-active {
-    width: 24px;
-    border-radius: 4px;
-    background: #ffffff;
-  }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(99, 102, 241, 0.18); }
+  .dot-active { width: 16px; border-radius: 3px; background: #6366f1; }
 }
 
 /* ========================================
-   Extra Small Mobile (≤360px)
+   ≤360px
 ======================================== */
 @media (max-width: 360px) {
-  .leadership-section {
-    padding: 2rem 0.15rem;
-  }
-
-  .main-title {
-    font-size: 1.75rem!important;
-  }
-
-  .subtitle {
-    font-size: 0.75rem;
-  }
-
-  .filter-btn {
-    padding: 0.5rem 0.15rem;
-    min-height: 3rem;
-  }
-
-  .btn-text {
-    font-size: 0.85rem;
-  }
-
-  .card-content {
-    padding: 0.875rem;
-    max-width: 290px;
-  }
-
-  .avatar {
-    width: 5rem;
-    height: 5rem;
-  }
-
-  .member-name {
-    font-size: 0.875rem;
-  }
-
-  .contact-text {
-    font-size: 0.6rem;
-  }
-
-  .action-btn {
-    padding: 0.5rem 0;
-    font-size: 0.65rem;
-  }
+  .leadership-section { padding: 1.25rem 0; }
+  .main-title { font-size: 1.25rem !important; }
+  .subtitle { font-size: 0.62rem; }
+  .team-card { flex: 0 0 84%; max-width: 84%; }
+  .team-card:first-child { margin-left: 8%; }
+  .team-card:last-child { margin-right: 8%; }
+  .card-content { padding: 1rem 0.875rem; }
+  .avatar { width: 5.5rem; height: 5.5rem; }
+  .member-name { font-size: 1rem; }
+  .contact-text { font-size: 0.68rem; }
+  .action-btn { padding: 0.5rem 0; font-size: 0.65rem; }
 }

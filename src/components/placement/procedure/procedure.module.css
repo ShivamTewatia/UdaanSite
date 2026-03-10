@@ -521,7 +521,8 @@
 
 /* Collapsible Section Styles */
 .collapsibleSection {
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
+  margin-bottom: 1.5rem;
 }
 
 .collapsibleHeader {
@@ -529,7 +530,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.25rem 1.5rem;
+  /* padding: 1.25rem 1.5rem; */
+  padding:  1.5rem 2rem;
   background: white;
   border: 2px solid #fce7f3;
   border-radius: 1rem;
@@ -569,8 +571,8 @@
 }
 
 .collapsibleTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #ec4899;
   margin: 0;
 }

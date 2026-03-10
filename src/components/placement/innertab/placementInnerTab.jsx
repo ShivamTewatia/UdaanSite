@@ -4,6 +4,18 @@ import { FileText, BookOpen, Users, BarChart3, Building } from 'lucide-react';
 const TabNavigation = ({ activeTab, onTabChange }) => {
   const tabs = [
     { 
+      id: 'stats', 
+      icon: BarChart3, 
+      title: 'Statistics', 
+      subtitle: 'Placement Data' 
+    },
+    { 
+      id: 'recruiters', 
+      icon: Building, 
+      title: 'Recruiters', 
+      subtitle: 'Our Partners' 
+    },
+    { 
       id: 'procedure', 
       icon: FileText, 
       title: 'Procedure', 
@@ -20,18 +32,6 @@ const TabNavigation = ({ activeTab, onTabChange }) => {
       icon: Users, 
       title: 'Duties', 
       subtitle: 'Roles & Committees' 
-    },
-    { 
-      id: 'stats', 
-      icon: BarChart3, 
-      title: 'Statistics', 
-      subtitle: 'Placement Data' 
-    },
-    { 
-      id: 'recruiters', 
-      icon: Building, 
-      title: 'Recruiters', 
-      subtitle: 'Our Partners' 
     },
   ];
 

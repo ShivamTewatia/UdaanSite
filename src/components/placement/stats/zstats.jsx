@@ -42,7 +42,7 @@ const Statistics = () => {
 
    const highlightCards = [
     { icon: Building2, title: "Total Placements", value: "1200+", subtitle: "Over 2 years", variant: "info" },
-    { icon: Award, title: "Highest Package", value: "₹62 LPA", subtitle: "Peak achievement", variant: "info" },
+    { icon: Award, title: "Highest Package", value: "₹55 LPA", subtitle: "Peak achievement", variant: "info" },
     { icon: Users, title: "Median Package", value: "₹10.25", subtitle: "Highest Median packing", variant: "info" },
     { icon: Target, title: "Avg. Placement Rate", value: "92%", subtitle: "2 Year average", variant: "info" },
     

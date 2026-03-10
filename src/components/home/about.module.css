@@ -597,7 +597,9 @@
   .aboutHeading {
     font-size: 1.25rem;
   }
-
+  .Paragraph{
+    font-size: 0.8rem;
+  }
   .aboutParagraph {
     font-size: 0.75rem;
   }

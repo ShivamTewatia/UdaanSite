@@ -1615,7 +1615,7 @@
 }
 
 .faqChevron {
-  display: none;
+  /* display: none; */
   color: hsl(215 10% 62%);
 }
 
@@ -1817,7 +1817,7 @@
     font-size: 18px;
   }
   .statsSection {
-    margin: -48px auto 60px;
+    margin: 48px auto 60px;
     padding: 0 20px;
   }
   
@@ -2007,7 +2007,7 @@
   }
   
   .statsSection {
-    margin: -40px auto 50px;
+    margin: 40px auto 50px;
     padding: 0 16px;
   }
   
@@ -2255,7 +2255,7 @@
   }
   
   .statsSection {
-    margin: -32px auto 32px;
+    margin: 32px auto 32px;
     padding: 0 12px;
   }
   
@@ -2783,7 +2783,7 @@
   }
   
   .statsSection {
-    margin: -36px auto 40px;
+    margin: 36px auto 40px;
     padding: 0 14px;
   }
   
