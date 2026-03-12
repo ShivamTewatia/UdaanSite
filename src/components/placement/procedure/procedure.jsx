@@ -191,7 +191,7 @@ const ProcedureGuidelines = () => {
       </div>
 
       <div className={styles.contentWrapper}>
-        {/* Steps Section */}
+        {}
         <section className={styles.stepsSection}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Placement Process Steps</h2>
@@ -216,7 +216,7 @@ const ProcedureGuidelines = () => {
           </div>
         </section>
 
-        {/* Collapsible Sections */}
+        {}
         <CollapsibleSection icon={Pin} title="General Guidelines" defaultOpen={true} isDesktop={isDesktop}>
           <ul className={styles.infoList}>
             {generalGuidelines.map((item, index) => (
@@ -259,7 +259,7 @@ const ProcedureGuidelines = () => {
           </div>
         </CollapsibleSection>
 
-        {/* Requirements Section */}
+        {}
         <section className={styles.requirementsSection}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Important Requirements</h2>

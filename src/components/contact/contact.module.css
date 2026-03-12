@@ -952,14 +952,14 @@
 
 
 
-/* ── Container ── */
+
 .container {
   min-height: 100vh;
   background: hsl(210 20% 98%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* ── Header ── */
+
 .header {
   position: relative;
   background: linear-gradient(180deg, hsl(210 30% 97%) 0%, hsl(210 20% 98%) 100%);
@@ -1012,7 +1012,7 @@
   font-weight: 400;
 }
 
-/* ── Stats ── */
+
 .statsSection {
   max-width: 960px;
   margin: 0 auto;
@@ -1069,7 +1069,7 @@
   font-weight: 500;
 }
 
-/* ── Main ── */
+
 .mainContent {
   max-width: 1300px;
   margin: 0 auto;
@@ -1079,7 +1079,7 @@
   gap: 56px;
 }
 
-/* ── Office Card ── */
+
 .officeCard {
   padding: 0;
   background: hsl(0 0% 100%);
@@ -1229,7 +1229,7 @@
   letter-spacing: 0.04em;
 }
 
-/* ── Office Right Panel ── */
+
 .officeRight {
   display: flex;
   flex-direction: column;
@@ -1344,7 +1344,7 @@
   background: hsl(215 65% 55%);
 }
 
-/* ── Section Headers ── */
+
 .sectionHeader {
   text-align: center;
   margin-bottom: 32px;
@@ -1388,7 +1388,7 @@
   line-height: 1.7;
 }
 
-/* ── Staff Grid ── */
+
 .staffGrid {
   display: grid;
   gap: 60px;
@@ -1547,7 +1547,7 @@
   transform: translateY(-1px);
 }
 
-/* ── Staff Dots (mobile) ── */
+
 .staffDots {
   display: none;
   justify-content: center;
@@ -1572,7 +1572,7 @@
   border-radius: 4px;
 }
 
-/* ── FAQ Grid ── */
+
 .faqGrid {
   display: grid;
   gap: 14px;
@@ -1615,7 +1615,7 @@
 }
 
 .faqChevron {
-  /* display: none; */
+  
   color: hsl(215 10% 62%);
 }
 
@@ -1652,7 +1652,7 @@
   font-size: 13px;
 }
 
-/* ── Map ── */
+
 .mapCard {
   overflow: hidden;
   border-radius: 16px;
@@ -1660,7 +1660,7 @@
   margin-bottom: 20px;
 }
 
-/* ── Location Grid ── */
+
 .locationGrid {
   display: grid;
   gap: 16px;
@@ -1705,7 +1705,7 @@
   font-size: 13px;
 }
 
-/* ── CTA ── */
+
 .ctaCard {
   position: relative;
   overflow: hidden;
@@ -1803,7 +1803,7 @@
   }
 }
 
-/* Small Laptop / Tablet Landscape - 1024px to 1279px */
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   .headerContent {
     padding: 60px 20px;
@@ -1987,7 +1987,7 @@
   }
 }
 
-/* Tablet / Large Mobile - 768px to 1023px */
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .headerContent {
     padding: 50px 16px;
@@ -2231,7 +2231,7 @@
     font-size: 13px;
   }
 }
-/* Mobile - ≤480px (Major Redesign) */
+
 @media (max-width: 480px) {
   .headerContent {
     padding: 40px 16px;
@@ -2436,7 +2436,7 @@
     height: 6px;
   }
   
-  /* Section Header Mobile */
+  
   .sectionHeader {
     margin-bottom: 24px;
   }
@@ -2458,7 +2458,7 @@
     line-height: 1.5;
   }
   
-  /* Staff Cards - Instagram-like horizontal scroll */
+  
   .staffGrid {
     display: flex;
     overflow-x: auto;
@@ -2576,12 +2576,12 @@
     height: 14px;
   }
   
-  /* Staff Dots - Visible on mobile */
+  
   .staffDots {
     display: flex;
   }
   
-  /* FAQ - Collapsible accordion style */
+  
   .faqGrid {
     display: flex;
     flex-direction: column;
@@ -2661,7 +2661,7 @@
     line-height: 1.5;
   }
   
-  /* Location Cards - Compact */
+  
   .locationGrid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -2714,7 +2714,7 @@
     height: 180px;
   }
   
-  /* CTA Card - Compact */
+  
   .ctaCard {
     border-radius: 16px;
     border-width: 2px;
@@ -2761,7 +2761,7 @@
   }
 }
 
-/* Intermediate mobile breakpoint for smooth transition */
+
 @media (min-width: 481px) and (max-width: 767px) {
   .headerContent {
     padding: 45px 16px;

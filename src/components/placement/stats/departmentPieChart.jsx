@@ -165,7 +165,7 @@ export const DepartmentPieChart = () => {
     >
       <div className={styles.chartOuter}>
         <div className={styles.chartWrap}>
-          {/* Center stat */}
+          {}
           <div className={styles.centerStat}>
             <div className={styles.centerNum}>{yearData.totals.placed}</div>
             <div className={styles.centerLabel}>Total Placed</div>
@@ -185,7 +185,7 @@ export const DepartmentPieChart = () => {
                 ))}
               </defs>
 
-              {/* 3D depth layer — back ring */}
+              {}
               <Pie
                 data={chartData}
                 cx="50%"
@@ -206,7 +206,7 @@ export const DepartmentPieChart = () => {
                 ))}
               </Pie>
 
-              {/* Main pie with sweep animation */}
+              {}
               <Pie
                 key={animKey}
                 data={chartData}

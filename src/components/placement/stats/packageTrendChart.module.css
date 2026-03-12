@@ -81,7 +81,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* ≥1440px - Large Desktop */
+
 @media (min-width: 1441px) {
   .legend {
     padding: 0.4rem 1.25rem;
@@ -113,7 +113,7 @@
 }
 
 
-/* 768px – 1023px - Tablet */
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .legend {
     display: flex;
@@ -142,7 +142,7 @@
   }
 }
 
-/* 468px – 767px - Mobile Compact */
+
 @media (min-width: 469px) and (max-width: 767px) {
   .legend {
     display: flex;
@@ -192,7 +192,7 @@
   }
 }
 
-/* ≤468px - Mobile Redesign */
+
 @media (max-width: 468px) {
   .legend {
     padding: 0.2rem 0.5rem;

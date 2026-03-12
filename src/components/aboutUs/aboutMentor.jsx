@@ -218,7 +218,7 @@ function AboutMentor() {
             >
               <div className={styles["card-content"]}>
                 <div className={styles["card-inner"]}>
-                  {/* Top row: role badge + linkedin */}
+                  {}
                   <div className={styles["card-top"]}>
                     <span
                       className={`${styles["role-badge"]} ${
@@ -236,7 +236,7 @@ function AboutMentor() {
                     </button>
                   </div>
 
-                  {/* Avatar */}
+                  {}
                   <div className={styles["avatar-section"]}>
                     <div className={styles["avatar-container"]}>
                       <div className={styles["avatar-glow"]} />
@@ -252,16 +252,16 @@ function AboutMentor() {
                     </div>
                   </div>
 
-                  {/* Name & Position */}
+                  {}
                   <div className={styles["member-info"]}>
                     <h3 className={styles["member-name"]}>{member.name}</h3>
                     <p className={styles["member-position"]}>{member.position}</p>
                   </div>
 
-                  {/* Divider */}
+                  {}
                   <div className={styles["card-divider"]} />
 
-                  {/* Contact Info */}
+                  {}
                   <div className={styles["contact-info"]}>
                     <div className={styles["contact-item"]}>
                       <div className={`${styles["contact-icon"]} ${styles.phone}`}>
@@ -277,7 +277,7 @@ function AboutMentor() {
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
+                  {}
                   <div className={styles["action-buttons"]}>
                     <button
                       className={`${styles["action-btn"]} ${styles.call}`}

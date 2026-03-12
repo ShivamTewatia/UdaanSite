@@ -147,7 +147,7 @@
   height: 100%;
 }
 
-/* ≥1440px */
+
 @media (min-width: 1441px) {
   .collapsibleHeaderLeft {
     padding: 1.5rem 0 1.5rem 2rem;
@@ -176,7 +176,7 @@
   }
 }
 
-/* 768px – 1023px */
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .collapsibleSection {
     margin-bottom: 1.25rem;
@@ -224,7 +224,7 @@
   }
 }
 
-/* 469px – 767px */
+
 @media (min-width: 469px) and (max-width: 767px) {
   .collapsibleSection {
     margin-bottom: 1rem;
@@ -277,7 +277,7 @@
   }
 }
 
-/* ≤468px */
+
 @media (max-width: 468px) {
   .collapsibleSection {
     margin-bottom: 0.5rem;

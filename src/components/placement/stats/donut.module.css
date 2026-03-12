@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-/* Donut Row */
+
 .donutRow {
   display: flex;
   gap: 2rem;
@@ -18,7 +18,7 @@
   position: relative;
   min-width: 0;
   padding: 3rem 0rem 2rem;
-  /* background-color: black; */
+  
   border: 1px solid rgba(59, 130, 246, 0.25);
   border-radius: 5%;
 }
@@ -38,11 +38,11 @@
   width: 100%;
   max-width: 300px;
   height: auto;
-  /* background-color: black; */
+  
 }
 
 .animatedRing {
-  transition: d 0.05s linear; /* Smooth animation */
+  transition: d 0.05s linear; 
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
@@ -106,7 +106,7 @@
   to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
 }
 
-/* Stats */
+
 .statsRow {
   display: flex;
   align-items: center;
@@ -141,7 +141,7 @@
   background: hsl(220, 15%, 90%);
 }
 
-/* Legend */
+
 .legend {
   display: flex;
   align-items: center;

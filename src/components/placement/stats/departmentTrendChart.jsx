@@ -17,7 +17,7 @@ import styles from "./departmentTrendChart.module.css";
 
 const CHART_HEIGHT = 220;
 
-/* ---------- 3D Bar ---------- */
+
 const Bar3D = ({
   height,
   maxHeight,
@@ -94,7 +94,7 @@ const Bar3D = ({
   );
 };
 
-/* ---------- Main Component ---------- */
+
 export const PlacementChart3D = () => {
   const [selectedMetric, setSelectedMetric] = useState("placementPercent");
   const [hoveredBar, setHoveredBar] = useState(null);
@@ -137,7 +137,7 @@ export const PlacementChart3D = () => {
         subtitle={`${year1.year} vs ${year2.year} · Year-over-Year Analysis`}
         defaultOpen={true}
       >
-        {/* Metric Buttons */}
+        {}
         <div className={styles.metricRow}>
           {Object.keys(METRIC_CONFIG).map((key) => (
             <button
@@ -150,19 +150,19 @@ export const PlacementChart3D = () => {
           ))}
         </div>
 
-        {/* Chart */}
+        {}
         <div className={styles.chartArea}>
-          {/* Y-Axis */}
+          {}
           <div className={styles.yAxis} style={{ height: CHART_HEIGHT }}>
             {yTicks.map((t, i) => (
               <span key={i} className={styles.yAxisLabel}>{t}</span>
             ))}
           </div>
 
-          {/* Bars */}
+          {}
           <div className={styles.barsContainer}>
             <div className={styles.barsRow} style={{ height: CHART_HEIGHT }}>
-              {/* Grid lines at 25%, 50%, 75%, 100% */}
+              {}
               <div className={styles.gridLine} style={{ bottom: "25%" }} />
               <div className={styles.gridLine} style={{ bottom: "50%" }} />
               <div className={styles.gridLine} style={{ bottom: "75%" }} />
@@ -217,7 +217,7 @@ export const PlacementChart3D = () => {
               ))}
             </div>
 
-            {/* X-Axis Labels */}
+            {}
             <div className={styles.xAxisRow}>
               {chartData.map((item) => (
                 <div key={item.course} className={styles.xLabel}>
@@ -228,7 +228,7 @@ export const PlacementChart3D = () => {
           </div>
         </div>
 
-        {/* Legend below chart */}
+        {}
         <div className={styles.legend}>
           <div className={styles.legendItem}>
             <div className={styles.legendSwatch} style={{ background: "hsl(215 65% 65%)" }} />

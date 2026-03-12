@@ -26,7 +26,7 @@
   }
 }
 
-/* Left text */
+
 .textBlock {
   flex-shrink: 0;
 }
@@ -45,7 +45,7 @@
   margin: 0.125rem 0 0;
 }
 
-/* Scroll area */
+
 .scrollContainer {
   display: flex;
   justify-content: flex-start;
@@ -73,7 +73,7 @@
   border-radius: 4px;
 }
 
-/* Button group */
+
 .buttonGroup {
   display: flex;
   flex-wrap: nowrap;
@@ -85,7 +85,7 @@
   box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.05);
 }
 
-/* Buttons */
+
 .button {
   position: relative;
   padding: 0.5rem 0.75rem;
@@ -118,7 +118,7 @@
   color: hsl(215, 65%, 38%);
 }
 
-/* Active indicator bar */
+
 .indicator {
   position: absolute;
   bottom: 2px;
@@ -130,7 +130,7 @@
   border-radius: 9999px;
 }
 
-/* ≥1440px Large Desktop */
+
 @media (min-width: 1440px) {
   .root {
     padding: 1.75rem 0;
@@ -153,7 +153,7 @@
   }
 }
 
-/* 768px–1023px Tablet */
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .buttonGroup {
     gap: 0.375rem;
@@ -171,7 +171,7 @@
   }
 }
 
-/* 469px–767px Mobile */
+
 @media (min-width: 469px) and (max-width: 767px) {
   .buttonGroup {
     gap: 0.3rem;
@@ -189,7 +189,7 @@
   }
 }
 
-/* ≤468px Small Mobile */
+
 @media (max-width: 468px) {
   .root {
     padding: 0.75rem 0;

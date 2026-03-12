@@ -173,12 +173,11 @@ const DutiesCommittees = () => {
         <span className={styles.badge}>Official Guidelines</span>
         <h1 className={styles.heroTitle}>Duties & Committees</h1>
         <p className={styles.heroSubtitle}>
-          Roles, responsibilities, and organizational structure of T&P Cell
+          Roles, responsibilities, and organizational structure of Training And Placement Cell
         </p>
       </div>
 
       <div className={styles.contentWrapper}>
-        {/* CR Duties Section */}
         <CollapsibleSection 
           icon={Users} 
           title="Duties of CR (Class Representative)"
@@ -189,7 +188,6 @@ const DutiesCommittees = () => {
           <DutiesGrid duties={crDuties} isDesktop={isDesktop} initialCount={4} />
         </CollapsibleSection>
 
-        {/* Faculty Coordinator Duties */}
         <CollapsibleSection 
           icon={GraduationCap} 
           title="Duties of Departmental Faculty Placement Coordinators"
@@ -206,7 +204,6 @@ const DutiesCommittees = () => {
           </div>
         </CollapsibleSection>
 
-        {/* Teacher Duties */}
         <CollapsibleSection 
           icon={UserCheck} 
           title="Duties of Teachers During Campus Drive"
@@ -223,7 +220,6 @@ const DutiesCommittees = () => {
           </div>
         </CollapsibleSection>
 
-        {/* Student Committee */}
         <CollapsibleSection 
           icon={Target} 
           title="Student Placement Committee"
@@ -240,7 +236,6 @@ const DutiesCommittees = () => {
           </div>
         </CollapsibleSection>
 
-        {/* Disciplinary Committee */}
         <CollapsibleSection 
           icon={Scale} 
           title="Disciplinary Committee"
@@ -273,7 +268,6 @@ const DutiesCommittees = () => {
           </div>
         </CollapsibleSection>
 
-        {/* Grievance Committee */}
         <CollapsibleSection 
           icon={FileText} 
           title="Grievance Committee (T&P Cell)"
@@ -294,7 +288,6 @@ const DutiesCommittees = () => {
           </div>
         </CollapsibleSection>
 
-        {/* Important Notice */}
         <div className={styles.importantNote}>
           <AlertTriangle className={styles.noteIcon} />
           <div className={styles.noteContent}>

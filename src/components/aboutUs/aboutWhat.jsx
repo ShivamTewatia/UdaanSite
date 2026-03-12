@@ -193,7 +193,7 @@
 //     >
 //       <section className={styles["section-wrapper"]}>
 //         <div className={styles["content-container"]}>
-//           {/* header */}
+//           {}
 //           <div className={styles["header-section"]}>
 //             <h1 className={styles["main-title"]}>What We Do?</h1>
 //             <div className={styles["title-divider"]} />
@@ -203,7 +203,7 @@
 //             </p>
 //           </div>
 
-//           {/* tabs */}
+//           {}
 //           <div className={styles["tabs-container"]}>
 //             <div className={styles["tabs-wrapper"]}>
 //               {teams.map((team, index) => (
@@ -220,7 +220,7 @@
 //             </div>
 //           </div>
 
-//           {/* content */}
+//           {}
 //           <div className={styles["team-content"]}>
 //             {teams.map((team, teamIndex) => (
 //               <div
@@ -484,7 +484,7 @@ const AboutWhat = () => {
       <div className={styles["section-wrapper"]}>
         <div className={styles["content-container"]}>
 
-          {/* header */}
+          {}
           <div className={styles["header-section"]}>
             <h2 className={styles["main-title"]}>What We Do?</h2>
             <div className={styles["title-divider"]}></div>
@@ -494,7 +494,7 @@ const AboutWhat = () => {
             </p>
           </div>
 
-          {/* tabs */}
+          {}
           <div className={styles["tabs-container"]}>
             <div className={styles["tabs-wrapper"]}>
               {teams.map((team, index) => (
@@ -509,7 +509,7 @@ const AboutWhat = () => {
             </div>
           </div>
 
-          {/* content */}
+          {}
           <div>
             {teams.map((team, teamIndex) => (
               <div

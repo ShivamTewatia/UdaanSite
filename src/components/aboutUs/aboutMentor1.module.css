@@ -466,7 +466,7 @@
   box-shadow: 0 15px 30px -5px rgba(236, 72, 153, 0.5);
 } */
 
-/* Carousel Dots - Hidden on Desktop */
+
 /* .carousel-dots {
   display: none;
 } */
@@ -479,7 +479,7 @@
   background: linear-gradient(160deg, #f8f7ff 0%, #ffffff 100%);
 }
 
-/* No ::before / ::after blur blobs — removed */
+
 
 .leadership-container {
   max-width: 1400px;
@@ -493,7 +493,7 @@
   margin-bottom: 3.5rem;
 }
 
-/* Badge */
+
 .badge-container {
   display: flex;
   justify-content: center;
@@ -521,7 +521,7 @@
   color: #6366f1;
 }
 
-/* Title */
+
 .title-section {
   text-align: center;
   margin-bottom: 1.75rem;
@@ -564,7 +564,7 @@
   line-height: 1.75;
 }
 
-/* Filter Buttons */
+
 .filter-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -614,7 +614,7 @@
   opacity: 0.85;
 }
 
-/* Team Grid */
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -642,7 +642,7 @@
   opacity: 0.55;
 }
 
-/* Card */
+
 .card-content {
   position: relative;
   background: #ffffff;
@@ -671,7 +671,7 @@
   align-items: start;
 }
 
-/* Role Badges — pastel tints */
+
 .role-badge {
   font-weight: 600;
   padding: 0.3rem 0.875rem;
@@ -700,7 +700,7 @@
   color: #ea580c;
 }
 
-/* LinkedIn Button */
+
 .linkedin-btn {
   background: rgba(99, 102, 241, 0.08);
   color: #6366f1;
@@ -723,7 +723,7 @@
   box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
 }
 
-/* Avatar */
+
 .avatar-section {
   display: flex;
   flex-direction: column;
@@ -777,7 +777,7 @@
   box-shadow: 0 16px 40px rgba(99, 102, 241, 0.2);
 }
 
-/* Member Info */
+
 .member-info {
   text-align: center;
   margin-bottom: 0.75rem;
@@ -795,7 +795,7 @@
   color: #6b7280;
 }
 
-/* Contact */
+
 .contact-info {
   width: 100%;
   display: flex;
@@ -854,7 +854,7 @@
   white-space: nowrap;
 }
 
-/* Action Buttons */
+
 .action-buttons {
   display: flex;
   gap: 0.75rem;
@@ -901,7 +901,7 @@
   box-shadow: 0 10px 24px rgba(167, 139, 250, 0.4);
 }
 
-/* Mobile Carousel Dots */
+
 .carousel-dots {
   display: none;
 }
@@ -1302,7 +1302,7 @@
     padding: 0 0.5rem;
   }
 
-  /* Hide Whole Team Button on Mobile */
+  
   .whole-team-btn {
     display: none !important;
   }
@@ -1340,7 +1340,7 @@
     margin-top: 0.125rem;
   }
 
-  /* Instagram-style Horizontal Scroll */
+  
   .team-grid {
     display: flex;
     flex-direction: row;
@@ -1485,7 +1485,7 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
-  /* Carousel Dots - Visible on Mobile */
+  
   .carousel-dots {
     display: flex;
     justify-content: center;

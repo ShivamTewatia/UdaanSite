@@ -771,7 +771,7 @@ const EnhancedTeamCard = ({ name, pic, role, branch, year, team, linkedin, color
           <div className={styles.cardSection}>
             <div className={styles.memberInfo}>
               <p className={styles.memberStatSpecial}></p>
-              {/* <p className={styles.memberHead}>Branch/Year</p> */}
+              {}
               <p className={styles.memberStat}>Branch : {branch}</p>
               <p className={styles.memberStat}>Year  : {year}</p>
             </div>
@@ -929,7 +929,7 @@ const EnhancedTeamPage = () => {
             ))}
           </div>
 
-          {/* Desktop Grid - Original card design */}
+          {}
           <div className={styles.membersGridEnhanced}>
             {filteredMembers.map((member, index) => (
               <div
@@ -945,7 +945,7 @@ const EnhancedTeamPage = () => {
             ))}
           </div>
 
-          {/* Mobile View: 2-column grid for all cards */}
+          {}
           <div className={styles.studentCoordinatorGrid}>
             {filteredMembers.map((member) => (
               <MobileStudentCard

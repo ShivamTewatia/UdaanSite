@@ -125,7 +125,7 @@
   margin: 0;
 }
 
-/* ≥ 1440px — Large Desktop */
+
 @media (min-width: 1440px) {
   .who-container {
     max-width: 1600px;
@@ -137,9 +137,9 @@
 }
 
 
-/* 1280px – 1439px — Laptop (Base Design - No Changes) */
 
-/* 1024px – 1279px — Small Laptop / Tablet Landscape */
+
+
 @media (max-width: 1279px) {
   .who-we-are-section {
     padding: 0px 20px 35px;
@@ -193,7 +193,7 @@
   }
 }
 
-/* 768px – 1023px — Tablet / Large Mobile */
+
 @media (max-width: 1023px) {
   .who-we-are-section {
     padding: 0px 20px 30px;
@@ -219,7 +219,7 @@
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    /* max-width: 500px; */
+    
     margin: 0 auto;
   }
   .features-grid > :last-child {
@@ -258,7 +258,7 @@
   }
 }
 
-/* ≤ 767px — Tablet Portrait */
+
 @media (max-width: 767px) {
   .who-we-are-section {
     padding: 0px 16px 25px;
@@ -386,12 +386,12 @@
     flex: 1;
   }
 
-  /* description wrapper */
+  
   .feature-description-wrapper {
     overflow: hidden;
   }
 
-  /* collapsed state */
+  
   .feature-description {
     font-size: 0.85rem;
     line-height: 1.5;
@@ -402,7 +402,7 @@
     transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
   }
 
-  /* expanded state (React me styles.expanded lag raha hai) */
+  
   .feature-description-wrapper.expanded .feature-description {
     max-height: 400px;
     opacity: 1;

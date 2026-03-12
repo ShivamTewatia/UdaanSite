@@ -15,7 +15,7 @@
   justify-content: center;
 }
 
-/* ---- Center Stat ---- */
+
 .centerStat {
   position: absolute;
   top: 50%;
@@ -42,7 +42,7 @@
   text-transform: uppercase;
 }
 
-/* ---- Pie Labels ---- */
+
 .labelName {
   font-size: 0.6875rem;
   font-weight: 700;
@@ -55,7 +55,7 @@
   fill: hsl(218, 50%, 35%);
 }
 
-/* ---- Tooltip ---- */
+
 .tooltip {
   background: white;
   border: 1px solid hsl(220, 15%, 88%);
@@ -89,7 +89,7 @@
   color: hsl(215, 25%, 28%);
 }
 
-/* ---- Year Toggle ---- */
+
 .yearToggle {
   display: flex;
   flex-direction: column;
@@ -121,7 +121,7 @@
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
 }
 
-/* ---- Responsive ---- */
+
 @media (max-width: 468px) {
   .centerNum {
     font-size: 1.5rem;

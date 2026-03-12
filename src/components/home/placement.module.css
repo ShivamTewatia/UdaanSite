@@ -1,4 +1,4 @@
-/* ================= GLOBAL ================= */
+
 
 *{
 box-sizing:border-box;
@@ -18,7 +18,7 @@ margin:0 auto;
 padding:4rem 1.5rem 0;
 }
 
-/* ================= HEADER ================= */
+
 
 .placementHeader{
 text-align:center;
@@ -45,7 +45,7 @@ margin:auto;
 line-height:1.6;
 }
 
-/* ================= MAIN GRID ================= */
+
 
 .mainStatsGrid{
 display:grid;
@@ -59,7 +59,7 @@ background:white;
 border:1px solid #e8ecf3;
 border-radius:1rem;
 padding:2rem;
-/* min-height:220px; */
+
 transition:.3s;
 }
 
@@ -87,14 +87,14 @@ height:1.4rem;
 color:white;
 }
 
-/* ICON COLORS */
+
 
 .iconOrange{background:linear-gradient(135deg,#fb923c,#f97316);}
 .iconPurple{background:linear-gradient(135deg,#a78bfa,#7c3aed);}
 .iconCyan{background:linear-gradient(135deg,#22d3ee,#0891b2);}
 .iconPink{background:linear-gradient(135deg,#f472b6,#db2777);}
 
-/* TEXT */
+
 
 .statValue{
 font-size:1.7rem;
@@ -113,7 +113,7 @@ font-size:.9rem;
 color:#94a3b8;
 }
 
-/* ================= HIGHLIGHTS ================= */
+
 
 .highlightsGrid{
 display:grid;
@@ -158,7 +158,7 @@ font-size:.8rem;
 color:#7b8ba5;
 }
 
-/* ================= SMALL LAPTOP ================= */
+
 
 @media (max-width:1200px){
 
@@ -180,7 +180,7 @@ font-size:.85rem;
 
 }
 
-/* ================= TABLET ================= */
+
 
 @media (max-width:1023px){
 
@@ -211,7 +211,7 @@ font-size:.8rem;
 
 }
 
-/* ================= MOBILE ================= */
+
 
 @media (max-width:480px){
 
@@ -260,7 +260,7 @@ font-size:.6rem;
 
 }
 
-/* ── Wave ── */
+
 
 .placementWave {
   position: absolute;

@@ -42,7 +42,7 @@
 } */
 .animatedValue {
   display: inline-flex;
-  align-items: center;     /* baseline ❌ */
+  align-items: center;     
   height: 1.2em;
 }
 

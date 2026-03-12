@@ -63,7 +63,7 @@ const CollapsibleCategorySection = ({ category, defaultOpen = false, isDesktop =
           <h3 className={styles.categoryTitle}>{category.title}</h3>
         </div>
         <div className={styles.categoryHeaderRight}>
-          {/* <span className={styles.categoryCount}>{category.companies.length} Companies</span> */}
+          {}
           <div className={`${styles.categoryArrow} ${isOpen ? styles.rotated : ''}`}>
             <ChevronDown size={20} strokeWidth={2} />
           </div>
@@ -302,18 +302,18 @@ const Recruiters = () => {
 
   return (
     <div id="recruiters" className={styles.container}>
-      {/* Hero Section */}
+      {}
       <section className={styles.heroSection}>
         <span className={styles.badge}>OUR PARTNERS</span>
         <h1 className={styles.heroTitle}>Our Esteemed Recruiters</h1>
         <p className={styles.heroSubtitle}>
-          Building partnerships with industry leaders across diverse sectors
+          Building long-term partnerships with industry leaders across diverse sectors
         </p>
       </section>
 
-      {/* Content Wrapper */}
+      {}
       <div className={styles.contentWrapper}>
-        {/* Stats Section */}
+        {}
         <section className={styles.statsSection}>
           <div className={styles.statsGrid}>
             <div className={styles.statCard}>
@@ -343,7 +343,7 @@ const Recruiters = () => {
           </div>
         </section>
 
-        {/* Categories */}
+        {}
         {recruitersData.map((category, index) => (
           <CollapsibleCategorySection 
             key={index} 
@@ -353,7 +353,7 @@ const Recruiters = () => {
           />
         ))}
 
-        {/* CTA Section */}
+        {}
         <section className={styles.ctaSection}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaIconWrapper}>

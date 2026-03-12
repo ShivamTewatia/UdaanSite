@@ -515,7 +515,7 @@
   line-height: 1.75;
 }
 
-/* Tabs */
+
 .tabs-container {
   display: flex;
   justify-content: center;
@@ -547,7 +547,7 @@
   padding: 0.5rem 1rem;
 }
 
-/* Warm tab (Admin) */
+
 .tab-warm:hover {
   color: #ea580c;
   background: rgba(251, 146, 60, 0.1);
@@ -561,7 +561,7 @@
   transform: none;
 }
 
-/* Cool tab (IT) */
+
 .tab-cool:hover {
   color: #0d9488;
   background: rgba(20, 184, 166, 0.1);
@@ -575,7 +575,7 @@
   transform: none;
 }
 
-/* Accent tab (Outreach) */
+
 .tab-accent:hover {
   color: #e11d48;
   background: rgba(244, 63, 94, 0.1);
@@ -589,7 +589,7 @@
   transform: none;
 }
 
-/* Success tab (Design) */
+
 .tab-success:hover {
   color: #059669;
   background: rgba(16, 185, 129, 0.1);
@@ -608,7 +608,7 @@
   z-index: 1;
 }
 
-/* Team Content */
+
 .team-content {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -676,7 +676,7 @@
   font-size: 0.875rem;
 }
 
-/* Roles Grid */
+
 .roles-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -713,7 +713,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Pastel card backgrounds */
+
 .role-warm {
   background: #fff8f0;
   border-color: rgba(251, 146, 60, 0.15);
@@ -765,7 +765,7 @@
   transform: rotate(10deg) scale(1.15);
 }
 
-/* Icon wrappers — 3rem instead of 4rem */
+
 .role-icon-wrapper {
   width: 3rem;
   height: 3rem;
@@ -834,7 +834,7 @@
 }
 
 
-/* ≥ 1440px — Large Desktop */
+
 @media (min-width: 1441px) {
   .content-container {
     max-width: 1600px;
@@ -845,9 +845,9 @@
   }
 }
 
-/* 1280px – 1439px — Laptop (Base Design - No Changes) */
 
-/* 1024px – 1279px — Small Laptop / Tablet Landscape */
+
+
 @media (max-width: 1279px) {
   .section-wrapper {
     padding: 3.5rem 1.5rem;
@@ -899,7 +899,7 @@
   }
 }
 
-/* 768px – 1023px — Tablet / Large Mobile */
+
 @media (max-width: 1023px) {
   .section-wrapper {
     padding: 3rem 1.25rem;
@@ -1004,7 +1004,7 @@
   }
 }
 
-/* ≤ 767px — Tablet Portrait */
+
 @media (max-width: 767px) {
   .section-wrapper {
     padding: 2.5rem 1rem;
@@ -1096,7 +1096,7 @@
   }
 }
 
-/* ≤ 480px — Mobile - 2x2 Grid with smaller icons */
+
 @media (max-width: 480px) {
   .section-wrapper {
     padding: 2rem 0.25rem;

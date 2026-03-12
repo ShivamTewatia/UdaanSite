@@ -99,7 +99,7 @@ const Statistics = () => {
         </CollapsibleWrapper> 
         
         <div className={styles.chartsGrid}>
-          {/* <PlacementTrendChart /> */}
+          {}
           <DepartmentPieChart/>
           <OverallDonut3D />
         </div>

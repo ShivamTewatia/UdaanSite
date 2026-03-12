@@ -439,7 +439,7 @@
 }
 
 
-/* ≥ 1440px — Large Desktop */
+
 @media (min-width: 1441px) {
   .founder-container {
     max-width: 1600px;
@@ -450,9 +450,9 @@
   }
 }
 
-/* 1280px – 1439px — Laptop (Base Design - No Changes) */
 
-/* 1024px – 1279px — Small Laptop / Tablet Landscape */
+
+
 @media (max-width: 1279px) {
   .meet-founder-section {
     padding: 70px 20px;
@@ -514,7 +514,7 @@
   }
 }
 
-/* 768px – 1023px — Tablet / Large Mobile */
+
 @media (max-width: 1023px) {
   .meet-founder-section {
     padding: 60px 20px;
@@ -607,7 +607,7 @@
   }
 }
 
-/* ≤ 767px — Tablet Portrait */
+
 @media (max-width: 767px) {
   .meet-founder-section {
     padding: 50px 16px;

@@ -171,7 +171,7 @@
   color: #8bc4fa;
 }
 
-/* ≥ 1440px — Large Desktop */
+
 @media (min-width: 1440px) {
   .tabContainer {
     max-width: 1600px;
@@ -198,7 +198,7 @@
   }
 }
 
-/* 1024px – 1279px — Small Laptop / Tablet Landscape */
+
 @media (max-width: 1279px) and (min-width: 1024px) {
   .tabContainer {
     max-width: 1000px;
@@ -230,7 +230,7 @@
   }
 }
 
-/* 768px – 1023px — Tablet / Large Mobile */
+
 @media (max-width: 1023px) and (min-width: 768px) {
   .tabContainer {
     max-width: 100%;
@@ -266,7 +266,7 @@
   }
 }
 
-/* Between tablet and mobile (481px - 767px) */
+
 @media (max-width: 767px) and (min-width: 481px) {
   .tabNavigation {
     overflow: hidden;
@@ -311,7 +311,7 @@
   }
 }
 
-/* ≤ 480px — Mobile */
+
 @media (max-width: 480px) {
   .tabNavigation {
     overflow: hidden;

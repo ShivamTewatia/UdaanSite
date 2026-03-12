@@ -27,7 +27,7 @@ const About = () => {
   return (
     <div className={styles.aboutContainer}>
       <div className={styles.aboutContent}>
-        {/* Hero Section */}
+        {}
         <div className={styles.aboutGrid}>
           <div className={styles.aboutText}>
             <h2 className={styles.aboutHeading}>
@@ -56,7 +56,7 @@ const About = () => {
             </button>
           </div>
 
-          {/* Feature Cards */}
+          {}
           <div className={styles.featuresGrid}>
             {features.map((feature, index) => (
               <div
@@ -74,7 +74,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Stats */}
+        {}
         <div className={styles.statsGrid}>
           {stats.map((stat, index) => (
             <div key={index} className={styles.statCard}>
@@ -84,7 +84,7 @@ const About = () => {
           ))}
         </div>
 
-        {/* Reasons */}
+        {}
         <div className={styles.reasonsSection}>
           <div className={styles.reasonsHeader}>
             <h2 className={styles.reasonsHeading}>Why Choose JC Bose University?</h2>

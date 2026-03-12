@@ -1,4 +1,4 @@
-/* ================= GLOBAL ================= */
+
 
 *{
 box-sizing:border-box;
@@ -12,7 +12,7 @@ background:linear-gradient(180deg,#f8fafc 0%,#ffffff 40%,#f1f5f9 100%);
 overflow:hidden;
 }
 
-/* ================= ORBS ================= */
+
 
 .orbLeft{
 position:absolute;
@@ -45,7 +45,7 @@ animation:float-orb 6s ease-in-out infinite 2s;
 50%{transform:translateY(-12px)}
 }
 
-/* ================= CONTENT ================= */
+
 
 .content{
 position:relative;
@@ -55,7 +55,7 @@ margin:auto;
 padding:0 1rem;
 }
 
-/* ================= HEADER ================= */
+
 
 .header{
 text-align:center;
@@ -81,7 +81,7 @@ margin:auto;
 line-height:1.6;
 }
 
-/* ================= SCROLL AREA ================= */
+
 
 .scrollWrapper{
 position:relative;
@@ -120,7 +120,7 @@ width:fit-content;
 padding:0 1rem;
 }
 
-/* ================= COMPANY CARD ================= */
+
 
 .companyCard{
 flex-shrink:0;
@@ -164,7 +164,7 @@ font-weight:500;
 color:hsl(215 16% 47%);
 }
 
-/* ================= NOTE ================= */
+
 
 .note{
 text-align:center;
@@ -174,7 +174,7 @@ margin-bottom:1.5rem;
 color:hsl(215 16% 47%);
 }
 
-/* ================= STATS ================= */
+
 
 .stats{
 display:flex;
@@ -224,7 +224,7 @@ font-size:.825rem;
 color:hsl(215 16% 47%);
 }
 
-/* ================= LAPTOP ================= */
+
 
 @media (max-width:1200px){
 
@@ -246,7 +246,7 @@ font-size:.75rem;
 
 }
 
-/* ================= TABLET ================= */
+
 
 @media (max-width:768px){
 
@@ -285,7 +285,7 @@ filter:blur(60px);
 
 }
 
-/* ================= MOBILE ================= */
+
 
 @media (max-width:480px){
 
@@ -337,7 +337,7 @@ display:none;
 
 }
 
-/* ================= SMALL MOBILE ================= */
+
 
 @media (max-width:360px){
 

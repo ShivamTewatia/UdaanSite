@@ -47,10 +47,10 @@ export const FunnelChart3D = ({ courses, year }) => {
       }
     >
     <div className={styles.chartWrapper}>
-      {/* Legend */}
+      {}
 
 
-      {/* Bar chart */}
+      {}
       <div className={styles.barList}>
         {sorted.map((course, i) => {
           const eligibleWidth = (course.eligibleStudents / maxStudents) * 100;

@@ -2,15 +2,15 @@
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  /* padding: 1.5rem;  */
+  
 }
 
-/* ========== Metric Selector ========== */
+
 .metricRow {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 2.5rem;  /* Thoda kam kiya */
+  margin-bottom: 2.5rem;  
   padding: 0 0.5rem;
 }
 
@@ -38,13 +38,13 @@
   box-shadow: 0 4px 12px -2px hsl(215 65% 55% / 0.3);
 }
 
-/* ========== Legend ========== */
+
 .legend {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 2rem;  /* Thoda zyada spacing */
+  margin-top: 2rem;  
   margin-bottom: 0.5rem;
   padding: 0 0.5rem;
   padding-top: 0.75rem;
@@ -69,13 +69,13 @@
   color: hsl(220 10% 55%);
 }
 
-/* ========== Chart Area ========== */
+
 .chartArea {
   display: flex;
   align-items: stretch;
   gap: 0;
   position: relative;
-  padding: 1.5rem 0.5rem 0.5rem 0.5rem;  /* Top, right, bottom, left padding */
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;  
   background: white;
   border-radius: 1rem;
 }
@@ -87,7 +87,7 @@
   align-items: flex-end;
   padding-right: 0.75rem;
   flex-shrink: 0;
-  width: 2.5rem;  /* Fixed width for alignment */
+  width: 2.5rem;  
 }
 
 .yAxisLabel {
@@ -95,7 +95,7 @@
   color: hsl(220 10% 60%);
   font-weight: 500;
   line-height: 1;
-  transform: translateY(50%);  /* Better alignment with grid lines */
+  transform: translateY(50%);  
 }
 
 .barsContainer {
@@ -108,17 +108,17 @@
 .barsRow {
   display: flex;
   align-items: flex-end;
-  justify-content: space-around;  /* Evenly space bar groups */
-  gap: 0;  /* Remove gap, use margins on bar groups instead */
+  justify-content: space-around;  
+  gap: 0;  
   position: relative;
   border-left: 1px solid hsl(220 15% 88%);
   border-bottom: 1px solid hsl(220 15% 88%);
-  padding: 1rem 0 0 0;  /* Remove horizontal padding */
+  padding: 1rem 0 0 0;  
   overflow: visible;
   z-index: 1;
 }
 
-/* Unified grid line class */
+
 .gridLine {
   position: absolute;
   left: 0;
@@ -129,17 +129,17 @@
 
 .xAxisRow {
   display: flex;
-  justify-content: space-around;  /* Match barsRow spacing */
-  gap: 0;  /* Remove gap */
-  padding: 0;  /* Remove padding */
+  justify-content: space-around;  
+  gap: 0;  
+  padding: 0;  
   margin-top: 0.5rem;
   border-left: 1px solid transparent;
   width: 100%;
 }
 
 .xLabel {
-  width: auto;  /* Auto width based on content */
-  min-width: 5rem;  /* Minimum width */
+  width: auto;  
+  min-width: 5rem;  
   text-align: center;
   font-size: 0.6875rem;
   font-weight: 600;
@@ -147,19 +147,19 @@
   line-height: 1.3;
   padding-top: 0.375rem;
   flex-shrink: 0;
-  text-transform: uppercase;  /* Optional: makes labels more readable */
+  text-transform: uppercase;  
   letter-spacing: 0.02em;
 }
 
-/* ========== Bar Group ========== */
+
 .barGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 5rem;  /* Fixed width */
+  width: 5rem;  
   flex-shrink: 0;
-  margin: 0 0.5rem;  /* Add horizontal margin for spacing */
+  margin: 0 0.5rem;  
 }
 
 .changeChip {
@@ -197,7 +197,7 @@
   gap: 0.1875rem;
 }
 
-/* ========== 3D Bar ========== */
+
 .barWrapper {
   position: relative;
   display: flex;
@@ -276,7 +276,7 @@
   opacity: 0.7;
 }
 
-/* ========== Responsive ========== */
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -327,6 +327,38 @@
   .barGroup {
     width: 3.5rem;
     margin: 0 0.2rem;
+  }
+
+  .xLabel {
+    min-width: 3.5rem;
+    font-size: 0.5rem;
+  }
+}
+
+
+@media (min-width: 1441px) {
+  .chartArea {
+    /* background-color: black; */
+    overflow-x: auto;
+    padding: 4rem 4rem;
+  }
+
+  .barsRow {
+    gap: 20px;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    min-width: max-content; 
+  }
+
+  .xAxisRow {
+    gap: 108px;
+    justify-content: flex-start;
+    min-width: max-content;  
+  }
+
+  .barGroup {
+    width: 4rem;
+    margin: 0 0.425rem;
   }
 
   .xLabel {

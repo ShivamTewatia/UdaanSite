@@ -93,7 +93,7 @@
   transform: translateX(4px);
 }
 
-/* Features */
+
 .featuresGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -177,7 +177,7 @@
   font-size: 0.925rem;
 }
 
-/* Stats */
+
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -218,7 +218,7 @@
   font-size: 0.925rem;
 }
 
-/* Reasons */
+
 .reasonsSection {
   display: flex;
   flex-direction: column;
@@ -341,7 +341,7 @@
   line-height: 1.6;
 }
 
-/* ==================== Large Desktop: ≥1441px ==================== */
+
 @media (min-width: 1441px) {
   .aboutContent {
     max-width: 1600px;
@@ -373,7 +373,7 @@
   }
 }
 
-/* ==================== Small Laptop: 1024px – 1279px ==================== */
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   .aboutContent {
     padding: 2rem 2rem;
@@ -400,7 +400,7 @@
   }
 }
 
-/* ==================== Tablet: 768px – 1023px ==================== */
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .aboutContent {
     padding: 2rem 1.5rem;
@@ -576,7 +576,7 @@
   }
 }
 
-/* ==================== Mobile: ≤480px ==================== */
+
 @media (max-width: 480px) {
   .aboutContent {
     padding: 1.5rem 1rem;
@@ -639,7 +639,7 @@
 
   .featureDescription {
     font-size: 0.65rem;
-    /* display: none; */
+    
   }
 
   .statsGrid {

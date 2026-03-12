@@ -159,7 +159,7 @@
   flex-shrink: 0;
 }
 
-/* Collapsible Section Styles */
+
 .collapsibleSection {
   margin-bottom: 1rem;
 }
@@ -253,7 +253,7 @@
   border: none;
 }
 
-/* Card Styles */
+
 .card {
   background: white;
   border-radius: 0.75rem;
@@ -1083,11 +1083,6 @@
   color: white;
 }
 
-/* ============================================
-   RESPONSIVE BREAKPOINTS
-   ============================================ */
-
-/* Large Desktop (≥1441px) */
 @media (min-width: 1441px) {
   .pageWrapper {
     padding: 3.5rem 5rem 10rem;
@@ -1127,7 +1122,7 @@
   }
 }
 
-/* Standard Desktop (1280px - 1440px) */
+
 @media (min-width: 1280px) and (max-width: 1439px) {
   .twoColumnGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -1139,7 +1134,7 @@
   }
 }
 
-/* Small Laptop / Tablet Landscape (1024px - 1279px) */
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   .pageWrapper {
     padding: 2.5rem 2.5rem 8rem;
@@ -1177,7 +1172,7 @@
   }
 }
 
-/* Tablet / Large Mobile (768px - 1023px) */
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .pageWrapper {
     padding: 2rem 1.5rem 6rem;
@@ -1285,7 +1280,7 @@
   }
 }
 
-/* Mobile (≤767px) */
+
 @media (max-width: 767px) {
   .pageWrapper {
     padding: 1.5rem 1rem 5rem;
@@ -1544,7 +1539,7 @@
   }
 }
 
-/* Extra Small Mobile (≤480px) */
+
 @media (max-width: 480px) {
   .pageWrapper {
     padding: 1rem 1rem 4rem;
@@ -1562,7 +1557,7 @@
   }
 
   .heroTitle {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 
   .heroSubtitle {

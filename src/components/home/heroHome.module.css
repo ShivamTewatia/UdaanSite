@@ -1,4 +1,4 @@
-/* Base styles (Desktop-first) */
+
 .heroContainer {
   position: relative;
   height: 80vh;
@@ -151,7 +151,7 @@
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.95);
   text-align: center;
-  /* max-width: 48rem; */
+  
   margin-bottom: 1.5rem;
   font-weight: 500;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
@@ -284,7 +284,7 @@
 }
 
 
-/* ==================== Extra Large Desktop: ≥1536px ==================== */
+
 @media (min-width: 1536px) {
   .heroContainer {
     min-height: 700px;
@@ -322,7 +322,7 @@
   }
 }
 
-/* ==================== Large Desktop: 1280px – 1535px ==================== */
+
 /* @media (min-width: 1280px) and (max-width: 1535px) {
   .heroContainer {
     min-height: 600px;
@@ -351,7 +351,7 @@
   }
 } */
 
-/* ==================== Medium Desktop: 1024px – 1279px ==================== */
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   .heroContainer {
     min-height: 550px;
@@ -422,7 +422,7 @@
   }
 }
 
-/* ==================== Tablet: 768px – 1023px ==================== */
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .heroContainer {
     min-height: 500px;
@@ -516,7 +516,7 @@
   }
 }
 
-/* ==================== Large Mobile: 640px – 767px ==================== */
+
 @media (min-width: 640px) and (max-width: 767px) {
   .heroContainer {
     min-height: 380px;
@@ -621,7 +621,7 @@
   }
 }
 
-/* ==================== Medium Mobile: 480px – 639px ==================== */
+
 @media (min-width: 480px) and (max-width: 639px) {
   .heroContainer {
     min-height: 400px;
@@ -710,7 +710,7 @@
   }
 }
 
-/* ==================== Small Mobile: ≤479px ==================== */
+
 @media (max-width: 479px) {
   .heroContainer {
     min-height: 320px;

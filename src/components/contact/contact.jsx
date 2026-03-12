@@ -621,7 +621,7 @@ const Contact = () => {
 
   return (
     <div className={styles.container}>
-      {/* Header */}
+      {}
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <div className={styles.headerBadge}>
@@ -636,7 +636,7 @@ const Contact = () => {
         </div>
       </header>
 
-      {/* Stats */}
+      {}
       <section className={styles.statsSection}>
         <div className={styles.statsGrid}>
           {quickStats.map((stat, index) => {
@@ -654,9 +654,9 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Main Content */}
+      {}
       <main className={styles.mainContent}>
-        {/* Office Info */}
+        {}
         <section>
           <div className={styles.officeCard}>
             <div className={styles.officeGrid}>
@@ -778,7 +778,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Staff Section */}
+        {}
         <section>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionBadge}>
@@ -853,7 +853,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {}
         <section>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionBadge}>
@@ -905,7 +905,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Location Section */}
+        {}
         <section>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionBadge}>
@@ -949,7 +949,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* CTA */}
+        {}
         <section>
           <div className={styles.ctaCard}>
             <div className={styles.ctaBackground} />

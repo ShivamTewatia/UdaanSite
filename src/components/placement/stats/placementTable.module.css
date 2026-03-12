@@ -11,7 +11,7 @@
   font-size: 0.8125rem;
 }
 
-/* Header */
+
 .thead tr {
   background: hsl(210 40% 96%);
 }
@@ -71,7 +71,7 @@
   color: hsl(217 91% 60%);
 }
 
-/* Body rows */
+
 .row {
   border-bottom: 1px solid hsl(214 32% 91% / 0.4);
   transition: background-color 0.15s;
@@ -101,7 +101,7 @@
   }
 }
 
-/* Course cell */
+
 .courseCell {
   display: flex;
   align-items: center;
@@ -125,14 +125,14 @@
   color: hsl(215 25% 18%);
 }
 
-/* Numeric values */
+
 .numericValue {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: hsl(215 25% 18%);
 }
 
-/* Placement % */
+
 .placementCell {
   display: flex;
   align-items: center;
@@ -182,7 +182,7 @@
 .badgeFair { background: hsl(215 16% 47% / 0.5); color: hsl(0 0% 100%); }
 .badgeLow { background: hsl(215 16% 47% / 0.3); color: hsl(215 25% 18%); }
 
-/* Package cell */
+
 .packageCell {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -207,7 +207,7 @@
   margin-left: 0.25rem;
 }
 
-/* Footer */
+
 .tfoot tr {
   background: hsl(210 40% 96%);
   border-top: 2px solid hsl(214 32% 91%);
@@ -244,7 +244,7 @@
   color: hsl(217 91% 55%);
 }
 
-/* Actions badge */
+
 .actionsBadge {
   display: flex;
   align-items: center;

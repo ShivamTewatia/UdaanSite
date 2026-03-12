@@ -10,7 +10,7 @@ const COLORS = {
   gray: { main: "hsl(220, 15%, 88%)", dark: "hsl(220, 15%, 72%)" },
 };
 
-/* ---------- Donut Util Functions (unchanged) ----------- */
+
 const polarToCart = (cx, cy, rx, ry, deg) => {
   const rad = ((deg - 90) * Math.PI) / 180;
   return { x: cx + rx * Math.cos(rad), y: cy + ry * Math.sin(rad) };
@@ -27,7 +27,7 @@ const donutPath = (cx, cy, oRx, oRy, iRx, iRy, startDeg, endDeg) => {
           L${ie.x},${ie.y} A${iRx},${iRy} 0 ${lg} 0 ${is_.x},${is_.y} Z`;
 };
 
-/* ---------- Single Donut Component (unchanged) ---------- */
+
 const Donut3D = ({ yearData, colors, id }) => {
   const [hovered, setHovered] = useState(null);
 
@@ -43,7 +43,7 @@ const Donut3D = ({ yearData, colors, id }) => {
     <div className={styles.donutCard}>
       <div className={styles.yearBadge}>{yearData.year}</div>
 
-      {/* SVG Donut */}
+      {}
       <svg viewBox="0 0 240 160" className={styles.donutSvg}>
         <defs>
           <linearGradient id={`dg-${id}`} x1="0" y1="0" x2="0" y2="1">
@@ -55,7 +55,7 @@ const Donut3D = ({ yearData, colors, id }) => {
           </filter>
         </defs>
 
-        {/* Bottom Layer */}
+        {}
         <path
           d={`M${cx + oRx},${cy} A${oRx},${oRy} 0 1 1 ${cx - oRx},${cy} 
               L${cx - oRx},${cy + depth} A${oRx},${oRy} 0 1 0 ${cx + oRx},${cy + depth} Z`}
@@ -63,7 +63,7 @@ const Donut3D = ({ yearData, colors, id }) => {
           opacity={0.85}
         />
 
-        {/* Inner bottom */}
+        {}
         <path
           d={`M${cx - iRx},${cy} A${iRx},${iRy} 0 1 1 ${cx + iRx},${cy} 
               L${cx + iRx},${cy + depth} A${iRx},${iRy} 0 1 0 ${cx - iRx},${cy + depth} Z`}
@@ -71,7 +71,7 @@ const Donut3D = ({ yearData, colors, id }) => {
           opacity={0.5}
         />
 
-        {/* Placed */}
+        {}
         <path
           d={donutPath(cx, cy, oRx, oRy, iRx, iRy, 0, placedEnd)}
           fill={`url(#dg-${id})`}
@@ -83,7 +83,7 @@ const Donut3D = ({ yearData, colors, id }) => {
           onMouseLeave={() => setHovered(null)}
         />
 
-        {/* Unplaced */}
+        {}
         <path
           d={donutPath(cx, cy, oRx, oRy, iRx, iRy, placedEnd, 360)}
           fill={COLORS.gray.main}
@@ -94,7 +94,7 @@ const Donut3D = ({ yearData, colors, id }) => {
           onMouseLeave={() => setHovered(null)}
         />
 
-        {/* Center text */}
+        {}
         <text x={cx} y={cy - 4} textAnchor="middle" className={styles.centerPercent}>
           {placementPercent.toFixed(1)}%
         </text>
@@ -103,7 +103,7 @@ const Donut3D = ({ yearData, colors, id }) => {
         </text>
       </svg>
 
-      {/* Hover Tooltip */}
+      {}
       {hovered && (
         <div
           className={styles.hoverTooltip}
@@ -113,7 +113,7 @@ const Donut3D = ({ yearData, colors, id }) => {
         </div>
       )}
 
-      {/* Stats */}
+      {}
       <div className={styles.statsRow}>
         <div className={styles.statItem}>
           <span className={styles.statValue} style={{ color: colors.main }}>{placed}</span>
@@ -138,7 +138,7 @@ const Donut3D = ({ yearData, colors, id }) => {
   );
 };
 
-/* ---------- WRAPPED Donut Section ---------- */
+
 export const OverallDonut3D = () => {
   const year1 = placementDataTop[0];
   const year2 = placementDataTop[1];
@@ -156,7 +156,7 @@ export const OverallDonut3D = () => {
           <Donut3D yearData={year2} colors={COLORS.year2} id="y2" />
         </div>
 
-        {/* Legend */}
+        {}
         <div className={styles.legend}>
           <div className={styles.legendItem}>
             <span className={styles.legendSwatch} style={{ background: COLORS.year1.main }} />
