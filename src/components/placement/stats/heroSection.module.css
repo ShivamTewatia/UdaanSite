@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   padding: 3rem 2rem 2.5rem;
-  border-radius: 1.5rem;
+  border-radius: 20px;
   background: #b6d0fb30;
   border: 1px solid rgba(59, 130, 246, 0.25);
   overflow: hidden;
