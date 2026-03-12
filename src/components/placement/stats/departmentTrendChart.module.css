@@ -336,7 +336,37 @@
 }
 
 
-@media (min-width: 1441px) {
+/* @media (min-width: 1441px) {
+  .chartArea {
+    overflow-x: auto;
+    padding: 4rem 4rem;
+  }
+
+  .barsRow {
+    gap: 20px;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    min-width: max-content; 
+  }
+
+  .xAxisRow {
+    gap: 108px;
+    justify-content: flex-start;
+    min-width: max-content;  
+  }
+
+  .barGroup {
+    width: 4rem;
+    margin: 0 0.425rem;
+  }
+
+  .xLabel {
+    min-width: 3.5rem;
+    font-size: 0.5rem;
+  }
+} */
+
+@media (min-width: 1451px) {
   .chartArea {
     /* background-color: black; */
     overflow-x: auto;

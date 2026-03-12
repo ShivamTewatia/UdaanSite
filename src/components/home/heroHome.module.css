@@ -225,7 +225,7 @@
 .btnOutline:hover .btnIcon {
   transform: translateX(0.5rem);
 }
-
+/* 
 .floatingOrb {
   position: absolute;
   border-radius: 50%;
@@ -266,7 +266,7 @@
   50% {
     opacity: 0.5;
   }
-}
+} */
 
 .heroWave {
   position: absolute;
