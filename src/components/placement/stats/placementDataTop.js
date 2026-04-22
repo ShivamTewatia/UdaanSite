@@ -29,7 +29,7 @@ export const placementDataTop = [
       { course: "B.Tech EVS", eligibleStudents: 7, placed: 5, placementPercent: 71, highestPackage: 6, averagePackage: 6.21, medianPackage: 6 },
       { course: "B.Tech RAI", eligibleStudents: 22, placed: 22, placementPercent: 100, highestPackage: 10, averagePackage: 8.21, medianPackage: 8.5 },
     ],
-    totals: { course: "Total", eligibleStudents: 625, placed: 570, placementPercent: 91.2, highestPackage: 55, averagePackage: 7.39, medianPackage: 7.47 },
+    totals: { course: "Total", eligibleStudents: 625, placed: 570, placementPercent: 91.2, highestPackage: 46.38, averagePackage: 7.39, medianPackage: 7.47 },
   },
 ];
 
