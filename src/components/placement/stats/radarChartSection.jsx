@@ -85,8 +85,8 @@ export const FunnelChart3D = ({ courses, year }) => {
                   className={styles.barValues}
                   style={{ right: `${100 - eligibleWidth + 1}%` }}
                 >
-                  {course.placed}/{course.eligibleStudents} (
-                  {course.placementPercent}%)
+                  {/* {course.placed}/{course.eligibleStudents}  */}
+                  ({course.placementPercent}%)
                 </div>
               </div>
             </div>
